@@ -55,8 +55,9 @@ forge verify-contract <address> src/ProjectRegistry.sol:ProjectRegistry --chain 
 
 1. Create a project and note the database password.
 2. Project Settings → Database → Connection string → **Session pooler** (IPv4, port 5432). That URL is `DATABASE_URL`.
-3. Nothing else to run. On first boot the API applies `supabase/migrations/0001_init.sql` (enables `vector` and
-   creates tables + the HNSW index) and loads the curated corpus if `grants` is empty. To refresh or add live sources:
+3. Nothing else to run. On every boot the API applies `supabase/migrations/*.sql` in order (all idempotent:
+   `0001_init.sql` enables `vector` and creates tables + the HNSW index, `0002_blobs.sql` the table that holds
+   local-IPFS objects and uploaded forms) and loads the curated corpus if `grants` is empty. To refresh or add live sources:
 
 ```bash
 cd apps/api && DATABASE_URL=... python -m app.ingest.run curated grants_gov eu_sedia
@@ -75,13 +76,16 @@ the corpus, migration, ABIs and deployments are included) and a daily ingest cro
 | `DATABASE_URL` | from step 3 |
 | `ANTHROPIC_API_KEY` | your key (model defaults to `claude-opus-5-5`; override with `SCI_LLM_MODEL`) |
 | `VOYAGE_API_KEY` | optional |
-| `PINATA_JWT` | recommended. Without it, IPFS falls back to the service's local disk |
+| `PINATA_JWT` | optional. Without it, IPFS objects are stored in Postgres and served by the API at `/ipfs/{cid}` (not public IPFS) |
 | `CHAIN_ID` | `84532` |
 | `RPC_URL` | Alchemy URL (the indexer uses it) |
 | `CORS_ORIGINS` | your Vercel URL (after step 5) |
 
-Use the **starter** plan, not free: free instances cold-start in ~50 s, which is a real risk mid-pitch. The service
-mounts a 1 GB disk for uploaded forms and drafts. Check `https://<api>/health`: you want `store: postgres`,
+`render.yaml` uses the **free** plan (no card needed). Free instances sleep after ~15 min idle and cold-start in
+~50 s, which is a real risk mid-pitch: open the site a few minutes before you present, or switch `plan:` to
+`starter`. Nothing is kept on the service's disk, so restarts lose no data (with `DATABASE_URL` set, drafts,
+templates, IPFS objects and uploads all live in Postgres). Free has no cron jobs; the daily ingest runs from
+`.github/workflows/ingest.yml` (add `DATABASE_URL` as a repo secret). Check `https://<api>/health`: you want `store: postgres`,
 `llm.enabled: true`, `chain.deployment: true` and an `indexer` with events.
 
 Fly.io alternative: `fly launch --dockerfile apps/api/Dockerfile` from the repo root, then `fly secrets set ...`.

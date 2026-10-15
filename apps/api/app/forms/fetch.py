@@ -11,13 +11,13 @@ from __future__ import annotations
 import hashlib
 import io
 from dataclasses import dataclass
-from pathlib import Path
 from typing import Literal
 
 import httpx
 from pypdf import PdfReader
 
-from ..config import API_DIR, settings
+from .. import blobs
+from ..config import API_DIR
 
 DEMO_DIR = API_DIR / "demo_forms"
 MAX_BYTES = 15 * 1024 * 1024
@@ -33,17 +33,11 @@ class FetchedForm:
     sha256: str
 
 
-def uploads_dir() -> Path:
-    d = settings.data_dir / "uploads"
-    d.mkdir(parents=True, exist_ok=True)
-    return d
-
-
 def store_upload(data: bytes) -> str:
     if len(data) > MAX_BYTES:
         raise ValueError("file too large (15 MB max)")
     sha = hashlib.sha256(data).hexdigest()
-    (uploads_dir() / sha).write_bytes(data)
+    blobs.put("uploads", sha, data)
     return f"upload:{sha}"
 
 
@@ -57,7 +51,10 @@ def _load(ref: str) -> bytes:
         sha = ref.removeprefix("upload:")
         if not all(c in "0123456789abcdef" for c in sha) or len(sha) != 64:
             raise ValueError("invalid upload reference")
-        return (uploads_dir() / sha).read_bytes()
+        data = blobs.get("uploads", sha)
+        if data is None:
+            raise ValueError("uploaded form not found")
+        return data
     if ref.startswith(("http://", "https://")):
         with httpx.stream("GET", ref, follow_redirects=True, timeout=30) as r:
             r.raise_for_status()

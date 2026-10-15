@@ -16,7 +16,7 @@ from ..config import REPO_ROOT
 from ..models.schemas import Application, FormTemplate, Funder, Grant, ProjectProfile
 from .base import GrantQuery, Scored
 
-MIGRATION = REPO_ROOT / "supabase" / "migrations" / "0001_init.sql"
+MIGRATIONS = REPO_ROOT / "supabase" / "migrations"
 
 _GRANT_COLS = [
     "id", "funder_id", "title", "summary", "source", "source_ref", "url", "trl_min", "trl_max", "fields",
@@ -58,8 +58,23 @@ class PostgresStore:
             open=False,
         )
         with psycopg.connect(dsn, autocommit=True) as c:
-            c.execute(MIGRATION.read_text())
+            # Every migration is idempotent and re-applied on boot, in file-name order.
+            for m in sorted(MIGRATIONS.glob("*.sql")):
+                c.execute(m.read_text())
         self.pool.open(wait=True, timeout=30)
+
+    # blobs (local-IPFS objects, uploaded forms) ---------------------------
+    def put_blob(self, namespace: str, key: str, data: bytes) -> None:
+        with self.pool.connection() as c:
+            c.execute(
+                "insert into blobs (namespace, key, data) values (%s, %s, %s) on conflict (namespace, key) do nothing",
+                (namespace, key, data),
+            )
+
+    def get_blob(self, namespace: str, key: str) -> bytes | None:
+        with self.pool.connection() as c:
+            r = c.execute("select data from blobs where namespace = %s and key = %s", (namespace, key)).fetchone()
+        return bytes(r["data"]) if r else None
 
     # grants ---------------------------------------------------------------
     @staticmethod

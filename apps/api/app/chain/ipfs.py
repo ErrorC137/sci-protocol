@@ -11,6 +11,7 @@ import re
 
 import httpx
 
+from .. import blobs
 from ..config import settings
 
 PINATA = "https://api.pinata.cloud/pinning"
@@ -29,12 +30,6 @@ def local_cid(data: bytes) -> str:
     return "b" + base64.b32encode(raw).decode().lower().rstrip("=")
 
 
-def _local_dir():
-    d = settings.data_dir / "ipfs"
-    d.mkdir(parents=True, exist_ok=True)
-    return d
-
-
 def pin_bytes(data: bytes, name: str = "sci-upload") -> dict:
     if len(data) > MAX_BYTES:
         raise ValueError("payload too large (5 MB max)")
@@ -50,7 +45,7 @@ def pin_bytes(data: bytes, name: str = "sci-upload") -> dict:
         cid = r.json()["IpfsHash"]
         return {"cid": cid, "pinned": "pinata", "gateway_url": settings.ipfs_gateway + cid, "size": len(data)}
     cid = local_cid(data)
-    (_local_dir() / cid).write_bytes(data)
+    blobs.put("ipfs", cid, data)
     return {"cid": cid, "pinned": "local", "gateway_url": f"/ipfs/{cid}", "size": len(data)}
 
 
@@ -63,9 +58,9 @@ def pin_json(obj: dict, name: str = "sci-metadata") -> dict:
 def get(cid: str) -> bytes | None:
     if not valid_cid(cid):
         raise ValueError("invalid CID")
-    p = _local_dir() / cid
-    if p.exists():
-        return p.read_bytes()
+    local = blobs.get("ipfs", cid)
+    if local is not None:
+        return local
     try:
         r = httpx.get(settings.ipfs_gateway + cid, timeout=30, follow_redirects=True)
         if r.status_code == 200 and len(r.content) <= MAX_BYTES:

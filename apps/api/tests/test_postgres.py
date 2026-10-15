@@ -27,11 +27,18 @@ def pg_store():
     from app.ingest.run import ingest
 
     with psycopg.connect(PG, autocommit=True) as c:
-        c.execute("drop table if exists applications, form_templates, matches, projects, grants, funders cascade")
+        c.execute("drop table if exists applications, form_templates, matches, projects, grants, funders, blobs cascade")
     store = PostgresStore(PG, get_embedder().name)
     ingest(store, CuratedConnector(settings.seed_path).fetch())
     ingest(store, CuratedConnector(settings.seed_path).fetch())  # idempotent upsert
     return store
+
+
+def test_blobs_survive_in_postgres(pg_store):
+    pg_store.put_blob("ipfs", "bafk-test", b"\x00ciphertext")
+    pg_store.put_blob("ipfs", "bafk-test", b"\x00ciphertext")  # content-addressed: re-put is a no-op
+    assert pg_store.get_blob("ipfs", "bafk-test") == b"\x00ciphertext"
+    assert pg_store.get_blob("uploads", "bafk-test") is None
 
 
 def test_upsert_is_idempotent(pg_store):

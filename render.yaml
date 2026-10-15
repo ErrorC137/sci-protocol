@@ -1,16 +1,19 @@
-# Render Blueprint. Free plan cold-starts (~50s) - use "starter" for a live demo (brief §7).
+# Render Blueprint for the UPLO hackathon deployment.
+# Free plan: no card needed, but the service sleeps after ~15 min idle and the first request then takes
+# ~50s. Open the site a couple of minutes before a pitch (the web app pings /health every 30s while open).
+# Free has no persistent disk, so nothing is kept on disk: with DATABASE_URL set, local-IPFS objects and
+# uploaded forms live in Postgres (supabase/migrations/0002_blobs.sql). On a paid plan, "starter" removes
+# the cold start. Free also has no cron jobs: the curated corpus loads on first boot, and the daily
+# live-source ingest runs from .github/workflows/ingest.yml instead.
 services:
   - type: web
     name: uplo-api
     runtime: docker
     dockerfilePath: ./apps/api/Dockerfile
     dockerContext: .
-    plan: starter
+    plan: free
+    region: singapore              # same region as the Supabase project
     healthCheckPath: /health
-    disk:                          # uploaded forms, cached templates, local IPFS fallback
-      name: uplo-data
-      mountPath: /srv/apps/api/.data
-      sizeGB: 1
     envVars:
       - key: DATABASE_URL          # Supabase connection string (session pooler, port 5432)
         sync: false
@@ -18,11 +21,11 @@ services:
         sync: false
       - key: VOYAGE_API_KEY        # optional - local hashing embedder otherwise
         sync: false
-      - key: PINATA_JWT            # optional - local IPFS mock otherwise
+      - key: PINATA_JWT            # optional - otherwise IPFS objects are kept in Postgres and served by the API
         sync: false
       - key: CHAIN_ID
         value: "84532"
-      - key: RPC_URL               # Alchemy/QuickNode Base Sepolia URL
+      - key: RPC_URL               # Alchemy/QuickNode Base Sepolia URL (or https://sepolia.base.org)
         sync: false
       - key: INDEXER_ENABLED
         value: "true"
@@ -30,13 +33,3 @@ services:
         sync: false
       - key: STARTUP_CONNECTORS
         value: ""
-  - type: cron
-    name: uplo-ingest
-    runtime: docker
-    dockerfilePath: ./apps/api/Dockerfile
-    dockerContext: .
-    schedule: "0 3 * * *"
-    dockerCommand: python -m app.ingest.run curated grants_gov eu_sedia
-    envVars:
-      - key: DATABASE_URL
-        sync: false
