@@ -1,14 +1,14 @@
 # Render Blueprint. Free plan cold-starts (~50s) - use "starter" for a live demo (brief §7).
 services:
   - type: web
-    name: sci-protocol-api
+    name: uplo-api
     runtime: docker
     dockerfilePath: ./apps/api/Dockerfile
     dockerContext: .
     plan: starter
     healthCheckPath: /health
     disk:                          # uploaded forms, cached templates, local IPFS fallback
-      name: sci-data
+      name: uplo-data
       mountPath: /srv/apps/api/.data
       sizeGB: 1
     envVars:
@@ -31,7 +31,7 @@ services:
       - key: STARTUP_CONNECTORS
         value: ""
   - type: cron
-    name: sci-protocol-ingest
+    name: uplo-ingest
     runtime: docker
     dockerfilePath: ./apps/api/Dockerfile
     dockerContext: .
