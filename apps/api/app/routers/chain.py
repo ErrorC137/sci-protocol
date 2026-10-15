@@ -97,7 +97,7 @@ def fraction_metadata(token_id: str) -> dict:
     ix = indexer.get_indexer()
     p = ix.projects.get(n, {}) if ix else {}
     return {
-        "name": f"SCI Fraction - Project #{n}",
+        "name": f"UPLO Fraction - Project #{n}",
         "description": (
             "TESTNET mechanism demonstration. One unit per USDC base unit contributed to a successful, "
             "milestone-gated raise. Not a security offering; no real value."

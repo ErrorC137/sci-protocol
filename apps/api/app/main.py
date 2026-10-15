@@ -1,4 +1,4 @@
-"""SCI Protocol API."""
+"""UPLO API (hackathon rebrand of SCI Protocol)."""
 
 from __future__ import annotations
 
@@ -26,7 +26,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(
-    title="SCI Protocol API",
+    title="UPLO API",
     version="0.1.0",
     description="Non-confidential research-funding matching, application pre-fill, and testnet milestone escrow.",
     lifespan=lifespan,
