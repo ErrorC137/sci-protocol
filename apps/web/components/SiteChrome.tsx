@@ -9,11 +9,11 @@ import { WalletButton } from "./WalletButton";
 // Marketing-site chrome for "/": light nav (logo · links · search · charcoal "Connect Wallet" pill) and the
 // charcoal footer. The app pages use AppShell instead.
 const NAV: [string, string][] = [
-  ["Product", "/discover"],
-  ["For Investors", "/raise"],
-  ["For Innovators", "/profile"],
-  ["Resources", "/#how-it-works"],
-  ["About", "/#about"],
+  ["Product", "/#capital-flow"],
+  ["For Investors", "/#two-pools"],
+  ["For Innovators", "/#pipeline"],
+  ["Resources", "/discover"],
+  ["About", "/#trust"],
 ];
 
 export function SiteNav() {
@@ -50,7 +50,7 @@ export function SiteNav() {
 const COLUMNS: [string, [string, string][]][] = [
   ["Platform", [["Discover funding", "/discover"], ["Research profile", "/profile"], ["Matches", "/matches"]]],
   ["Capital", [["Milestone raises", "/raise"], ["Open a raise", "/raise/new"], ["Private vault", "/vault"]]],
-  ["Company", [["How it works", "/#how-it-works"], ["About UPLO", "/#about"]]],
+  ["Company", [["How it works", "/#capital-flow"], ["Two pools", "/#two-pools"], ["Why trust it", "/#trust"]]],
 ];
 
 export function SiteFooter() {
