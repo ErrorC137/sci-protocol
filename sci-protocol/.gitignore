@@ -17,7 +17,7 @@ contracts/cache/
 contracts/broadcast/
 contracts/lib/
 
-# secrets
-.env
-.env.local
+# secrets (any .env* file; only the documented examples are committed)
+.env*
+!.env.example
 *.pem
