@@ -21,3 +21,6 @@ contracts/lib/
 .env*
 !.env.example
 *.pem
+
+# Vercel CLI link (vercel link)
+.vercel

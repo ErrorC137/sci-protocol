@@ -1,0 +1,16 @@
+# Vercel only builds apps/web (+ the packages/shared workspace). Keep everything else - and every local
+# secret file - out of CLI uploads.
+.env*
+**/.env*
+!**/.env.example
+.vercel
+node_modules
+**/node_modules
+**/.next
+apps/api
+contracts
+data/seed
+supabase
+scripts
+docs
+.github
