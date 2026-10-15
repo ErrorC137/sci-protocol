@@ -1,0 +1,14 @@
+{
+  "name": "@sci/contracts",
+  "private": true,
+  "description": "SCI Protocol contracts (Foundry). npm is used only to vendor OpenZeppelin.",
+  "scripts": {
+    "setup": "bash script/setup.sh",
+    "build": "forge build",
+    "test": "forge test -vv",
+    "export-abis": "node ../scripts/export-abis.mjs"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "5.4.0"
+  }
+}

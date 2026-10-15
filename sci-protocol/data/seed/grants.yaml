@@ -1,0 +1,1395 @@
+# SCI Protocol - hand-curated funding corpus
+#
+# READ BEFORE THE DEMO: every entry below was drafted from general knowledge (not from a live check of
+# the funder's site) and is marked `verified: false`. Amounts, TRL bands, eligibility and cycles are
+# indicative. Before demo day:
+#   1. open each `url`, confirm or correct the fields, set `verified: true` and `last_reviewed: YYYY-MM-DD`
+#   2. add real `deadline:` dates where a call is open (left blank on purpose - never guessed)
+#   3. replace `local:` demo forms with the funder's official form URL where one is public
+#
+# Field reference
+#   fields:           taxonomy ids (materials, agritech, biotech, energy, environmental, food_science,
+#                     health, digital, manufacturing); [] = open to any field
+#   subdomains:       controlled sub-domains from apps/api/app/models/taxonomy.py
+#   trl:              [min, max]; omit if not stated
+#   countries:        ISO2 codes or regions (ASEAN, EU27, HE_ELIGIBLE, GLOBAL); eligible applicant location
+#   applicant_types:  individual | university | startup | sme | consortium
+#   amount:           {min, max, currency} in the funder's currency; converted to USD at ingest
+#   confidence:       how sure the curator is of the details (high | medium | low)
+
+version: 1
+
+funders:
+  # --- Thailand ---------------------------------------------------------------
+  - {key: nia, name: "National Innovation Agency (NIA)", type: government, country: TH, website: "https://www.nia.or.th"}
+  - {key: tedfund, name: "TED Fund (Technology and Innovation-based Enterprise Development Fund)", type: government, country: TH, website: "https://www.tedfund.mhesi.go.th"}
+  - {key: nrct, name: "National Research Council of Thailand (NRCT)", type: government, country: TH, website: "https://www.nrct.go.th"}
+  - {key: tsri, name: "Thailand Science Research and Innovation (TSRI)", type: government, country: TH, website: "https://www.tsri.or.th"}
+  - {key: pmub, name: "PMU-B (Program Management Unit for Human Resources & Institutional Development, Research and Innovation)", type: government, country: TH, website: "https://www.pmub.or.th"}
+  - {key: pmuc, name: "PMU-C (Program Management Unit for Competitiveness)", type: government, country: TH, website: "https://www.pmuc.or.th"}
+  - {key: pmua, name: "PMU-A (Program Management Unit on Area Based Development)", type: government, country: TH, website: "https://www.pmua.or.th"}
+  - {key: nstda, name: "National Science and Technology Development Agency (NSTDA)", type: government, country: TH, website: "https://www.nstda.or.th"}
+  - {key: depa, name: "Digital Economy Promotion Agency (depa)", type: government, country: TH, website: "https://www.depa.or.th"}
+  - {key: arda, name: "Agricultural Research Development Agency (ARDA)", type: government, country: TH, website: "https://www.arda.or.th"}
+  - {key: tcels, name: "Thailand Center of Excellence for Life Sciences (TCELS)", type: government, country: TH, website: "https://www.tcels.or.th"}
+  - {key: osmep, name: "Office of SMEs Promotion (OSMEP)", type: government, country: TH, website: "https://www.sme.go.th"}
+  - {key: thaihealth, name: "Thai Health Promotion Foundation (ThaiHealth)", type: foundation, country: TH, website: "https://www.thaihealth.or.th"}
+  - {key: spacef, name: "SPACE-F (Thai Union, NIA and Mahidol University)", type: accelerator, country: TH, website: "https://www.space-f.co"}
+  # --- Southeast Asia & Japan --------------------------------------------------
+  - {key: esg, name: "Enterprise Singapore / Startup SG", type: government, country: SG, website: "https://www.startupsg.gov.sg"}
+  - {key: sginnovate, name: "SGInnovate", type: government, country: SG, website: "https://www.sginnovate.com"}
+  - {key: cradle, name: "Cradle Fund (Malaysia)", type: government, country: MY, website: "https://www.cradle.com.my"}
+  - {key: mranti, name: "MRANTI (Malaysian Research Accelerator for Technology & Innovation)", type: government, country: MY, website: "https://mranti.my"}
+  - {key: kedaireka, name: "Kedaireka (Ministry of Education, Indonesia)", type: government, country: ID, website: "https://kedaireka.id"}
+  - {key: dost, name: "DOST-PCIEERD (Philippines)", type: government, country: PH, website: "https://pcieerd.dost.gov.ph"}
+  - {key: nafosted, name: "NAFOSTED (Vietnam National Foundation for Science and Technology Development)", type: government, country: VN, website: "https://nafosted.gov.vn"}
+  - {key: easia, name: "e-ASIA Joint Research Program", type: multilateral, country: JP, website: "https://www.the-easia.org"}
+  - {key: jsps, name: "Japan Society for the Promotion of Science (JSPS)", type: government, country: JP, website: "https://www.jsps.go.jp"}
+  - {key: lne, name: "Leave a Nest (TECH PLANTER)", type: accelerator, country: JP, website: "https://lne.st"}
+  - {key: antler, name: "Antler", type: accelerator, country: SG, website: "https://www.antler.co"}
+  - {key: iterative, name: "Iterative", type: accelerator, country: SG, website: "https://www.iterative.vc"}
+  - {key: surge, name: "Peak XV Surge", type: accelerator, country: SG, website: "https://www.surgeahead.com"}
+  - {key: google, name: "Google for Startups", type: corporate, country: US, website: "https://startup.google.com"}
+  # --- Global deeptech, foundations, prizes ------------------------------------
+  - {key: yc, name: "Y Combinator", type: accelerator, country: US, website: "https://www.ycombinator.com"}
+  - {key: techstars, name: "Techstars", type: accelerator, country: US, website: "https://www.techstars.com"}
+  - {key: ef, name: "Entrepreneur First", type: accelerator, country: GB, website: "https://www.joinef.com"}
+  - {key: hax, name: "SOSV HAX", type: accelerator, country: US, website: "https://hax.co"}
+  - {key: indiebio, name: "SOSV IndieBio", type: accelerator, country: US, website: "https://indiebio.co"}
+  - {key: hellotomorrow, name: "Hello Tomorrow", type: accelerator, country: FR, website: "https://hello-tomorrow.org"}
+  - {key: cdl, name: "Creative Destruction Lab", type: accelerator, country: CA, website: "https://creativedestructionlab.com"}
+  - {key: activate, name: "Activate", type: foundation, country: US, website: "https://www.activate.org"}
+  - {key: nucleate, name: "Nucleate", type: accelerator, country: US, website: "https://nucleate.xyz"}
+  - {key: xprize, name: "XPRIZE Foundation", type: foundation, country: US, website: "https://www.xprize.org"}
+  - {key: solve, name: "MIT Solve", type: foundation, country: US, website: "https://solve.mit.edu"}
+  - {key: cartier, name: "Cartier Women's Initiative", type: foundation, country: CH, website: "https://www.cartierwomensinitiative.com"}
+  - {key: gcc, name: "Grand Challenges Canada", type: foundation, country: CA, website: "https://www.grandchallenges.ca"}
+  - {key: gates, name: "Gates Foundation Grand Challenges", type: foundation, country: US, website: "https://gcgh.grandchallenges.org"}
+  - {key: gif, name: "Global Innovation Fund", type: foundation, country: GB, website: "https://www.globalinnovation.fund"}
+  - {key: wellcome, name: "Wellcome", type: foundation, country: GB, website: "https://wellcome.org"}
+  - {key: bef, name: "Breakthrough Energy", type: foundation, country: US, website: "https://www.breakthroughenergy.org"}
+  - {key: experiment, name: "Experiment.com", type: crowdfunding, country: US, website: "https://experiment.com"}
+  # --- EU & US government ------------------------------------------------------
+  - {key: eic, name: "European Innovation Council (EIC)", type: government, country: EU, website: "https://eic.ec.europa.eu"}
+  - {key: erc, name: "European Research Council (ERC)", type: government, country: EU, website: "https://erc.europa.eu"}
+  - {key: msca, name: "Marie Sklodowska-Curie Actions (MSCA)", type: government, country: EU, website: "https://marie-sklodowska-curie-actions.ec.europa.eu"}
+  - {key: nsf, name: "U.S. National Science Foundation - America's Seed Fund", type: government, country: US, website: "https://seedfund.nsf.gov"}
+  - {key: nih, name: "NIH SEED (SBIR/STTR)", type: government, country: US, website: "https://seed.nih.gov"}
+  - {key: arpae, name: "ARPA-E (U.S. Department of Energy)", type: government, country: US, website: "https://arpa-e.energy.gov"}
+  # --- Web3 & DeSci ------------------------------------------------------------
+  - {key: gitcoin, name: "Gitcoin", type: web3, country: GLOBAL, website: "https://www.gitcoin.co"}
+  - {key: base, name: "Base (Coinbase)", type: web3, country: US, website: "https://www.base.org"}
+  - {key: esp, name: "Ethereum Foundation - Ecosystem Support Program", type: web3, country: CH, website: "https://esp.ethereum.foundation"}
+  - {key: optimism, name: "Optimism Collective", type: web3, country: GLOBAL, website: "https://www.optimism.io"}
+  - {key: filecoin, name: "Filecoin Foundation", type: web3, country: US, website: "https://fil.org"}
+  - {key: w3f, name: "Web3 Foundation", type: web3, country: CH, website: "https://web3.foundation"}
+  - {key: solana, name: "Solana Foundation", type: web3, country: CH, website: "https://solana.org"}
+  - {key: yzi, name: "YZI Labs", type: web3, country: GLOBAL, website: "https://www.yzilabs.com"}
+  - {key: bnb, name: "BNB Chain", type: web3, country: GLOBAL, website: "https://www.bnbchain.org"}
+  - {key: vitadao, name: "VitaDAO", type: web3, country: GLOBAL, website: "https://www.vitadao.com"}
+  - {key: bio, name: "BIO Protocol", type: web3, country: GLOBAL, website: "https://www.bio.xyz"}
+  - {key: molecule, name: "Molecule", type: web3, country: DE, website: "https://www.molecule.xyz"}
+  - {key: valleydao, name: "ValleyDAO", type: web3, country: GB, website: "https://www.valleydao.bio"}
+  - {key: cerebrum, name: "CerebrumDAO", type: web3, country: GLOBAL, website: "https://www.cerebrumdao.com"}
+  - {key: athena, name: "AthenaDAO", type: web3, country: GLOBAL, website: "https://www.athenadao.co"}
+  - {key: researchhub, name: "ResearchHub Foundation", type: web3, country: US, website: "https://www.researchhub.com"}
+
+grants:
+  # ============================================================================
+  # THAILAND
+  # ============================================================================
+  - ref: nia-open-innovation
+    funder: nia
+    title: "NIA Open Innovation Grant"
+    summary: "Non-repayable co-funding for Thai companies taking an innovative product, process or service from prototype toward commercial launch. Typically covers part of project cost with the company contributing the rest."
+    fields: []
+    subdomains: ["Scale-up & pilot production"]
+    trl: [5, 8]
+    countries: [TH]
+    applicant_types: [startup, sme]
+    requires_incorporation: true
+    ip_assignment_required: false
+    amount: {min: 0, max: 1500000, currency: THB}
+    equity_taken: false
+    cycle: "Rounds announced through the year via the NIA portal"
+    application_mode: portal
+    confidence: medium
+    verified: false
+    notes: "Generally requires a Thai-registered juristic person with majority Thai shareholding and co-funding of the project cost; check current cap and co-funding ratio."
+
+  - ref: nia-thematic-innovation
+    funder: nia
+    title: "NIA Thematic Innovation Program"
+    summary: "Grant support for innovation projects in national priority themes (e.g. bio-circular-green economy, food, health, smart agriculture) with clear commercial or social impact."
+    fields: [agritech, food_science, health, environmental, energy, materials]
+    subdomains: ["Biomass valorization", "Agri-waste utilization", "Functional foods", "Waste management"]
+    trl: [5, 8]
+    countries: [TH]
+    applicant_types: [startup, sme]
+    requires_incorporation: true
+    ip_assignment_required: false
+    amount: {min: 0, max: 5000000, currency: THB}
+    equity_taken: false
+    cycle: "Themes and windows change yearly"
+    application_mode: portal
+    confidence: low
+    verified: false
+
+  - ref: nia-startup-thailand-league
+    funder: nia
+    title: "Startup Thailand League (NIA)"
+    summary: "Program for university students and recent graduates to turn research or ideas into startups, with seed support, training and pitching through partner universities."
+    fields: []
+    trl: [2, 5]
+    countries: [TH]
+    applicant_types: [individual, university]
+    requires_incorporation: false
+    ip_assignment_required: false
+    amount: {min: 0, max: 100000, currency: THB}
+    equity_taken: false
+    cycle: "Annual, run through participating universities"
+    application_mode: web_form
+    confidence: low
+    verified: false
+    notes: "Aimed at students and young graduates; check age/enrolment criteria."
+
+  - ref: nia-social-innovation
+    funder: nia
+    title: "NIA Social Innovation Grant"
+    summary: "Grants for innovations that address social problems - community health, ageing society, education, environment - delivered by social enterprises, NGOs or community groups with partners."
+    fields: [health, environmental, agritech]
+    subdomains: ["Public health", "Assistive technology", "Waste management", "Climate adaptation"]
+    trl: [4, 8]
+    countries: [TH]
+    applicant_types: [startup, sme, consortium]
+    requires_incorporation: true
+    ip_assignment_required: false
+    amount: {min: 0, max: 1000000, currency: THB}
+    equity_taken: false
+    cycle: "Periodic calls"
+    application_mode: portal
+    confidence: low
+    verified: false
+
+  - ref: tedfund-young-startup
+    funder: tedfund
+    title: "TED Fund - Young Startup Fund"
+    summary: "Early support for students, young researchers and new graduates developing technology-based business ideas, intended to reach a validated prototype and form a startup."
+    fields: []
+    trl: [2, 5]
+    countries: [TH]
+    applicant_types: [individual, university]
+    requires_incorporation: false
+    ip_assignment_required: false
+    amount: {min: 0, max: 300000, currency: THB}
+    equity_taken: false
+    cycle: "Calls typically announced annually"
+    application_mode: pdf_form
+    form_url: "local:thai-innovation-grant-demo.pdf"
+    form_note: "DEMO FORM - a generic Thai grant application built to demonstrate pre-fill. Not TED Fund's official form; replace with the official form before real use."
+    confidence: low
+    verified: false
+    notes: "Program names and caps at TED Fund change between fiscal years - confirm the current scheme."
+
+  - ref: tedfund-startup-development
+    funder: tedfund
+    title: "TED Fund - Startup Development Support"
+    summary: "Grant co-funding for registered Thai technology startups to develop and commercialise technology-based products, from proof of concept toward market."
+    fields: []
+    trl: [4, 7]
+    countries: [TH]
+    applicant_types: [startup, sme]
+    requires_incorporation: true
+    ip_assignment_required: false
+    amount: {min: 0, max: 1500000, currency: THB}
+    equity_taken: false
+    cycle: "Calls typically announced annually"
+    application_mode: pdf_form
+    confidence: low
+    verified: false
+
+  - ref: nrct-research-grants
+    funder: nrct
+    title: "NRCT Research Funding - Open Calls"
+    summary: "Competitive research funding for researchers at Thai universities and research agencies, across science, technology and social science, including applied research with industry or community use."
+    fields: []
+    trl: [1, 6]
+    countries: [TH]
+    applicant_types: [individual, university, consortium]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Annual calls aligned with the Thai fiscal year"
+    application_mode: pdf_form
+    form_url: "local:thai-innovation-grant-demo.pdf"
+    form_note: "DEMO FORM - a generic Thai grant application built to demonstrate pre-fill. Not NRCT's official form (NRCT applications go through its online system)."
+    confidence: medium
+    verified: false
+    notes: "Researchers must be affiliated with a Thai institution. Award size varies by call."
+
+  - ref: tsri-fundamental-fund
+    funder: tsri
+    title: "TSRI Fundamental Fund (FF)"
+    summary: "Block research funding allocated through Thai universities and research institutes for fundamental and early applied research; researchers apply via their institution's internal call."
+    fields: []
+    trl: [1, 4]
+    countries: [TH]
+    applicant_types: [university]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Annual, via your institution's research office"
+    application_mode: portal
+    confidence: medium
+    verified: false
+
+  - ref: pmub-frontier-research
+    funder: pmub
+    title: "PMU-B Frontier Research and Global Partnership Programs"
+    summary: "Funding for frontier research, research talent and international research partnerships, aimed at building Thai capability in priority science and technology areas."
+    fields: [materials, biotech, energy, digital, health]
+    subdomains: ["Nanomaterials", "Synthetic biology", "Quantum", "Semiconductors"]
+    trl: [1, 4]
+    countries: [TH]
+    applicant_types: [university, consortium]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Annual calls"
+    application_mode: portal
+    confidence: low
+    verified: false
+
+  - ref: pmuc-competitiveness
+    funder: pmuc
+    title: "PMU-C Research and Innovation for Competitiveness"
+    summary: "Funding for research and innovation that raises the competitiveness of Thai industry, typically university-industry projects with private-sector participation and co-funding."
+    fields: [materials, agritech, food_science, manufacturing, energy, biotech]
+    subdomains: ["Biomass valorization", "Bio-based composites", "Construction materials", "Scale-up & pilot production", "Fermentation & enzymes"]
+    trl: [4, 8]
+    countries: [TH]
+    applicant_types: [university, sme, startup, consortium]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Annual calls; private-sector partner usually expected"
+    application_mode: portal
+    confidence: low
+    verified: false
+    notes: "Check required private-sector co-funding ratio and IP-sharing terms with the industry partner."
+
+  - ref: pmua-area-based
+    funder: pmua
+    title: "PMU-A Area-Based Development Research"
+    summary: "Research and innovation funding for local and regional development - community enterprises, local economies and provincial challenges - usually with local partners."
+    fields: [agritech, food_science, environmental]
+    subdomains: ["Agri-waste utilization", "Post-harvest & storage", "Water treatment", "Food processing"]
+    trl: [3, 7]
+    countries: [TH]
+    applicant_types: [university, consortium]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Annual calls"
+    application_mode: portal
+    confidence: low
+    verified: false
+
+  - ref: nstda-itap
+    funder: nstda
+    title: "NSTDA ITAP - Industrial Technology Assistance Program"
+    summary: "Co-funded technical assistance for Thai SMEs: ITAP matches companies with expert consultants and researchers to solve technology problems and develop products or processes."
+    fields: [manufacturing, materials, food_science, agritech, digital]
+    subdomains: ["Process engineering", "Scale-up & pilot production", "Food processing"]
+    trl: [4, 8]
+    countries: [TH]
+    applicant_types: [sme, startup]
+    requires_incorporation: true
+    ip_assignment_required: false
+    equity_taken: false
+    rolling: true
+    cycle: "Open year-round via ITAP network offices"
+    application_mode: email
+    confidence: medium
+    verified: false
+    notes: "Support is typically a percentage subsidy of expert/project cost rather than a cash grant; check current subsidy cap."
+
+  - ref: depa-digital-startup-fund
+    funder: depa
+    title: "depa Digital Startup Fund"
+    summary: "Staged support for Thai digital-technology startups from idea to early growth, with funding windows for early-stage teams and seed-stage companies."
+    fields: [digital]
+    subdomains: ["AI & data", "IoT & sensors", "Robotics & automation", "Blockchain & web3"]
+    trl: [3, 7]
+    countries: [TH]
+    applicant_types: [individual, startup]
+    requires_incorporation: null
+    amount: {min: 0, max: 1000000, currency: THB}
+    equity_taken: null
+    cycle: "Annual windows"
+    application_mode: portal
+    confidence: low
+    verified: false
+    notes: "Funding terms have changed across years (grant vs. investment-style support) - confirm before applying."
+
+  - ref: arda-research
+    funder: arda
+    title: "ARDA Agricultural Research Grants"
+    summary: "Competitive grants for agricultural and food research with practical use for Thai farmers and agro-industry, including technology transfer and commercialisation projects."
+    fields: [agritech, food_science, biotech]
+    subdomains: ["Crop science", "Precision agriculture", "Post-harvest & storage", "Agri-waste utilization", "Biofertilizers & biopesticides", "Aquaculture", "Livestock"]
+    trl: [2, 7]
+    countries: [TH]
+    applicant_types: [individual, university, sme, consortium]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Annual calls"
+    application_mode: portal
+    confidence: medium
+    verified: false
+
+  - ref: tcels-commercialization
+    funder: tcels
+    title: "TCELS Life Sciences Commercialisation Support"
+    summary: "Support for Thai life-sciences and medical technology innovations moving toward the market - product development, regulatory readiness, and industry partnering."
+    fields: [biotech, health]
+    subdomains: ["Medical devices", "Diagnostics", "Therapeutics", "Digital health"]
+    trl: [4, 8]
+    countries: [TH]
+    applicant_types: [university, startup, sme]
+    requires_incorporation: null
+    equity_taken: null
+    cycle: "Program-specific calls"
+    application_mode: portal
+    confidence: low
+    verified: false
+
+  - ref: osmep-sme-support
+    funder: osmep
+    title: "OSMEP SME Business Development Support"
+    summary: "Co-paid business development services for Thai SMEs - product standards and certification, productivity, market access - delivered through registered service providers."
+    fields: []
+    subdomains: ["Scale-up & pilot production"]
+    trl: [6, 9]
+    countries: [TH]
+    applicant_types: [sme]
+    requires_incorporation: true
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Yearly programs"
+    application_mode: portal
+    confidence: low
+    verified: false
+    notes: "Usually a co-payment subsidy for services, not a cash grant."
+
+  - ref: thaihealth-open-grants
+    funder: thaihealth
+    title: "ThaiHealth Open Grants for Health Promotion"
+    summary: "Grants for projects that promote health and well-being in Thailand - community health, risk-factor reduction, healthy environments - from community groups, NGOs and institutions."
+    fields: [health]
+    subdomains: ["Public health", "Assistive technology"]
+    countries: [TH]
+    applicant_types: [individual, university, consortium]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Open calls through the year"
+    application_mode: portal
+    confidence: low
+    verified: false
+    notes: "Health-promotion programs rather than technology R&D."
+
+  - ref: spacef-foodtech
+    funder: spacef
+    title: "SPACE-F FoodTech Incubator and Accelerator"
+    summary: "Thailand-based food-tech incubator and accelerator for alternative proteins, functional ingredients, food safety and sustainable packaging, with access to Thai Union and research partners."
+    fields: [food_science, agritech, biotech]
+    subdomains: ["Alternative proteins", "Functional foods", "Food safety", "Packaging", "Fermentation & enzymes", "Aquaculture"]
+    trl: [3, 8]
+    countries: [GLOBAL]
+    applicant_types: [startup]
+    requires_incorporation: true
+    equity_taken: null
+    cycle: "Cohort-based, typically one intake per year"
+    application_mode: web_form
+    confidence: medium
+    verified: false
+    notes: "Equity/investment terms differ between incubator and accelerator tracks."
+
+  # ============================================================================
+  # SOUTHEAST ASIA & JAPAN
+  # ============================================================================
+  - ref: startupsg-founder
+    funder: esg
+    title: "Startup SG Founder"
+    summary: "Mentorship and a startup capital grant for first-time entrepreneurs in Singapore, delivered through accredited mentor partners; founders co-match part of the capital."
+    fields: []
+    trl: [2, 6]
+    countries: [SG]
+    applicant_types: [individual, startup]
+    requires_incorporation: false
+    ip_assignment_required: false
+    amount: {min: 0, max: 50000, currency: SGD}
+    equity_taken: false
+    rolling: true
+    application_mode: portal
+    confidence: medium
+    verified: false
+    notes: "For Singapore citizens and PRs; first-time founders."
+
+  - ref: startupsg-tech
+    funder: esg
+    title: "Startup SG Tech (Proof of Concept / Proof of Value)"
+    summary: "Grants for Singapore-based tech startups to develop proprietary technology: Proof of Concept for technical validation, Proof of Value for commercial viability."
+    fields: []
+    trl: [3, 7]
+    countries: [SG]
+    applicant_types: [startup]
+    requires_incorporation: true
+    ip_assignment_required: false
+    amount: {min: 0, max: 500000, currency: SGD}
+    equity_taken: false
+    cycle: "Periodic application windows"
+    application_mode: portal
+    confidence: medium
+    verified: false
+    notes: "Requires a Singapore-registered company with minimum local shareholding."
+
+  - ref: sginnovate-deeptech
+    funder: sginnovate
+    title: "SGInnovate Deep Tech Investment"
+    summary: "Early-stage equity investment and talent programs for deep-tech startups building in Singapore - AI, quantum, medtech, agrifood and advanced materials."
+    fields: [digital, health, agritech, materials, biotech]
+    subdomains: ["AI & data", "Quantum", "Medical devices", "Alternative proteins"]
+    trl: [4, 8]
+    countries: [SG]
+    applicant_types: [startup]
+    requires_incorporation: true
+    equity_taken: true
+    rolling: true
+    application_mode: email
+    confidence: low
+    verified: false
+
+  - ref: cradle-cip
+    funder: cradle
+    title: "Cradle Investment Programme (CIP Spark / CIP Sprint)"
+    summary: "Malaysian early-stage funding for technology ventures: CIP Spark for prototype development and CIP Sprint for commercialisation by incorporated companies."
+    fields: []
+    trl: [3, 7]
+    countries: [MY]
+    applicant_types: [individual, startup]
+    requires_incorporation: null
+    ip_assignment_required: false
+    amount: {min: 0, max: 500000, currency: MYR}
+    equity_taken: false
+    cycle: "Rolling intake with periodic panels"
+    application_mode: portal
+    confidence: low
+    verified: false
+
+  - ref: mranti-commercialisation
+    funder: mranti
+    title: "MRANTI Technology Commercialisation Programmes"
+    summary: "Malaysian programs that help researchers and startups commercialise technology - validation, prototyping, testbeds and market access."
+    fields: []
+    trl: [4, 8]
+    countries: [MY]
+    applicant_types: [university, startup, sme]
+    requires_incorporation: null
+    equity_taken: null
+    cycle: "Program-specific"
+    application_mode: portal
+    confidence: low
+    verified: false
+
+  - ref: kedaireka-matching-fund
+    funder: kedaireka
+    title: "Kedaireka Matching Fund"
+    summary: "Indonesian matching fund that co-finances university-industry collaborations, with government funding matched by the industry partner's contribution."
+    fields: []
+    trl: [4, 8]
+    countries: [ID]
+    applicant_types: [university, consortium]
+    requires_incorporation: false
+    equity_taken: false
+    cycle: "Annual calls"
+    application_mode: portal
+    confidence: low
+    verified: false
+
+  - ref: dost-srgp
+    funder: dost
+    title: "DOST Startup Research Grant Program (SRGP)"
+    summary: "Philippine government R&D grants for technology startups to develop and validate innovative products and services."
+    fields: []
+    trl: [3, 7]
+    countries: [PH]
+    applicant_types: [startup]
+    requires_incorporation: true
+    equity_taken: false
+    cycle: "Periodic calls"
+    application_mode: portal
+    confidence: low
+    verified: false
+
+  - ref: nafosted-basic-research
+    funder: nafosted
+    title: "NAFOSTED Basic Research Grants"
+    summary: "Competitive grants for basic research in natural sciences and engineering by researchers at Vietnamese institutions."
+    fields: []
+    trl: [1, 3]
+    countries: [VN]
+    applicant_types: [individual, university]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Annual calls"
+    application_mode: portal
+    confidence: medium
+    verified: false
+
+  - ref: easia-jrp
+    funder: easia
+    title: "e-ASIA Joint Research Program"
+    summary: "Multilateral research calls in which teams from at least three member countries propose a joint project; each team is funded by its own national agency (Thai agencies participate)."
+    fields: [materials, agritech, environmental, health, energy, biotech]
+    subdomains: ["Biomass valorization", "Nanomaterials", "Climate adaptation", "Bioenergy & biofuels"]
+    trl: [1, 5]
+    countries: [ASEAN, JP, AU, NZ, US]
+    applicant_types: [consortium]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Calls roughly annually, topics vary"
+    application_mode: pdf_form
+    confidence: medium
+    verified: false
+    notes: "Member list and participating agencies vary by call."
+
+  - ref: jsps-postdoc
+    funder: jsps
+    title: "JSPS Postdoctoral Fellowships for Research in Japan"
+    summary: "Fellowships for early-career foreign researchers to conduct research at a Japanese host institution, with stipend and research support."
+    fields: []
+    trl: [1, 4]
+    countries: [GLOBAL]
+    applicant_types: [individual]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Several application rounds per year via the Japanese host"
+    application_mode: portal
+    confidence: medium
+    verified: false
+    notes: "Requires a Japanese host researcher who submits on your behalf; you must relocate to Japan."
+
+  - ref: tech-planter
+    funder: lne
+    title: "TECH PLANTER Deep-Tech Grand Prix"
+    summary: "Leave a Nest's deep-tech plan competition for research-based teams before or just after founding a company, with awards and support from corporate partners; regional editions run in Asia."
+    fields: [materials, biotech, agritech, environmental, health, manufacturing, energy]
+    subdomains: ["Biomass valorization", "Bio-based composites", "Agri-waste utilization", "Synthetic biology"]
+    trl: [2, 6]
+    countries: [ASEAN, JP]
+    applicant_types: [individual, university, startup]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Annual per regional edition"
+    application_mode: web_form
+    confidence: low
+    verified: false
+    notes: "Check which country editions are running this year."
+
+  - ref: antler-sea
+    funder: antler
+    title: "Antler Residency (Southeast Asia)"
+    summary: "Program for individuals before they have a co-founder or idea: team formation, validation and a pre-seed investment for teams that are selected."
+    fields: []
+    trl: [1, 5]
+    countries: [ASEAN]
+    applicant_types: [individual]
+    requires_incorporation: false
+    equity_taken: true
+    rolling: true
+    application_mode: web_form
+    confidence: medium
+    verified: false
+
+  - ref: iterative-accelerator
+    funder: iterative
+    title: "Iterative Accelerator"
+    summary: "Southeast Asia-focused accelerator investing in very early-stage startups, with a three-month program and demo day."
+    fields: []
+    trl: [3, 8]
+    countries: [ASEAN]
+    applicant_types: [startup, individual]
+    requires_incorporation: false
+    amount: {min: 0, max: 150000, currency: USD}
+    equity_taken: true
+    cycle: "Two batches per year"
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: peak-xv-surge
+    funder: surge
+    title: "Peak XV Surge"
+    summary: "Rapid-scale-up program for early-stage startups in India and Southeast Asia, with seed investment and a structured program."
+    fields: []
+    trl: [5, 9]
+    countries: [ASEAN, IN]
+    applicant_types: [startup]
+    requires_incorporation: true
+    amount: {min: 1000000, max: 3000000, currency: USD}
+    equity_taken: true
+    cycle: "Cohort-based"
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: google-startups-sea
+    funder: google
+    title: "Google for Startups Accelerator: Southeast Asia"
+    summary: "Equity-free accelerator for seed to Series A tech startups in Southeast Asia, offering mentoring, technical support and cloud credits rather than cash."
+    fields: [digital]
+    subdomains: ["AI & data"]
+    trl: [5, 9]
+    countries: [ASEAN]
+    applicant_types: [startup]
+    requires_incorporation: true
+    equity_taken: false
+    cycle: "Cohort-based, roughly annual"
+    application_mode: web_form
+    confidence: medium
+    verified: false
+    notes: "Non-cash support (credits, mentoring)."
+
+  # ============================================================================
+  # GLOBAL ACCELERATORS, FOUNDATIONS, PRIZES, CROWDFUNDING
+  # ============================================================================
+  - ref: yc
+    funder: yc
+    title: "Y Combinator"
+    summary: "Three-month startup accelerator with a standard investment deal for every company, ending in Demo Day. Accepts teams at idea stage through early revenue, in any sector."
+    fields: []
+    trl: [2, 9]
+    countries: [GLOBAL]
+    applicant_types: [individual, startup]
+    requires_incorporation: false
+    amount: {min: 500000, max: 500000, currency: USD}
+    equity_taken: true
+    rolling: true
+    cycle: "Multiple batches per year"
+    application_mode: web_form
+    confidence: medium
+    verified: false
+    notes: "Standard deal terms change occasionally - check the current deal page."
+
+  - ref: techstars
+    funder: techstars
+    title: "Techstars Accelerator"
+    summary: "Mentorship-driven accelerator programs run by city and theme, with a standard investment into each company."
+    fields: []
+    trl: [4, 9]
+    countries: [GLOBAL]
+    applicant_types: [startup]
+    requires_incorporation: false
+    amount: {min: 220000, max: 220000, currency: USD}
+    equity_taken: true
+    cycle: "Program-specific application windows"
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: entrepreneur-first
+    funder: ef
+    title: "Entrepreneur First"
+    summary: "Talent investor for individuals before they have a co-founder or idea, including researchers and engineers; funds teams formed in the program."
+    fields: []
+    trl: [1, 4]
+    countries: [GLOBAL]
+    applicant_types: [individual]
+    requires_incorporation: false
+    equity_taken: true
+    rolling: true
+    application_mode: web_form
+    confidence: medium
+    verified: false
+    notes: "Programs are in-person in specific cities; check current locations."
+
+  - ref: sosv-hax
+    funder: hax
+    title: "SOSV HAX (hard tech)"
+    summary: "Hard-tech accelerator and investor for climate, industrial, robotics and advanced manufacturing startups, with engineering and lab support."
+    fields: [energy, manufacturing, materials, environmental]
+    subdomains: ["Industrial automation", "Energy storage", "Recycling & circular materials", "Bio-based composites", "Robotics & automation"]
+    trl: [4, 8]
+    countries: [GLOBAL]
+    applicant_types: [startup]
+    requires_incorporation: true
+    amount: {min: 250000, max: 250000, currency: USD}
+    equity_taken: true
+    rolling: true
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: sosv-indiebio
+    funder: indiebio
+    title: "SOSV IndieBio (biotech)"
+    summary: "Life-sciences accelerator investing in biotech startups across therapeutics, food, materials and climate biotech, with lab access and a structured program."
+    fields: [biotech, food_science, materials, health]
+    subdomains: ["Synthetic biology", "Fermentation & enzymes", "Alternative proteins", "Therapeutics", "Bio-based composites"]
+    trl: [3, 7]
+    countries: [GLOBAL]
+    applicant_types: [startup]
+    requires_incorporation: true
+    amount: {min: 250000, max: 525000, currency: USD}
+    equity_taken: true
+    rolling: true
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: hello-tomorrow-challenge
+    funder: hellotomorrow
+    title: "Hello Tomorrow Global Challenge"
+    summary: "International deep-tech startup competition with thematic tracks (e.g. materials, health, food, energy), finals and awards, plus investor and corporate exposure."
+    fields: [materials, biotech, energy, environmental, food_science, health, digital, manufacturing]
+    subdomains: ["Bio-based composites", "Biomass valorization", "Synthetic biology", "Energy storage"]
+    trl: [3, 8]
+    countries: [GLOBAL]
+    applicant_types: [startup]
+    requires_incorporation: true
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Annual"
+    application_mode: web_form
+    confidence: medium
+    verified: false
+
+  - ref: creative-destruction-lab
+    funder: cdl
+    title: "Creative Destruction Lab"
+    summary: "Objectives-based mentoring program for science- and technology-based startups, run in multiple streams (e.g. climate, health, quantum) at sites worldwide."
+    fields: []
+    trl: [4, 8]
+    countries: [GLOBAL]
+    applicant_types: [startup]
+    requires_incorporation: true
+    equity_taken: false
+    cycle: "Annual intake per site"
+    application_mode: web_form
+    confidence: medium
+    verified: false
+    notes: "Non-cash program; investors in the room may invest separately."
+
+  - ref: activate-fellowship
+    funder: activate
+    title: "Activate Fellowship"
+    summary: "Two-year fellowship for scientists and engineers turning research into hard-tech companies, with living stipend, research funding and access to lab partners."
+    fields: [materials, energy, manufacturing, environmental, biotech]
+    subdomains: ["Battery materials", "Energy storage", "Carbon capture & utilization", "Process engineering"]
+    trl: [2, 5]
+    countries: [US]
+    applicant_types: [individual, startup]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Annual cohort"
+    application_mode: web_form
+    confidence: medium
+    verified: false
+
+  - ref: nucleate-activator
+    funder: nucleate
+    title: "Nucleate Activator"
+    summary: "Student- and postdoc-run program that helps scientists form biotech companies from academic research, through chapter-based cohorts with mentors and investors."
+    fields: [biotech, health]
+    subdomains: ["Therapeutics", "Diagnostics", "Synthetic biology"]
+    trl: [2, 5]
+    countries: [GLOBAL]
+    applicant_types: [individual, university]
+    requires_incorporation: false
+    equity_taken: false
+    cycle: "Annual per chapter"
+    application_mode: web_form
+    confidence: low
+    verified: false
+    notes: "Chapter-based - check whether a chapter covers your region."
+
+  - ref: xprize
+    funder: xprize
+    title: "XPRIZE Competitions"
+    summary: "Large incentive prizes for breakthrough solutions to defined challenges (climate, health, food, ocean); teams compete against published criteria over multiple rounds."
+    fields: [environmental, health, food_science, energy]
+    subdomains: ["Carbon capture & utilization", "Alternative proteins", "Climate adaptation"]
+    trl: [4, 9]
+    countries: [GLOBAL]
+    applicant_types: [individual, university, startup, sme, consortium]
+    requires_incorporation: false
+    equity_taken: false
+    cycle: "Competition-specific registration windows"
+    application_mode: portal
+    confidence: medium
+    verified: false
+
+  - ref: mit-solve
+    funder: solve
+    title: "MIT Solve Global Challenges"
+    summary: "Annual open innovation challenges; selected Solver teams receive funding and a year of support from MIT Solve's partner community."
+    fields: [health, environmental, agritech, digital]
+    subdomains: ["Public health", "Climate adaptation", "Digital health"]
+    trl: [4, 9]
+    countries: [GLOBAL]
+    applicant_types: [individual, startup, sme]
+    requires_incorporation: false
+    equity_taken: false
+    cycle: "Annual open call"
+    application_mode: web_form
+    confidence: medium
+    verified: false
+
+  - ref: cartier-womens-initiative
+    funder: cartier
+    title: "Cartier Women's Initiative"
+    summary: "International award program for impact-driven businesses led by women, with grant funding, coaching and a community; regional and thematic categories."
+    fields: []
+    trl: [6, 9]
+    countries: [GLOBAL]
+    applicant_types: [startup, sme]
+    requires_incorporation: true
+    ip_assignment_required: false
+    amount: {min: 30000, max: 100000, currency: USD}
+    equity_taken: false
+    cycle: "Annual"
+    application_mode: web_form
+    confidence: medium
+    verified: false
+    notes: "Women-led businesses with some operating history."
+
+  - ref: gcc-stars
+    funder: gcc
+    title: "Grand Challenges Canada - Stars in Global Health"
+    summary: "Seed grants for bold global-health innovations from innovators in low- and middle-income countries, with a path to larger transition-to-scale funding."
+    fields: [health, biotech]
+    subdomains: ["Diagnostics", "Medical devices", "Digital health", "Public health"]
+    trl: [2, 6]
+    countries: [ASEAN, IN, KE, NG, ZA, BR]
+    applicant_types: [university, startup, sme]
+    requires_incorporation: false
+    amount: {min: 0, max: 100000, currency: CAD}
+    equity_taken: false
+    cycle: "Periodic calls"
+    application_mode: portal
+    confidence: low
+    verified: false
+    notes: "Country eligibility follows a published LMIC list - check whether your country is on the current list."
+
+  - ref: gates-grand-challenges
+    funder: gates
+    title: "Gates Foundation Grand Challenges"
+    summary: "Topic-specific calls for innovative ideas in global health and development, often with seed grants for early-stage concepts."
+    fields: [health, agritech, biotech]
+    subdomains: ["Diagnostics", "Vaccines", "Crop science", "Public health"]
+    trl: [1, 4]
+    countries: [GLOBAL]
+    applicant_types: [individual, university, startup, sme]
+    requires_incorporation: false
+    equity_taken: false
+    cycle: "Topic-specific calls"
+    application_mode: portal
+    confidence: low
+    verified: false
+
+  - ref: global-innovation-fund
+    funder: gif
+    title: "Global Innovation Fund"
+    summary: "Funds innovations that improve the lives of people living on low incomes, from pilots through scale, using grants, loans or equity depending on the stage."
+    fields: []
+    trl: [5, 9]
+    countries: [GLOBAL]
+    applicant_types: [startup, sme, university]
+    requires_incorporation: true
+    amount: {min: 50000, max: 15000000, currency: USD}
+    equity_taken: null
+    rolling: true
+    application_mode: portal
+    confidence: medium
+    verified: false
+
+  - ref: wellcome-discovery
+    funder: wellcome
+    title: "Wellcome Discovery Awards"
+    summary: "Funding for established researchers pursuing bold discovery research in health-related science, hosted at eligible organisations."
+    fields: [biotech, health]
+    subdomains: ["Therapeutics", "Microbiome", "Bioinformatics", "Vaccines"]
+    trl: [1, 3]
+    countries: [GB, IE, ASEAN]
+    applicant_types: [university]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Several rounds per year"
+    application_mode: portal
+    confidence: low
+    verified: false
+    notes: "Host-country eligibility (UK, Ireland, selected low- and middle-income countries) must be checked."
+
+  - ref: breakthrough-energy-fellows
+    funder: bef
+    title: "Breakthrough Energy Fellows"
+    summary: "Two-year program for early-stage climate-tech innovators with non-dilutive funding and support toward a fundable company."
+    fields: [energy, environmental, materials, agritech, manufacturing]
+    subdomains: ["Carbon capture & utilization", "Energy storage", "Construction materials", "Hydrogen"]
+    trl: [2, 5]
+    countries: [GLOBAL]
+    applicant_types: [individual, startup]
+    requires_incorporation: false
+    equity_taken: false
+    cycle: "Annual cohort"
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: experiment-com
+    funder: experiment
+    title: "Experiment.com Science Crowdfunding"
+    summary: "All-or-nothing crowdfunding platform for research projects: researchers publish a project page with goals, methods overview and budget, and backers fund it."
+    fields: []
+    trl: [1, 5]
+    countries: [GLOBAL]
+    applicant_types: [individual, university]
+    requires_incorporation: false
+    ip_assignment_required: false
+    amount: {min: 1000, max: 50000, currency: USD}
+    equity_taken: false
+    rolling: true
+    application_mode: web_form
+    form_url: "local:crowdfunding-project-demo.html"
+    form_note: "DEMO FORM - a generic research-crowdfunding project form built to demonstrate the HTML pre-fill path. Not Experiment.com's actual form."
+    confidence: medium
+    verified: false
+    notes: "Public project pages - share only non-confidential information. Platform fees apply."
+
+  # ============================================================================
+  # EU & US GOVERNMENT
+  # ============================================================================
+  - ref: eic-pathfinder-open
+    funder: eic
+    title: "EIC Pathfinder Open"
+    summary: "Funding for visionary, high-risk research toward radically new technologies, by consortia hosted in EU or Horizon Europe associated countries."
+    fields: []
+    trl: [1, 4]
+    countries: [HE_ELIGIBLE]
+    applicant_types: [consortium]
+    requires_incorporation: false
+    ip_assignment_required: false
+    amount: {min: 0, max: 3000000, currency: EUR}
+    equity_taken: false
+    cycle: "Annual deadline, typically in spring"
+    application_mode: portal
+    confidence: medium
+    verified: false
+
+  - ref: eic-transition
+    funder: eic
+    title: "EIC Transition"
+    summary: "Funding to mature novel technologies from proof of concept to validated technology and develop a business case, building on prior EIC, ERC or Horizon results."
+    fields: []
+    trl: [4, 6]
+    countries: [HE_ELIGIBLE]
+    applicant_types: [university, startup, sme, consortium]
+    requires_incorporation: false
+    ip_assignment_required: false
+    amount: {min: 0, max: 2500000, currency: EUR}
+    equity_taken: false
+    cycle: "Cut-offs typically twice a year"
+    application_mode: portal
+    confidence: medium
+    verified: false
+
+  - ref: eic-accelerator
+    funder: eic
+    title: "EIC Accelerator"
+    summary: "Grant and optional equity investment for startups and SMEs developing breakthrough innovations with scale-up potential."
+    fields: []
+    trl: [5, 8]
+    countries: [HE_ELIGIBLE]
+    applicant_types: [startup, sme]
+    requires_incorporation: true
+    ip_assignment_required: false
+    amount: {min: 500000, max: 2500000, currency: EUR}
+    equity_taken: null
+    cycle: "Multiple cut-offs per year"
+    application_mode: portal
+    confidence: medium
+    verified: false
+    notes: "Grant-only or blended (grant + equity) finance."
+
+  - ref: erc-starting
+    funder: erc
+    title: "ERC Starting Grant"
+    summary: "Five-year grants for early-career principal investigators to build an independent team pursuing frontier research, hosted in an EU or associated country."
+    fields: []
+    trl: [1, 3]
+    countries: [HE_ELIGIBLE]
+    applicant_types: [individual, university]
+    requires_incorporation: false
+    ip_assignment_required: false
+    amount: {min: 0, max: 1500000, currency: EUR}
+    equity_taken: false
+    cycle: "Annual deadline, typically in autumn"
+    application_mode: portal
+    confidence: high
+    verified: false
+    notes: "PI of any nationality, 2-7 years after PhD; host institution must be in an EU/associated country."
+
+  - ref: msca-postdoctoral
+    funder: msca
+    title: "MSCA Postdoctoral Fellowships"
+    summary: "Fellowships for postdoctoral researchers of any nationality to carry out research at a host in an EU or associated country, with mobility requirements."
+    fields: []
+    trl: [1, 4]
+    countries: [GLOBAL]
+    applicant_types: [individual]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    cycle: "Annual deadline, typically in September"
+    application_mode: portal
+    confidence: high
+    verified: false
+    notes: "Open to any nationality, but you must move to an EU/associated host and meet the mobility rule."
+
+  - ref: nsf-sbir
+    funder: nsf
+    title: "NSF SBIR/STTR Phase I (America's Seed Fund)"
+    summary: "Non-dilutive funding for U.S. small businesses to establish technical feasibility of high-risk, high-impact technology innovations."
+    fields: []
+    trl: [3, 6]
+    countries: [US]
+    applicant_types: [startup, sme]
+    requires_incorporation: true
+    ip_assignment_required: false
+    amount: {min: 0, max: 305000, currency: USD}
+    equity_taken: false
+    cycle: "Rolling project pitches; proposal deadlines through the year"
+    application_mode: pdf_form
+    form_url: "local:federal-rd-cover-sheet-demo.pdf"
+    form_note: "DEMO FORM - a cover sheet modelled on common US federal R&D forms (SF-424-style). Not an official Grants.gov form."
+    confidence: medium
+    verified: false
+    notes: "U.S.-owned and U.S.-based small businesses only."
+
+  - ref: nih-sbir
+    funder: nih
+    title: "NIH SBIR/STTR"
+    summary: "Small-business R&D funding for biomedical and health technologies, from feasibility (Phase I) to development (Phase II)."
+    fields: [health, biotech]
+    subdomains: ["Medical devices", "Diagnostics", "Therapeutics", "Digital health"]
+    trl: [3, 7]
+    countries: [US]
+    applicant_types: [startup, sme]
+    requires_incorporation: true
+    ip_assignment_required: false
+    amount: {min: 0, max: 315000, currency: USD}
+    equity_taken: false
+    cycle: "Standard due dates three times a year"
+    application_mode: portal
+    confidence: medium
+    verified: false
+
+  - ref: arpa-e-open
+    funder: arpae
+    title: "ARPA-E OPEN and Program Funding Opportunities"
+    summary: "Funding for transformational energy technologies too early for private investment, through open solicitations and focused programs."
+    fields: [energy, materials, environmental]
+    subdomains: ["Energy storage", "Battery materials", "Hydrogen", "Carbon capture & utilization", "Grid & efficiency"]
+    trl: [2, 5]
+    countries: [US]
+    applicant_types: [university, startup, sme, consortium]
+    requires_incorporation: false
+    amount: {min: 500000, max: 10000000, currency: USD}
+    equity_taken: false
+    cycle: "Program-specific; OPEN solicitations every few years"
+    application_mode: portal
+    confidence: medium
+    verified: false
+
+  # ============================================================================
+  # WEB3 & DECENTRALIZED SCIENCE
+  # ============================================================================
+  - ref: gitcoin-grants
+    funder: gitcoin
+    title: "Gitcoin Grants Rounds"
+    summary: "Community funding rounds for open-source and public-goods projects using quadratic funding; rounds have included open science and DeSci themes."
+    fields: [digital]
+    subdomains: ["Open-source public goods", "Blockchain & web3"]
+    trl: [3, 9]
+    countries: [GLOBAL]
+    applicant_types: [individual, university, startup]
+    requires_incorporation: false
+    ip_assignment_required: false
+    amount: {min: 500, max: 50000, currency: USD}
+    equity_taken: false
+    cycle: "Rounds several times a year"
+    application_mode: web_form
+    confidence: medium
+    verified: false
+
+  - ref: base-builder-grants
+    funder: base
+    title: "Base Builder Grants"
+    summary: "Small, fast, often retroactive grants for builders shipping onchain apps and tools on Base."
+    fields: [digital]
+    subdomains: ["Blockchain & web3", "Open-source public goods"]
+    trl: [5, 9]
+    countries: [GLOBAL]
+    applicant_types: [individual, startup]
+    requires_incorporation: false
+    ip_assignment_required: false
+    amount: {min: 1000, max: 15000, currency: USD}
+    equity_taken: false
+    rolling: true
+    application_mode: web_form
+    confidence: low
+    verified: false
+    notes: "Typically paid in ETH; amounts indicative."
+
+  - ref: ef-esp
+    funder: esp
+    title: "Ethereum Foundation Ecosystem Support Program"
+    summary: "Grants for public goods that strengthen Ethereum - research, open-source tooling, education and community - including academic grant rounds."
+    fields: [digital]
+    subdomains: ["Blockchain & web3", "Open-source public goods"]
+    trl: [1, 7]
+    countries: [GLOBAL]
+    applicant_types: [individual, university, startup]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    rolling: true
+    application_mode: web_form
+    confidence: medium
+    verified: false
+
+  - ref: optimism-retro-funding
+    funder: optimism
+    title: "Optimism Retro Funding"
+    summary: "Retroactive rewards, paid in OP, for projects that have already created measurable impact for the Optimism ecosystem."
+    fields: [digital]
+    subdomains: ["Open-source public goods", "Blockchain & web3"]
+    trl: [6, 9]
+    countries: [GLOBAL]
+    applicant_types: [individual, startup]
+    requires_incorporation: false
+    equity_taken: false
+    cycle: "Seasonal rounds"
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: filecoin-foundation-grants
+    funder: filecoin
+    title: "Filecoin Foundation Grants"
+    summary: "Grants for open-source projects building the decentralized web and for preserving important data, including scientific datasets."
+    fields: [digital]
+    subdomains: ["Open-source public goods", "Blockchain & web3"]
+    trl: [3, 8]
+    countries: [GLOBAL]
+    applicant_types: [individual, university, startup]
+    requires_incorporation: false
+    equity_taken: false
+    rolling: true
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: w3f-grants
+    funder: w3f
+    title: "Web3 Foundation Grants Program"
+    summary: "Milestone-based grants for software development and research advancing the Polkadot ecosystem."
+    fields: [digital]
+    subdomains: ["Blockchain & web3", "Open-source public goods"]
+    trl: [3, 7]
+    countries: [GLOBAL]
+    applicant_types: [individual, startup]
+    requires_incorporation: false
+    amount: {min: 0, max: 100000, currency: USD}
+    equity_taken: false
+    rolling: true
+    application_mode: web_form
+    confidence: low
+    verified: false
+    notes: "Program structure has changed over time - confirm it is currently accepting applications."
+
+  - ref: solana-foundation-grants
+    funder: solana
+    title: "Solana Foundation Grants"
+    summary: "Grants and convertible grants for open-source tooling, public goods and projects that grow the Solana ecosystem."
+    fields: [digital]
+    subdomains: ["Blockchain & web3", "Open-source public goods"]
+    trl: [3, 8]
+    countries: [GLOBAL]
+    applicant_types: [individual, startup]
+    requires_incorporation: false
+    equity_taken: null
+    rolling: true
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: yzi-easy-residency
+    funder: yzi
+    title: "YZI Labs EASY Residency"
+    summary: "Incubation residency for early-stage founders in Web3, AI and biotech, with investment and mentoring from YZI Labs."
+    fields: [digital, biotech]
+    subdomains: ["Blockchain & web3", "AI & data"]
+    trl: [3, 7]
+    countries: [GLOBAL]
+    applicant_types: [startup, individual]
+    requires_incorporation: false
+    equity_taken: true
+    cycle: "Cohort-based"
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: bnb-chain-mvb
+    funder: bnb
+    title: "BNB Chain MVB (Most Valuable Builder) Accelerator"
+    summary: "Accelerator for projects building in the BNB Chain ecosystem, with mentorship, ecosystem support and access to investors."
+    fields: [digital]
+    subdomains: ["Blockchain & web3"]
+    trl: [4, 8]
+    countries: [GLOBAL]
+    applicant_types: [startup]
+    requires_incorporation: false
+    equity_taken: null
+    cycle: "Seasonal cohorts"
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: vitadao-research-funding
+    funder: vitadao
+    title: "VitaDAO Longevity Research Funding"
+    summary: "Community-governed funding for longevity research at academic labs and early startups, typically structured so that resulting IP or data rights are held via an IP-NFT."
+    fields: [biotech, health]
+    subdomains: ["Longevity", "Therapeutics"]
+    trl: [2, 5]
+    countries: [GLOBAL]
+    applicant_types: [university, startup]
+    requires_incorporation: false
+    ip_assignment_required: true
+    amount: {min: 50000, max: 300000, currency: USD}
+    equity_taken: false
+    rolling: true
+    application_mode: web_form
+    confidence: low
+    verified: false
+    notes: "Deal terms usually include IP/licensing rights for the DAO - review with your tech-transfer office."
+
+  - ref: molecule-ipnft
+    funder: molecule
+    title: "Molecule IP-NFT Research Funding"
+    summary: "Platform for funding biotech research by tokenising the IP and data rights of a research project (IP-NFT), connecting labs with DeSci funders."
+    fields: [biotech, health]
+    subdomains: ["Therapeutics", "Longevity"]
+    trl: [2, 5]
+    countries: [GLOBAL]
+    applicant_types: [university, startup]
+    requires_incorporation: false
+    ip_assignment_required: true
+    equity_taken: false
+    rolling: true
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: bio-protocol-biodao
+    funder: bio
+    title: "BIO Protocol BioDAO Launchpad"
+    summary: "Launchpad and funding network for new BioDAOs - communities that fund and govern research in a specific area of science."
+    fields: [biotech, health]
+    subdomains: ["Longevity", "Therapeutics", "Synthetic biology"]
+    trl: [1, 5]
+    countries: [GLOBAL]
+    applicant_types: [individual, university, startup]
+    requires_incorporation: false
+    equity_taken: null
+    rolling: true
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: valleydao-synbio
+    funder: valleydao
+    title: "ValleyDAO Synthetic Biology Research Funding"
+    summary: "Community funding for synthetic-biology research addressing climate and sustainability, often via IP-NFT structures."
+    fields: [biotech, environmental, materials]
+    subdomains: ["Synthetic biology", "Bio-based composites", "Carbon capture & utilization"]
+    trl: [2, 5]
+    countries: [GLOBAL]
+    applicant_types: [university, startup]
+    requires_incorporation: false
+    ip_assignment_required: true
+    equity_taken: false
+    rolling: true
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: cerebrumdao
+    funder: cerebrum
+    title: "CerebrumDAO Brain Health Research Funding"
+    summary: "Community funding for research toward preventing neurodegenerative disease."
+    fields: [biotech, health]
+    subdomains: ["Brain health", "Therapeutics", "Diagnostics"]
+    trl: [2, 5]
+    countries: [GLOBAL]
+    applicant_types: [university, startup]
+    requires_incorporation: false
+    ip_assignment_required: true
+    equity_taken: false
+    rolling: true
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: athenadao
+    funder: athena
+    title: "AthenaDAO Women's Health Research Funding"
+    summary: "Community funding for women's health research, from academic labs to early-stage ventures."
+    fields: [health, biotech]
+    subdomains: ["Women's health", "Diagnostics", "Therapeutics"]
+    trl: [2, 5]
+    countries: [GLOBAL]
+    applicant_types: [university, startup]
+    requires_incorporation: false
+    ip_assignment_required: null
+    equity_taken: false
+    rolling: true
+    application_mode: web_form
+    confidence: low
+    verified: false
+
+  - ref: researchhub-funding
+    funder: researchhub
+    title: "ResearchHub Research Funding and Bounties"
+    summary: "Open-science platform where researchers earn ResearchCoin through bounties, peer review and community-funded research proposals."
+    fields: []
+    trl: [1, 4]
+    countries: [GLOBAL]
+    applicant_types: [individual, university]
+    requires_incorporation: false
+    ip_assignment_required: false
+    equity_taken: false
+    rolling: true
+    application_mode: web_form
+    confidence: low
+    verified: false

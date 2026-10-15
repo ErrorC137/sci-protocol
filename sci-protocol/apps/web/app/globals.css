@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+body { @apply bg-slate-50 text-ink antialiased; }
+.placeholder-mark { @apply rounded bg-amber-200/70 px-0.5 font-medium text-amber-950; }

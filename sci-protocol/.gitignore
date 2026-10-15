@@ -1,0 +1,23 @@
+# deps & builds
+node_modules/
+.next/
+*.tsbuildinfo
+next-env.d.ts
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+
+# runtime data (local IPFS store, uploads, cached templates, drafts)
+apps/api/.data/
+
+# foundry
+contracts/out/
+contracts/cache/
+contracts/broadcast/
+contracts/lib/
+
+# secrets
+.env
+.env.local
+*.pem

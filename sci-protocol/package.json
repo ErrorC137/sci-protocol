@@ -1,0 +1,15 @@
+{
+  "name": "sci-protocol",
+  "private": true,
+  "description": "Research funding aggregation, non-confidential matching, application pre-fill, and milestone-gated testnet funding.",
+  "workspaces": ["apps/web", "packages/shared"],
+  "scripts": {
+    "dev:web": "npm run dev -w apps/web",
+    "build:web": "npm run build -w apps/web",
+    "dev:api": "cd apps/api && .venv/bin/uvicorn app.main:app --reload --port 8000",
+    "test:api": "cd apps/api && .venv/bin/python -m pytest -q",
+    "test:contracts": "cd contracts && forge test",
+    "dev:chain": "bash scripts/dev-chain.sh",
+    "export-abis": "node scripts/export-abis.mjs"
+  }
+}

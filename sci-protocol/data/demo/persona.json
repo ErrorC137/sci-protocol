@@ -1,0 +1,27 @@
+{
+  "_comment": "Demo researcher used in the pitch. Structured, non-confidential only - note there is no description of the technology.",
+  "profile": {
+    "nickname": "Agri-waste materials pilot",
+    "fields": ["materials", "agritech"],
+    "subdomains": ["Biomass valorization", "Construction materials", "Agri-waste utilization"],
+    "trl": 4,
+    "evidence": ["lab_result", "prototype"],
+    "applicant_type": "university",
+    "country": "TH",
+    "institution_type": "university",
+    "funding_min_usd": 5000,
+    "funding_max_usd": 50000,
+    "uses_of_funds": ["pilot_run", "equipment", "certification"],
+    "months_to_milestone": 9,
+    "constraints": ["no_equity"]
+  },
+  "keywords": ["rice straw", "binder", "low-carbon"],
+  "applicant": {
+    "name": "Dr. Demo Researcher",
+    "email": "researcher@example.ac.th",
+    "phone": "+66 2 000 0000",
+    "organization": "Example University, Faculty of Engineering",
+    "position": "Assistant Professor",
+    "address": "Bangkok, Thailand"
+  }
+}

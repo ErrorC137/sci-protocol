@@ -1,0 +1,17 @@
+# Runtime
+fastapi==0.143.1
+uvicorn[standard]==0.54.0
+pydantic==2.14.1
+python-multipart==0.0.32
+PyYAML==6.0.3
+httpx==0.28.1
+anthropic==1.14.0
+pypdf==6.20.1
+pdfplumber==0.11.10
+beautifulsoup4==4.15.0
+psycopg[binary]==3.3.6
+psycopg-pool==3.3.3
+pgvector==0.5.1
+eth-abi==6.0.0
+eth-hash[pycryptodome]==0.8.0
+# Optional OCR fallback for scanned PDFs (also needs the tesseract binary): pytesseract

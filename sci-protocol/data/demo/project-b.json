@@ -1,0 +1,12 @@
+{
+  "schema": "sci-protocol/project-metadata@1",
+  "nickname": "Water-treatment sensor (failure-path demo)",
+  "fields": ["environmental", "digital"],
+  "subdomains": ["Water treatment", "IoT & sensors"],
+  "trl": 3,
+  "evidence": ["lab_result"],
+  "country": "TH",
+  "applicant_type": "university",
+  "uses_of_funds": ["materials", "personnel"],
+  "disclosure": "Non-confidential profile only. Staged to demonstrate the missed-milestone refund path."
+}

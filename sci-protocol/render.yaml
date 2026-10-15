@@ -1,0 +1,42 @@
+# Render Blueprint. Free plan cold-starts (~50s) - use "starter" for a live demo (brief §7).
+services:
+  - type: web
+    name: sci-protocol-api
+    runtime: docker
+    dockerfilePath: ./apps/api/Dockerfile
+    dockerContext: .
+    plan: starter
+    healthCheckPath: /health
+    disk:                          # uploaded forms, cached templates, local IPFS fallback
+      name: sci-data
+      mountPath: /srv/apps/api/.data
+      sizeGB: 1
+    envVars:
+      - key: DATABASE_URL          # Supabase connection string (session pooler, port 5432)
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: VOYAGE_API_KEY        # optional - local hashing embedder otherwise
+        sync: false
+      - key: PINATA_JWT            # optional - local IPFS mock otherwise
+        sync: false
+      - key: CHAIN_ID
+        value: "84532"
+      - key: RPC_URL               # Alchemy/QuickNode Base Sepolia URL
+        sync: false
+      - key: INDEXER_ENABLED
+        value: "true"
+      - key: CORS_ORIGINS          # your Vercel URL
+        sync: false
+      - key: STARTUP_CONNECTORS
+        value: ""
+  - type: cron
+    name: sci-protocol-ingest
+    runtime: docker
+    dockerfilePath: ./apps/api/Dockerfile
+    dockerContext: .
+    schedule: "0 3 * * *"
+    dockerCommand: python -m app.ingest.run curated grants_gov eu_sedia
+    envVars:
+      - key: DATABASE_URL
+        sync: false
