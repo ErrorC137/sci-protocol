@@ -17,6 +17,10 @@ export function Landing({ children }: { children: ReactNode }) {
     }
     // Arriving by client-side navigation skips the inline gate script; switch motion on here instead.
     html.classList.add("motion");
+    if (html.classList.contains("preload")) {
+      try { sessionStorage.setItem("uplo-preloaded", "1"); } catch { /* private mode */ }
+      window.setTimeout(() => html.classList.remove("preload"), 1500);
+    }
 
     gsap.registerPlugin(ScrollTrigger);
     const lenis = new Lenis({ lerp: 0.1, smoothWheel: true, anchors: true });

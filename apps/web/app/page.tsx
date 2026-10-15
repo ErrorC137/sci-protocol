@@ -1,6 +1,7 @@
 import { SiteFooter, SiteNav } from "@/components/SiteChrome";
 import { Landing } from "@/components/landing/Landing";
 import { MOTION_GATE } from "@/components/landing/motion-gate";
+import { Preloader } from "@/components/landing/Preloader";
 import { CapitalFlow } from "@/components/landing/sections/CapitalFlow";
 import { Finale } from "@/components/landing/sections/Finale";
 import { Gap } from "@/components/landing/sections/Gap";
@@ -16,6 +17,7 @@ export default function Home() {
   return (
     <>
       <script dangerouslySetInnerHTML={{ __html: MOTION_GATE }} />
+      <Preloader />
       <SiteNav />
       <Landing>
         <main>

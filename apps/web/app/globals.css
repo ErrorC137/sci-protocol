@@ -57,3 +57,18 @@ html.lenis, html.lenis body { height: auto; }
 /* Once the 3D ring has drawn its first frame, its SVG stand-ins step aside. */
 .ring-fallback { transition: opacity 600ms ease-out; }
 html.ring-3d .ring-fallback { opacity: 0 !important; }
+
+/* S0 preloader: only shown while the inline gate has put `preload` on <html>. Pure CSS - plays before hydration. */
+@property --pl { syntax: "<integer>"; initial-value: 0; inherits: false; }
+.preloader { display: none; }
+html.preload .preloader { display: grid; animation: pl-out 450ms ease-out 1000ms forwards; }
+.pl-seg { fill: #1E2320; opacity: 0; animation: pl-seg 260ms ease-out forwards; }
+.pl-seg-lime { animation: pl-seg 260ms ease-out forwards, pl-lime 400ms ease-out 820ms forwards; }
+.pl-count { counter-reset: pl var(--pl); animation: pl-count 900ms cubic-bezier(0.33, 1, 0.68, 1) forwards; }
+.pl-count::after { content: counter(pl, decimal-leading-zero); }
+.pl-inner { animation: pl-zoom 450ms ease-in 1000ms forwards; }
+@keyframes pl-seg { from { opacity: 0; transform: scale(0.92); transform-origin: 100px 100px; } to { opacity: 1; transform: none; transform-origin: 100px 100px; } }
+@keyframes pl-lime { to { fill: #D7EB79; } }
+@keyframes pl-count { to { --pl: 100; } }
+@keyframes pl-out { to { opacity: 0; visibility: hidden; } }
+@keyframes pl-zoom { to { transform: scale(0.8); } }

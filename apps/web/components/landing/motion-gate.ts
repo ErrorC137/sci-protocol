@@ -1,3 +1,5 @@
-// Inline, render-blocking gate: with motion allowed, `motion` goes on <html> before first paint so reveal targets
-// start hidden (CSS in globals.css). If the app never hydrates, the failsafe removes it and everything shows.
-export const MOTION_GATE = `(function(){try{var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('motion');setTimeout(function(){if(!d.classList.contains('motion-ready'))d.classList.remove('motion')},4000)}}catch(e){}})();`;
+// Inline, render-blocking gate (runs before first paint). With motion allowed:
+//   - `motion` on <html> pre-hides reveal targets (CSS in globals.css) until GSAP takes over;
+//   - `preload` shows the S0 preloader on the first visit this session.
+// Failsafes remove both if the app never hydrates, so content can't stay hidden.
+export const MOTION_GATE = `(function(){try{var d=document.documentElement;if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;d.classList.add('motion');var first=true;try{first=!sessionStorage.getItem('uplo-preloaded')}catch(e){}if(first)d.classList.add('preload');setTimeout(function(){d.classList.remove('preload')},2500);setTimeout(function(){if(!d.classList.contains('motion-ready'))d.classList.remove('motion')},4000)}catch(e){}})();`;

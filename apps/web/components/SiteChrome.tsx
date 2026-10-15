@@ -2,7 +2,8 @@
 
 import { Menu, Search, X } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { onFrame, store } from "./landing/motion";
 import { Logo } from "./Logo";
 import { WalletButton } from "./WalletButton";
 
@@ -16,30 +17,39 @@ const NAV: [string, string][] = [
   ["About", "/#trust"],
 ];
 
+const DARK_SECTIONS = new Set(["gap", "flow", "revenue", "trust"]);
+
 export function SiteNav() {
   const [open, setOpen] = useState(false);
+  // On the landing page the nav follows the section behind it: charcoal over dark sections.
+  const [dark, setDark] = useState(false);
+  useEffect(() => onFrame(() => {
+    const d = DARK_SECTIONS.has(store.underNav);
+    setDark((cur) => (cur === d ? cur : d));
+  }), []);
   return (
-    <header className="sticky top-0 z-40 border-b border-neutral/70 bg-limestone/85 backdrop-blur">
+    <header className={`sticky top-0 z-40 border-b backdrop-blur transition-colors duration-300 ${dark ? "border-charcoal-700 bg-charcoal/90" : "border-neutral/70 bg-limestone/85"}`}>
       <div className="mx-auto flex max-w-7xl items-center gap-6 px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" aria-label="UPLO home"><Logo /></Link>
-        <nav aria-label="Main" className="hidden flex-1 justify-center gap-7 text-sm font-medium text-charcoal-soft md:flex">
-          {NAV.map(([label, href]) => <Link key={label} href={href} className="transition-colors hover:text-charcoal">{label}</Link>)}
+        <Link href="/" aria-label="UPLO home"><Logo on={dark ? "dark" : "light"} /></Link>
+        <nav aria-label="Main" className={`hidden flex-1 justify-center gap-7 text-sm font-medium md:flex ${dark ? "text-limestone-300" : "text-charcoal-soft"}`}>
+          {NAV.map(([label, href]) => <Link key={label} href={href} className={`transition-colors ${dark ? "hover:text-limestone-50" : "hover:text-charcoal"}`}>{label}</Link>)}
         </nav>
         <div className="ml-auto flex items-center gap-2 md:ml-0">
-          <Link href="/discover" aria-label="Search opportunities" className="hidden rounded-full p-2 text-charcoal hover:bg-charcoal/5 sm:block">
+          <Link href="/discover" aria-label="Search opportunities" className={`hidden rounded-full p-2 sm:block ${dark ? "text-limestone-100 hover:bg-white/10" : "text-charcoal hover:bg-charcoal/5"}`}>
             <Search className="h-4 w-4" />
           </Link>
-          <WalletButton variant="dark" />
-          <button className="rounded-lg p-2 text-charcoal hover:bg-charcoal/5 md:hidden" onClick={() => setOpen(!open)}
+          <WalletButton variant={dark ? "lime" : "dark"} />
+          <button className={`rounded-lg p-2 md:hidden ${dark ? "text-limestone-100 hover:bg-white/10" : "text-charcoal hover:bg-charcoal/5"}`} onClick={() => setOpen(!open)}
             aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
       {open && (
-        <nav aria-label="Main" className="border-t border-neutral px-4 pb-4 md:hidden">
+        <nav aria-label="Main" className={`border-t px-4 pb-4 md:hidden ${dark ? "border-charcoal-700" : "border-neutral"}`}>
           {NAV.map(([label, href]) => (
-            <Link key={label} href={href} onClick={() => setOpen(false)} className="block rounded-lg px-2 py-2.5 text-sm font-medium text-charcoal hover:bg-charcoal/5">{label}</Link>
+            <Link key={label} href={href} onClick={() => setOpen(false)}
+              className={`block rounded-lg px-2 py-2.5 text-sm font-medium ${dark ? "text-limestone-100 hover:bg-white/10" : "text-charcoal hover:bg-charcoal/5"}`}>{label}</Link>
           ))}
         </nav>
       )}
