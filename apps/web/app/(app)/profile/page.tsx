@@ -73,7 +73,7 @@ export default function ProfileWizard() {
       <div className="my-6 flex items-center gap-2">
         {STEPS.map((s, i) => (
           <button key={s} onClick={() => setStep(i)}
-            className={cx("flex-1 rounded-full py-1 text-xs font-semibold", i === step ? "bg-brand-600 text-white" : i < step ? "bg-brand-100 text-brand-700" : "bg-slate-200 text-ink-muted")}>
+            className={cx("flex-1 rounded-full py-1 text-xs font-semibold", i === step ? "bg-lime text-charcoal" : i < step ? "bg-charcoal text-limestone-50" : "bg-white text-charcoal-muted ring-1 ring-inset ring-neutral")}>
             {i + 1}. {s}
           </button>
         ))}
@@ -97,7 +97,7 @@ export default function ProfileWizard() {
                 <div className="flex flex-wrap gap-2">
                   {subdomains.map((s) => (
                     <button key={s} onClick={() => set({ subdomains: toggle(p.subdomains, s) })}
-                      className={cx("rounded-full border px-3 py-1 text-sm", p.subdomains.includes(s) ? "border-brand-500 bg-brand-50 text-brand-700" : "border-slate-300 text-ink-soft hover:bg-slate-50")}>
+                      className={cx("rounded-full border px-3 py-1 text-sm", p.subdomains.includes(s) ? "border-charcoal bg-lime text-charcoal" : "border-neutral bg-white text-charcoal-soft hover:bg-charcoal/5")}>
                       {s}
                     </button>
                   ))}
@@ -113,9 +113,9 @@ export default function ProfileWizard() {
               <Label hint="Technology readiness level - pick the one that describes where you are today.">TRL</Label>
               <div className="grid gap-2">
                 {T.trl.map((t) => (
-                  <label key={t.level} className={cx("flex cursor-pointer gap-3 rounded-lg border p-2.5 text-sm", p.trl === t.level ? "border-brand-500 bg-brand-50" : "border-slate-200 hover:border-slate-300")}>
-                    <input type="radio" name="trl" className="mt-1 accent-brand-600" checked={p.trl === t.level} onChange={() => set({ trl: t.level })} />
-                    <span><strong>TRL {t.level} - {t.name}.</strong> <span className="text-ink-soft">{t.plain}</span></span>
+                  <label key={t.level} className={cx("flex cursor-pointer gap-3 rounded-lg border p-2.5 text-sm", p.trl === t.level ? "border-charcoal bg-lime-50" : "border-neutral hover:border-charcoal/40")}>
+                    <input type="radio" name="trl" className="mt-1 accent-charcoal" checked={p.trl === t.level} onChange={() => set({ trl: t.level })} />
+                    <span><strong>TRL {t.level} - {t.name}.</strong> <span className="text-charcoal-soft">{t.plain}</span></span>
                   </label>
                 ))}
               </div>
@@ -127,7 +127,7 @@ export default function ProfileWizard() {
                   <Toggle key={e.id} checked={p.evidence.includes(e.id)} onChange={() => set({ evidence: toggle(p.evidence, e.id) })}>{e.label}</Toggle>
                 ))}
               </div>
-              {trl.data && <div className="mt-3"><Notice tone={trl.data.consistent === false ? "amber" : "green"}>{trl.data.note}</Notice></div>}
+              {trl.data && <div className="mt-3"><Notice tone={trl.data.consistent === false ? "caution" : "positive"}>{trl.data.note}</Notice></div>}
             </div>
           </>
         )}
@@ -138,8 +138,8 @@ export default function ProfileWizard() {
               <Label>Applicant type</Label>
               <div className="grid gap-2 sm:grid-cols-2">
                 {T.applicant_types.map((a) => (
-                  <label key={a.id} className={cx("flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-2 text-sm", p.applicant_type === a.id ? "border-brand-500 bg-brand-50" : "border-slate-200")}>
-                    <input type="radio" className="accent-brand-600" checked={p.applicant_type === a.id} onChange={() => set({ applicant_type: a.id as ApplicantType, has_entity: null })} />
+                  <label key={a.id} className={cx("flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-2 text-sm", p.applicant_type === a.id ? "border-charcoal bg-lime-50" : "border-neutral")}>
+                    <input type="radio" className="accent-charcoal" checked={p.applicant_type === a.id} onChange={() => set({ applicant_type: a.id as ApplicantType, has_entity: null })} />
                     {a.label}
                   </label>
                 ))}
@@ -168,12 +168,12 @@ export default function ProfileWizard() {
               <Label hint="A range, not an exact figure (USD).">Funding needed</Label>
               <div className="flex items-center gap-2">
                 <input type="number" min={0} step={1000} className={inputCls} value={p.funding_min_usd} onChange={(e) => set({ funding_min_usd: Number(e.target.value) })} />
-                <span className="text-ink-muted">to</span>
+                <span className="text-charcoal-muted">to</span>
                 <input type="number" min={0} step={1000} className={inputCls} value={p.funding_max_usd} onChange={(e) => set({ funding_max_usd: Number(e.target.value) })} />
               </div>
               <div className="mt-2 flex flex-wrap gap-2">
                 {[[5000, 50000], [50000, 250000], [250000, 1000000], [1000000, 5000000]].map(([a, b]) => (
-                  <button key={a} onClick={() => set({ funding_min_usd: a, funding_max_usd: b })} className="rounded-full border border-slate-300 px-3 py-0.5 text-xs text-ink-soft hover:bg-slate-50">
+                  <button key={a} onClick={() => set({ funding_min_usd: a, funding_max_usd: b })} className="rounded-full border border-neutral px-3 py-0.5 text-xs text-charcoal-soft hover:bg-charcoal/5">
                     ${a / 1000}k-${b >= 1e6 ? `${b / 1e6}M` : `${b / 1000}k`}
                   </button>
                 ))}
@@ -208,16 +208,16 @@ export default function ProfileWizard() {
               <Label hint="Shown on application drafts. Keep it non-confidential.">Project nickname (optional)</Label>
               <input className={inputCls} maxLength={80} value={p.nickname ?? ""} onChange={(e) => set({ nickname: e.target.value })} placeholder="e.g. Agri-waste materials pilot" />
             </div>
-            <div className="rounded-lg border border-dashed border-emerald-300 bg-emerald-50/50 p-3">
+            <div className="rounded-lg border border-dashed border-lime-300 bg-lime-50 p-3">
               <Label hint="Optional. These are shared with no one and used only for local similarity - they're stored in this browser and never sent to our server, the LLM, or any funder.">
-                3-5 generic keywords <Chip tone="green">stays on this device</Chip>
+                3-5 generic keywords <Chip tone="positive">stays on this device</Chip>
               </Label>
               <input className={inputCls} value={kw} onChange={(e) => setKw(e.target.value)} placeholder="comma separated, e.g. rice straw, low-carbon" />
             </div>
           </>
         )}
 
-        <div className="flex items-center justify-between border-t border-slate-100 pt-4">
+        <div className="flex items-center justify-between border-t border-neutral/70 pt-4">
           <Button variant="ghost" onClick={loadDemo}>Load demo researcher</Button>
           <div className="flex gap-2">
             {step > 0 && <Button variant="secondary" onClick={() => setStep(step - 1)}>Back</Button>}

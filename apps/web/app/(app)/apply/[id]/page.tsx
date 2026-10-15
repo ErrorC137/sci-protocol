@@ -11,7 +11,7 @@ import { useApplicant, useProfile } from "@/lib/local";
 
 const PLACEHOLDER_RE = /(\[YOU MUST ADD:[^\]]*\])/g;
 const hasPlaceholder = (s: string) => s.includes("[YOU MUST ADD:");
-const STATUS_TONE = { green: "green", amber: "amber", red: "red" } as const;
+const STATUS_TONE = { green: "positive", amber: "caution", red: "danger" } as const;
 const STATUS_TEXT = { green: "from your profile", amber: "verify", red: "needs you" };
 const SOURCE_TEXT: Record<string, string> = { profile: "profile", llm: "inferred by Claude", template: "draft scaffold", user: "edited by you", none: "-" };
 
@@ -19,7 +19,7 @@ function Placeholders({ text }: { text: string }) {
   const gaps = text.match(PLACEHOLDER_RE) ?? [];
   return (
     <div className="flex flex-wrap items-center gap-1.5 text-xs">
-      <span className="font-semibold text-amber-900">Replace before export:</span>
+      <span className="font-semibold text-copper-700">Replace before export:</span>
       {gaps.map((g, i) => <mark key={i} className="placeholder-mark">{g.slice(15, -1).trim()}</mark>)}
     </div>
   );
@@ -27,12 +27,12 @@ function Placeholders({ text }: { text: string }) {
 
 function FieldInput({ f, value, onChange, onCommit }: { f: FilledField; value: FieldValue; onChange: (v: FieldValue) => void; onCommit: (v: FieldValue) => void }) {
   if (f.type === "signature") {
-    return <input disabled className={cx(inputCls, "bg-slate-50")} value="Sign on the official form yourself" />;
+    return <input disabled className={cx(inputCls, "bg-limestone-50")} value="Sign on the official form yourself" />;
   }
   if (f.type === "checkbox" && f.options.length === 0) {
     return (
       <label className="flex items-center gap-2 text-sm">
-        <input type="checkbox" className="h-4 w-4 accent-brand-600" checked={value === true} onChange={(e) => { onChange(e.target.checked); onCommit(e.target.checked); }} />
+        <input type="checkbox" className="h-4 w-4 accent-charcoal" checked={value === true} onChange={(e) => { onChange(e.target.checked); onCommit(e.target.checked); }} />
         {value === true ? "Ticked" : "Not ticked"}
       </label>
     );
@@ -43,7 +43,7 @@ function FieldInput({ f, value, onChange, onCommit }: { f: FilledField; value: F
       <div className="flex flex-wrap gap-3">
         {f.options.map((o) => (
           <label key={o} className="flex items-center gap-1.5 text-sm">
-            <input type="checkbox" className="accent-brand-600" checked={sel.includes(o)}
+            <input type="checkbox" className="accent-charcoal" checked={sel.includes(o)}
               onChange={(e) => { const next = e.target.checked ? [...sel, o] : sel.filter((x) => x !== o); onChange(next); onCommit(next); }} />
             {o}
           </label>
@@ -95,31 +95,31 @@ function FieldRow({ f, appId, onSaved }: { f: FilledField; appId: string; onSave
   const str = typeof value === "string" ? value : "";
 
   return (
-    <div id={`f-${f.field_id}`} className={cx("rounded-lg border-l-4 bg-white p-4 shadow-sm",
-      f.status === "green" ? "border-emerald-500" : f.status === "amber" ? "border-amber-400" : "border-rose-500")}>
+    <div id={`f-${f.field_id}`} className={cx("rounded-lg border border-l-4 border-neutral bg-white p-4",
+      f.status === "green" ? "border-l-lime-500" : f.status === "amber" ? "border-l-copper" : "border-l-error")}>
       <div className="mb-2 flex flex-wrap items-center gap-2">
-        <span className="font-medium text-ink">{f.label}{f.required && <span className="text-rose-600"> *</span>}</span>
+        <span className="font-medium text-charcoal">{f.label}{f.required && <span className="text-error"> *</span>}</span>
         <Chip tone={STATUS_TONE[f.status]}>{STATUS_TEXT[f.status]}</Chip>
         {(f.source === "llm" || f.source === "template" || f.source === "user") && <Chip>{SOURCE_TEXT[f.source]}</Chip>}
-        {f.narrative && <Chip tone="violet">narrative draft</Chip>}
-        {saving && <Spinner className="text-ink-muted" />}
+        {f.narrative && <Chip tone="dark">narrative draft</Chip>}
+        {saving && <Spinner className="text-charcoal-muted" />}
       </div>
       <FieldInput f={f} value={value} onChange={setValue} onCommit={commit} />
-      <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-ink-muted">
+      <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-charcoal-muted">
         {f.rationale && <span>{f.rationale}</span>}
         {f.maxlen && typeof value === "string" && <span className="tabular-nums">{str.length}/{f.maxlen}</span>}
       </div>
-      {f.warnings.map((w) => <p key={w} className="mt-1 text-xs text-amber-800">⚠ {w}</p>)}
+      {f.warnings.map((w) => <p key={w} className="mt-1 text-xs text-copper-700">⚠ {w}</p>)}
       <div className="mt-2 flex flex-wrap gap-3">
         {f.status === "amber" && !hasPlaceholder(str) && (
-          <label className="flex items-center gap-1.5 text-xs font-medium text-ink">
-            <input type="checkbox" className="accent-emerald-600" checked={f.confirmed} onChange={(e) => patch({ confirmed: e.target.checked })} />
+          <label className="flex items-center gap-1.5 text-xs font-medium text-charcoal">
+            <input type="checkbox" className="accent-charcoal" checked={f.confirmed} onChange={(e) => patch({ confirmed: e.target.checked })} />
             I’ve checked this value
           </label>
         )}
         {f.status === "red" && empty && (
-          <label className="flex items-center gap-1.5 text-xs font-medium text-ink">
-            <input type="checkbox" className="accent-slate-600" checked={f.acknowledged_blank} onChange={(e) => patch({ acknowledged_blank: e.target.checked })} />
+          <label className="flex items-center gap-1.5 text-xs font-medium text-charcoal">
+            <input type="checkbox" className="accent-charcoal" checked={f.acknowledged_blank} onChange={(e) => patch({ acknowledged_blank: e.target.checked })} />
             Leave blank intentionally{f.type === "signature" ? " (I'll sign the official form)" : ""}
           </label>
         )}
@@ -214,46 +214,46 @@ function ApplyInner({ grantId }: { grantId: string }) {
   return (
     <div className="space-y-6">
       <PageHeader eyebrow="Application pre-fill" title={g.title}>
-        <span className="text-ink-muted">{g.funder_name}</span>
+        <span className="text-charcoal-muted">{g.funder_name}</span>
       </PageHeader>
       <GrantMeta g={g} />
-      <Notice tone="blue">
+      <Notice tone="info">
         <strong>Nothing is ever submitted for you.</strong> Every field is marked green (from your profile), amber (inferred or drafted - verify)
         or red (needs you). Narrative answers are scaffolds with explicit <mark className="placeholder-mark">[YOU MUST ADD: …]</mark> gaps - we never invent
         technical claims. Export unlocks only after you’ve reviewed everything.
       </Notice>
       {g.raw.form_note && <Notice>{g.raw.form_note}</Notice>}
-      {!profile && <Notice tone="red">Build your <a className="underline" href="/profile">profile</a> first - the draft is filled from it.</Notice>}
+      {!profile && <Notice tone="danger">Build your <a className="underline" href="/profile">profile</a> first - the draft is filled from it.</Notice>}
 
       {!app && (
         <Card className="space-y-5">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <p className="font-semibold text-ink">Form</p>
-              {form.isLoading && <p className="flex items-center gap-2 text-sm text-ink-muted"><Spinner /> Fetching and parsing the funder’s form…</p>}
+              <p className="font-semibold text-charcoal">Form</p>
+              {form.isLoading && <p className="flex items-center gap-2 text-sm text-charcoal-muted"><Spinner /> Fetching and parsing the funder’s form…</p>}
               {template ? (
-                <p className="text-sm text-ink-soft">
+                <p className="text-sm text-charcoal-soft">
                   {template.title || "Untitled form"} · {template.fields.length} fields · {template.kind.replace("_", " ")} · extracted via {template.extraction}
                   {template.form_url.startsWith("local:") && (
                     <> · <a className="underline" target="_blank" rel="noreferrer" href={`${API_URL}/demo-forms/${template.form_url.slice(6)}`}>view original</a></>
                   )}
                 </p>
-              ) : !form.isLoading && <p className="text-sm text-ink-soft">No public form on file for this funder. Upload the PDF or HTML form you downloaded from them.</p>}
+              ) : !form.isLoading && <p className="text-sm text-charcoal-soft">No public form on file for this funder. Upload the PDF or HTML form you downloaded from them.</p>}
             </div>
-            <label className="cursor-pointer text-sm font-semibold text-brand-700 hover:underline">
+            <label className="cursor-pointer text-sm link">
               Upload a form (PDF / HTML)
               <input type="file" accept=".pdf,.html,.htm,application/pdf,text/html" className="hidden" onChange={(e) => e.target.files?.[0] && upload(e.target.files[0])} />
             </label>
           </div>
-          <details className="rounded-lg border border-slate-200 p-3" open={!savedApplicant}>
-            <summary className="cursor-pointer text-sm font-semibold text-ink">Your contact details (stored in this browser; sent only to fill this draft)</summary>
+          <details className="rounded-lg border border-neutral p-3" open={!savedApplicant}>
+            <summary className="cursor-pointer text-sm font-semibold text-charcoal">Your contact details (stored in this browser; sent only to fill this draft)</summary>
             <div className="mt-3"><ApplicantPanel applicant={applicant} setApplicant={setApplicantState} /></div>
           </details>
           <div className="flex items-center gap-3">
             <Button disabled={!template || !profile || !!busy} onClick={generate}>Generate pre-filled draft</Button>
-            {busy && <span className="flex items-center gap-2 text-sm text-ink-muted"><Spinner /> {busy}</span>}
+            {busy && <span className="flex items-center gap-2 text-sm text-charcoal-muted"><Spinner /> {busy}</span>}
           </div>
-          {err && <Notice tone="red">{err}</Notice>}
+          {err && <Notice tone="danger">{err}</Notice>}
         </Card>
       )}
 
@@ -264,40 +264,40 @@ function ApplyInner({ grantId }: { grantId: string }) {
           </div>
           <aside className="space-y-4 lg:sticky lg:top-20 lg:self-start">
             <Card>
-              <p className="text-3xl font-bold text-ink">{Math.round(((s.green + s.amber) / s.total) * 100)}%</p>
-              <p className="text-sm text-ink-muted">pre-filled ({s.total} fields)</p>
+              <p className="text-3xl font-bold text-charcoal">{Math.round(((s.green + s.amber) / s.total) * 100)}%</p>
+              <p className="text-sm text-charcoal-muted">pre-filled ({s.total} fields)</p>
               <div className="mt-3 flex h-2 overflow-hidden rounded-full">
-                <div className="bg-emerald-500" style={{ width: `${(s.green / s.total) * 100}%` }} />
-                <div className="bg-amber-400" style={{ width: `${(s.amber / s.total) * 100}%` }} />
-                <div className="bg-rose-500" style={{ width: `${(s.red / s.total) * 100}%` }} />
+                <div className="bg-lime-500" style={{ width: `${(s.green / s.total) * 100}%` }} />
+                <div className="bg-copper" style={{ width: `${(s.amber / s.total) * 100}%` }} />
+                <div className="bg-error" style={{ width: `${(s.red / s.total) * 100}%` }} />
               </div>
-              <div className="mt-2 flex justify-between text-xs text-ink-muted">
+              <div className="mt-2 flex justify-between text-xs text-charcoal-muted">
                 <span>{s.green} green</span><span>{s.amber} amber</span><span>{s.red} red</span>
               </div>
-              {app.llm_used && <p className="mt-2 text-xs text-violet-700">Claude inferred some amber values.</p>}
+              {app.llm_used && <p className="mt-2 text-xs text-charcoal-soft">Claude inferred some amber values.</p>}
             </Card>
             <Card>
-              <p className="font-semibold text-ink">Review</p>
+              <p className="font-semibold text-charcoal">Review</p>
               {out.problems.length > 0 ? (
                 <>
-                  <p className="text-sm text-ink-muted">{out.problems.length} item{out.problems.length > 1 ? "s" : ""} need you before export:</p>
+                  <p className="text-sm text-charcoal-muted">{out.problems.length} item{out.problems.length > 1 ? "s" : ""} need you before export:</p>
                   <ul className="mt-2 max-h-56 space-y-1 overflow-auto text-xs">
                     {out.problems.map((p) => (
-                      <li key={p.field_id ?? p.label}><a href={`#f-${p.field_id}`} className="text-brand-700 hover:underline">{p.label}</a> <span className="text-ink-muted">- {p.problem}</span></li>
+                      <li key={p.field_id ?? p.label}><a href={`#f-${p.field_id}`} className="font-semibold text-charcoal hover:underline">{p.label}</a> <span className="text-charcoal-muted">- {p.problem}</span></li>
                     ))}
                   </ul>
                 </>
-              ) : <p className="text-sm text-emerald-700">Every field is resolved.</p>}
-              <label className="mt-3 flex gap-2 text-xs text-ink">
-                <input type="checkbox" className="mt-0.5 accent-brand-600" checked={attest} onChange={(e) => setAttest(e.target.checked)} />
-                I have reviewed every field and I am responsible for this application. SCI Protocol will not submit it.
+              ) : <p className="text-sm text-lime-700">Every field is resolved.</p>}
+              <label className="mt-3 flex gap-2 text-xs text-charcoal">
+                <input type="checkbox" className="mt-0.5 accent-charcoal" checked={attest} onChange={(e) => setAttest(e.target.checked)} />
+                I have reviewed every field and I am responsible for this application. UPLO will not submit it.
               </label>
               <div className="mt-3"><Button disabled={!attest || app.reviewed} onClick={review}>{app.reviewed ? "Reviewed ✓" : "Complete review"}</Button></div>
-              {reviewProblems && reviewProblems.length > 0 && <p className="mt-2 text-xs text-rose-700">Still {reviewProblems.length} item(s) to resolve.</p>}
+              {reviewProblems && reviewProblems.length > 0 && <p className="mt-2 text-xs text-error">Still {reviewProblems.length} item(s) to resolve.</p>}
             </Card>
             <Card>
-              <p className="font-semibold text-ink">Export</p>
-              {!app.reviewed && <p className="text-xs text-ink-muted">Locked until review is complete.</p>}
+              <p className="font-semibold text-charcoal">Export</p>
+              {!app.reviewed && <p className="text-xs text-charcoal-muted">Locked until review is complete.</p>}
               <div className="mt-2 flex flex-col gap-2">
                 {out.template.kind === "pdf_acroform" && <ExportLink ok={app.reviewed} href={api.exportUrl(app.id, "pdf")}>Filled PDF</ExportLink>}
                 <ExportLink ok={app.reviewed} href={api.exportUrl(app.id, "md")}>Copy-paste pack (.md)</ExportLink>
@@ -313,8 +313,8 @@ function ApplyInner({ grantId }: { grantId: string }) {
 
 function ExportLink({ ok, href, children }: { ok: boolean; href: string; children: ReactNode }) {
   return ok
-    ? <a href={href} className="rounded-lg border border-slate-300 px-3 py-2 text-center text-sm font-semibold text-ink hover:bg-slate-50">{children}</a>
-    : <span className="rounded-lg border border-dashed border-slate-200 px-3 py-2 text-center text-sm text-slate-400">{children}</span>;
+    ? <a href={href} className="rounded-lg border border-neutral px-3 py-2 text-center text-sm font-semibold text-charcoal hover:bg-charcoal/5">{children}</a>
+    : <span className="rounded-lg border border-dashed border-neutral px-3 py-2 text-center text-sm text-charcoal-muted">{children}</span>;
 }
 
 export default function ApplyPage({ params }: { params: { id: string } }) {

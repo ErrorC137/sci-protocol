@@ -41,7 +41,7 @@ export async function seal(key: CryptoKey, payload: VaultPayload): Promise<{ blo
 }
 
 export async function open(key: CryptoKey, blob: Uint8Array): Promise<VaultPayload> {
-  if (!MAGIC.every((b, i) => blob[i] === b)) throw new Error("Not an SCI vault blob");
+  if (!MAGIC.every((b, i) => blob[i] === b)) throw new Error("Not a vault blob");
   const iv = ab(blob.slice(MAGIC.length, MAGIC.length + 12));
   const ct = ab(blob.slice(MAGIC.length + 12));
   const plain = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, ct);

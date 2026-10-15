@@ -1,26 +1,36 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Inter, Noto_Sans_Thai, Space_Grotesk } from "next/font/google";
 import type { ReactNode } from "react";
-import { Nav } from "@/components/Nav";
 import "./globals.css";
 import { Providers } from "./providers";
 
+const display = Space_Grotesk({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-display", display: "swap" });
+const sans = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
+const thai = Noto_Sans_Thai({ subsets: ["thai"], weight: ["400", "500", "600", "700"], variable: "--font-thai", display: "swap" });
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL
+  || (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`)
+  || "http://localhost:3000";
+
+const TAGLINE = "Today's Capital. Tomorrow's Breakthroughs.";
+const SUB = "Connecting commercial battery recycling with the next generation of circular innovation.";
+
 export const metadata: Metadata = {
-  title: "SCI Protocol",
-  description:
-    "Describe your research once, in non-confidential terms, and get matched to grants, accelerators and milestone-gated funding.",
+  metadataBase: new URL(SITE_URL),
+  title: { default: `UPLO · ${TAGLINE}`, template: "%s · UPLO" },
+  description: `${TAGLINE} ${SUB}`,
+  applicationName: "UPLO",
+  openGraph: { title: "UPLO", description: `${TAGLINE} ${SUB}`, siteName: "UPLO", type: "website" },
+  twitter: { card: "summary_large_image", title: "UPLO", description: `${TAGLINE} ${SUB}` },
 };
+
+export const viewport: Viewport = { themeColor: "#1E2320" };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${display.variable} ${sans.variable} ${thai.variable}`}>
       <body>
-        <Providers>
-          <Nav />
-          <main className="mx-auto max-w-6xl px-4 pb-24 pt-6 sm:px-6">{children}</main>
-          <footer className="border-t border-slate-200 py-6 text-center text-xs text-ink-muted">
-            Testnet only · no real value · not a securities offering · centralized attestor (decentralizing it is future work)
-          </footer>
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

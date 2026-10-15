@@ -17,16 +17,16 @@ interface Proof { hash: `0x${string}`; cid: string; pinned: string; tx?: string;
 
 function ProofCard({ p }: { p: Proof }) {
   return (
-    <Card className="space-y-2 border-emerald-200 bg-emerald-50">
-      <p className="font-semibold text-emerald-900">Existence proof</p>
+    <Card tone="positive" className="space-y-2">
+      <p className="font-semibold text-lime-800">Existence proof</p>
       <dl className="grid gap-1 text-sm sm:grid-cols-[9rem_1fr]">
-        <dt className="text-ink-muted">keccak256</dt><dd className="break-all font-mono text-xs">{p.hash}</dd>
-        <dt className="text-ink-muted">Ciphertext CID</dt><dd className="break-all font-mono text-xs"><a className="underline" href={api.ipfsUrl(p.cid)} target="_blank" rel="noreferrer">{p.cid}</a> <span className="text-ink-muted">({p.pinned})</span></dd>
-        {p.submitter && <><dt className="text-ink-muted">Anchored by</dt><dd className="font-mono text-xs">{p.submitter}</dd></>}
-        {p.timestamp !== undefined && <><dt className="text-ink-muted">Timestamp</dt><dd>{new Date(p.timestamp * 1000).toUTCString()} (block time)</dd></>}
-        {p.tx && <><dt className="text-ink-muted">Transaction</dt><dd className="font-mono text-xs">{txUrl(p.tx) ? <a className="underline" href={txUrl(p.tx)} target="_blank" rel="noreferrer">{short(p.tx, 8)}</a> : short(p.tx, 8)}</dd></>}
+        <dt className="text-charcoal-muted">keccak256</dt><dd className="break-all font-mono text-xs">{p.hash}</dd>
+        <dt className="text-charcoal-muted">Ciphertext CID</dt><dd className="break-all font-mono text-xs"><a className="underline" href={api.ipfsUrl(p.cid)} target="_blank" rel="noreferrer">{p.cid}</a> <span className="text-charcoal-muted">({p.pinned})</span></dd>
+        {p.submitter && <><dt className="text-charcoal-muted">Anchored by</dt><dd className="font-mono text-xs">{p.submitter}</dd></>}
+        {p.timestamp !== undefined && <><dt className="text-charcoal-muted">Timestamp</dt><dd>{new Date(p.timestamp * 1000).toUTCString()} (block time)</dd></>}
+        {p.tx && <><dt className="text-charcoal-muted">Transaction</dt><dd className="font-mono text-xs">{txUrl(p.tx) ? <a className="underline" href={txUrl(p.tx)} target="_blank" rel="noreferrer">{short(p.tx, 8)}</a> : short(p.tx, 8)}</dd></>}
       </dl>
-      <p className="text-xs text-emerald-900">
+      <p className="text-xs text-lime-800">
         Proves this exact ciphertext existed and was anchored by this wallet at this time. It is <strong>not</strong> prior art,
         <strong> not</strong> a patent filing and <strong>not</strong> legal IP registration.
       </p>
@@ -138,11 +138,11 @@ function VaultInner() {
         Encrypted in your browser with a key derived from your wallet signature. Only the ciphertext is pinned to IPFS; only its
         keccak256 hash and CID go on-chain. Nobody - including us - can read it.
       </PageHeader>
-      {!DEPLOYMENT && <Notice tone="red">Contracts aren’t deployed on {TARGET_CHAIN.name} yet.</Notice>}
+      {!DEPLOYMENT && <Notice tone="danger">Contracts aren’t deployed on {TARGET_CHAIN.name} yet.</Notice>}
 
       <div className="flex gap-2">
         {(["seal", "verify"] as const).map((t) => (
-          <button key={t} onClick={() => setTab(t)} className={cx("rounded-full px-4 py-1.5 text-sm font-semibold", tab === t ? "bg-brand-600 text-white" : "bg-white text-ink-soft ring-1 ring-slate-200")}>
+          <button key={t} onClick={() => setTab(t)} className={cx("rounded-full px-4 py-1.5 text-sm font-semibold", tab === t ? "bg-lime text-charcoal" : "bg-white text-charcoal-soft ring-1 ring-inset ring-neutral hover:text-charcoal")}>
             {t === "seal" ? "Seal & anchor" : "Verify / open"}
           </button>
         ))}
@@ -165,9 +165,9 @@ function VaultInner() {
             </div>
           </div>
           <Button disabled={(!text && !file) || !!busy || tx.busy || !DEPLOYMENT} onClick={doSeal}>{address ? "Encrypt, pin & anchor" : "Connect wallet"}</Button>
-          {busy && <p className="flex items-center gap-2 text-sm text-ink-muted"><Spinner /> {busy}</p>}
+          {busy && <p className="flex items-center gap-2 text-sm text-charcoal-muted"><Spinner /> {busy}</p>}
           <TxStatus state={tx.state} />
-          {err && <Notice tone="red">{err}</Notice>}
+          {err && <Notice tone="danger">{err}</Notice>}
         </Card>
       )}
       {tab === "seal" && proof && <ProofCard p={proof} />}
@@ -181,20 +181,20 @@ function VaultInner() {
               <Button onClick={() => doLookup()} disabled={!lookup || !!busy}>Verify</Button>
             </div>
           </div>
-          {busy && <p className="flex items-center gap-2 text-sm text-ink-muted"><Spinner /> {busy}</p>}
-          {err && <Notice tone="red">{err}</Notice>}
+          {busy && <p className="flex items-center gap-2 text-sm text-charcoal-muted"><Spinner /> {busy}</p>}
+          {err && <Notice tone="danger">{err}</Notice>}
           {found && <ProofCard p={found} />}
           {found && blob && !opened && <Button variant="secondary" onClick={doOpen}>Decrypt with my wallet</Button>}
           {opened && (
             <Card className="space-y-2">
-              <p className="text-xs text-ink-muted">Decrypted locally · sealed {opened.sealedAt}</p>
+              <p className="text-xs text-charcoal-muted">Decrypted locally · sealed {opened.sealedAt}</p>
               <p className="whitespace-pre-wrap text-sm">{opened.text}</p>
               {opened.file && <a className="text-sm underline" download={opened.file.name} href={`data:${opened.file.type || "application/octet-stream"};base64,${opened.file.b64}`}>{opened.file.name}</a>}
             </Card>
           )}
         </Card>
       )}
-      <p className="text-xs text-ink-muted">Uses a deterministic wallet signature as key material - works with standard EOAs (MetaMask, Rabby). Smart-contract wallets may not reproduce the same signature.</p>
+      <p className="text-xs text-charcoal-muted">Uses a deterministic wallet signature as key material - works with standard EOAs (MetaMask, Rabby). Smart-contract wallets may not reproduce the same signature.</p>
     </div>
   );
 }

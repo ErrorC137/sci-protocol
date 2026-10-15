@@ -9,7 +9,7 @@ export function TxStatus({ state }: { state: TxState }) {
   const link = state.hash && txUrl(state.hash);
   return (
     <div className={
-      state.status === "error" ? "mt-2 text-sm text-rose-700" : state.status === "done" ? "mt-2 text-sm text-emerald-700" : "mt-2 flex items-center gap-2 text-sm text-ink-muted"
+      state.status === "error" ? "mt-2 text-sm text-error" : state.status === "done" ? "mt-2 text-sm text-lime-700" : "mt-2 flex items-center gap-2 text-sm text-charcoal-muted"
     }>
       {(state.status === "pending" || state.status === "confirming") && <Spinner />}
       {state.status === "pending" && <span>{state.label}: confirm in your wallet…</span>}

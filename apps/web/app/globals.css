@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light; }
-body { @apply bg-slate-50 text-ink antialiased; }
-.placeholder-mark { @apply rounded bg-amber-200/70 px-0.5 font-medium text-amber-950; }
+/* UPLO brand tokens as CSS variables, for anything outside Tailwind (charts, SVG, RainbowKit, canvas). */
+:root {
+  color-scheme: light;
+  --uplo-lime: #d7eb79;
+  --uplo-charcoal: #1e2320;
+  --uplo-copper: #b57856;
+  --uplo-limestone: #ede8dd;
+  --uplo-sage: #a7b8a1;
+  --uplo-neutral: #d9d9d6;
+  --uplo-error: #b42318;
+}
+
+@layer base {
+  body { @apply bg-limestone font-sans text-charcoal antialiased; }
+  h1, h2, h3 { @apply font-display; }
+  ::selection { @apply bg-lime text-charcoal; }
+  :focus-visible { @apply outline-none ring-2 ring-charcoal ring-offset-2 ring-offset-limestone; }
+}
+
+@layer components {
+  /* Small uppercase label with wide tracking (OUR MISSION, BRAND OVERVIEW on the board). */
+  .eyebrow { @apply text-[11px] font-semibold uppercase tracking-eyebrow text-charcoal-muted; }
+  /* Inline links on light surfaces: charcoal text, lime underline (lime text would fail contrast here). */
+  .link { @apply font-semibold text-charcoal underline decoration-lime-500 decoration-2 underline-offset-4 transition-colors hover:decoration-charcoal; }
+  /* Financial figures: tabular numerals so columns line up. */
+  .figure { @apply font-display tabular-nums; }
+}
+
+.placeholder-mark { @apply rounded bg-copper-100 px-0.5 font-medium text-copper-700; }

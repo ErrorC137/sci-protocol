@@ -97,8 +97,8 @@ export default function NewRaise() {
         Your non-confidential profile is pinned to IPFS and referenced on-chain. You define what the money is for, milestone by
         milestone. The raise is all-or-nothing; once funded, each milestone’s money is released only after an attestor approves your evidence.
       </PageHeader>
-      {!DEPLOYMENT && <Notice tone="red">Contracts aren’t deployed on {TARGET_CHAIN.name} yet (see docs/DEPLOY.md).</Notice>}
-      {!profile && <Notice tone="red">Build your <a className="underline" href="/profile">profile</a> first - its categories become the public project metadata.</Notice>}
+      {!DEPLOYMENT && <Notice tone="danger">Contracts aren’t deployed on {TARGET_CHAIN.name} yet (see docs/DEPLOY.md).</Notice>}
+      {!profile && <Notice tone="danger">Build your <a className="underline" href="/profile">profile</a> first - its categories become the public project metadata.</Notice>}
 
       <Card className="space-y-5">
         <div>
@@ -110,17 +110,17 @@ export default function NewRaise() {
           <Label hint="Milestones are paid in order. Use minutes for a live demo of the failure path.">Milestones</Label>
           <div className="space-y-3">
             {ms.map((m, i) => (
-              <div key={i} className="grid gap-2 rounded-lg border border-slate-200 p-3 sm:grid-cols-[1fr_8rem_9rem_auto]">
+              <div key={i} className="grid gap-2 rounded-lg border border-neutral p-3 sm:grid-cols-[1fr_8rem_9rem_auto]">
                 <div className="space-y-2">
                   <input className={inputCls} placeholder="Milestone (verifiable outcome)" value={m.title} onChange={(e) => update(i, { title: e.target.value })} />
                   <input className={inputCls} placeholder="How it will be verified" value={m.detail} onChange={(e) => update(i, { detail: e.target.value })} />
                 </div>
                 <div>
-                  <span className="text-xs text-ink-muted">mUSDC</span>
+                  <span className="text-xs text-charcoal-muted">mUSDC</span>
                   <input className={inputCls} type="number" min={1} value={m.amount} onChange={(e) => update(i, { amount: e.target.value })} />
                 </div>
                 <div>
-                  <span className="text-xs text-ink-muted">due in</span>
+                  <span className="text-xs text-charcoal-muted">due in</span>
                   <div className="flex gap-1">
                     <input className={inputCls} type="number" min={1} value={m.dueIn} onChange={(e) => update(i, { dueIn: Number(e.target.value) })} />
                     <select className={inputCls} value={m.unit} onChange={(e) => update(i, { unit: e.target.value as Unit })}>
@@ -128,13 +128,13 @@ export default function NewRaise() {
                     </select>
                   </div>
                 </div>
-                <button className="self-start text-sm text-ink-muted hover:text-rose-600" onClick={() => setMs(ms.filter((_, j) => j !== i))} disabled={ms.length === 1}>✕</button>
+                <button className="self-start text-sm text-charcoal-muted hover:text-error" onClick={() => setMs(ms.filter((_, j) => j !== i))} disabled={ms.length === 1}>✕</button>
               </div>
             ))}
           </div>
           <div className="mt-2 flex items-center justify-between">
             <Button variant="ghost" onClick={() => setMs([...ms, { title: "", detail: "", amount: "1000", dueIn: (ms.at(-1)?.dueIn ?? 30) + 30, unit: ms.at(-1)?.unit ?? "days" }])} disabled={ms.length >= 10}>+ Add milestone</Button>
-            <span className="text-sm text-ink-soft">Total raise: <strong>{total.toLocaleString()} mUSDC</strong></span>
+            <span className="text-sm text-charcoal-soft">Total raise: <strong>{total.toLocaleString()} mUSDC</strong></span>
           </div>
         </div>
 
@@ -149,13 +149,13 @@ export default function NewRaise() {
         </div>
         {!orderOk && <Notice>Deadlines must increase: raise close &lt; milestone 1 &lt; milestone 2 …</Notice>}
 
-        <div className="flex items-center gap-3 border-t border-slate-100 pt-4">
+        <div className="flex items-center gap-3 border-t border-neutral/70 pt-4">
           <Button disabled={!valid || running || !DEPLOYMENT} onClick={run}>{address ? "Create on-chain (3 transactions)" : "Connect wallet"}</Button>
-          <span className="text-xs text-ink-muted">register → set milestones → open raise</span>
+          <span className="text-xs text-charcoal-muted">register → set milestones → open raise</span>
         </div>
-        {steps.length > 0 && <ul className="space-y-1 text-sm text-emerald-800">{steps.map((s) => <li key={s}>✓ {s}</li>)}</ul>}
+        {steps.length > 0 && <ul className="space-y-1 text-sm text-lime-800">{steps.map((s) => <li key={s}>✓ {s}</li>)}</ul>}
         <TxStatus state={tx.state} />
-        {err && tx.state.status !== "error" && <Notice tone="red">{err}</Notice>}
+        {err && tx.state.status !== "error" && <Notice tone="danger">{err}</Notice>}
       </Card>
     </div>
   );

@@ -23,7 +23,7 @@ export default function Discover() {
     <div>
       <PageHeader eyebrow="Discover" title="Funding opportunities">
         Grants, accelerators, foundations, crowdfunding and Web3 programs - weighted toward Thailand, Southeast Asia and
-        deep tech. Search is semantic; filters are exact. For ranked, eligibility-checked results, <Link href="/profile" className="font-semibold text-brand-700 underline">build a profile</Link>.
+        deep tech. Search is semantic; filters are exact. For ranked, eligibility-checked results, <Link href="/profile" className="link">build a profile</Link>.
       </PageHeader>
 
       <Card className="mb-6 grid gap-3 md:grid-cols-6">
@@ -44,18 +44,18 @@ export default function Discover() {
           <option value="">Any funder type</option>
           {tax.data?.funder_types.map((t) => <option key={t} value={t}>{t}</option>)}
         </select>
-        <label className="flex items-center gap-2 text-sm text-ink-soft md:col-span-2">
-          <input type="checkbox" className="accent-brand-600" checked={!!f.no_equity} onChange={(e) => setF({ ...f, no_equity: e.target.checked })} />
+        <label className="flex items-center gap-2 text-sm text-charcoal-soft md:col-span-2">
+          <input type="checkbox" className="accent-charcoal" checked={!!f.no_equity} onChange={(e) => setF({ ...f, no_equity: e.target.checked })} />
           Non-dilutive only (no equity)
         </label>
-        <label className="flex items-center gap-2 text-sm text-ink-soft md:col-span-2">
+        <label className="flex items-center gap-2 text-sm text-charcoal-soft md:col-span-2">
           TRL
           <select className={inputCls} value={f.trl ?? ""} onChange={(e) => setF({ ...f, trl: e.target.value ? Number(e.target.value) : undefined })}>
             <option value="">any</option>
             {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => <option key={n} value={n}>{n}</option>)}
           </select>
         </label>
-        <p className="self-center text-right text-sm text-ink-muted md:col-span-2">
+        <p className="self-center text-right text-sm text-charcoal-muted md:col-span-2">
           {res.isFetching ? <Spinner /> : res.data && `${res.data.total} result${res.data.total === 1 ? "" : "s"}`}
         </p>
       </Card>
@@ -65,16 +65,16 @@ export default function Discover() {
         {res.data?.items.map(({ grant: g }) => (
           <Card key={g.id} className="flex flex-col gap-2">
             <div>
-              <p className="text-xs font-medium text-ink-muted">{g.funder_name}</p>
-              <h2 className="font-semibold text-ink">{g.title}</h2>
+              <p className="text-xs font-medium text-charcoal-muted">{g.funder_name}</p>
+              <h2 className="font-semibold text-charcoal">{g.title}</h2>
             </div>
             <GrantMeta g={g} />
-            {g.summary && <p className="line-clamp-3 text-sm text-ink-soft">{g.summary}</p>}
+            {g.summary && <p className="line-clamp-3 text-sm text-charcoal-soft">{g.summary}</p>}
             <div className="mt-auto flex flex-wrap items-center justify-between gap-2 pt-2">
               <Deadline g={g} />
               <div className="flex gap-3 text-sm">
-                {g.form_url && <Link href={`/apply/${g.id}`} className="font-semibold text-brand-700 hover:underline">Pre-fill application</Link>}
-                {g.url && <a href={g.url} target="_blank" rel="noreferrer" className="text-ink-muted hover:underline">Source ↗</a>}
+                {g.form_url && <Link href={`/apply/${g.id}`} className="link">Pre-fill application</Link>}
+                {g.url && <a href={g.url} target="_blank" rel="noreferrer" className="text-charcoal-muted hover:underline">Source ↗</a>}
               </div>
             </div>
           </Card>

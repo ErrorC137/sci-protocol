@@ -15,7 +15,7 @@ const WC_ID = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
 
 export const wagmiConfig = WC_ID
   ? getDefaultConfig({
-      appName: "SCI Protocol",
+      appName: "UPLO",
       projectId: WC_ID,
       chains: [TARGET_CHAIN],
       transports: { [TARGET_CHAIN.id]: http(RPC) },
@@ -24,7 +24,7 @@ export const wagmiConfig = WC_ID
   : createConfig({
       // No WalletConnect project id: offer browser-injected wallets only (MetaMask, Rabby, ...).
       connectors: connectorsForWallets([{ groupName: "Browser wallet", wallets: [injectedWallet] }], {
-        appName: "SCI Protocol",
+        appName: "UPLO",
         projectId: "unused",
       }),
       chains: [TARGET_CHAIN],

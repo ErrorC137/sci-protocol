@@ -23,53 +23,53 @@ function MatchCard({ m, rank, boost, exp, explaining }: { m: MatchResult; rank: 
     <Card className="space-y-3">
       <div className="flex gap-4">
         <div className="flex w-14 shrink-0 flex-col items-center">
-          <span className="text-2xl font-bold tabular-nums text-brand-700">{Math.round(total * 100)}</span>
-          <span className="text-[10px] uppercase tracking-wide text-ink-muted">fit</span>
-          <span className="mt-1 text-xs text-ink-muted">#{rank}</span>
+          <span className="figure text-2xl font-semibold text-charcoal">{Math.round(total * 100)}</span>
+          <span className="text-[10px] uppercase tracking-wide text-charcoal-muted">fit</span>
+          <span className="mt-1 text-xs text-charcoal-muted">#{rank}</span>
         </div>
         <div className="min-w-0 flex-1 space-y-2">
           <div>
-            <p className="text-xs font-medium text-ink-muted">{g.funder_name}</p>
-            <h2 className="font-semibold text-ink">{g.title}</h2>
+            <p className="text-xs font-medium text-charcoal-muted">{g.funder_name}</p>
+            <h2 className="font-semibold text-charcoal">{g.title}</h2>
           </div>
           <GrantMeta g={g} />
-          <div className="rounded-lg bg-slate-50 p-3 text-sm">
+          <div className="rounded-lg bg-limestone-50 p-3 text-sm">
             {exp ? (
               <>
-                <p className="text-ink"><span className="font-semibold">Why this matched: </span>{exp.why_matched}</p>
-                <p className="mt-1 text-ink-soft"><span className="font-semibold text-ink">To strengthen: </span>{exp.strengthen}</p>
-                <p className="mt-1 text-[11px] text-ink-muted">{exp.source === "llm" ? "Written by Claude from the rule results - eligibility was decided by the rules, not the model." : "Rule-based explanation (LLM not configured)."}</p>
+                <p className="text-charcoal"><span className="font-semibold">Why this matched: </span>{exp.why_matched}</p>
+                <p className="mt-1 text-charcoal-soft"><span className="font-semibold text-charcoal">To strengthen: </span>{exp.strengthen}</p>
+                <p className="mt-1 text-[11px] text-charcoal-muted">{exp.source === "llm" ? "Written by Claude from the rule results - eligibility was decided by the rules, not the model." : "Rule-based explanation (LLM not configured)."}</p>
               </>
             ) : explaining ? (
-              <p className="flex items-center gap-2 text-ink-muted"><Spinner /> Writing the explanation…</p>
+              <p className="flex items-center gap-2 text-charcoal-muted"><Spinner /> Writing the explanation…</p>
             ) : (
-              <p className="text-ink-muted">Explanations are generated for the top 10 only.</p>
+              <p className="text-charcoal-muted">Explanations are generated for the top 10 only.</p>
             )}
           </div>
           {m.warnings.length > 0 && (
-            <ul className="space-y-0.5 text-xs text-amber-800">{m.warnings.map((w) => <li key={w}>⚠ {w}</li>)}</ul>
+            <ul className="space-y-0.5 text-xs text-copper-700">{m.warnings.map((w) => <li key={w}>⚠ {w}</li>)}</ul>
           )}
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 pt-1">
             <Deadline g={g} />
             {m.effort.hours_low !== undefined && (
-              <span className="text-sm text-ink-muted">Effort ~{m.effort.hours_low}-{m.effort.hours_high} h <span className="text-xs">({m.effort.basis})</span></span>
+              <span className="text-sm text-charcoal-muted">Effort ~{m.effort.hours_low}-{m.effort.hours_high} h <span className="text-xs">({m.effort.basis})</span></span>
             )}
             <div className="ml-auto flex items-center gap-2">
-              <button className="text-sm text-ink-muted hover:underline" onClick={() => setOpen(!open)}>{open ? "Hide" : "Show"} details</button>
-              {g.url && <a className="text-sm text-ink-muted hover:underline" href={g.url} target="_blank" rel="noreferrer">Source ↗</a>}
+              <button className="text-sm text-charcoal-muted hover:underline" onClick={() => setOpen(!open)}>{open ? "Hide" : "Show"} details</button>
+              {g.url && <a className="text-sm text-charcoal-muted hover:underline" href={g.url} target="_blank" rel="noreferrer">Source ↗</a>}
               {m.effort.prefill_available ? <Button href={`/apply/${g.id}`}>Start application</Button> : <Button href={`/apply/${g.id}`} variant="secondary">Upload form</Button>}
             </div>
           </div>
           {open && (
-            <div className="grid gap-4 border-t border-slate-100 pt-3 md:grid-cols-2">
+            <div className="grid gap-4 border-t border-neutral/70 pt-3 md:grid-cols-2">
               <div>
-                <p className="mb-2 text-xs font-semibold uppercase text-ink-muted">Hard eligibility (passed)</p>
+                <p className="mb-2 text-xs font-semibold uppercase text-charcoal-muted">Hard eligibility (passed)</p>
                 <RuleList rules={m.rules} />
               </div>
               <div>
-                <p className="mb-2 text-xs font-semibold uppercase text-ink-muted">Ranking</p>
+                <p className="mb-2 text-xs font-semibold uppercase text-charcoal-muted">Ranking</p>
                 {m.score && <ScoreBars s={m.score} boost={boost * KEYWORD_WEIGHT} />}
-                {g.summary && <p className="mt-3 text-xs text-ink-soft">{g.summary}</p>}
+                {g.summary && <p className="mt-3 text-xs text-charcoal-soft">{g.summary}</p>}
               </div>
             </div>
           )}
@@ -116,17 +116,17 @@ export default function Matches() {
         deadline runway; the explanations only describe what the rules already decided.
       </PageHeader>
 
-      {res.isLoading && <Card className="flex items-center gap-2 text-ink-muted"><Spinner /> Matching across the corpus…</Card>}
-      {res.error && <Notice tone="red">Matching failed: {(res.error as Error).message}</Notice>}
+      {res.isLoading && <Card className="flex items-center gap-2 text-charcoal-muted"><Spinner /> Matching across the corpus…</Card>}
+      {res.error && <Notice tone="danger">Matching failed: {(res.error as Error).message}</Notice>}
 
       {d && (
         <div className="grid gap-6 lg:grid-cols-[1fr_20rem]">
           <div className="space-y-4">
-            <div className="flex flex-wrap items-center gap-2 text-sm text-ink-soft">
-              <Chip tone="green">{d.matches.length} eligible</Chip>
+            <div className="flex flex-wrap items-center gap-2 text-sm text-charcoal-soft">
+              <Chip tone="positive">{d.matches.length} eligible</Chip>
               <span>of {d.corpus_size} opportunities · {d.excluded_count} excluded by hard rules</span>
-              {keywords && keywords.length > 0 && <Chip tone="green" title="Applied in your browser">re-ranked locally with {keywords.length} private keyword{keywords.length > 1 ? "s" : ""}</Chip>}
-              {exp.data && <Chip tone={exp.data.llm ? "violet" : "slate"}>{exp.data.llm ? "explanations by Claude" : "rule-based explanations"}</Chip>}
+              {keywords && keywords.length > 0 && <Chip tone="positive" title="Applied in your browser">re-ranked locally with {keywords.length} private keyword{keywords.length > 1 ? "s" : ""}</Chip>}
+              {exp.data && <Chip tone={exp.data.llm ? "dark" : "neutral"}>{exp.data.llm ? "explanations by Claude" : "rule-based explanations"}</Chip>}
             </div>
             {d.trl_assessment.consistent === false && <Notice>{d.trl_assessment.note}</Notice>}
             {ranked.map(({ m, boost }, i) => (
@@ -137,20 +137,20 @@ export default function Matches() {
 
           <aside className="space-y-4">
             <Card>
-              <p className="font-semibold text-ink">Why {d.excluded_count} were excluded</p>
-              <ul className="mt-2 space-y-1 text-sm text-ink-soft">
+              <p className="font-semibold text-charcoal">Why {d.excluded_count} were excluded</p>
+              <ul className="mt-2 space-y-1 text-sm text-charcoal-soft">
                 {Object.entries(d.excluded_by_rule).map(([r, n]) => <li key={r} className="flex justify-between"><span>{RULE_NAMES[r] ?? r}</span><span className="tabular-nums">{n}</span></li>)}
               </ul>
-              <p className="mt-2 text-xs text-ink-muted">One grant can fail several rules.</p>
+              <p className="mt-2 text-xs text-charcoal-muted">One grant can fail several rules.</p>
             </Card>
             {d.unlocks.length > 0 && (
               <Card>
-                <p className="font-semibold text-ink">What would unlock more funding</p>
+                <p className="font-semibold text-charcoal">What would unlock more funding</p>
                 <ul className="mt-2 space-y-3">
                   {d.unlocks.map((u) => (
                     <li key={u.change} className="text-sm">
-                      <p className="flex justify-between font-medium text-ink"><span>{u.label}</span><Chip tone="blue">+{u.count}</Chip></p>
-                      <p className="text-xs text-ink-muted">{u.examples.join(" · ")}</p>
+                      <p className="flex justify-between font-medium text-charcoal"><span>{u.label}</span><Chip tone="info">+{u.count}</Chip></p>
+                      <p className="text-xs text-charcoal-muted">{u.examples.join(" · ")}</p>
                     </li>
                   ))}
                 </ul>
@@ -158,27 +158,27 @@ export default function Matches() {
             )}
             {d.near_misses.length > 0 && (
               <Card>
-                <p className="font-semibold text-ink">Near misses</p>
-                <p className="text-xs text-ink-muted">Fail exactly one rule.</p>
+                <p className="font-semibold text-charcoal">Near misses</p>
+                <p className="text-xs text-charcoal-muted">Fail exactly one rule.</p>
                 <ul className="mt-2 space-y-2 text-sm">
                   {d.near_misses.slice(0, 6).map((m) => (
                     <li key={m.grant.id}>
-                      <p className="font-medium text-ink">{m.grant.title}</p>
-                      <p className="text-xs text-rose-700">{m.rules.find((r) => r.status === "fail")?.detail}</p>
+                      <p className="font-medium text-charcoal">{m.grant.title}</p>
+                      <p className="text-xs text-error">{m.rules.find((r) => r.status === "fail")?.detail}</p>
                     </li>
                   ))}
                 </ul>
               </Card>
             )}
-            <Card className="border-brand-100 bg-brand-50">
-              <p className="font-semibold text-brand-700">Too early for most of these?</p>
-              <p className="mt-1 text-sm text-ink-soft">
+            <Card tone="dark">
+              <p className="font-display font-semibold text-lime">Too early for most of these?</p>
+              <p className="mt-1 text-sm text-limestone-300">
                 Open a milestone-gated raise: funders’ money sits in escrow and is released only when an attestor approves
                 your evidence. Miss a milestone and they get it back.
               </p>
               <div className="mt-3"><Button href="/raise/new">Raise on-chain (testnet)</Button></div>
             </Card>
-            <p className="px-1 text-xs text-ink-muted">
+            <p className="px-1 text-xs text-charcoal-muted">
               Embedder: {d.embedder}. Edit your <Link href="/profile" className="underline">profile</Link> to re-run.
             </p>
           </aside>
