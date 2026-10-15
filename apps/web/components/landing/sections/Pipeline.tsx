@@ -1,11 +1,10 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Chip, StatusChip, cx } from "@/components/ui";
-import { DEPLOYMENT, PROJECT_STATUS } from "@/lib/chain";
-import { usdc } from "@/lib/format";
-import { useMetadata, useProjects, type ProjectSummary } from "@/lib/hooks";
+import { DEPLOYMENT } from "@/lib/chain-meta";
 import { DEMO_DATA, PIPELINE } from "../content";
 import { onFrame, store } from "../motion";
 import { RevealLines } from "../Reveal";
@@ -45,7 +44,7 @@ function Art({ kind }: { kind: string }) {
   );
 }
 
-function CardShell({ children, art, href }: { children: React.ReactNode; art: string; href?: string }) {
+export function CardShell({ children, art, href }: { children: React.ReactNode; art: string; href?: string }) {
   const body = (
     <article className="flex h-full w-[min(82vw,20rem)] shrink-0 snap-start flex-col overflow-hidden rounded-2xl border border-neutral bg-white transition-colors hover:border-charcoal md:w-[22rem]">
       <div className="aspect-[16/10] w-full"><Art kind={art} /></div>
@@ -55,7 +54,7 @@ function CardShell({ children, art, href }: { children: React.ReactNode; art: st
   return href ? <Link href={href} className="block h-full">{body}</Link> : body;
 }
 
-function Progress({ raised, target, label }: { raised: number; target: number; label: string }) {
+export function Progress({ raised, target, label }: { raised: number; target: number; label: string }) {
   const k = target > 0 ? Math.min(1, raised / target) : 0;
   return (
     <div className="mt-auto">
@@ -68,32 +67,31 @@ function Progress({ raised, target, label }: { raised: number; target: number; l
   );
 }
 
-function LiveCard({ p }: { p: ProjectSummary }) {
-  const meta = useMetadata(p.metadataCID);
-  return (
-    <CardShell art={(["lattice", "crystal", "flow"] as const)[Number(p.id % 3n)]} href={`/raise/${p.id}`}>
-      <div className="flex flex-wrap gap-1.5"><Chip tone="dark">Live on testnet</Chip><Chip>TRL {p.trl}</Chip><Chip tone="info">{PROJECT_STATUS[p.status]}</Chip></div>
-      <h3 className="font-display text-lg font-semibold text-charcoal">{meta.data?.nickname ?? `Project #${p.id}`}</h3>
-      <Progress raised={Number(p.raised) / 1e6} target={Number(p.target) / 1e6} label={`${usdc(p.raised, 0)} / ${usdc(p.target, 0)} mUSDC`} />
-    </CardShell>
-  );
-}
-
-function LiveCards() {
-  const projects = useProjects();
-  return <>{projects.data?.filter((p) => p.target > 0n).slice(0, 4).map((p) => <LiveCard key={p.id.toString()} p={p} />)}</>;
-}
+// Real on-chain raises - code loaded only when the section approaches the viewport.
+const PipelineLive = dynamic(() => import("./PipelineLive"), { ssr: false });
 
 // S6 · Research pipeline (limestone, ~180vh desktop). A horizontal track driven by vertical scroll; real on-chain
 // raises (when contracts are deployed) come first, then badged demo cards. Mobile: a native swipe row.
 export function Pipeline() {
   const track = useRef<HTMLDivElement>(null);
-  useEffect(() => onFrame(() => {
+  const [near, setNear] = useState(false);
+  useEffect(() => {
     const el = track.current;
-    if (!el || window.innerWidth < 768) { if (el) el.style.transform = ""; return; }
-    const overflow = Math.max(0, el.scrollWidth - el.parentElement!.clientWidth);
-    el.style.transform = `translate3d(${-(store.pinned.pipeline ?? 0) * overflow}px,0,0)`;
-  }), []);
+    if (!el || !DEPLOYMENT) return;
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setNear(true); io.disconnect(); } }, { rootMargin: "150% 0px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  useEffect(() => {
+    let last = "";
+    return onFrame(() => {
+      const el = track.current;
+      if (!el) return;
+      const next = window.innerWidth < 768 ? ""
+        : `translate3d(${Math.round(-(store.pinned.pipeline ?? 0) * Math.max(0, el.scrollWidth - el.parentElement!.clientWidth))}px,0,0)`;
+      if (next !== last) { el.style.transform = next; last = next; } // write only on change
+    });
+  }, []);
 
   return (
     <section id="pipeline" data-section="pipeline" data-theme="light" className="relative scroll-mt-16 bg-limestone md:h-[180vh]">
@@ -107,7 +105,7 @@ export function Pipeline() {
         </div>
         <div className="relative z-10 mx-auto mt-10 w-full max-w-7xl overflow-x-auto px-4 pb-4 sm:px-6 md:overflow-visible lg:px-8 [scrollbar-width:none]">
           <div ref={track} className="flex snap-x snap-mandatory gap-5 will-change-transform md:snap-none">
-            {DEPLOYMENT && <LiveCards />}
+            {near && <PipelineLive />}
             {PIPELINE.demo.map((d) => (
               <CardShell key={d.title} art={d.art}>
                 <div className="flex flex-wrap gap-1.5">

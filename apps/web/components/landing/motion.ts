@@ -22,6 +22,8 @@ let boxes: Box[] = [];
 const subs = new Set<() => void>();
 let raf = 0;
 let running = false;
+let lastY = -1;
+let dirty = true; // set by measure() and pointer moves; scroll changes are detected directly
 
 export function onFrame(fn: () => void) {
   subs.add(fn);
@@ -37,10 +39,16 @@ export function measure() {
     return { id: el.dataset.section as SectionId, top: r.top + y, height: r.height };
   });
   store.vh = window.innerHeight;
+  dirty = true;
 }
 
 function tick() {
-  const y = window.scrollY, vh = store.vh, mid = y + vh / 2;
+  raf = requestAnimationFrame(tick);
+  const y = window.scrollY;
+  if (y === lastY && !dirty) return; // nothing moved: no work this frame
+  lastY = y;
+  dirty = false;
+  const vh = store.vh, mid = y + vh / 2;
   let t = 0;
   for (let i = 0; i < boxes.length; i++) {
     const b = boxes[i];
@@ -50,17 +58,18 @@ function tick() {
   }
   store.t = t;
   subs.forEach((fn) => fn());
-  raf = requestAnimationFrame(tick);
 }
 
 export function startScrollLoop() {
   if (running) return () => {};
   running = true;
+  lastY = -1;
   measure();
   const onResize = () => measure();
   const onMove = (e: PointerEvent) => {
     store.mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
     store.mouse.y = (e.clientY / window.innerHeight) * 2 - 1;
+    dirty = true;
   };
   window.addEventListener("resize", onResize);
   window.addEventListener("pointermove", onMove, { passive: true });

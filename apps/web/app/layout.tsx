@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Noto_Sans_Thai, Space_Grotesk } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
-import { Providers } from "./providers";
 
 const display = Space_Grotesk({ subsets: ["latin"], weight: ["500", "600", "700"], variable: "--font-display", display: "swap" });
 const sans = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
@@ -30,7 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${sans.variable} ${thai.variable}`}>
       <body>
-        <Providers>{children}</Providers>
+        {children}
       </body>
     </html>
   );

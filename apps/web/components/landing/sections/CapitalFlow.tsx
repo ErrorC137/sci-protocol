@@ -126,7 +126,7 @@ export function CapitalFlow() {
           {/* Step indicator */}
           <ol aria-hidden className="hidden flex-col justify-center gap-3 md:col-span-1 md:flex">
             {FLOW.map((s, i) => (
-              <li key={s.n} className={cx("figure text-xs font-semibold transition-colors duration-500", i === phase ? "text-lime" : i < phase || closed ? "text-limestone-300" : "text-charcoal-600")}>
+              <li key={s.n} className={cx("figure text-xs font-semibold transition-colors duration-500", i === phase ? "text-lime" : i < phase || closed ? "text-limestone-300" : "text-charcoal-dim")}>
                 {s.n}<span className={cx("mt-1 block h-px bg-current transition-all duration-500", i === phase ? "w-8" : "w-3")} />
               </li>
             ))}

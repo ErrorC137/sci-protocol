@@ -12,7 +12,7 @@ export function Hero() {
   return (
     <section data-section="hero" data-theme="light" className="relative bg-limestone md:h-[150vh]">
       <div className="relative flex min-h-[100svh] flex-col md:sticky md:top-0 md:h-screen md:min-h-0">
-        <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 items-center gap-10 px-4 pt-24 sm:px-6 md:grid-cols-12 md:pt-16 lg:px-8">
+        <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 content-start items-center gap-10 px-4 pt-16 sm:px-6 md:grid-cols-12 md:content-center md:pt-16 lg:px-8">
           <div className="md:col-span-7 lg:col-span-6">
             <p className="eyebrow flex items-center gap-2"><span aria-hidden className="h-1.5 w-1.5 rounded-full bg-lime-500" />{HERO.eyebrow}</p>
             <h1 className="mt-5 font-display text-[clamp(2.75rem,6.2vw,4.5rem)] font-semibold leading-[1.02] tracking-tight text-charcoal">

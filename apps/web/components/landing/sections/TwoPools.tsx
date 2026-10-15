@@ -55,7 +55,7 @@ export function TwoPools() {
         <div className="mt-14 grid items-stretch gap-6 md:grid-cols-[1fr_auto_1fr]">
           <Reveal><Vessel pool={POOLS.a} accent="copper" filled={k > 0.2} /></Reveal>
           {/* The wall */}
-          <div className="flex items-center justify-center md:flex-col" aria-label={locked ? "Pools locked apart" : "Pools separating"}>
+          <div role="img" className="flex items-center justify-center md:flex-col" aria-label={locked ? "A locked wall keeps the two pools apart" : "A wall rising between the two pools"}>
             <span className="h-px flex-1 bg-charcoal/20 md:hidden" />
             <div className="relative hidden w-1.5 flex-1 overflow-hidden rounded-full bg-charcoal/10 md:block">
               <div className="absolute inset-x-0 bottom-0 bg-charcoal transition-[height] duration-300" style={{ height: `${k * 100}%` }} />

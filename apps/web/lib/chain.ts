@@ -2,15 +2,13 @@ import { connectorsForWallets, getDefaultConfig } from "@rainbow-me/rainbowkit";
 import { injectedWallet } from "@rainbow-me/rainbowkit/wallets";
 import {
   AttestationRegistryAbi, FundingPoolAbi, MilestoneEscrowAbi, MockUSDCAbi, ProjectRegistryAbi, SCIFractionAbi,
-  deployments, type Deployment,
 } from "@sci/shared";
 import { http, createConfig } from "wagmi";
-import { baseSepolia, bscTestnet, foundry, type Chain } from "wagmi/chains";
+import { DEPLOYMENT, RPC, TARGET_CHAIN } from "./chain-meta";
 
-const CHAINS: Record<number, Chain> = { [baseSepolia.id]: baseSepolia, [bscTestnet.id]: bscTestnet, [foundry.id]: foundry };
+// Wallet config (RainbowKit + wagmi). Plain chain facts live in ./chain-meta and are re-exported here.
+export * from "./chain-meta";
 
-export const TARGET_CHAIN: Chain = CHAINS[Number(process.env.NEXT_PUBLIC_CHAIN_ID || baseSepolia.id)] ?? baseSepolia;
-const RPC = process.env.NEXT_PUBLIC_RPC_URL || undefined;
 const WC_ID = process.env.NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID;
 
 export const wagmiConfig = WC_ID
@@ -32,8 +30,6 @@ export const wagmiConfig = WC_ID
       ssr: true,
     });
 
-export const DEPLOYMENT: Deployment | undefined = deployments[TARGET_CHAIN.id];
-
 export function contracts() {
   const d = DEPLOYMENT;
   if (!d) return null;
@@ -48,11 +44,3 @@ export function contracts() {
 }
 
 export type Contracts = NonNullable<ReturnType<typeof contracts>>;
-
-export const EXPLORER = TARGET_CHAIN.blockExplorers?.default.url;
-export const txUrl = (hash: string) => (EXPLORER ? `${EXPLORER}/tx/${hash}` : undefined);
-export const addressUrl = (a: string) => (EXPLORER ? `${EXPLORER}/address/${a}` : undefined);
-
-export const PROJECT_STATUS = ["Draft", "Open", "Funded", "Completed", "Failed"] as const;
-export const MILESTONE_STATE = ["Pending", "Submitted", "Approved", "Rejected", "Released"] as const;
-export const USDC_DECIMALS = 6;

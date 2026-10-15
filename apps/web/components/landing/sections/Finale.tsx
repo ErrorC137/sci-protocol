@@ -25,7 +25,8 @@ export function Finale() {
           </div>
         </div>
       </div>
-      <div className="relative z-10 overflow-hidden border-y border-charcoal bg-charcoal py-4" aria-label={FINALE.marquee.join(" × ")}>
+      <div className="relative z-10 overflow-hidden border-y border-charcoal bg-charcoal py-4">
+        <p className="sr-only">{FINALE.marquee.join(" × ")}</p>
         <div aria-hidden className="marquee flex w-max gap-8 whitespace-nowrap font-display text-sm font-semibold uppercase tracking-eyebrow text-limestone-100">
           {items.map((m, i) => (
             <span key={i} className="flex items-center gap-8">{m}<span className="text-lime">×</span></span>

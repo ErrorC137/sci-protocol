@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { onFrame, store } from "./landing/motion";
 import { Logo } from "./Logo";
-import { WalletButton } from "./WalletButton";
+import { LandingWallet } from "./LandingWallet";
 
 // Marketing-site chrome for "/": light nav (logo · links · search · charcoal "Connect Wallet" pill) and the
 // charcoal footer. The app pages use AppShell instead.
@@ -38,7 +38,7 @@ export function SiteNav() {
           <Link href="/discover" aria-label="Search opportunities" className={`hidden rounded-full p-2 sm:block ${dark ? "text-limestone-100 hover:bg-white/10" : "text-charcoal hover:bg-charcoal/5"}`}>
             <Search className="h-4 w-4" />
           </Link>
-          <WalletButton variant={dark ? "lime" : "dark"} />
+          <LandingWallet variant={dark ? "lime" : "dark"} />
           <button className={`rounded-lg p-2 md:hidden ${dark ? "text-limestone-100 hover:bg-white/10" : "text-charcoal hover:bg-charcoal/5"}`} onClick={() => setOpen(!open)}
             aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

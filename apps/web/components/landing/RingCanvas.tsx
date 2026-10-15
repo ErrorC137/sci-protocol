@@ -15,21 +15,23 @@ function webglOk() {
   }
 }
 
-// Mounts the fixed 3D canvas only where it pays off: desktop/tablet width (>= 768px), WebGL available, motion
-// allowed. It waits until the page is idle so the server-rendered headline is never held up by three.js;
-// everywhere else the SVG ring twins stay in place.
+const INTENT = ["pointermove", "pointerdown", "wheel", "scroll", "touchstart", "keydown"] as const;
+
+// Mounts the fixed 3D canvas only where it pays off - width >= 768px, WebGL available, motion allowed - and only
+// once the visitor shows intent (first pointer move, scroll, touch or key). Until then the SVG ring twins hold
+// the exact same spots, and the 3D cross-fades in over them. Loading three.js on intent rather than on idle keeps
+// it off the critical path entirely: the headline paints first, and the main thread is quiet while the page settles.
 export function RingCanvas() {
   const [on, setOn] = useState(false);
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
-    const decide = () => setOn(mq.matches && !prefersReducedMotion() && webglOk());
-    const w = window as Window & { requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number };
-    const id = w.requestIdleCallback ? w.requestIdleCallback(decide, { timeout: 1500 }) : window.setTimeout(decide, 600);
-    mq.addEventListener("change", decide);
-    return () => {
-      mq.removeEventListener("change", decide);
-      if (!w.requestIdleCallback) window.clearTimeout(id);
-    };
+    if (!mq.matches || prefersReducedMotion() || !webglOk()) return;
+    const go = () => { cleanup(); setOn(true); };
+    const cleanup = () => INTENT.forEach((e) => window.removeEventListener(e, go));
+    INTENT.forEach((e) => window.addEventListener(e, go, { passive: true, once: true }));
+    // Arriving already scrolled (reload mid-page, anchor link) counts as intent.
+    if (window.scrollY > 0) go();
+    return cleanup;
   }, []);
   return on ? <Scene /> : null;
 }

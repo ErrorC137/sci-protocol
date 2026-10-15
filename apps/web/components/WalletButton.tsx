@@ -1,17 +1,34 @@
 "use client";
 
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { ConnectButton, useConnectModal } from "@rainbow-me/rainbowkit";
 import { Wallet } from "lucide-react";
+import { useEffect, useRef } from "react";
+import { useAccount } from "wagmi";
 import { cx } from "./ui";
+
+// Opens the connect modal once, as soon as RainbowKit is ready - for a click that happened before it loaded.
+function AutoOpen() {
+  const { openConnectModal } = useConnectModal();
+  const { isConnected } = useAccount();
+  const done = useRef(false);
+  useEffect(() => {
+    if (done.current || isConnected || !openConnectModal) return;
+    done.current = true;
+    openConnectModal();
+  }, [openConnectModal, isConnected]);
+  return null;
+}
 
 // RainbowKit's ConnectButton, restyled to the UPLO button system. The not-connected label stays exactly
 // "Connect Wallet" (scripts/e2e/smoke.py looks for it).
-export function WalletButton({ variant = "lime", className }: { variant?: "lime" | "dark"; className?: string }) {
+export function WalletButton({ variant = "lime", className, autoOpen }: { variant?: "lime" | "dark"; className?: string; autoOpen?: boolean }) {
   const base = "inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-colors";
   const tone = variant === "dark"
     ? "bg-charcoal text-limestone-50 hover:bg-charcoal-800"
     : "bg-lime text-charcoal hover:bg-lime-400";
   return (
+    <>
+    {autoOpen && <AutoOpen />}
     <ConnectButton.Custom>
       {({ account, chain, mounted, openAccountModal, openChainModal, openConnectModal }) => {
         const ready = mounted;
@@ -29,5 +46,6 @@ export function WalletButton({ variant = "lime", className }: { variant?: "lime"
         );
       }}
     </ConnectButton.Custom>
+    </>
   );
 }

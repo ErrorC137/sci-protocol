@@ -4,5 +4,6 @@
   "private": true,
   "main": "src/index.ts",
   "types": "src/index.ts",
-  "description": "Contract ABIs, deployment addresses and API types shared by the web app."
+  "description": "Contract ABIs, deployment addresses and API types shared by the web app.",
+  "sideEffects": false
 }

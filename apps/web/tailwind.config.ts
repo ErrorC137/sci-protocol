@@ -18,6 +18,7 @@ export default {
           950: "#131614", 900: "#1E2320", 800: "#29302B", 700: "#363E39", 600: "#4B534E",
           soft: "#3E4541", // secondary text
           muted: "#5E645F", // supporting text; >= 4.5:1 on limestone and white
+          dim: "#8A908B", // de-emphasised text ON charcoal; still >= 4.5:1 there
         },
         copper: {
           DEFAULT: "#B57856", // Mineral Copper - industrial / material accent, secondary chart series
