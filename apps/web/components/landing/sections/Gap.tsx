@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { cx } from "@/components/ui";
 import { GAP, ILLUSTRATIVE } from "../content";
 import { Reveal, RevealLines } from "../Reveal";
+import { RingSvg } from "../RingSvg";
 
 // The 90-day timer ticks while the card is on screen (and sits at day 90 for reduced motion / no JS).
 function InvoiceCard() {
@@ -76,8 +77,14 @@ export function Gap() {
       <div aria-hidden className="pointer-events-none absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-copper/50 to-transparent" />
       <div aria-hidden className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px bg-gradient-to-b from-transparent via-copper/40 to-transparent md:block" />
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <p className="eyebrow text-limestone-400">{GAP.eyebrow}</p>
-        <div className="mt-10 grid gap-16 md:grid-cols-2 md:gap-20">
+        <div className="flex items-start justify-between gap-6">
+          <p className="eyebrow text-limestone-400">{GAP.eyebrow}</p>
+          {/* Ring slot: the ring arrives here dark - nothing is lit yet. */}
+          <div data-ring-slot className="relative -mt-6 hidden aspect-square w-40 md:block">
+            <div className="ring-fallback absolute inset-0"><RingSvg tone="dark" lit={0} className="w-full" /></div>
+          </div>
+        </div>
+        <div className="mt-4 grid gap-16 md:grid-cols-2 md:gap-20">
           <div className="space-y-6">
             <RevealLines as="h2" className="font-display text-3xl font-semibold leading-tight sm:text-4xl" lines={["Recyclers wait", "90 days to get paid."]} />
             <Reveal><p className="max-w-md text-limestone-300">{GAP.left.body}</p></Reveal>

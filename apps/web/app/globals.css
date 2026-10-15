@@ -53,3 +53,7 @@ html.motion:not(.motion-ready) .reveal-block { opacity: 0; transform: translateY
 html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-stopped { overflow: hidden; }
+
+/* Once the 3D ring has drawn its first frame, its SVG stand-ins step aside. */
+.ring-fallback { transition: opacity 600ms ease-out; }
+html.ring-3d .ring-fallback { opacity: 0 !important; }

@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import { useEffect, type ReactNode } from "react";
 import { measure, prefersReducedMotion, startScrollLoop } from "./motion";
+import { RingCanvas } from "./RingCanvas";
 
 export function Landing({ children }: { children: ReactNode }) {
   useEffect(() => {
@@ -25,12 +26,13 @@ export function Landing({ children }: { children: ReactNode }) {
     gsap.ticker.lagSmoothing(0);
 
     const ctx = gsap.context(() => {
-      // Take over from the CSS pre-hide in the same frame (no flash): inline GSAP state, then drop the CSS rule.
+      // Take over from the CSS pre-hide within one frame (no flash). Drop the CSS rule FIRST so GSAP doesn't read
+      // the pre-hide transform as a base offset, then set the same hidden state inline.
       const lines = gsap.utils.toArray<HTMLElement>(".reveal-line");
       const blocks = gsap.utils.toArray<HTMLElement>(".reveal-block");
-      gsap.set(lines, { yPercent: 105 });
-      gsap.set(blocks, { autoAlpha: 0, y: 28 });
       html.classList.add("motion-ready");
+      gsap.set(lines, { yPercent: 105, y: 0 });
+      gsap.set(blocks, { autoAlpha: 0, y: 28 });
 
       document.querySelectorAll<HTMLElement>("[data-reveal-group]").forEach((g) => {
         gsap.to(g.querySelectorAll(".reveal-line"), {
@@ -62,5 +64,5 @@ export function Landing({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  return <>{children}</>;
+  return <><RingCanvas />{children}</>;
 }

@@ -2,7 +2,10 @@
   "name": "sci-protocol",
   "private": true,
   "description": "Research funding aggregation, non-confidential matching, application pre-fill, and milestone-gated testnet funding.",
-  "workspaces": ["apps/web", "packages/shared"],
+  "workspaces": [
+    "apps/web",
+    "packages/shared"
+  ],
   "scripts": {
     "dev:web": "npm run dev -w apps/web",
     "build:web": "npm run build -w apps/web",
@@ -11,5 +14,8 @@
     "test:contracts": "cd contracts && forge test",
     "dev:chain": "bash scripts/dev-chain.sh",
     "export-abis": "node scripts/export-abis.mjs"
+  },
+  "overrides": {
+    "@types/three": "0.170.0"
   }
 }
