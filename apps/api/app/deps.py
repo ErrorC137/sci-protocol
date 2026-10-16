@@ -25,10 +25,11 @@ def build_store(load: bool = True) -> Store:
     if load:
         from .ingest.run import run
 
-        # Memory store: always load the curated corpus. Postgres: only if empty (ingest runs on a schedule).
-        if store.kind == "memory" or store.count() == 0:
-            for r in run(store, ["curated", *settings.startup_connectors]):
-                log.info("ingest %s: %s rows, %s errors", r["source"], r["upserted"], len(r["errors"]))
+        # The curated corpus is upserted on every boot (stable ids, so a redeploy picks up edits to grants.yaml
+        # without duplicating rows). Live connectors run at boot only into an empty store; otherwise on a schedule.
+        names = ["curated", *settings.startup_connectors] if store.kind == "memory" or store.count() == 0 else ["curated"]
+        for r in run(store, names):
+            log.info("ingest %s: %s rows, %s errors", r["source"], r["upserted"], len(r["errors"]))
     return store
 
 

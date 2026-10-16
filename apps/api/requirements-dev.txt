@@ -1,3 +1,4 @@
 -r requirements.txt
 pytest==9.1.1
 reportlab==5.0.1  # scripts/make_demo_forms.py and tests
+openpyxl==3.1.5  # scripts/import_sheet.py (team spreadsheet import)

@@ -207,3 +207,219 @@ sites:
 - url: https://www.researchhub.com
   funder: researchhub
   name: ResearchHub Foundation
+- url: https://seed.nih.gov/small-business-funding/find-funding/sbir-sttr-funding-opportunities
+  funder: nsf
+  name: NSF SBIR Phase I
+- url: https://science.osti.gov/sbir
+  funder: doe_sbir
+  name: DOE SBIR Phase I
+- url: https://sbir.nasa.gov/
+  funder: nasa_sbir
+  name: NASA SBIR Phase I
+- url: https://www.darpa.mil/work-with-us/for-small-businesses
+  funder: darpa
+  name: DARPA SBIR / STTR
+- url: https://nifa.usda.gov/program/small-business-innovation-research-program-sbir
+  funder: usda_nifa
+  name: USDA SBIR Phase I
+- url: https://www.diu.mil/
+  funder: diu
+  name: AFWERX / DIU Commercialization Fund
+- url: https://medicalcountermeasures.gov/barda/drive/
+  funder: barda
+  name: BARDA DRIVe
+- url: https://www.nist.gov/mep
+  funder: nist_mep
+  name: NIST Manufacturing Extension Partnership (MEP)
+- url: https://masschallenge.org/
+  funder: masschallenge
+  name: MassChallenge USA
+- url: https://sosv.com/
+  funder: indiebio
+  name: SOSV / IndieBio
+- url: https://www.plugandplaytechcenter.com/
+  funder: pnp
+  name: Plug and Play Tech Center
+- url: https://cyclotronroad.lbl.gov/
+  funder: activate
+  name: Cyclotron Road (LBNL)
+- url: https://chainreaction.anl.gov/
+  funder: anl_cri
+  name: Chain Reaction Innovations (ANL)
+- url: https://innovationcrossroads.ornl.gov/
+  funder: ornl_ic
+  name: Innovation Crossroads (ORNL)
+- url: https://www.in2ecosystem.com/
+  funder: in2
+  name: Wells Fargo IN2 Incubator
+- url: https://eic.ec.europa.eu/eic-pathfinder_en
+  funder: eic
+  name: EIC Pathfinder Open
+- url: https://eic.ec.europa.eu/eic-transition_en
+  funder: eic
+  name: EIC Transition
+- url: https://eic.ec.europa.eu/eic-accelerator_en
+  funder: eic
+  name: EIC Accelerator Open
+- url: https://eic.ec.europa.eu/eic-step_en
+  funder: eic
+  name: EIC STEP Scale-Up
+- url: https://www.eurostars-eureka.eu/
+  funder: eureka
+  name: Eurostars 3
+- url: https://www.eurekanetwork.org/
+  funder: eureka
+  name: Eureka Network Projects
+- url: https://www.innoenergy.com/
+  funder: eit_innoenergy
+  name: EIT InnoEnergy Call
+- url: https://eitrawmaterials.eu/
+  funder: eit_rawmaterials
+  name: EIT RawMaterials Accelerator
+- url: https://eithealth.eu/
+  funder: eit_health
+  name: EIT Health Headstart
+- url: https://www.eitdigital.eu/
+  funder: eit_digital
+  name: EIT Digital Venture Program
+- url: https://www.innosuisse.ch/
+  funder: innosuisse
+  name: Innosuisse Innovation Projects
+- url: https://www.ffg.at/
+  funder: ffg
+  name: FFG Bridge Program
+- url: https://www.exist.de/
+  funder: exist
+  name: Bied ForLab / EXIST Program
+- url: https://www.bpifrance.fr/
+  funder: bpifrance
+  name: Bpifrance Deeptech Plan
+- url: https://www.cdti.es/
+  funder: cdti
+  name: CDTI R&D Projects
+- url: https://www.primemoverslab.com/
+  funder: pml
+  name: Prime Movers Lab
+- url: https://www.eitfood.eu/
+  funder: eit_food
+  name: EIT Food Accelerator Network
+- url: https://www.eiturbanmobility.eu/
+  funder: eit_um
+  name: EIT Urban Mobility Accelerator
+- url: https://www.deepscienceventures.com/
+  funder: dsv
+  name: Deep Science Ventures
+- url: https://www.cancerresearchuk.org/
+  funder: cruk
+  name: Cancer Research UK Ventures
+- url: https://www.ukri.org/councils/innovate-uk/
+  funder: innovate_uk
+  name: Innovate UK Smart Grants
+- url: https://www.jst.go.jp/ar/
+  funder: jst
+  name: JST A-STEP (Adaptable and Seamless Technology transfer Program)
+- url: https://www.nedo.go.jp/english/
+  funder: nedo
+  name: NEDO Technology Commercialization Program
+- url: https://www.jetro.go.jp/en/
+  funder: jetro
+  name: JETRO Startup Accelerator Programs
+- url: https://www.kised.or.kr/
+  funder: kised
+  name: KISED TIPS Program (Tech Incubator Program for Startup)
+- url: https://www.kiat.or.kr/
+  funder: kiat
+  name: KIAT Industrial Technology R&D
+- url: https://www.kist.re.kr/
+  funder: kist
+  name: KIST Open Innovation Lab
+- url: https://www.nstc.gov.tw/
+  funder: nstc_tw
+  name: NSTC Science & Technology Innovation Grant
+- url: https://taiwantecharena.tw/
+  funder: tta
+  name: TTA (Taiwan Tech Arena) Acceleration
+- url: https://www.enterprisesg.gov.sg/
+  funder: esg
+  name: Enterprise Singapore Startup SG Tech (PoC)
+- url: https://www.a-star.edu.sg/
+  funder: astar
+  name: A*STAR T-Up Programme
+- url: https://www.nrf.gov.sg/
+  funder: nrf_sg
+  name: NRF Competitive Research Programme (CRP)
+- url: https://www.start2.group/
+  funder: start2
+  name: GAD (Global Applied DeepTech) Accelerator
+- url: https://www.brin.go.id/
+  funder: brin
+  name: BEP (Badan Ekonomi Kreatif) / BRIN Grants
+- url: https://mdec.my/
+  funder: mdec
+  name: MDEC GAIN / Kre8tif Accelerator
+- url: https://www.niaid.nih.gov/
+  funder: niaid
+  name: NIAID International R&D Partnerships
+- url: https://adbventures.com/
+  funder: adbv
+  name: ADB Ventures (Asian Development Bank)
+- url: https://www.temasekfoundation.org.sg/
+  funder: temasek_fdn
+  name: Temasek Foundation grants
+- url: https://iterative.vc/
+  funder: iterative
+  name: Iterative VC Accelerator
+- url: https://www.insead.edu/
+  funder: insead
+  name: INSEAD Venture Competition / SEA Hubs
+- url: https://www.nia.or.th/service/financial-support
+  funder: nia
+  name: NIA Startup Thailand Innovation Grant (NIA STARTUP)
+- url: https://www.nxpo.or.th/
+  funder: nxpo
+  name: NXPO Policy & Strategic Science Grants
+- url: https://www.sustainability.chula.ac.th/
+  funder: chula
+  name: BCC (Bangkok Business Challenge) / CU Enterprise
+- url: https://trueincube.com/
+  funder: true_incube
+  name: True Incube
+- url: https://startup.ais.co.th/
+  funder: ais
+  name: AIS The StartUp
+- url: https://www.banpu.com/
+  funder: banpu
+  name: Banpu Champions for Change (BCFC)
+- url: https://innospacethailand.com/
+  funder: innospace
+  name: InnoSpace (Thailand)
+- url: https://www.krungsrifinnovate.com/
+  funder: krungsri_finnovate
+  name: Krungsri Finnovate
+- url: https://www.beaconvc.fund/
+  funder: beacon_vc
+  name: Beacon Venture Capital (Kasikornbank)
+- url: https://scb10x.com/
+  funder: scb10x
+  name: SCB 10X
+- url: https://www.kasikornx.com/
+  funder: kx
+  name: KXG (KASIKORN X-Change)
+- url: https://www.incubator.chula.ac.th/
+  funder: chula
+  name: CU Innovation Hub (Chulalongkorn)
+- url: https://www.tu.ac.th/
+  funder: tu
+  name: Thammasat University Science Park
+- url: https://step.cmu.ac.th/
+  funder: cmu_step
+  name: Chiang Mai University Science Park
+- url: https://kkusp.kku.ac.th/
+  funder: kku_sp
+  name: Khon Kaen University Science Park
+- url: https://psusp.psu.ac.th/
+  funder: psu_sp
+  name: Prince of Songkla University Science Park
+- url: https://www.tgi.or.th/
+  funder: tgi
+  name: Thai-German Institute (TGI)

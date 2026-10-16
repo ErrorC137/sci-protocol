@@ -93,6 +93,66 @@ funders:
   - {key: cerebrum, name: "CerebrumDAO", type: web3, country: GLOBAL, website: "https://www.cerebrumdao.com"}
   - {key: athena, name: "AthenaDAO", type: web3, country: GLOBAL, website: "https://www.athenadao.co"}
   - {key: researchhub, name: "ResearchHub Foundation", type: web3, country: US, website: "https://www.researchhub.com"}
+  - {key: doe_sbir, name: U.S. Department of Energy SBIR/STTR Programs Office, type: government, country: US, website: https://science.osti.gov/sbir}
+  - {key: nasa_sbir, name: NASA SBIR/STTR Program, type: government, country: US, website: https://sbir.nasa.gov}
+  - {key: darpa, name: DARPA (Defense Advanced Research Projects Agency), type: government, country: US, website: https://www.darpa.mil}
+  - {key: usda_nifa, name: USDA National Institute of Food and Agriculture (NIFA), type: government, country: US, website: https://nifa.usda.gov}
+  - {key: diu, name: Defense Innovation Unit (DIU), type: government, country: US, website: https://www.diu.mil}
+  - {key: barda, name: BARDA DRIVe (U.S. HHS), type: government, country: US, website: https://medicalcountermeasures.gov}
+  - {key: nist_mep, name: NIST Manufacturing Extension Partnership (MEP), type: government, country: US, website: https://www.nist.gov/mep}
+  - {key: masschallenge, name: MassChallenge, type: accelerator, country: US, website: https://masschallenge.org}
+  - {key: pnp, name: Plug and Play Tech Center, type: corporate, country: US, website: https://www.plugandplaytechcenter.com}
+  - {key: anl_cri, name: Chain Reaction Innovations (Argonne National Laboratory), type: government, country: US, website: https://chainreaction.anl.gov}
+  - {key: ornl_ic, name: Innovation Crossroads (Oak Ridge National Laboratory), type: government, country: US, website: https://innovationcrossroads.ornl.gov}
+  - {key: in2, name: Wells Fargo Innovation Incubator (IN2), type: corporate, country: US, website: https://www.in2ecosystem.com}
+  - {key: eureka, name: EUREKA (Eurostars and Network Projects), type: multilateral, country: BE, website: https://www.eurekanetwork.org}
+  - {key: eit_innoenergy, name: EIT InnoEnergy, type: government, country: NL, website: https://www.innoenergy.com}
+  - {key: eit_rawmaterials, name: EIT RawMaterials, type: government, country: DE, website: https://eitrawmaterials.eu}
+  - {key: eit_health, name: EIT Health, type: government, country: DE, website: https://eithealth.eu}
+  - {key: eit_digital, name: EIT Digital, type: government, country: BE, website: https://www.eitdigital.eu}
+  - {key: innosuisse, name: Innosuisse (Swiss Innovation Agency), type: government, country: CH, website: https://www.innosuisse.ch}
+  - {key: ffg, name: FFG (Austrian Research Promotion Agency), type: government, country: AT, website: https://www.ffg.at}
+  - {key: exist, name: EXIST (German Federal Ministry for Economic Affairs), type: government, country: DE, website: https://www.exist.de}
+  - {key: bpifrance, name: Bpifrance, type: government, country: FR, website: https://www.bpifrance.fr}
+  - {key: cdti, name: 'CDTI (Centre for the Development of Industrial Technology, Spain)', type: government, country: ES, website: https://www.cdti.es}
+  - {key: pml, name: Prime Movers Lab, type: corporate, country: US, website: https://www.primemoverslab.com}
+  - {key: eit_food, name: EIT Food, type: government, country: BE, website: https://www.eitfood.eu}
+  - {key: eit_um, name: EIT Urban Mobility, type: government, country: ES, website: https://www.eiturbanmobility.eu}
+  - {key: dsv, name: Deep Science Ventures, type: accelerator, country: GB, website: https://www.deepscienceventures.com}
+  - {key: cruk, name: Cancer Research UK, type: foundation, country: GB, website: https://www.cancerresearchuk.org}
+  - {key: innovate_uk, name: Innovate UK (UKRI), type: government, country: GB, website: https://www.ukri.org/councils/innovate-uk/}
+  - {key: jst, name: Japan Science and Technology Agency (JST), type: government, country: JP, website: https://www.jst.go.jp}
+  - {key: nedo, name: NEDO (New Energy and Industrial Technology Development Organization), type: government, country: JP, website: https://www.nedo.go.jp/english/}
+  - {key: jetro, name: JETRO (Japan External Trade Organization), type: government, country: JP, website: https://www.jetro.go.jp/en/}
+  - {key: kised, name: KISED (Korea Institute of Startup and Entrepreneurship Development), type: government, country: KR, website: https://www.kised.or.kr}
+  - {key: kiat, name: KIAT (Korea Institute for Advancement of Technology), type: government, country: KR, website: https://www.kiat.or.kr}
+  - {key: kist, name: KIST (Korea Institute of Science and Technology), type: government, country: KR, website: https://www.kist.re.kr}
+  - {key: nstc_tw, name: National Science and Technology Council (Taiwan), type: government, country: TW, website: https://www.nstc.gov.tw}
+  - {key: tta, name: Taiwan Tech Arena (TTA), type: accelerator, country: TW, website: https://taiwantecharena.tw}
+  - {key: astar, name: 'A*STAR (Agency for Science, Technology and Research)', type: government, country: SG, website: https://www.a-star.edu.sg}
+  - {key: nrf_sg, name: National Research Foundation Singapore, type: government, country: SG, website: https://www.nrf.gov.sg}
+  - {key: start2, name: start2 Group, type: accelerator, country: DE, website: https://www.start2.group}
+  - {key: brin, name: 'BRIN (National Research and Innovation Agency, Indonesia)', type: government, country: ID, website: https://www.brin.go.id}
+  - {key: mdec, name: MDEC (Malaysia Digital Economy Corporation), type: government, country: MY, website: https://mdec.my}
+  - {key: niaid, name: NIAID (U.S. National Institute of Allergy and Infectious Diseases), type: government, country: US, website: https://www.niaid.nih.gov}
+  - {key: adbv, name: ADB Ventures (Asian Development Bank), type: multilateral, country: PH, website: https://adbventures.com}
+  - {key: temasek_fdn, name: Temasek Foundation, type: foundation, country: SG, website: https://www.temasekfoundation.org.sg}
+  - {key: insead, name: INSEAD, type: accelerator, country: SG, website: https://www.insead.edu}
+  - {key: nxpo, name: NXPO (Office of National Higher Education Science Research and Innovation Policy Council), type: government, country: TH, website: https://www.nxpo.or.th}
+  - {key: chula, name: Chulalongkorn University, type: incubator, country: TH, website: https://www.chula.ac.th}
+  - {key: true_incube, name: True Incube (True Corporation), type: corporate, country: TH, website: https://trueincube.com}
+  - {key: ais, name: AIS The StartUp, type: corporate, country: TH, website: https://startup.ais.co.th}
+  - {key: banpu, name: Banpu (Banpu Champions for Change), type: corporate, country: TH, website: https://www.banpu.com}
+  - {key: innospace, name: InnoSpace (Thailand), type: incubator, country: TH, website: https://innospacethailand.com}
+  - {key: krungsri_finnovate, name: Krungsri Finnovate, type: corporate, country: TH, website: https://www.krungsrifinnovate.com}
+  - {key: beacon_vc, name: Beacon Venture Capital (KASIKORNBANK), type: corporate, country: TH, website: https://www.beaconvc.fund}
+  - {key: scb10x, name: SCB 10X, type: corporate, country: TH, website: https://scb10x.com}
+  - {key: kx, name: KASIKORN X (KX), type: corporate, country: TH, website: https://www.kasikornx.com}
+  - {key: tu, name: Thammasat University Science Park, type: incubator, country: TH, website: https://www.tu.ac.th}
+  - {key: cmu_step, name: Chiang Mai University Science and Technology Park (STeP), type: incubator, country: TH, website: https://step.cmu.ac.th}
+  - {key: kku_sp, name: Khon Kaen University Science Park, type: incubator, country: TH, website: https://kkusp.kku.ac.th}
+  - {key: psu_sp, name: Prince of Songkla University Science Park, type: incubator, country: TH, website: https://psusp.psu.ac.th}
+  - {key: tgi, name: Thai-German Institute (TGI), type: government, country: TH, website: https://www.tgi.or.th}
 
 grants:
   # ============================================================================
@@ -1393,3 +1453,876 @@ grants:
     application_mode: web_form
     confidence: low
     verified: false
+  - ref: sheet-nsf-sbir-phase-ii
+    funder: nsf
+    title: NSF SBIR Phase II
+    summary: Advanced R&D and prototype commercialization for small businesses with proven technical feasibility.
+    fields: [manufacturing]
+    trl: [6, 8]
+    countries: [US]
+    amount: {min: null, max: 1000000.0, currency: USD}
+    equity_taken: false
+    url: https://seedfund.nsf.gov
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 2, 2026-10-16); not checked against the funder's site. Category: Grant. Support: $1,000,000. CHECK: The sheet links to NIH's SBIR page; the URL was replaced with NSF's seedfund.nsf.gov. US SBIR/STTR is only for US small businesses majority-owned by US citizens or permanent residents. The programmes' authority lapsed on 1 Oct 2025; we could not verify whether it has been renewed since. Check before relying on it."
+  - ref: sheet-doe-sbir-phase-i
+    funder: doe_sbir
+    title: DOE SBIR Phase I
+    summary: Clean energy, nuclear, fusion, and advanced computing technological R&D.
+    fields: [energy, digital]
+    trl: [3, 5]
+    countries: [US]
+    amount: {min: 200000.0, max: 250000.0, currency: USD}
+    equity_taken: false
+    url: https://science.osti.gov/sbir
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 5, 2026-10-16); not checked against the funder's site. Category: Grant. Support: $200,000 - $250,000. CHECK: US SBIR/STTR is only for US small businesses majority-owned by US citizens or permanent residents. The programmes' authority lapsed on 1 Oct 2025; we could not verify whether it has been renewed since. Check before relying on it."
+  - ref: sheet-doe-sbir-phase-ii
+    funder: doe_sbir
+    title: DOE SBIR Phase II
+    summary: Full-scale prototype development and pilot testing for energy technologies.
+    fields: [energy, manufacturing]
+    trl: [6, 8]
+    countries: [US]
+    amount: {min: 1100000.0, max: 1600000.0, currency: USD}
+    equity_taken: false
+    url: https://science.osti.gov/sbir
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 6, 2026-10-16); not checked against the funder's site. Category: Grant. Support: $1,100,000 - $1,600,000. CHECK: US SBIR/STTR is only for US small businesses majority-owned by US citizens or permanent residents. The programmes' authority lapsed on 1 Oct 2025; we could not verify whether it has been renewed since. Check before relying on it."
+  - ref: sheet-nasa-sbir-phase-i
+    funder: nasa_sbir
+    title: NASA SBIR Phase I
+    summary: Space technology development, aeronautics, and science instrument payloads.
+    fields: []
+    trl: [3, 5]
+    countries: [US]
+    amount: {min: null, max: 150000.0, currency: USD}
+    equity_taken: false
+    url: https://sbir.nasa.gov/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 8, 2026-10-16); not checked against the funder's site. Category: Grant. Support: $150,000. CHECK: US SBIR/STTR is only for US small businesses majority-owned by US citizens or permanent residents. The programmes' authority lapsed on 1 Oct 2025; we could not verify whether it has been renewed since. Check before relying on it."
+  - ref: sheet-nasa-sbir-phase-ii
+    funder: nasa_sbir
+    title: NASA SBIR Phase II
+    summary: Advanced development and flight-readiness maturation for aerospace technologies.
+    fields: []
+    trl: [6, 8]
+    countries: [US]
+    amount: {min: null, max: 850000.0, currency: USD}
+    equity_taken: false
+    url: https://sbir.nasa.gov/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 9, 2026-10-16); not checked against the funder's site. Category: Grant. Support: $850,000. CHECK: US SBIR/STTR is only for US small businesses majority-owned by US citizens or permanent residents. The programmes' authority lapsed on 1 Oct 2025; we could not verify whether it has been renewed since. Check before relying on it."
+  - ref: sheet-darpa-sbir-sttr
+    funder: darpa
+    title: DARPA SBIR / STTR
+    summary: High-risk, high-payoff national security defense innovations and breakthrough technologies.
+    fields: []
+    trl: [3, 6]
+    countries: [US]
+    amount: {min: 250000.0, max: 1500000.0, currency: USD}
+    equity_taken: false
+    url: https://www.darpa.mil/work-with-us/for-small-businesses
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 10, 2026-10-16); not checked against the funder's site. Category: Grant. Support: $250,000 - $1,500,000. CHECK: US SBIR/STTR is only for US small businesses majority-owned by US citizens or permanent residents. The programmes' authority lapsed on 1 Oct 2025; we could not verify whether it has been renewed since. Check before relying on it."
+  - ref: sheet-usda-sbir-phase-i
+    funder: usda_nifa
+    title: USDA SBIR Phase I
+    summary: Agricultural sciences, food production, bioenergy, and rural development R&D.
+    fields: [energy, food_science, agritech]
+    trl: [4, 5]
+    countries: [US]
+    amount: {min: null, max: 175000.0, currency: USD}
+    equity_taken: false
+    url: https://nifa.usda.gov/program/small-business-innovation-research-program-sbir
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 11, 2026-10-16); not checked against the funder's site. Category: Grant. Support: $175,000. CHECK: US SBIR/STTR is only for US small businesses majority-owned by US citizens or permanent residents. The programmes' authority lapsed on 1 Oct 2025; we could not verify whether it has been renewed since. Check before relying on it."
+  - ref: sheet-usda-sbir-phase-ii
+    funder: usda_nifa
+    title: USDA SBIR Phase II
+    summary: Commercialization and scale-up of agricultural technologies and bioproducts.
+    fields: [agritech]
+    trl: [6, 8]
+    countries: [US]
+    amount: {min: null, max: 650000.0, currency: USD}
+    equity_taken: false
+    url: https://nifa.usda.gov/program/small-business-innovation-research-program-sbir
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 12, 2026-10-16); not checked against the funder's site. Category: Grant. Support: $650,000. CHECK: US SBIR/STTR is only for US small businesses majority-owned by US citizens or permanent residents. The programmes' authority lapsed on 1 Oct 2025; we could not verify whether it has been renewed since. Check before relying on it."
+  - ref: sheet-afwerx-diu-commercialization-fund
+    funder: diu
+    title: AFWERX / DIU Commercialization Fund
+    summary: Defense innovation accelerator bridging dual-use commercial technologies to military applications.
+    fields: []
+    trl: [5, 8]
+    countries: [US]
+    amount: {min: 750000.0, max: null, currency: USD}
+    url: https://www.diu.mil/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 13, 2026-10-16); not checked against the funder's site. Category: Accelerator / Grant. Support: $750,000+. CHECK: AFWERX (US Air Force) and DIU are separate organisations; check which programme is meant."
+  - ref: sheet-barda-drive
+    funder: barda
+    title: BARDA DRIVe
+    summary: Biomedical Advanced Research and Development Authority funding health security innovations.
+    fields: [health, biotech]
+    trl: [4, 7]
+    countries: [US]
+    amount: {min: 500000.0, max: 5000000.0, currency: USD}
+    url: https://medicalcountermeasures.gov/barda/drive/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 14, 2026-10-16); not checked against the funder's site. Category: Grant / Accelerator. Support: $500,000 - $5,000,000."
+  - ref: sheet-nist-manufacturing-extension-partnership-mep
+    funder: nist_mep
+    title: NIST Manufacturing Extension Partnership (MEP)
+    summary: Assisting U.S. manufacturers with productivity, technology adoption, and scaling.
+    fields: [manufacturing]
+    trl: [6, 9]
+    countries: [US]
+    url: https://www.nist.gov/mep
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 15, 2026-10-16); not checked against the funder's site. Category: Incubator / Support. Support: Technical Assistance. Amount not structured: no figure in the cell."
+  - ref: sheet-masschallenge-usa
+    funder: masschallenge
+    title: MassChallenge USA
+    summary: Zero-equity global accelerator supporting high-impact startups across all industries.
+    fields: []
+    trl: [5, 9]
+    url: https://masschallenge.org/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 16, 2026-10-16); not checked against the funder's site. Category: Accelerator. Support: Non-dilutive cash prizes ($1M+ pool). Amount not structured: no figure in the cell. Region in sheet: USA; eligibility not stated."
+  - ref: sheet-plug-and-play-tech-center
+    funder: pnp
+    title: Plug and Play Tech Center
+    summary: Global innovation platform connecting startups with corporate venture partners.
+    fields: []
+    trl: [6, 9]
+    equity_taken: true
+    url: https://www.plugandplaytechcenter.com/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 20, 2026-10-16); not checked against the funder's site. Category: Accelerator. Support: Venture investment & Pilot facilitation. Amount not structured: no figure in the cell. Region in sheet: USA / Global; eligibility not stated."
+  - ref: sheet-chain-reaction-innovations-anl
+    funder: anl_cri
+    title: Chain Reaction Innovations (ANL)
+    summary: Entrepreneurship incubator at Argonne National Laboratory focusing on energy and material sciences.
+    fields: [energy, materials]
+    trl: [3, 6]
+    countries: [US]
+    url: https://chainreaction.anl.gov/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 23, 2026-10-16); not checked against the funder's site. Category: Incubator. Support: Fellowship & lab access. Amount not structured: no figure in the cell."
+  - ref: sheet-innovation-crossroads-ornl
+    funder: ornl_ic
+    title: Innovation Crossroads (ORNL)
+    summary: Oak Ridge National Laboratory incubator supporting clean energy and hard tech innovators.
+    fields: [energy]
+    trl: [3, 6]
+    countries: [US]
+    url: https://innovationcrossroads.ornl.gov/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 24, 2026-10-16); not checked against the funder's site. Category: Incubator. Support: Fellowship & R&D funding. Amount not structured: no figure in the cell."
+  - ref: sheet-wells-fargo-in2-incubator
+    funder: in2
+    title: Wells Fargo IN2 Incubator
+    summary: Clean tech incubator in partnership with National Renewable Energy Laboratory (NREL).
+    fields: [energy]
+    trl: [4, 7]
+    amount: {min: null, max: 250000.0, currency: USD}
+    url: https://www.in2ecosystem.com/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 25, 2026-10-16); not checked against the funder's site. Category: Incubator. Support: $250,000 non-dilutive + NREL access. Region in sheet: USA; eligibility not stated."
+  - ref: sheet-eic-pathfinder-challenges
+    funder: eic
+    title: EIC Pathfinder Challenges
+    summary: Targeted thematic portfolios addressing strategic scientific and technological challenges.
+    fields: []
+    trl: [2, 4]
+    countries: [HE_ELIGIBLE]
+    amount: {min: null, max: 4000000.0, currency: EUR}
+    equity_taken: false
+    url: https://eic.ec.europa.eu/eic-pathfinder_en
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 27, 2026-10-16); not checked against the funder's site. Category: Grant. Support: Up to €4,000,000."
+  - ref: sheet-eic-accelerator-challenges
+    funder: eic
+    title: EIC Accelerator Challenges
+    summary: Thematic EIC Accelerator calls supporting strategic EU policy priorities in green and digital tech.
+    fields: [digital]
+    trl: [5, 9]
+    countries: [HE_ELIGIBLE]
+    amount: {min: null, max: 2500000.0, currency: EUR}
+    equity_taken: true
+    url: https://eic.ec.europa.eu/eic-accelerator_en
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 30, 2026-10-16); not checked against the funder's site. Category: Grant & Equity. Support: Up to €2.5M grant + €15M equity."
+  - ref: sheet-eic-step-scale-up
+    funder: eic
+    title: EIC STEP Scale-Up
+    summary: Large-scale equity investments for strategic European deep-tech, clean-tech, and biotech companies.
+    fields: [biotech]
+    trl: [7, 9]
+    countries: [HE_ELIGIBLE]
+    amount: {min: 10000000.0, max: 30000000.0, currency: EUR}
+    equity_taken: true
+    url: https://eic.ec.europa.eu/eic-step_en
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 31, 2026-10-16); not checked against the funder's site. Category: Equity Investment. Support: €10,000,000 - €30,000,000."
+  - ref: sheet-eurostars-3
+    funder: eureka
+    title: Eurostars 3
+    summary: Funding international collaborative R&D projects led by R&D-performing SMEs.
+    fields: []
+    trl: [4, 7]
+    equity_taken: false
+    url: https://www.eurostars-eureka.eu/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 32, 2026-10-16); not checked against the funder's site. Category: Grant. Support: Varies by country (Avg €500k+). Amount not structured: no figure in the cell. Region in sheet: EU / International; eligibility not stated."
+  - ref: sheet-eureka-network-projects
+    funder: eureka
+    title: Eureka Network Projects
+    summary: Intergovernmental network supporting international market-oriented R&D projects.
+    fields: []
+    trl: [4, 8]
+    equity_taken: false
+    url: https://www.eurekanetwork.org/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 33, 2026-10-16); not checked against the funder's site. Category: Grant. Support: Varies nationally. Amount not structured: no figure in the cell. Region in sheet: EU / Global; eligibility not stated."
+  - ref: sheet-eit-innoenergy-call
+    funder: eit_innoenergy
+    title: EIT InnoEnergy Call
+    summary: Acceleration and funding for sustainable energy innovations and commercialization in Europe.
+    fields: [energy, environmental]
+    trl: [4, 8]
+    countries: [HE_ELIGIBLE]
+    amount: {min: null, max: 500000.0, currency: EUR}
+    url: https://www.innoenergy.com/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 34, 2026-10-16); not checked against the funder's site. Category: Grant / Accelerator. Support: Up to €500,000+."
+  - ref: sheet-eit-rawmaterials-accelerator
+    funder: eit_rawmaterials
+    title: EIT RawMaterials Accelerator
+    summary: Supporting raw materials startups across mining, recycling, and advanced materials sectors.
+    fields: [materials, environmental]
+    trl: [4, 7]
+    countries: [HE_ELIGIBLE]
+    amount: {min: null, max: 200000.0, currency: EUR}
+    url: https://eitrawmaterials.eu/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 35, 2026-10-16); not checked against the funder's site. Category: Accelerator. Support: Up to €200,000."
+  - ref: sheet-eit-health-headstart
+    funder: eit_health
+    title: EIT Health Headstart
+    summary: Accelerating validation and market entry of health, medtech, and biotech innovations in Europe.
+    fields: [health, biotech]
+    trl: [5, 8]
+    countries: [HE_ELIGIBLE]
+    amount: {min: 50000.0, max: 150000.0, currency: EUR}
+    equity_taken: false
+    url: https://eithealth.eu/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 36, 2026-10-16); not checked against the funder's site. Category: Grant. Support: Up to €50,000 - €150,000."
+  - ref: sheet-eit-digital-venture-program
+    funder: eit_digital
+    title: EIT Digital Venture Program
+    summary: Incubating deep tech entrepreneurial teams in Central and Eastern Europe.
+    fields: [digital]
+    trl: [4, 7]
+    countries: [HE_ELIGIBLE]
+    amount: {min: null, max: 25000.0, currency: EUR}
+    url: https://www.eitdigital.eu/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 37, 2026-10-16); not checked against the funder's site. Category: Incubator / Grant. Support: Up to €25,000."
+  - ref: sheet-innosuisse-innovation-projects
+    funder: innosuisse
+    title: Innosuisse Innovation Projects
+    summary: Swiss innovation agency funding science-based R&D projects between research and industry.
+    fields: []
+    trl: [4, 7]
+    countries: [CH]
+    equity_taken: false
+    url: https://www.innosuisse.ch/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 38, 2026-10-16); not checked against the funder's site. Category: Grant. Support: 50% project cost funding. Amount not structured: amount without a currency."
+  - ref: sheet-ffg-bridge-program
+    funder: ffg
+    title: FFG Bridge Program
+    summary: Austrian Research Promotion Agency funding cooperative research between science and industry.
+    fields: []
+    trl: [3, 6]
+    countries: [AT]
+    amount: {min: null, max: 1000000.0, currency: EUR}
+    equity_taken: false
+    url: https://www.ffg.at/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 39, 2026-10-16); not checked against the funder's site. Category: Grant. Support: Up to €1,000,000."
+  - ref: sheet-bied-forlab-exist-program
+    funder: exist
+    title: Bied ForLab / EXIST Program
+    summary: German Federal Ministry grant supporting academic spin-offs and high-tech research commercialization.
+    fields: []
+    trl: [3, 6]
+    countries: [DE]
+    amount: {min: null, max: 1000000.0, currency: EUR}
+    equity_taken: false
+    url: https://www.exist.de/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 40, 2026-10-16); not checked against the funder's site. Category: Grant. Support: Up to €1,000,000. CHECK: 'Bied ForLab' is not a programme name we can identify; EXIST itself is real. Check the name."
+  - ref: sheet-bpifrance-deeptech-plan
+    funder: bpifrance
+    title: Bpifrance Deeptech Plan
+    summary: French public investment bank financing deep tech startup creation and industrialization.
+    fields: [manufacturing]
+    trl: [4, 8]
+    countries: [FR]
+    amount: {min: null, max: 3000000.0, currency: EUR}
+    url: https://www.bpifrance.fr/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 41, 2026-10-16); not checked against the funder's site. Category: Grant & Loan. Support: Up to €3,000,000."
+  - ref: sheet-cdti-r-d-projects
+    funder: cdti
+    title: CDTI R&D Projects
+    summary: Center for the Development of Industrial Technology funding technological research in Spain.
+    fields: [manufacturing]
+    trl: [4, 7]
+    countries: [ES]
+    url: https://www.cdti.es/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 42, 2026-10-16); not checked against the funder's site. Category: Grant / Loan. Support: Partial financing up to 85%. Amount not structured: amount without a currency."
+  - ref: sheet-prime-movers-lab
+    funder: pml
+    title: Prime Movers Lab
+    summary: Venture capital fund investing in breakthrough scientific startups inventing a better future.
+    fields: []
+    trl: [4, 8]
+    equity_taken: true
+    url: https://www.primemoverslab.com/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 44, 2026-10-16); not checked against the funder's site. Category: Venture / Accelerator. Support: Seed to Series B funding. Amount not structured: no figure in the cell. Region in sheet: EU / USA; eligibility not stated."
+  - ref: sheet-eit-food-accelerator-network
+    funder: eit_food
+    title: EIT Food Accelerator Network
+    summary: Agri-food tech accelerator connecting startups with industry partners and validation pilots.
+    fields: [food_science, agritech]
+    trl: [5, 8]
+    countries: [HE_ELIGIBLE]
+    amount: {min: null, max: 50000.0, currency: EUR}
+    url: https://www.eitfood.eu/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 46, 2026-10-16); not checked against the funder's site. Category: Accelerator. Support: Up to €50,000 + pilot support."
+  - ref: sheet-eit-urban-mobility-accelerator
+    funder: eit_um
+    title: EIT Urban Mobility Accelerator
+    summary: Scaling sustainable urban mobility innovations across European cities.
+    fields: [environmental, digital]
+    trl: [5, 9]
+    countries: [HE_ELIGIBLE]
+    amount: {min: null, max: 500000.0, currency: EUR}
+    url: https://www.eiturbanmobility.eu/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 47, 2026-10-16); not checked against the funder's site. Category: Accelerator. Support: Up to €500,000."
+  - ref: sheet-deep-science-ventures
+    funder: dsv
+    title: Deep Science Ventures
+    summary: Venture builder combining science and venture capital to create novel deep tech companies.
+    fields: []
+    trl: [2, 5]
+    equity_taken: true
+    url: https://www.deepscienceventures.com/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 48, 2026-10-16); not checked against the funder's site. Category: Ventures / Incubator. Support: Venture creation funding. Amount not structured: no figure in the cell. Region in sheet: UK / EU; eligibility not stated."
+  - ref: sheet-cancer-research-uk-ventures
+    funder: cruk
+    title: Cancer Research UK Ventures
+    summary: Funding and translation support for oncology diagnostics, therapeutics, and medical devices.
+    fields: [health]
+    trl: [4, 7]
+    amount: {min: 100000.0, max: 1000000.0, currency: GBP}
+    url: https://www.cancerresearchuk.org/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 49, 2026-10-16); not checked against the funder's site. Category: Grant / Accelerator. Support: £100k - £1,000,000. Region in sheet: UK; eligibility not stated."
+  - ref: sheet-innovate-uk-smart-grants
+    funder: innovate_uk
+    title: Innovate UK Smart Grants
+    summary: Unrestricted grant funding for game-changing commercial R&D innovations in the UK.
+    fields: []
+    trl: [4, 7]
+    countries: [GB]
+    amount: {min: 100000.0, max: 2000000.0, currency: GBP}
+    equity_taken: false
+    url: https://www.ukri.org/councils/innovate-uk/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 50, 2026-10-16); not checked against the funder's site. Category: Grant. Support: £100,000 - £2,000,000. CHECK: We believe Innovate UK paused Smart grants in 2025 and could not confirm the current status. Check before showing it as open."
+  - ref: sheet-jst-a-step-adaptable-and-seamless-technology-transfer-progra
+    funder: jst
+    title: JST A-STEP (Adaptable and Seamless Technology transfer Program)
+    summary: Japan Science and Technology Agency funding bridging academic research to practical application.
+    fields: []
+    trl: [3, 6]
+    countries: [JP]
+    amount: {min: 5000000.0, max: 50000000.0, currency: JPY}
+    equity_taken: false
+    url: https://www.jst.go.jp/ar/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 51, 2026-10-16); not checked against the funder's site. Category: Grant. Support: ¥5,000,000 - ¥50,000,000."
+  - ref: sheet-nedo-technology-commercialization-program
+    funder: nedo
+    title: NEDO Technology Commercialization Program
+    summary: New Energy and Industrial Technology Development Organization funding energy and industrial R&D.
+    fields: [energy, manufacturing]
+    trl: [4, 7]
+    countries: [JP]
+    amount: {min: 10000000.0, max: 100000000.0, currency: JPY}
+    equity_taken: false
+    url: https://www.nedo.go.jp/english/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 52, 2026-10-16); not checked against the funder's site. Category: Grant. Support: ¥10,000,000 - ¥100,000,000."
+  - ref: sheet-jetro-startup-accelerator-programs
+    funder: jetro
+    title: JETRO Startup Accelerator Programs
+    summary: Japan External Trade Organization supporting global deep tech startups entering Japan.
+    fields: []
+    trl: [6, 9]
+    countries: [JP]
+    url: https://www.jetro.go.jp/en/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 53, 2026-10-16); not checked against the funder's site. Category: Accelerator. Support: Market entry & grant support. Amount not structured: no figure in the cell."
+  - ref: sheet-kised-tips-program-tech-incubator-program-for-startup
+    funder: kised
+    title: KISED TIPS Program (Tech Incubator Program for Startup)
+    summary: Korean government incubation and R&D matching grant for tech startups backed by accredited VCs.
+    fields: []
+    trl: [4, 7]
+    countries: [KR]
+    amount: {min: null, max: 500000000.0, currency: KRW}
+    url: https://www.kised.or.kr/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 54, 2026-10-16); not checked against the funder's site. Category: Grant / Incubator. Support: Up to ₩500,000,000."
+  - ref: sheet-kiat-industrial-technology-r-d
+    funder: kiat
+    title: KIAT Industrial Technology R&D
+    summary: Korea Institute for Advancement of Technology funding advanced manufacturing and core technologies.
+    fields: [manufacturing]
+    trl: [4, 8]
+    countries: [KR]
+    equity_taken: false
+    url: https://www.kiat.or.kr/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 55, 2026-10-16); not checked against the funder's site. Category: Grant. Support: ₩200,000,000 - ₩2,000,000. Amount not structured: range inverted. CHECK: The amount range in the sheet is inverted (₩200,000,000 - ₩2,000,000), so the amount was left out."
+  - ref: sheet-kist-open-innovation-lab
+    funder: kist
+    title: KIST Open Innovation Lab
+    summary: Korea Institute of Science and Technology incubator supporting materials, robotics, and energy.
+    fields: [energy, materials]
+    trl: [3, 6]
+    countries: [KR]
+    url: https://www.kist.re.kr/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 56, 2026-10-16); not checked against the funder's site. Category: Incubator / Grant. Support: Lab space & funding. Amount not structured: no figure in the cell."
+  - ref: sheet-nstc-science-technology-innovation-grant
+    funder: nstc_tw
+    title: NSTC Science & Technology Innovation Grant
+    summary: National Science and Technology Council funding academic-industrial R&D and prototype building.
+    fields: [manufacturing]
+    trl: [3, 6]
+    countries: [TW]
+    amount: {min: 2000000.0, max: 10000000.0, currency: TWD}
+    equity_taken: false
+    url: https://www.nstc.gov.tw/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 57, 2026-10-16); not checked against the funder's site. Category: Grant. Support: NTD 2,000,000 - 10,000,000."
+  - ref: sheet-tta-taiwan-tech-arena-acceleration
+    funder: tta
+    title: TTA (Taiwan Tech Arena) Acceleration
+    summary: Taiwanese deep tech hub supporting AI, semiconductors, and biomedical startups.
+    fields: [health, biotech, digital]
+    trl: [5, 9]
+    url: https://taiwantecharena.tw/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 58, 2026-10-16); not checked against the funder's site. Category: Accelerator. Support: Incubation & matching. Amount not structured: no figure in the cell. Region in sheet: Taiwan; eligibility not stated."
+  - ref: sheet-enterprise-sg-startup-sg-equity-deep-tech
+    funder: esg
+    title: Enterprise SG Startup SG Equity (Deep Tech)
+    summary: Government co-investment matching private capital for strategic deep tech ventures.
+    fields: []
+    trl: [6, 9]
+    countries: [SG]
+    amount: {min: null, max: 8000000.0, currency: SGD}
+    equity_taken: true
+    url: https://www.enterprisesg.gov.sg/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 61, 2026-10-16); not checked against the funder's site. Category: Co-Investment. Support: Up to S$8,000,000 co-investment."
+  - ref: sheet-a-star-t-up-programme
+    funder: astar
+    title: A*STAR T-Up Programme
+    summary: Seconding top A*STAR research scientists into high-tech SMEs to accelerate R&D capabilities.
+    fields: []
+    trl: [4, 7]
+    countries: [SG]
+    url: https://www.a-star.edu.sg/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 62, 2026-10-16); not checked against the funder's site. Category: Talent / Grant. Support: 70% researcher salary (~S$450k). Amount not structured: percentage of cost, not an amount."
+  - ref: sheet-nrf-competitive-research-programme-crp
+    funder: nrf_sg
+    title: NRF Competitive Research Programme (CRP)
+    summary: National Research Foundation funding multi-institution intellectual research and major technologies.
+    fields: []
+    trl: [2, 5]
+    countries: [SG]
+    amount: {min: 1000000.0, max: 10000000.0, currency: SGD}
+    equity_taken: false
+    url: https://www.nrf.gov.sg/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 63, 2026-10-16); not checked against the funder's site. Category: Grant. Support: S$1,000,000 - S$10,000,000."
+  - ref: sheet-sginnovate-summiteer-deep-tech-mentorship
+    funder: sginnovate
+    title: SGInnovate Summiteer / Deep Tech Mentorship
+    summary: Building and investing in 'deep tech' startups in AI, quantum, medtech, and autonomous systems.
+    fields: [digital]
+    trl: [4, 8]
+    countries: [SG]
+    url: https://www.sginnovate.com/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 64, 2026-10-16); not checked against the funder's site. Category: Incubator. Support: Venture building & funding. Amount not structured: no figure in the cell. CHECK: 'Summiteer' is not a programme name we can confirm for SGInnovate."
+  - ref: sheet-a-ccelerate-technologies
+    funder: astar
+    title: A*CCELERATE Technologies
+    summary: Commercialization arm of A*STAR translating public sector research into deep tech ventures.
+    fields: []
+    trl: [3, 6]
+    countries: [SG]
+    url: https://www.a-star.edu.sg/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 65, 2026-10-16); not checked against the funder's site. Category: Incubator. Support: Commercialization grant. Amount not structured: no figure in the cell."
+  - ref: sheet-gad-global-applied-deeptech-accelerator
+    funder: start2
+    title: GAD (Global Applied DeepTech) Accelerator
+    summary: Cross-border accelerator connecting deep tech startups with Japanese conglomerates.
+    fields: []
+    trl: [5, 8]
+    url: https://www.start2.group/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 66, 2026-10-16); not checked against the funder's site. Category: Accelerator. Support: Mentorship & pilot funding. Amount not structured: no figure in the cell. Region in sheet: Japan / Asia; eligibility not stated. CHECK: Check the programme name ('Global Applied DeepTech') against start2 Group's site."
+  - ref: sheet-bep-badan-ekonomi-kreatif-brin-grants
+    funder: brin
+    title: BEP (Badan Ekonomi Kreatif) / BRIN Grants
+    summary: National Research and Innovation Agency (BRIN) funding scientific research and local innovation.
+    fields: []
+    trl: [3, 6]
+    countries: [ID]
+    amount: {min: 200000000.0, max: 1000000000.0, currency: IDR}
+    equity_taken: false
+    url: https://www.brin.go.id/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 67, 2026-10-16); not checked against the funder's site. Category: Grant. Support: IDR 200,000,000 - 1,000,000,000. CHECK: The sheet says 'TRN' (read as TRL), and the name mixes BEKRAF/creative-economy and BRIN; check which programme is meant."
+  - ref: sheet-mdec-gain-kre8tif-accelerator
+    funder: mdec
+    title: MDEC GAIN / Kre8tif Accelerator
+    summary: Malaysia Digital Economy Corporation supporting tech scaleups and regional expansion.
+    fields: [digital]
+    trl: [5, 9]
+    countries: [MY]
+    url: https://mdec.my/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 68, 2026-10-16); not checked against the funder's site. Category: Accelerator. Support: Grants & market access. Amount not structured: no figure in the cell."
+  - ref: sheet-niaid-international-r-d-partnerships
+    funder: niaid
+    title: NIAID International R&D Partnerships
+    summary: Cross-border scientific grants for infectious disease and biomedical research.
+    fields: [health, biotech]
+    trl: [3, 6]
+    amount: {min: 200000.0, max: 1000000.0, currency: USD}
+    equity_taken: false
+    url: https://www.niaid.nih.gov/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 70, 2026-10-16); not checked against the funder's site. Category: Grant. Support: $200,000 - $1,000,000. Region in sheet: Asia / Global; eligibility not stated. CHECK: 'International R&D Partnerships' is not a programme name we can confirm at NIAID."
+  - ref: sheet-adb-ventures-asian-development-bank
+    funder: adbv
+    title: ADB Ventures (Asian Development Bank)
+    summary: Investing in impactful climate, agritech, and health technologies across developing Asia.
+    fields: [health, energy, environmental, agritech]
+    trl: [6, 9]
+    equity_taken: true
+    url: https://adbventures.com/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 71, 2026-10-16); not checked against the funder's site. Category: Venture / Grant. Support: Seed to Series B ($250k - $3M). Amount not structured: no figure in the cell. Region in sheet: Asia; eligibility not stated."
+  - ref: sheet-temasek-foundation-grants
+    funder: temasek_fdn
+    title: Temasek Foundation grants
+    summary: Funding innovative pilot projects in water, waste, climate change, and healthcare in Asia.
+    fields: [health, energy, environmental]
+    trl: [5, 8]
+    amount: {min: 100000.0, max: 2000000.0, currency: SGD}
+    equity_taken: false
+    url: https://www.temasekfoundation.org.sg/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 72, 2026-10-16); not checked against the funder's site. Category: Grant. Support: S$100,000 - S$2,000,000. Region in sheet: Asia / Singapore; eligibility not stated. CHECK: Temasek Foundation mainly funds community and social programmes; check that it funds company R&D at all."
+  - ref: sheet-insead-venture-competition-sea-hubs
+    funder: insead
+    title: INSEAD Venture Competition / SEA Hubs
+    summary: Startup competition and incubator supporting high-potential ventures across Southeast Asia.
+    fields: []
+    trl: [3, 6]
+    amount: {min: null, max: 50000.0, currency: USD}
+    url: https://www.insead.edu/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 75, 2026-10-16); not checked against the funder's site. Category: Incubator. Support: $50,000 non-dilutive prize. Region in sheet: SEA; eligibility not stated. CHECK: INSEAD Venture Competition is, as far as we know, for INSEAD students and alumni. Check eligibility."
+  - ref: sheet-nia-city-and-community-innovation-challenge
+    funder: nia
+    title: NIA City and Community Innovation Challenge
+    summary: Funding urban and municipal innovations implemented in real local government environments.
+    fields: [environmental]
+    trl: [5, 8]
+    countries: [TH]
+    amount: {min: null, max: 1500000.0, currency: THB}
+    equity_taken: false
+    url: https://www.nia.or.th/service/financial-support
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 79, 2026-10-16); not checked against the funder's site. Category: Grant. Support: Up to 1,500,000 THB."
+  - ref: sheet-nxpo-policy-strategic-science-grants
+    funder: nxpo
+    title: NXPO Policy & Strategic Science Grants
+    summary: Office of the National Higher Education, Science, Research and Innovation Policy Council funding STI initiatives.
+    fields: []
+    trl: [3, 6]
+    countries: [TH]
+    url: https://www.nxpo.or.th/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 81, 2026-10-16); not checked against the funder's site. Category: Grant / Policy. Support: Varies. Amount not structured: no figure in the cell. CHECK: NXPO is a policy office; most research money flows through TSRI and the PMUs. Check that it runs open calls."
+  - ref: sheet-nstda-research-chair-industrial-joint-research
+    funder: nstda
+    title: NSTDA Research Chair / Industrial Joint Research
+    summary: National Science and Technology Development Agency grant for collaborative R&D with industrial partners.
+    fields: [manufacturing]
+    trl: [4, 7]
+    countries: [TH]
+    amount: {min: null, max: 3000000.0, currency: THB}
+    equity_taken: false
+    url: https://www.nstda.or.th/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 83, 2026-10-16); not checked against the funder's site. Category: Grant. Support: Up to 3,000,000 THB."
+  - ref: sheet-nstda-step-science-technology-park-incubation
+    funder: nstda
+    title: NSTDA STEP (Science Technology Park) Incubation
+    summary: NSTDA incubator supporting tech startups with incubation services, prototyping facilities, and experts.
+    fields: [manufacturing]
+    trl: [3, 6]
+    countries: [TH]
+    url: https://www.nstda.or.th/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 84, 2026-10-16); not checked against the funder's site. Category: Incubator. Support: Lab space & seed funding. Amount not structured: no figure in the cell. CHECK: 'STEP' is Chiang Mai University's science park name; NSTDA runs Thailand Science Park. Check the name."
+  - ref: sheet-bcc-bangkok-business-challenge-cu-enterprise
+    funder: chula
+    title: BCC (Bangkok Business Challenge) / CU Enterprise
+    summary: Chulalongkorn University enterprise incubator and startup competition fostering deep tech ventures.
+    fields: []
+    trl: [3, 6]
+    amount: {min: null, max: 1000000.0, currency: THB}
+    url: https://www.sustainability.chula.ac.th/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 85, 2026-10-16); not checked against the funder's site. Category: Incubator / Accelerator. Support: Up to 1,000,000 THB prize. Region in sheet: Thailand; eligibility not stated. CHECK: Bangkok Business Challenge is run by Sasin School of Management; the sheet's link is a Chula sustainability page. Check the link."
+  - ref: sheet-true-incube
+    funder: true_incube
+    title: True Incube
+    summary: Corporate accelerator by True Corporation supporting tech and deep tech telecommunication innovations.
+    fields: [digital]
+    trl: [5, 9]
+    equity_taken: true
+    url: https://trueincube.com/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 86, 2026-10-16); not checked against the funder's site. Category: Accelerator. Support: Seed investment & telecom pilot. Amount not structured: no figure in the cell. Region in sheet: Thailand; eligibility not stated."
+  - ref: sheet-ais-the-startup
+    funder: ais
+    title: AIS The StartUp
+    summary: Advanced Info Service corporate accelerator connecting startups with 40M+ mobile subscribers.
+    fields: []
+    trl: [5, 9]
+    url: https://startup.ais.co.th/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 87, 2026-10-16); not checked against the funder's site. Category: Accelerator. Support: Partnership & funding. Amount not structured: no figure in the cell. Region in sheet: Thailand; eligibility not stated."
+  - ref: sheet-banpu-champions-for-change-bcfc
+    funder: banpu
+    title: Banpu Champions for Change (BCFC)
+    summary: Incubator supporting social enterprises and clean energy/climate tech startups in Thailand.
+    fields: [energy, environmental]
+    trl: [3, 6]
+    url: https://www.banpu.com/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 88, 2026-10-16); not checked against the funder's site. Category: Incubator. Support: Grants & incubation. Amount not structured: no figure in the cell. Region in sheet: Thailand; eligibility not stated."
+  - ref: sheet-innospace-thailand
+    funder: innospace
+    title: InnoSpace (Thailand)
+    summary: Public-private partnership venture builder and fund investing in Thai deep tech and science startups.
+    fields: []
+    trl: [4, 7]
+    equity_taken: true
+    url: https://innospacethailand.com/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 89, 2026-10-16); not checked against the funder's site. Category: Venture / Incubator. Support: Seed funding & incubation. Amount not structured: no figure in the cell. Region in sheet: Thailand; eligibility not stated."
+  - ref: sheet-krungsri-finnovate
+    funder: krungsri_finnovate
+    title: Krungsri Finnovate
+    summary: Corporate venture capital arm of Bank of Ayudhya investing in fintech, AI, and enterprise tech.
+    fields: [digital]
+    trl: [6, 9]
+    equity_taken: true
+    url: https://www.krungsrifinnovate.com/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 90, 2026-10-16); not checked against the funder's site. Category: Venture / Accelerator. Support: Venture capital investment. Amount not structured: no figure in the cell. Region in sheet: Thailand; eligibility not stated."
+  - ref: sheet-beacon-venture-capital-kasikornbank
+    funder: beacon_vc
+    title: Beacon Venture Capital (Kasikornbank)
+    summary: CVC fund investing in innovative tech startups and deep tech ventures in Thailand and SEA.
+    fields: []
+    trl: [6, 9]
+    equity_taken: true
+    url: https://www.beaconvc.fund/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 91, 2026-10-16); not checked against the funder's site. Category: Venture / Accelerator. Support: Strategic VC investment. Amount not structured: no figure in the cell. Region in sheet: Thailand; eligibility not stated."
+  - ref: sheet-scb-10x
+    funder: scb10x
+    title: SCB 10X
+    summary: Ventures arm of SCBX focused on disruptive technologies, Web3, AI, and deep tech incubation.
+    fields: [digital]
+    trl: [5, 9]
+    equity_taken: true
+    url: https://scb10x.com/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 92, 2026-10-16); not checked against the funder's site. Category: Venture / Incubator. Support: Venture building & deep tech funding. Amount not structured: no figure in the cell. Region in sheet: Thailand; eligibility not stated."
+  - ref: sheet-kxg-kasikorn-x-change
+    funder: kx
+    title: KXG (KASIKORN X-Change)
+    summary: Deep tech and fintech venture builder creating new ventures from research and cutting-edge tech.
+    fields: [digital]
+    trl: [4, 7]
+    url: https://www.kasikornx.com/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 93, 2026-10-16); not checked against the funder's site. Category: Incubator. Support: Venture creation support. Amount not structured: no figure in the cell. Region in sheet: Thailand; eligibility not stated. CHECK: Check the name 'KASIKORN X-Change'; KBank's venture builder is known as KASIKORN X (KX)."
+  - ref: sheet-cu-innovation-hub-chulalongkorn
+    funder: chula
+    title: CU Innovation Hub (Chulalongkorn)
+    summary: University incubator supporting student and faculty spin-offs in medtech, biotech, and advanced materials.
+    fields: [biotech, materials]
+    trl: [3, 6]
+    url: https://www.incubator.chula.ac.th/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 94, 2026-10-16); not checked against the funder's site. Category: Incubator. Support: Grants & lab access. Amount not structured: no figure in the cell. Region in sheet: Thailand; eligibility not stated."
+  - ref: sheet-thammasat-university-science-park
+    funder: tu
+    title: Thammasat University Science Park
+    summary: Supporting technology commercialization, student entrepreneurship, and science R&D in Thailand.
+    fields: []
+    trl: [3, 6]
+    url: https://www.tu.ac.th/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 95, 2026-10-16); not checked against the funder's site. Category: Incubator. Support: Incubation & prototyping support. Amount not structured: no figure in the cell. Region in sheet: Thailand; eligibility not stated."
+  - ref: sheet-chiang-mai-university-science-park
+    funder: cmu_step
+    title: Chiang Mai University Science Park
+    summary: Regional science park in Northern Thailand supporting agritech, food tech, and deep tech startups.
+    fields: [food_science, agritech]
+    trl: [4, 7]
+    url: https://step.cmu.ac.th/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 96, 2026-10-16); not checked against the funder's site. Category: Incubator / Accelerator. Support: Grants & northern hub support. Amount not structured: no figure in the cell. Region in sheet: Thailand; eligibility not stated."
+  - ref: sheet-khon-kaen-university-science-park
+    funder: kku_sp
+    title: Khon Kaen University Science Park
+    summary: Regional science park supporting bioeconomy, smart agriculture, and medical innovation in Northeast Thailand.
+    fields: [health, agritech]
+    trl: [4, 7]
+    url: https://kkusp.kku.ac.th/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 97, 2026-10-16); not checked against the funder's site. Category: Incubator. Support: Incubation & grants. Amount not structured: no figure in the cell. Region in sheet: Thailand; eligibility not stated."
+  - ref: sheet-prince-of-songkla-university-science-park
+    funder: psu_sp
+    title: Prince of Songkla University Science Park
+    summary: Southern regional science park focusing on rubber technology, seafood processing tech, and agritech.
+    fields: [agritech]
+    trl: [4, 7]
+    url: https://psusp.psu.ac.th/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 98, 2026-10-16); not checked against the funder's site. Category: Incubator. Support: Incubation & funding. Amount not structured: no figure in the cell. Region in sheet: Thailand; eligibility not stated."
+  - ref: sheet-thai-german-institute-tgi
+    funder: tgi
+    title: Thai-German Institute (TGI)
+    summary: Advanced manufacturing institute providing automation, robotics, and industrial technology support.
+    fields: [manufacturing]
+    trl: [5, 8]
+    countries: [TH]
+    url: https://www.tgi.or.th/
+    confidence: low
+    verified: false
+    notes: "From the team spreadsheet (row 99, 2026-10-16); not checked against the funder's site. Category: Incubator / Tech Center. Support: Technical testing & grants. Amount not structured: no figure in the cell."
