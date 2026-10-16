@@ -109,6 +109,16 @@ def review(app_id: str, body: Review):
         return JSONResponse(status_code=422, content={"detail": "review incomplete", "problems": ex.problems})
 
 
+def _source(t) -> bytes:
+    """The form exactly as it was when the draft was mapped. A funder that replaced its form since then gets a new
+    draft, not the old answers written into fields that may now mean something else."""
+    form = fetcher.fetch(t.form_url)
+    if t.source_sha256 and form.sha256 != t.source_sha256:
+        raise HTTPException(409, "The funder's form has changed since this draft was prepared. Open the application again "
+                                 "to map the new version, then review it before exporting.")
+    return form.data
+
+
 @router.get("/applications/{app_id}/export")
 def export(app_id: str, format: str = Query("pdf", pattern="^(pdf|docx|json|portal|md)$")):
     store = get_store()
@@ -121,13 +131,16 @@ def export(app_id: str, format: str = Query("pdf", pattern="^(pdf|docx|json|port
     if format == "pdf":
         if t.kind != "pdf_acroform":
             raise HTTPException(400, "PDF export is only available for fillable PDF forms; use format=md or json")
-        pdf = fill.fill_pdf(fetcher.fetch(t.form_url).data, a.fields)
+        pdf = fill.fill_pdf(_source(t), a.fields)
         return Response(pdf, media_type="application/pdf",
                         headers={"Content-Disposition": f'attachment; filename="{name}-prefilled.pdf"'})
     if format == "docx":
         if t.kind != "docx_form":
             raise HTTPException(400, "Word export is only available for .docx forms; use format=md or json")
-        out = fill_docx(fetcher.fetch(t.form_url).data, {f.field_id: f.value for f in a.fields})
+        try:
+            out = fill_docx(_source(t), {f.field_id: f.value for f in a.fields})
+        except ValueError as ex:
+            raise HTTPException(400, str(ex)) from ex
         return Response(out, media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
                         headers={"Content-Disposition": f'attachment; filename="{name}-prefilled.docx"'})
     if format == "portal":
