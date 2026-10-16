@@ -7,6 +7,10 @@
 **Testnet only. No real value. Not a securities offering.** The milestone attestor is centralized; see
 [Scope boundaries](#scope-boundaries).
 
+> **UPLO hackathon deployment:** the user-facing brand is UPLO ([docs/uplo/](docs/uplo/)). To put it live on Avalanche
+> Fuji, follow [docs/uplo/GO_LIVE.md](docs/uplo/GO_LIVE.md): contracts are deployed from a browser wallet at `/setup`,
+> with no private key on any server.
+
 ```
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │  apps/web  Next.js 14 · Tailwind · wagmi + viem + RainbowKit       (Vercel)  │
