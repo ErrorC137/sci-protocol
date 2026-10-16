@@ -50,7 +50,7 @@ def test_thai_pdf_prefill_review_export(client, persona, grants_by_ref):
 
     # Pre-filled from the profile (green)
     assert by_id["pi_name"]["value"] == persona["applicant"]["name"] and by_id["pi_name"]["status"] == "green"
-    assert by_id["trl"]["value"] == "4" and by_id["trl"]["status"] == "green"
+    assert by_id["trl"]["value"] == str(persona["profile"]["trl"]) and by_id["trl"]["status"] == "green"
     assert by_id["country"]["value"] == "Thailand"
     assert by_id["applicant_type"]["value"] == "University or research institute"
     assert by_id["use_pilot"]["value"] is True and by_id["use_personnel"]["value"] is False
@@ -172,7 +172,7 @@ def test_thai_docx_form_prefill_review_export(client, persona, grants_by_ref):
     by_id = {f["field_id"]: f for f in app["fields"]}
     assert by_id["tbl0:r1:c1"]["value"] == persona["applicant"]["name"] and by_id["tbl0:r1:c1"]["status"] == "green"
     assert by_id["sdt:country"]["value"] == "ประเทศไทย"  # answered in the form's language
-    assert by_id["p5:b0"]["value"] == "4"
+    assert by_id["p5:b0"]["value"] == str(persona["profile"]["trl"])
     assert by_id["p5:b1"]["status"] == "amber"  # converted amount is never silently green
     assert by_id["p7:cb3"]["value"] is True and by_id["p7:cb2"]["value"] is False
     # Thai narrative cells get Thai drafts with Thai placeholders
