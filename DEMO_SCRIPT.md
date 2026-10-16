@@ -3,8 +3,13 @@
 Target length: 5-6 minutes. Do not demo features; follow one person end to end. Rehearse twice on the deployed URL.
 
 **Setup (before you go on stage)**
-- Browser profile A: researcher wallet. Profile B: funder wallet. Profile C: attestor wallet. All on Base Sepolia.
-- Project B (failure path) seeded so its milestone deadline passes ~5 min before step 6 (docs/DEPLOY.md §6).
+- Browser profile A: researcher wallet. Profile B: funder wallet. Profile C: attestor wallet (the wallet that ran
+  `/setup`, unless you named another attestor there). All on **Avalanche Fuji**; each needs a little test AVAX for gas.
+- Seed through the UI about 25 minutes before you present (no Foundry needed on Fuji):
+  - Researcher: `/raise/new` → project A, milestones due in days, raise open for 14 days.
+  - Researcher: `/raise/new` → project B, raise closing in ~5 **minutes**, milestone 1 due in ~20 minutes.
+    Funder: fund project B in full before the raise closes. By step 6 its milestone deadline has passed.
+  - With a local anvil instead, `scripts/dev-chain.sh` seeds both (docs/DEPLOY.md §6).
 - Tab 1 `/profile` (researcher, localStorage cleared). Tab 2 `/raise/1` (funder). Tab 3 `/raise/1` (attestor). Tab 4 `/raise/2` (funder).
 
 ---
@@ -52,6 +57,13 @@ Matches page → **Raise on-chain** (or open the pre-seeded project A, `/raise/1
   **Claim my refund: 3,000 mUSDC** → "Your refund has been paid."
 - **Say: "No progress, no money. A missed milestone returns money to funders. That's what separates this from every
   'we tokenize X' pitch."**
+
+*(Optional, 30 s: `/evidence`. Run the NMC811 relithiation example: a claim chart of each process step against the
+retrieved papers and patents, with a verbatim quote behind every "disclosed" cell. "We show what we searched and what we
+couldn't, and we never call it novel.")*
+
+*(Optional, 30 s: on `/apply/<id>`, upload the Thai Word form `thai-research-proposal-demo.docx`. Fields fill in Thai, and
+bank, ID, signature and declaration fields stay red for a person to complete.)*
 
 *(Optional, 20 s: `/vault`. Encrypt a confidential note in the browser, anchor only its hash. "A timestamped existence
 proof - not prior art, not a patent filing.")*
