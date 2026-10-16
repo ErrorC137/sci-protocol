@@ -131,7 +131,7 @@ export interface FieldSpec {
 export interface FormTemplate {
   id: string;
   form_url: string;
-  kind: "pdf_acroform" | "pdf_flat" | "html_form";
+  kind: "pdf_acroform" | "pdf_flat" | "html_form" | "docx_form";
   title: string | null;
   fields: FieldSpec[];
   source_sha256: string;
@@ -225,3 +225,36 @@ export interface ProjectMetadata {
   uses_of_funds: string[];
   disclosure: string;
 }
+
+// --- Evidence engine (apps/api/app/evidence/models.py) -------------------------------------------
+export type EvidenceVerdict = "disclosed" | "partial" | "absent" | "unsupported";
+export interface EvidenceSubmission {
+  title: string; abstract: string; claims?: string | null; methods?: string | null; keywords: string[];
+  priority_date?: string | null; jurisdictions?: string[]; sources?: string[] | null;
+  confidential: boolean; allow_llm: boolean; max_references?: number; judge_top?: number;
+}
+export interface EvidenceReference {
+  key: string; kind: "patent" | "paper" | "preprint"; source: string; also_in: string[]; title: string;
+  abstract: string | null; claims: string[]; date: string | null; priority_date: string | null; venue: string | null;
+  assignees: string[]; authors: string[]; cpc: string[]; country: string | null; family_id: string | null;
+  url: string | null; cited_by: number | null; score: number; before_priority: boolean | null; fixture: boolean;
+}
+export interface EvidenceSourceStatus {
+  source: string; state: "ok" | "empty" | "error" | "no_key" | "disabled" | "unreachable";
+  hits: number; queries: string[]; detail: string | null; ms: number | null;
+}
+export interface EvidenceElement { id: string; text: string; origin: "claim" | "abstract" | "model"; claim_no: number | null }
+export interface EvidenceJudgment { element: string; ref: string; verdict: EvidenceVerdict; quote: string | null; rationale: string | null; method: "llm" | "lexical" }
+export interface EvidenceElementSignal { element: string; status: "disclosed_before_priority" | "disclosed_date_unknown" | "partially_disclosed" | "not_found_in_retrieved"; refs: string[] }
+export interface EvidenceTRL {
+  track: "A_upcycling_materials" | "B_recycling_process" | "unknown"; rubric_version: string; low: number | null; high: number | null;
+  evidence: { level: number; cue: string; quote: string; achieved: boolean }[]; next_milestones: string[]; note: string;
+}
+export interface EvidenceFTOFlag { ref: string; country: string | null; elements_disclosed: string[]; legal_status: string; note: string }
+export interface EvidenceReport {
+  submission_title: string; generated_at: string; sources: EvidenceSourceStatus[]; queries: string[];
+  references: EvidenceReference[]; elements: EvidenceElement[]; judgments: EvidenceJudgment[];
+  element_signals: EvidenceElementSignal[]; summary: string; coverage: string; trl: EvidenceTRL;
+  fto_flags: EvidenceFTOFlag[]; dropped_judgments: Record<string, unknown>[]; llm_used: boolean; bundle_sha256: string; disclaimer: string;
+}
+export interface EvidenceSourcesInfo { sources: { source: string; kind: string; configured: boolean; detail: string | null }[]; vocab_version: string; trl_rubric: string }

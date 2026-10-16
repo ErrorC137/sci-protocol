@@ -1,22 +1,33 @@
-# Deploying SCI Protocol (testnet)
+# Deploying SCI Protocol (Avalanche Fuji testnet)
 
 Order matters: contracts first (the web app and API need the addresses), then the database, the API and the web app.
 The whole path takes about an hour, most of it waiting on faucets and first builds. **Deploy on day one, not day three.**
 
 ## 0. Provision these first (brief §7)
 
+Target: **Avalanche Fuji C-Chain (chain id 43113)** now, **Avalanche C-Chain mainnet (43114)** only after an external
+audit and legal sign-off. Facts below were checked on 2026-10-15 from search results (the build sandbox could not
+open the pages directly); re-check anything marked *verify* on the official page before relying on it.
+
 | What | Where | Used by |
 |---|---|---|
-| 3 testnet wallets: deployer/attestor, researcher, funder | MetaMask (fresh accounts, never your main one) | deploy, demo |
-| Base Sepolia ETH in all three | Coinbase Developer Platform faucet, Alchemy faucet | gas. **Faucets are flaky, so do this first** |
-| Base Sepolia RPC URL | Alchemy or QuickNode (public RPCs rate-limit) | deploy, web, API indexer |
-| Etherscan API key (V2 keys cover Basescan) | etherscan.io/myapikey | contract verification |
+| 3 testnet wallets: deployer/attestor, researcher, funder | MetaMask or Core (fresh accounts, never your main one) | deploy, demo |
+| Fuji AVAX in all three | Builder Hub faucet (build.avax.network → Console → Faucet; tops up a connected Builder Hub account). Fallback: core.app faucet with an Academy coupon code. Drip amounts differ by source: *verify* | gas. **Faucets are flaky, so do this first** |
+| Fuji RPC URL | public `https://api.avax-test.network/ext/bc/C/rpc` (shared, no SLA) or a paid provider for the deployed API | deploy, web, API indexer |
+| Test USDC *(optional)* | Circle faucet (faucet.circle.com): Fuji USDC `0x5425890298aed601595a70AB815c96711a31Bc65`, 10 USDC per 24 h per address (*verify*). Default deploy uses the repo's MockUSDC, which has an unlimited faucet - better for demos | funding demo |
+| Contract verification | **no key needed**: Routescan (operator of snowtrace.io) is configured in `contracts/foundry.toml`. Etherscan's free tier reportedly stopped covering Avalanche in Nov 2025 | `--verify` |
 | WalletConnect / Reown project id | cloud.reown.com | RainbowKit (without it, only browser wallets are offered) |
 | Supabase project | supabase.com (free tier is enough) | Postgres + pgvector |
-| Anthropic API key | console.anthropic.com | explanations, form mapping |
+| Anthropic API key | console.anthropic.com | explanations, form mapping, corpus extraction, evidence judging |
+| Evidence-engine keys *(optional, each source works alone)* | OpenAlex key (required since Feb 2026, metered), EPO OPS key+secret, Lens token, Semantic Scholar key, PatentsView key (issuance reported paused) | `/evidence` |
 | Voyage API key *(optional)* | voyageai.com | better embeddings than the local fallback |
-| Pinata JWT *(optional but recommended)* | pinata.cloud | public IPFS pinning |
+| Pinata JWT *(optional but recommended)* | pinata.cloud | public IPFS pinning (never pin plaintext research) |
 | Render (or Fly.io) + Vercel accounts | | hosting |
+
+**Helicon (C-Chain upgrade, mainnet 2026-09-22):** `latest` is now the last *executed* block and `finalized`/`safe`
+the last *settled* block. The API indexer therefore follows `finalized` on chain ids 43113/43114 (override with
+`INDEXER_HEAD_TAG`). The minimum gas price is now validator-governed: let Foundry/wallets estimate fees; never hardcode
+a gas price.
 
 ## 1. Contracts: toolchain and tests
 
@@ -26,30 +37,38 @@ bash script/setup.sh        # npm i (OpenZeppelin) + forge install forge-std + f
 forge test -vv              # 29 tests, including the refund-path fuzz test
 ```
 
-## 2. Deploy to Base Sepolia
+`evm_version = "cancun"` is supported on the C-Chain since the Etna upgrade (Dec 2024). Blob transactions are not.
+
+## 2. Deploy to Avalanche Fuji
 
 ```bash
 cd contracts
-export BASE_SEPOLIA_RPC_URL="https://base-sepolia.g.alchemy.com/v2/<key>"
+export FUJI_RPC_URL="https://api.avax-test.network/ext/bc/C/rpc"
 export PRIVATE_KEY=0x<deployer key>          # becomes admin AND attestor unless you set ATTESTOR=0x...
-export ETHERSCAN_API_KEY=<key>
+# optional: export USDC_ADDRESS=0x5425890298aed601595a70AB815c96711a31Bc65   # Circle test USDC instead of MockUSDC
 
-forge script script/Deploy.s.sol --rpc-url base_sepolia --broadcast --verify --etherscan-api-key "$ETHERSCAN_API_KEY"
+forge script script/Deploy.s.sol --rpc-url fuji --broadcast --verify
 
 node ../scripts/export-abis.mjs               # -> packages/shared/src/{abis,deployments}.ts + packages/shared/abis.json
-git add deployments/84532.json ../packages/shared && git commit -m "Deploy to Base Sepolia"
+git add deployments/43113.json ../packages/shared && git commit -m "Deploy to Avalanche Fuji"
 ```
 
-Paste the addresses from `deployments/84532.json` into the README table. If `--verify` fails (explorer lag),
-re-run verification for each contract, for example:
+Paste the addresses from `deployments/43113.json` into the README table and check them on
+`https://testnet.snowtrace.io/address/<address>`. If `--verify` fails (explorer lag), re-run per contract:
 
 ```bash
-forge verify-contract <address> src/ProjectRegistry.sol:ProjectRegistry --chain 84532 \
-  --constructor-args $(cast abi-encode "constructor(address)" <deployer>) --etherscan-api-key "$ETHERSCAN_API_KEY"
+forge verify-contract <address> src/ProjectRegistry.sol:ProjectRegistry --chain 43113 --verifier etherscan \
+  --verifier-url https://api.routescan.io/v2/network/testnet/evm/43113/etherscan --etherscan-api-key verifyContract \
+  --constructor-args $(cast abi-encode "constructor(address)" <deployer>) --watch
 ```
 
-**BNB Smart Chain testnet instead** (decide before you deploy, brief §6.1): use `--rpc-url bsc_testnet` with
-`BSC_TESTNET_RPC_URL`, then set chain id `97` everywhere below. Nothing else changes.
+**Mainnet C-Chain (43114), later:** same commands with `--rpc-url avalanche` and `AVALANCHE_RPC_URL`, and set
+`USDC_ADDRESS=0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E` (Circle native USDC, *not* the bridged USDC.e). Do not do this
+before: an external audit, a multisig + timelock on admin and attestor roles, and Thai legal advice on whatever the
+pool shares are (see docs/RESEARCH.md). Circle can freeze USDC: terms and contracts must handle blocked repayments.
+
+**Base Sepolia / BNB testnet instead:** `--rpc-url base_sepolia` / `bsc_testnet` with the matching RPC env var and an
+Etherscan V2 key, then set chain id `84532` / `97` everywhere below.
 
 ## 3. Database (Supabase)
 
@@ -77,8 +96,8 @@ the corpus, migration, ABIs and deployments are included) and a daily ingest cro
 | `ANTHROPIC_API_KEY` | your key (model defaults to `claude-opus-5-5`; override with `SCI_LLM_MODEL`) |
 | `VOYAGE_API_KEY` | optional |
 | `PINATA_JWT` | optional. Without it, IPFS objects are stored in Postgres and served by the API at `/ipfs/{cid}` (not public IPFS) |
-| `CHAIN_ID` | `84532` |
-| `RPC_URL` | Alchemy URL (the indexer uses it) |
+| `CHAIN_ID` | `43113` (Avalanche Fuji; `84532` still works for Base Sepolia) |
+| `RPC_URL` | Fuji RPC (the indexer uses it; public `https://api.avax-test.network/ext/bc/C/rpc` has no SLA) |
 | `CORS_ORIGINS` | your Vercel URL (after step 5) |
 
 `render.yaml` uses the **free** plan (no card needed). Free instances sleep after ~15 min idle and cold-start in
@@ -97,8 +116,8 @@ root). Environment variables:
 
 ```
 NEXT_PUBLIC_API_URL=https://<your-render-api>
-NEXT_PUBLIC_CHAIN_ID=84532
-NEXT_PUBLIC_RPC_URL=https://base-sepolia.g.alchemy.com/v2/<key>
+NEXT_PUBLIC_CHAIN_ID=43113
+NEXT_PUBLIC_RPC_URL=https://api.avax-test.network/ext/bc/C/rpc
 NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID=<reown id>
 ```
 
@@ -116,18 +135,18 @@ CID_B=$(curl -s -X POST $API/ipfs/pin-json -H 'content-type: application/json' -
 
 cd contracts
 RESEARCHER_KEY=0x<researcher> FUNDER_KEY=0x<funder> METADATA_CID_A=$CID_A METADATA_CID_B=$CID_B \
-FAIL_DELAY=2400 forge script script/SeedDemo.s.sol --rpc-url base_sepolia --broadcast
+FAIL_DELAY=2400 forge script script/SeedDemo.s.sol --rpc-url fuji --broadcast
 ```
 
 `FAIL_DELAY` is the number of seconds until project B's milestone is due. Run the script that long before the refund
-moment in your pitch (2400 = 40 min). The script prints the exact deadline. Both wallets need a little Base Sepolia
-ETH; the funder's mock USDC comes from the token's faucet.
+moment in your pitch (2400 = 40 min). The script prints the exact deadline. Both wallets need a little Fuji
+AVAX; the funder's mock USDC comes from the token's faucet.
 
 ## 7. Pre-flight checklist (morning of the demo)
 
 - [ ] `/health`: postgres, LLM on, Pinata, deployment found, indexer has events
 - [ ] `/raise` lists projects A and B; B's countdown matches your schedule
-- [ ] All three wallets are on Base Sepolia with ETH; the funder has mock USDC
+- [ ] All three wallets are on Avalanche Fuji with AVAX; the funder has mock USDC
 - [ ] The attestor wallet sees *Approve / Reject* on a submitted milestone
 - [ ] Run through [DEMO_SCRIPT.md](../DEMO_SCRIPT.md) twice on the **deployed** URL, on venue wifi
 - [ ] Curated entries you'll show are `verified: true` (README "Before demo day")

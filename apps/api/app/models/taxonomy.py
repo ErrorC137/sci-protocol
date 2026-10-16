@@ -230,3 +230,24 @@ def as_dict() -> dict:
         "countries": [{"code": k, "name": v[0], "currency": v[1]} for k, v in sorted(COUNTRIES.items(), key=lambda x: x[1][0])],
         "funder_types": FUNDER_TYPES,
     }
+
+
+# Thai labels, used when an application form is in Thai.
+FIELDS_TH: dict[str, str] = {
+    "materials": "วัสดุศาสตร์", "agritech": "เทคโนโลยีการเกษตร", "biotech": "เทคโนโลยีชีวภาพ", "energy": "พลังงาน",
+    "environmental": "สิ่งแวดล้อม", "food_science": "วิทยาศาสตร์การอาหาร", "health": "สุขภาพและการแพทย์",
+    "digital": "ดิจิทัลและเทคโนโลยีเชิงลึก", "manufacturing": "การผลิตขั้นสูง",
+}
+USES_OF_FUNDS_TH: dict[str, str] = {
+    "equipment": "ครุภัณฑ์", "materials": "วัสดุและสิ่งสิ้นเปลือง", "personnel": "ค่าตอบแทนบุคลากร",
+    "pilot_run": "การผลิตทดลอง (pilot)", "certification": "การทดสอบและรับรองมาตรฐาน", "ip_filing": "การยื่นจดทรัพย์สินทางปัญญา",
+}
+EVIDENCE_TH: dict[str, str] = {
+    "lab_result": "ผลการทดลองระดับห้องปฏิบัติการ", "prototype": "ต้นแบบ", "pilot": "การทดสอบนำร่อง",
+    "pre_production": "ก่อนการผลิตจริง", "in_market": "จำหน่ายในตลาดแล้ว",
+}
+APPLICANT_TYPES_TH: dict[str, str] = {
+    "individual": "นักวิจัยอิสระ (บุคคล)", "university": "มหาวิทยาลัยหรือสถาบันวิจัย", "startup": "สตาร์ทอัพ (นิติบุคคล)",
+    "sme": "วิสาหกิจขนาดกลางและขนาดย่อม (SME)", "consortium": "กลุ่มความร่วมมือ (Consortium)",
+}
+COUNTRY_TH: dict[str, str] = {"TH": "ประเทศไทย"}

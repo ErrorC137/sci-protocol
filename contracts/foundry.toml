@@ -19,8 +19,16 @@ runs = 512
 
 [rpc_endpoints]
 local = "http://127.0.0.1:8545"
+fuji = "${FUJI_RPC_URL}"
+avalanche = "${AVALANCHE_RPC_URL}"
 base_sepolia = "${BASE_SEPOLIA_RPC_URL}"
 bsc_testnet = "${BSC_TESTNET_RPC_URL}"
+
+# Contract verification on Avalanche goes through Routescan (operator of snowtrace.io since Nov 2023); its
+# Etherscan-compatible API needs no real key ("verifyContract" is its documented placeholder).
+[etherscan]
+fuji = { key = "verifyContract", chain = 43113, url = "https://api.routescan.io/v2/network/testnet/evm/43113/etherscan" }
+avalanche = { key = "verifyContract", chain = 43114, url = "https://api.routescan.io/v2/network/mainnet/evm/43114/etherscan" }
 
 [lint]
 # Milestone deadlines are days/weeks apart; validator timestamp drift (seconds) is irrelevant.

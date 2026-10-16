@@ -40,7 +40,7 @@ class Settings:
     ipfs_gateway: str = field(default_factory=lambda: _env("IPFS_GATEWAY", "https://gateway.pinata.cloud/ipfs/"))
 
     # Chain
-    chain_id: int = field(default_factory=lambda: int(_env("CHAIN_ID", "84532")))
+    chain_id: int = field(default_factory=lambda: int(_env("CHAIN_ID", "43113")))  # Avalanche Fuji
     rpc_url: str | None = field(default_factory=lambda: _env("RPC_URL"))
     deployments_dir: Path = field(
         default_factory=lambda: Path(_env("DEPLOYMENTS_DIR", str(REPO_ROOT / "contracts" / "deployments")))
@@ -52,6 +52,22 @@ class Settings:
     startup_connectors: list[str] = field(
         default_factory=lambda: [s.strip() for s in (_env("STARTUP_CONNECTORS", "") or "").split(",") if s.strip()]
     )
+
+    # Evidence engine (app/evidence). Every source is optional; missing keys show as `no_key` in reports.
+    evidence_mailto: str | None = field(default_factory=lambda: _env("EVIDENCE_MAILTO"))  # polite-pool contact
+    openalex_api_key: str | None = field(default_factory=lambda: _env("OPENALEX_API_KEY"))  # required since Feb 2026
+    s2_api_key: str | None = field(default_factory=lambda: _env("S2_API_KEY"))
+    patentsview_api_key: str | None = field(default_factory=lambda: _env("PATENTSVIEW_API_KEY"))
+    epo_ops_key: str | None = field(default_factory=lambda: _env("EPO_OPS_KEY"))
+    epo_ops_secret: str | None = field(default_factory=lambda: _env("EPO_OPS_SECRET"))
+    lens_api_token: str | None = field(default_factory=lambda: _env("LENS_API_TOKEN"))
+    patent_corpus: Path | None = field(default_factory=lambda: Path(p) if (p := _env("PATENT_CORPUS")) else None)
+    evidence_sources: list[str] = field(
+        default_factory=lambda: [s.strip() for s in (_env("EVIDENCE_SOURCES") or
+                                 "local,openalex,crossref,semantic_scholar,arxiv,patentsview,epo_ops,lens").split(",") if s.strip()]
+    )
+    # Test fixtures carry TEST- ids; the engine refuses to put them in a report unless this is set (tests only).
+    evidence_allow_fixtures: bool = field(default_factory=lambda: _env("EVIDENCE_ALLOW_FIXTURES", "false").lower() == "true")
 
     cors_origins: list[str] = field(
         default_factory=lambda: [s.strip() for s in _env("CORS_ORIGINS", "*").split(",") if s.strip()]

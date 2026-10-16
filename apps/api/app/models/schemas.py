@@ -255,11 +255,11 @@ class FieldSpec(BaseModel):
 class FormTemplate(BaseModel):
     id: str
     form_url: str
-    kind: Literal["pdf_acroform", "pdf_flat", "html_form"]
+    kind: Literal["pdf_acroform", "pdf_flat", "html_form", "docx_form"]
     title: str | None = None
     fields: list[FieldSpec]
     source_sha256: str
-    extraction: Literal["acroform", "html", "layout_heuristic", "ocr", "llm"] = "acroform"
+    extraction: Literal["acroform", "html", "docx", "layout_heuristic", "ocr", "llm"] = "acroform"
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
     @property

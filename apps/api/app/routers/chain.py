@@ -12,7 +12,13 @@ from ..config import settings
 
 router = APIRouter()
 
-EXPLORERS = {84532: "https://sepolia.basescan.org", 97: "https://testnet.bscscan.com", 31337: None}
+EXPLORERS = {
+    43113: "https://testnet.snowtrace.io",
+    43114: "https://snowtrace.io",
+    84532: "https://sepolia.basescan.org",
+    97: "https://testnet.bscscan.com",
+    31337: None,
+}
 
 
 @router.post("/ipfs/pin-json")

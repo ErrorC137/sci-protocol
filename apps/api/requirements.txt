@@ -9,9 +9,13 @@ anthropic==1.14.0
 pypdf==6.20.1
 pdfplumber==0.11.10
 beautifulsoup4==4.15.0
+python-docx==1.2.0
+trafilatura==2.3.1  # corpus crawler: boilerplate-free page text
+ruamel.yaml==0.18.15  # corpus crawler: edit grants.yaml without losing comments
 psycopg[binary]==3.3.6
 psycopg-pool==3.3.3
 pgvector==0.5.1
 eth-abi==6.0.0
 eth-hash[pycryptodome]==0.8.0
 # Optional OCR fallback for scanned PDFs (also needs the tesseract binary): pytesseract
+protego==0.7.0  # corpus crawler: robots.txt per RFC 9309

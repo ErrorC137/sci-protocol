@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { Compass, ListChecks, Lock, Menu, Rocket, UserRound, X, type LucideIcon } from "lucide-react";
+import { Compass, ListChecks, Lock, Menu, Microscope, Rocket, UserRound, X, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
@@ -15,6 +15,7 @@ const LINKS: [string, string, LucideIcon][] = [
   ["/discover", "Discover", Compass],
   ["/profile", "Profile", UserRound],
   ["/matches", "Matches", ListChecks],
+  ["/evidence", "Evidence", Microscope],
   ["/raise", "Raise", Rocket],
   ["/vault", "Vault", Lock],
 ];

@@ -24,8 +24,8 @@ services:
       - key: PINATA_JWT            # optional - otherwise IPFS objects are kept in Postgres and served by the API
         sync: false
       - key: CHAIN_ID
-        value: "84532"
-      - key: RPC_URL               # Alchemy/QuickNode Base Sepolia URL (or https://sepolia.base.org)
+        value: "43113"            # Avalanche Fuji; 43114 = C-Chain mainnet
+      - key: RPC_URL               # Avalanche Fuji RPC (public: https://api.avax-test.network/ext/bc/C/rpc)
         sync: false
       - key: INDEXER_ENABLED
         value: "true"

@@ -10,7 +10,8 @@ from datetime import datetime, timezone
 from ..db.base import Store
 from ..models.schemas import Applicant, Application, FormTemplate, Grant, ProjectProfile
 from . import fetch as fetcher
-from .mapper import PLACEHOLDER, map_fields
+from .mapper import has_placeholder, map_fields
+from .docx_form import parse_docx
 from .parse_html import parse_html
 from .parse_pdf import parse_acroform, parse_flat
 
@@ -32,6 +33,9 @@ def get_template(store: Store, form_ref: str, refresh: bool = False) -> FormTemp
     if form.kind == "pdf_acroform":
         fields, title = parse_acroform(form.data)
         extraction = "acroform"
+    elif form.kind == "docx_form":
+        fields, title = parse_docx(form.data)
+        extraction = "docx"
     elif form.kind == "pdf_flat":
         fields, extraction = parse_flat(form.data)
         title = None
@@ -65,7 +69,7 @@ def update_fields(store: Store, app: Application, edits: list[dict]) -> Applicat
             v = e["value"]
             f.value = v
             f.source = "user"
-            f.status = "green" if v not in (None, "", []) and not (isinstance(v, str) and PLACEHOLDER in v) else f.status
+            f.status = "green" if v not in (None, "", []) and not has_placeholder(v) else f.status
             f.confirmed = f.status == "green"
         if e.get("confirmed") is not None:
             f.confirmed = bool(e["confirmed"])
@@ -79,8 +83,7 @@ def update_fields(store: Store, app: Application, edits: list[dict]) -> Applicat
 def review_problems(app: Application) -> list[dict]:
     problems = []
     for f in app.fields:
-        text = f.value if isinstance(f.value, str) else ""
-        if PLACEHOLDER in text:
+        if has_placeholder(f.value):
             problems.append({"field_id": f.field_id, "label": f.label, "problem": "Draft still contains [YOU MUST ADD] placeholders"})
         elif f.status == "amber" and not f.confirmed:
             problems.append({"field_id": f.field_id, "label": f.label, "problem": "Inferred value not yet checked by you"})

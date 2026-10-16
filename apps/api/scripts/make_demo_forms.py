@@ -276,9 +276,92 @@ HTML = """<!doctype html>
 """
 
 
+def thai_docx(path: Path):
+    """A Thai-language Word form exercising every DOCX field source: label|blank table cells, a label row above a
+    narrative cell, a repeating team table, dotted blanks, ☐ checkboxes, a content control and legacy form fields."""
+    from copy import deepcopy
+
+    from docx import Document
+    from docx.oxml import parse_xml
+    from docx.oxml.ns import nsdecls
+    from docx.shared import Pt
+
+    doc = Document()
+    st = doc.styles["Normal"]
+    st.font.name = "TH Sarabun New"
+    st.font.size = Pt(16)
+    st.element.rPr.rFonts.set("{http://schemas.openxmlformats.org/wordprocessingml/2006/main}cs", "TH Sarabun New")
+    doc.core_properties.title = "แบบฟอร์มข้อเสนอโครงการวิจัยและนวัตกรรม (ตัวอย่างสาธิต)"
+    doc.add_paragraph("แบบฟอร์มสาธิต - สร้างโดย SCI Protocol เพื่อสาธิตการกรอกข้อมูลอัตโนมัติ ไม่ใช่แบบฟอร์มทางการของหน่วยงานใด")
+    doc.add_heading("แบบฟอร์มข้อเสนอโครงการวิจัยและนวัตกรรม", level=1)
+    doc.add_heading("ส่วนที่ 1 ข้อมูลผู้เสนอโครงการ", level=2)
+    t = doc.add_table(rows=0, cols=2)
+    t.style = "Table Grid"
+    for label in ["ชื่อโครงการ", "ชื่อ-นามสกุล หัวหน้าโครงการ", "ตำแหน่ง", "หน่วยงาน/สังกัด", "โทรศัพท์", "อีเมล", "ที่อยู่"]:
+        row = t.add_row().cells
+        row[0].text = label
+        row[1].text = ""
+
+    # content control (w:sdt) for country
+    p = doc.add_paragraph("ประเทศ: ")
+    p._p.append(parse_xml(
+        f'<w:sdt {nsdecls("w")}><w:sdtPr><w:alias w:val="ประเทศ"/><w:tag w:val="country"/></w:sdtPr>'
+        '<w:sdtContent><w:r><w:t xml:space="preserve">คลิกเพื่อกรอก</w:t></w:r></w:sdtContent></w:sdt>'))
+
+    doc.add_paragraph("สาขาการวิจัย ..............................................................")
+    doc.add_paragraph("ระดับความพร้อมทางเทคโนโลยี (TRL) .......... งบประมาณที่ขอรับการสนับสนุน (บาท) ....................")
+
+    # legacy text form field (FORMTEXT) for duration
+    p = doc.add_paragraph("ระยะเวลาดำเนินการ (เดือน) ")
+    for xml in [
+        f'<w:r {nsdecls("w")}><w:fldChar w:fldCharType="begin"><w:ffData><w:name w:val="duration"/><w:enabled/>'
+        '<w:textInput><w:maxLength w:val="3"/></w:textInput></w:ffData></w:fldChar></w:r>',
+        f'<w:r {nsdecls("w")}><w:instrText xml:space="preserve"> FORMTEXT </w:instrText></w:r>',
+        f'<w:r {nsdecls("w")}><w:fldChar w:fldCharType="separate"/></w:r>',
+        f'<w:r {nsdecls("w")}><w:t xml:space="preserve">     </w:t></w:r>',
+        f'<w:r {nsdecls("w")}><w:fldChar w:fldCharType="end"/></w:r>',
+    ]:
+        p._p.append(parse_xml(xml))
+
+    doc.add_paragraph("หมวดค่าใช้จ่าย: ☐ ครุภัณฑ์ ☐ วัสดุและสิ่งสิ้นเปลือง ☐ ค่าตอบแทนบุคลากร ☐ การผลิตทดลอง ☐ การทดสอบและรับรองมาตรฐาน")
+
+    doc.add_heading("ส่วนที่ 2 รายละเอียดโครงการ", level=2)
+    t2 = doc.add_table(rows=0, cols=1)
+    t2.style = "Table Grid"
+    for label in ["หลักการและเหตุผล", "วัตถุประสงค์", "แผนการดำเนินงาน", "ผลที่คาดว่าจะได้รับ"]:
+        t2.add_row().cells[0].text = label
+        blank = t2.add_row().cells[0]
+        blank.text = ""
+        blank.add_paragraph("")
+        blank.add_paragraph("")
+
+    doc.add_heading("ส่วนที่ 3 คณะผู้วิจัย", level=2)
+    t3 = doc.add_table(rows=1, cols=3)
+    t3.style = "Table Grid"
+    for c, h in zip(t3.rows[0].cells, ["ชื่อ-สกุล", "ตำแหน่ง", "หน่วยงาน"]):
+        c.text = h
+    for _ in range(2):
+        t3.add_row()
+
+    doc.add_heading("ส่วนที่ 4 คำรับรอง", level=2)
+    p = doc.add_paragraph()
+    for xml in [
+        f'<w:r {nsdecls("w")}><w:fldChar w:fldCharType="begin"><w:ffData><w:name w:val="declaration"/><w:enabled/>'
+        '<w:checkBox><w:sizeAuto/><w:default w:val="0"/></w:checkBox></w:ffData></w:fldChar></w:r>',
+        f'<w:r {nsdecls("w")}><w:instrText xml:space="preserve"> FORMCHECKBOX </w:instrText></w:r>',
+        f'<w:r {nsdecls("w")}><w:fldChar w:fldCharType="end"/></w:r>',
+        f'<w:r {nsdecls("w")}><w:t xml:space="preserve"> ข้าพเจ้าขอรับรองว่าข้อมูลข้างต้นเป็นความจริงทุกประการ</w:t></w:r>',
+    ]:
+        p._p.append(parse_xml(xml))
+    doc.add_paragraph("ลงชื่อ ........................................ ผู้เสนอโครงการ")
+    doc.add_paragraph("วันที่ ........................................")
+    doc.save(str(path))
+
+
 if __name__ == "__main__":
     OUT.mkdir(exist_ok=True)
     thai_grant(OUT / "thai-innovation-grant-demo.pdf")
     federal_cover(OUT / "federal-rd-cover-sheet-demo.pdf")
     (OUT / "crowdfunding-project-demo.html").write_text(HTML)
+    thai_docx(OUT / "thai-research-proposal-demo.docx")
     print("wrote", *sorted(p.name for p in OUT.iterdir()))

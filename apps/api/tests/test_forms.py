@@ -4,7 +4,7 @@ from pypdf import PdfReader
 from reportlab.lib.pagesizes import A4
 from reportlab.pdfgen import canvas
 
-from app.forms.mapper import PLACEHOLDER
+from app.forms.mapper import PLACEHOLDER, PLACEHOLDER_TH, PLACEHOLDERS, has_placeholder
 
 
 def _create(client, persona, grant_id, template_id=None):
@@ -20,8 +20,11 @@ def _resolve_everything(client, app_id, fields):
     """What the researcher does on the review screen."""
     edits = []
     for f in fields:
-        if isinstance(f["value"], str) and PLACEHOLDER in f["value"]:
-            edits.append({"field_id": f["field_id"], "value": f["value"].split(PLACEHOLDER)[0] + "Researcher-written text."})
+        if has_placeholder(f["value"]):
+            head = f["value"]
+            for ph in PLACEHOLDERS:
+                head = head.split(ph)[0]
+            edits.append({"field_id": f["field_id"], "value": head + "Researcher-written text."})
         elif f["status"] == "amber":
             edits.append({"field_id": f["field_id"], "confirmed": True})
         elif f["status"] == "red" and f["value"] in (None, "", []):
@@ -138,3 +141,93 @@ def test_templates_are_cached_per_form(client, grants_by_ref):
     a = client.get(f"/grants/{gid}/form").json()
     b = client.get(f"/grants/{grants_by_ref['tedfund-young-startup'].id}/form").json()
     assert a["id"] == b["id"]  # same form_url -> one template, extracted once
+
+
+DOCX_FORM = "thai-research-proposal-demo.docx"
+
+
+def _docx_values(data: bytes) -> dict:
+    from app.forms.docx_form import parse_docx
+
+    return {s.id: s for s in parse_docx(data)[0]}
+
+
+def test_thai_docx_form_prefill_review_export(client, persona, grants_by_ref):
+    """Word forms: tables, content controls, legacy fields, dotted blanks and ☐ glyphs, all in Thai."""
+    import docx
+
+    from app.forms.fetch import DEMO_DIR
+
+    raw = (DEMO_DIR / DOCX_FORM).read_bytes()
+    r = client.post("/forms/upload", files={"file": (DOCX_FORM, raw, "application/octet-stream")})
+    assert r.status_code == 200, r.text
+    t = r.json()
+    assert t["kind"] == "docx_form" and t["extraction"] == "docx" and len(t["fields"]) == 30
+    ids = [f["id"] for f in t["fields"]]
+    for fid in ("tbl0:r1:c1", "sdt:country", "ff:duration", "ff:declaration", "p7:cb3", "tbl1:r1:c0", "tbl2:r2:c0"):
+        assert fid in ids, fid
+
+    out = _create(client, persona, grants_by_ref["nrct-research-grants"].id, template_id=t["id"])
+    app = out["application"]
+    by_id = {f["field_id"]: f for f in app["fields"]}
+    assert by_id["tbl0:r1:c1"]["value"] == persona["applicant"]["name"] and by_id["tbl0:r1:c1"]["status"] == "green"
+    assert by_id["sdt:country"]["value"] == "ประเทศไทย"  # answered in the form's language
+    assert by_id["p5:b0"]["value"] == "4"
+    assert by_id["p5:b1"]["status"] == "amber"  # converted amount is never silently green
+    assert by_id["p7:cb3"]["value"] is True and by_id["p7:cb2"]["value"] is False
+    # Thai narrative cells get Thai drafts with Thai placeholders
+    for fid in ("tbl1:r1:c0", "tbl1:r3:c0", "tbl1:r5:c0", "tbl1:r7:c0"):
+        assert by_id[fid]["narrative"] and PLACEHOLDER_TH in by_id[fid]["value"] and by_id[fid]["status"] == "amber"
+    # Declaration, signature, date and extra team rows stay with the researcher
+    for fid in ("ff:declaration", "p12:b0", "p13:b0", "tbl2:r2:c0"):
+        assert by_id[fid]["status"] == "red" and by_id[fid]["value"] in (None, "")
+
+    app_id = app["id"]
+    assert client.get(f"/applications/{app_id}/export?format=docx").status_code == 403
+    after = _resolve_everything(client, app_id, app["fields"])
+    assert after["problems"] == []
+    assert client.post(f"/applications/{app_id}/review", json={"attest": True}).status_code == 200
+    assert client.get(f"/applications/{app_id}/export?format=pdf").status_code == 400
+
+    r = client.get(f"/applications/{app_id}/export?format=docx")
+    assert r.status_code == 200 and r.headers["content-type"].endswith("wordprocessingml.document")
+    filled = docx.Document(io.BytesIO(r.content))
+    text = "\n".join(p.text for p in filled.paragraphs)
+    cells = [c.text for tb in filled.tables for row in tb.rows for c in row.cells]
+    assert persona["applicant"]["name"] in cells
+    assert "☒ การผลิตทดลอง" in text and "☐ ค่าตอบแทนบุคลากร" in text
+    assert "Researcher-written text." in "\n".join(cells)
+    assert not any(has_placeholder(c) for c in cells)
+    # Portal helper payload (tools/portal-fill): labelled answers, only after review
+    portal = client.get(f"/applications/{app_id}/export?format=portal").json()
+    assert portal["reviewed"] is True and portal["grant"]
+    labels = {f["label"]: f for f in portal["fields"]}
+    assert labels["อีเมล"]["value"] == persona["applicant"]["email"] and labels["อีเมล"]["type"] == "email"
+
+    # Structural fields (content controls, legacy fields) survive filling and keep their values;
+    # filled blanks and cells are no longer blanks, so they are not re-detected as empty fields.
+    after = _docx_values(r.content)
+    assert {"sdt:country", "ff:duration", "ff:declaration"} <= set(after)
+    assert after["sdt:country"].label == "ประเทศ"
+
+
+def test_docx_fill_unit():
+    """Each field source writes where the reader expects, and nothing else changes."""
+    import zipfile
+
+    from app.forms.docx_form import fill_docx
+    from app.forms.fetch import DEMO_DIR
+
+    raw = (DEMO_DIR / DOCX_FORM).read_bytes()
+    out = fill_docx(raw, {"sdt:country": "ประเทศไทย", "ff:duration": "9", "ff:declaration": True,
+                          "p4:b0": "วัสดุศาสตร์", "p7:cb0": True, "tbl0:r0:c1": "Test project"})
+    xml = zipfile.ZipFile(io.BytesIO(out)).read("word/document.xml").decode()
+    assert "ประเทศไทย" in xml and ">9<" in xml and "Test project" in xml
+    assert "☒ ครุภัณฑ์" in xml or "☒</w:t>" in xml
+    assert 'w:default w:val="1"' in xml or "w:checked" in xml  # legacy checkbox ticked
+    assert "สาขาการวิจัย วัสดุศาสตร์" in xml or "วัสดุศาสตร์" in xml
+    # Untouched blanks stay blank
+    assert "งบประมาณที่ขอรับการสนับสนุน (บาท) ...." in xml
+    # Values the caller did not send are not invented
+    unchanged = fill_docx(raw, {})
+    assert _docx_values(unchanged).keys() == _docx_values(raw).keys()

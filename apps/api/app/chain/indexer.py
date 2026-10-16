@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import json
 import logging
+import os
 import threading
 from collections import deque
 
@@ -93,6 +94,8 @@ class Indexer:
         self._stop = threading.Event()
         self.last_error: str | None = None
         self.http = httpx.Client(timeout=30)
+        # Avalanche: settled blocks only (see head()). Dev chains like anvil report `finalized` far behind the head.
+        self.head_tag = os.environ.get("INDEXER_HEAD_TAG") or ("finalized" if settings.chain_id in (43113, 43114) else "latest")
 
     def _rpc(self, method: str, params: list):
         r = self.http.post(self.rpc, json={"jsonrpc": "2.0", "id": 1, "method": method, "params": params})
@@ -102,8 +105,20 @@ class Indexer:
             raise RuntimeError(body["error"])
         return body["result"]
 
+    def head(self) -> int:
+        """Index only settled blocks. Since Avalanche's Helicon upgrade (ACP-194, mainnet 2026-09-22) the C-Chain's
+        `latest` is the last *executed* block and `finalized`/`safe` the last *settled* one; funds and milestone
+        state are credited from settled blocks only. Nodes without the tag fall back to eth_blockNumber."""
+        try:
+            blk = self._rpc("eth_getBlockByNumber", [self.head_tag, False])
+            if blk and blk.get("number"):
+                return int(blk["number"], 16)
+        except Exception as ex:  # older node / dev chain without the tag
+            log.debug("head tag %s unsupported (%s); using eth_blockNumber", self.head_tag, ex)
+        return int(self._rpc("eth_blockNumber", []), 16)
+
     def poll_once(self) -> int:
-        head = int(self._rpc("eth_blockNumber", []), 16)
+        head = self.head()
         n = 0
         while self.next_block <= head:
             to = min(head, self.next_block + self.chunk - 1)

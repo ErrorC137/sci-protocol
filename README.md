@@ -10,24 +10,28 @@
 ```
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │  apps/web  Next.js 14 · Tailwind · wagmi + viem + RainbowKit       (Vercel)  │
-│   /discover  /profile (wizard)  /matches  /apply/[id]  /raise  /raise/[id]   │
+│   /discover  /profile (wizard)  /matches  /apply/[id]  /evidence  /raise     │
 │   /vault  - private keywords + vault crypto never leave the browser          │
 └───────────────┬───────────────────────────────────────────┬──────────────────┘
                 │ REST                                      │ JSON-RPC (wallet)
 ┌───────────────▼─────────────────────────────┐   ┌─────────▼──────────────────┐
-│  apps/api  FastAPI (Render / Docker)        │   │  Base Sepolia (or BNB tn)  │
-│   ingest/  curated YAML + Grants.gov + EU   │   │   ProjectRegistry          │
-│   match/   SQL/Python hard filters → hybrid │   │   MilestoneEscrow          │
-│            rank → Claude explanations       │   │   FundingPool              │
-│   forms/   PDF/HTML parse → map → review    │   │   SCIFraction (ERC-1155)   │
-│   chain/   IPFS pinning · event indexer     │◄──┤   AttestationRegistry      │
-└───────┬───────────────┬─────────────────────┘   │   MockUSDC (testnet)       │
-        │               │                         └────────────────────────────┘
-┌───────▼───────┐ ┌─────▼──────────────────────────────┐
+│  apps/api  FastAPI (Render / Docker)        │   │  Avalanche Fuji C-Chain    │
+│   ingest/   curated YAML + Grants.gov + EU  │   │   ProjectRegistry          │
+│   curate/   funder-site watch → review YAML │   │   MilestoneEscrow          │
+│   match/    hard filters → hybrid rank →    │   │   FundingPool              │
+│             Claude explanations             │   │   SCIFraction (ERC-1155)   │
+│   forms/    PDF / Word / HTML → map → review│   │   AttestationRegistry      │
+│   evidence/ patents + papers → claim chart, │◄──┤   MockUSDC (testnet)       │
+│             TRL from evidence, FTO flags    │   └────────────────────────────┘
+│   chain/    IPFS pinning · event indexer    │
+└───────┬───────────────┬─────────────────────┘   tools/portal-fill: Playwright helper
+        │               │                         that types reviewed answers into a
+┌───────▼───────┐ ┌─────▼──────────────────────────────┐  funder's web portal (never submits)
 │ Postgres +    │ │ Anthropic (Claude) · Voyage embeds │
-│ pgvector      │ │ Pinata IPFS · Alchemy RPC          │
-│ (Supabase)    │ │ all optional - local fallbacks     │
-└───────────────┘ └────────────────────────────────────┘
+│ pgvector      │ │ Pinata IPFS · Fuji RPC · OpenAlex, │
+│ (Supabase)    │ │ Crossref, S2, arXiv, EPO OPS, Lens │
+└───────────────┘ │ all optional - local fallbacks     │
+                  └────────────────────────────────────┘
 ```
 
 ## What's built, and how it was verified
@@ -48,12 +52,18 @@
 | | Green / amber / red per field, narrative scaffolds with `[YOU MUST ADD: …]`, declarations never pre-ticked | done | Tests incl. a deliberately misbehaving LLM |
 | | Mandatory, server-enforced review; export (filled PDF / .md pack / .json) only after it; **no submit endpoint** | done | Tests + E2E |
 | T3 Chain | 5 contracts + MockUSDC (Foundry, OpenZeppelin 5) | done | **29 forge tests** incl. 5,000-run fuzz of refund conservation |
-| | Deploy + demo-seeding scripts | done | Deployed and seeded on local anvil. **Base Sepolia deploy needs your key + faucet ETH** ([docs/DEPLOY.md](docs/DEPLOY.md)) |
+| | Deploy + demo-seeding scripts | done | Deployed and seeded on local anvil. **Avalanche Fuji deploy needs your key + faucet AVAX** ([docs/DEPLOY.md](docs/DEPLOY.md)); nothing is on Fuji yet |
 | | Raise → escrow → evidence → approve → release; **missed milestone → refund** | done | Browser E2E against local chain ([scripts/e2e/smoke.py](scripts/e2e/smoke.py)) |
 | | ERC-1155 fractions + pro-rata revenue distribution | done | forge tests (transfer-safe accounting) |
+| **Pivot (battery upcycling, Avalanche)** | Avalanche Fuji default; C-Chain mainnet wired; Helicon-aware indexer (`finalized` head on 43113/43114); Routescan verification | done | Indexer test against local anvil; forge config parses. **Nothing deployed to Fuji yet** |
+| | Word (.docx) forms: content controls, legacy fields, table cells, dotted blanks, ☐ glyphs; Thai mapping with `[ต้องเพิ่ม: …]` placeholders | done | Generated Thai demo form (30 fields): parse → map → review gate → filled .docx |
+| | `tools/portal-fill`: types reviewed answers into a funder's web portal in a visible browser, never submits | done | 3 headless Chromium tests (declarations, dates, passwords, files, hidden steps untouched) |
+| | Corpus automation `python -m app.curate`: watch list → polite crawl (robots.txt, 5 s/host) → extract → **quote-verified** values → review-queue YAML → `apply` (comments preserved) | done | 8 offline tests (mock sites, TIS-620 page, fabricated quotes dropped). **Live funder sites unreachable from the sandbox** |
+| | Evidence engine `/evidence`: real patents + papers (OpenAlex, Crossref, S2, arXiv, EPO OPS, PatentsView, Lens, BigQuery export) → claim chart with verified quotes, priority-date filter, FTO flags, battery TRL from evidence, bundle hash | done | 10 tests; EPO parser on **real OPS XML**; UI driven in Chromium. **No source reachable from the sandbox, so adapters other than EPO are untested live: run `python -m app.evidence.smoke`** |
+| | Business model review + unit-economics model; research notes; MatDAO audit | done | `tools/models/receivables_model.py`; [docs/BUSINESS_MODEL.md](docs/BUSINESS_MODEL.md); [docs/RESEARCH.md](docs/RESEARCH.md) |
 
-Test totals: contracts 29 · API 37 (Postgres and indexer suites run when `PG_TEST_URL` / `ANVIL_RPC` are set) ·
-web typecheck + lint + production build · browser smoke test of the full demo story.
+Test totals: contracts 29 · API 49 (Postgres and indexer suites run when `PG_TEST_URL` / `ANVIL_RPC` are set) ·
+portal-fill 3 · web typecheck + lint + production build · browser smoke test of the full demo story.
 
 ## Quickstart (local, everything on your machine)
 
@@ -135,7 +145,7 @@ the tests. Deployed addresses: `contracts/deployments/<chainId>.json` (committed
 
 | Network | Addresses |
 |---|---|
-| Base Sepolia (84532) | *not yet deployed: run [docs/DEPLOY.md](docs/DEPLOY.md) §2, then paste the table from `contracts/deployments/84532.json` here* |
+| Avalanche Fuji (43113) | *not yet deployed: run [docs/DEPLOY.md](docs/DEPLOY.md) §2, then paste the table from `contracts/deployments/43113.json` here* |
 | Local anvil (31337) | `contracts/deployments/31337.json` (deterministic dev addresses) |
 
 ## What's real vs. mocked
@@ -149,7 +159,9 @@ the tests. Deployed addresses: `contracts/deployments/<chainId>.json` (committed
 | Stablecoin | - | `MockUSDC` with open faucet |
 | Attestor | - | Deployer key (centralized). Decentralizing it is future work |
 | Application forms | Any fillable PDF / HTML form you point `form_url` at or upload | The three demo forms are **generic replicas, labelled as such on the page and in the PDF**. Not any funder's official document |
-| TRL scoring | Evidence-vs-TRL consistency check | KALDERA logic wasn't available to port; drop it into `apps/api/app/score/trl.py` |
+| TRL scoring | Evidence-vs-TRL consistency check; battery TRL from quoted evidence (`app/evidence/trl.py`, rubric `battery-trl-0.1`, a proposal pending practitioner review) | KALDERA logic wasn't available to port |
+| Prior art / literature | Live adapters for OpenAlex (key required since Feb 2026), Crossref, Semantic Scholar, arXiv, EPO OPS, PatentsView, Lens; local corpus from your own BigQuery export | **No patent data is bundled.** Test fixtures carry `XX-TEST` ids and are refused outside test mode (MatDAO's corpus was fabricated; see docs/RESEARCH.md) |
+| Corpus watching | Crawler + extraction + verification run for real against any reachable site | Review queue only. Nothing is ever marked `verified: true` automatically |
 
 ## Before demo day
 
@@ -171,17 +183,44 @@ which the brief lists but which couldn't be identified confidently enough to cur
 - The attestor is centralized (the deployer key / backend signer). Named as future work, not hidden.
 - A vault proof is a **timestamped existence proof**. It is not prior art, not patent protection, and not legal IP
   registration.
-- Applications are never auto-submitted. A mis-submitted application is the applicant's liability.
+- Applications are never auto-submitted. A mis-submitted application is the applicant's liability. `tools/portal-fill`
+  types into portals but never clicks submit or presses Enter, and never touches declarations, signatures, dates,
+  bank/ID numbers, passwords or file uploads.
+- The evidence engine produces **signals for a patent attorney, not legal opinions**. Absence of a match is not
+  proof of novelty; FTO flags are not clearance. Confidential submissions only send your own public keywords to
+  external search APIs.
+- `SCIFraction` revenue rights make it securities-like: testnet demonstration only. See
+  [docs/BUSINESS_MODEL.md §5](docs/BUSINESS_MODEL.md) for the recommended token design (no platform token).
 
 ## Repository layout
 
 ```
 apps/web/            Next.js app (pages under app/, chain + API clients under lib/)
-apps/api/            FastAPI: app/{ingest,match,forms,score,chain,db,models,routers}, tests/, demo_forms/
+apps/api/            FastAPI: app/{ingest,curate,match,forms,evidence,score,chain,db,models,routers}, tests/, demo_forms/
+tools/portal-fill/   Playwright helper for web-portal forms (never submits)
+tools/models/        receivables_model.py - unit economics of the financing arm
+data/curate/         sites.yaml (watch list), review/ (queues), state.json
+.claude/agents/      9 domain subagents for Claude Code (see below)
 contracts/           Foundry: src/ (5 + MockUSDC), test/, script/{Deploy,SeedDemo,Wiring}, deployments/
 packages/shared/     ABIs + deployments (generated) and API types shared with the web app
 data/seed/grants.yaml  curated corpus · data/demo/  demo persona + on-chain project metadata
 supabase/migrations/   schema (also auto-applied by the API)
 scripts/             dev-chain.sh, export-abis.mjs, e2e/smoke.py
-docs/DEPLOY.md · DEMO_SCRIPT.md · render.yaml
+docs/DEPLOY.md · docs/BUSINESS_MODEL.md · docs/RESEARCH.md · DEMO_SCRIPT.md · render.yaml
 ```
+
+## Claude Code subagents (`.claude/agents/`)
+
+Loaded automatically by Claude Code in this repo; invoke by name or let Claude delegate.
+
+| Agent | Use it for |
+|---|---|
+| `fact-checker` | Adversarially verify any claim, figure or citation before it goes into a pitch or a filing |
+| `rwa-structurer` | Receivables-pool design: tranching, waterfalls, true sale vs loan, permissioning |
+| `battery-materials-scientist` | Recycling/upcycling chemistry, TRL rubric review, test plans |
+| `ip-literature-analyst` | Prior art, claim charts and FTO signals from real patents and papers |
+| `thai-regulatory-researcher` | SEC digital-asset rules, factoring/assignment law, Bayh-Dole, PDPA (always ends with lawyer questions) |
+| `funding-corpus-curator` | Add or verify funders in `data/seed/grants.yaml` and the crawler watch list |
+| `form-automation-engineer` | New PDF/Word/HTML form layouts, portal-fill selectors |
+| `solidity-auditor` | Review contract changes before any deployment |
+| `commercialization-strategist` | Membership offers, validation sprints, licensing terms |

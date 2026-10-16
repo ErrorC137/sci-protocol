@@ -24,12 +24,28 @@ from ..models import taxonomy
 from ..models.schemas import Applicant, FieldSpec, FilledField, Grant, ProjectProfile
 
 PLACEHOLDER = "[YOU MUST ADD:"
+PLACEHOLDER_TH = "[ต้องเพิ่ม:"
+PLACEHOLDERS = (PLACEHOLDER, PLACEHOLDER_TH)
 DECLARATION = re.compile(
     r"declar|\bcertify\b|certifications and assurances|i confirm|i agree|consent|acknowledg|attest|undertake|"
-    r"terms and conditions|platform terms|true and correct",
+    r"terms and conditions|platform terms|true and correct|"
+    r"ขอรับรอง|คำรับรอง|ยินยอม|รับทราบ|ยอมรับเงื่อนไข|เป็นความจริงทุกประการ",
     re.I,
 )
-NEVER_FILL = re.compile(r"signature|sign here|date of sign|bank|account number|iban|swift|passport|national id|id card|tax id", re.I)
+NEVER_FILL = re.compile(
+    r"signature|sign here|date of sign|bank|account number|iban|swift|passport|national id|id card|tax id|"
+    r"ลงชื่อ|ลายมือชื่อ|บัญชีธนาคาร|เลขที่บัญชี|เลขประจำตัวประชาชน|บัตรประชาชน|เลขประจำตัวผู้เสียภาษี|หนังสือเดินทาง",
+    re.I,
+)
+DATE_LABEL = re.compile(r"\bdate\b|วันที่|วัน\s*/?\s*เดือน\s*/?\s*ปี", re.I)
+
+
+def has_placeholder(text: object) -> bool:
+    return isinstance(text, str) and any(p in text for p in PLACEHOLDERS)
+
+
+def _thai(label: str) -> bool:
+    return any("\u0e00" <= ch <= "\u0e7f" for ch in label)
 
 
 @dataclass
@@ -42,8 +58,16 @@ class Ctx:
 Resolved = tuple[str | bool | list[str] | None, str, str]  # (value, status, rationale)
 
 
-def _fields(c: Ctx) -> str:
-    return ", ".join(taxonomy.field_label(f) for f in c.profile.fields)
+def _fields(c: Ctx, th: bool = False) -> str:
+    return ", ".join((taxonomy.FIELDS_TH.get(f) if th else None) or taxonomy.field_label(f) for f in c.profile.fields)
+
+
+def _uses(c: Ctx, th: bool = False) -> list[str]:
+    return [(taxonomy.USES_OF_FUNDS_TH[u] if th else taxonomy.USES_OF_FUNDS[u]) for u in c.profile.uses_of_funds]
+
+
+def _evidence(c: Ctx, th: bool = False) -> list[str]:
+    return [(taxonomy.EVIDENCE_TH[e] if th else taxonomy.EVIDENCE[e]["label"]) for e in c.profile.evidence]
 
 
 def _join(items: list[str]) -> str:
@@ -61,9 +85,9 @@ def _request_usd(c: Ctx) -> tuple[float, bool]:
 def _amount(c: Ctx, label: str) -> Resolved:
     usd, capped = _request_usd(c)
     why_cap = " (capped at this grant's maximum award)" if capped else ""
-    m = re.search(r"\b(THB|SGD|MYR|IDR|VND|PHP|EUR|GBP|JPY|KRW|AUD|CAD|CHF|INR|baht|euro)\b", label, re.I)
+    m = re.search(r"\b(THB|SGD|MYR|IDR|VND|PHP|EUR|GBP|JPY|KRW|AUD|CAD|CHF|INR|baht|euro)\b|(บาท)", label, re.I)
     if m:
-        cur = {"baht": "THB", "euro": "EUR"}.get(m.group(1).lower(), m.group(1).upper())
+        cur = "THB" if m.group(2) else {"baht": "THB", "euro": "EUR"}.get(m.group(1).lower(), m.group(1).upper())
         orig = c.grant.raw.get("amount_original") or {}
         if capped and orig.get("currency") == cur and orig.get("max"):
             return f"{orig['max']:,.0f}", "amber", f"This grant's maximum award in {cur} - confirm you need the full amount"
@@ -82,51 +106,58 @@ def _applicant(attr: str) -> Callable[[Ctx, str], Resolved]:
 
 
 def _stage(c: Ctx, label: str) -> Resolved:
-    ev = ", ".join(taxonomy.EVIDENCE[e]["label"] for e in c.profile.evidence)
-    v = f"TRL {c.profile.trl} - {taxonomy.TRL_LEVELS[c.profile.trl]['name']}" + (f" (evidence: {ev})" if ev else "")
+    th = _thai(label)
+    ev = ", ".join(_evidence(c, th))
+    if th:
+        v = f"TRL {c.profile.trl}" + (f" (หลักฐาน: {ev})" if ev else "")
+    else:
+        v = f"TRL {c.profile.trl} - {taxonomy.TRL_LEVELS[c.profile.trl]['name']}" + (f" (evidence: {ev})" if ev else "")
     return v, "green", "From your TRL and evidence"
 
 
 def _registered(c: Ctx, label: str) -> Resolved:
-    if re.search(r"number|no\.|registration id", label, re.I):
+    if re.search(r"number|no\.|registration id|เลขทะเบียน|เลขที่จดทะเบียน|เลขนิติบุคคล", label, re.I):
         return None, "red", "Registration number is not part of your profile"
+    if _thai(label):
+        return ("ใช่" if c.profile.has_entity else "ไม่ใช่"), "green", "From your applicant type"
     return ("Yes" if c.profile.has_entity else "No"), "green", "From your applicant type"
 
 
 # Order matters: the first matching rule wins.
 RULES: list[tuple[re.Pattern, Callable[[Ctx, str], Resolved]]] = [
-    (re.compile(r"project (title|name)|title of (the )?(project|proposal)|proposal title|^title$", re.I),
+    (re.compile(r"project (title|name)|title of (the )?(project|proposal)|proposal title|^title$|ชื่อโครงการ|ชื่อเรื่อง|ชื่อข้อเสนอ", re.I),
      lambda c, l: (c.profile.nickname, "green", "Your project nickname - make sure it reveals nothing confidential") if c.profile.nickname
      else (None, "red", "Add a non-confidential project title")),
-    (re.compile(r"e-?mail", re.I), _applicant("email")),
-    (re.compile(r"phone|tel\b|telephone|mobile", re.I), _applicant("phone")),
-    (re.compile(r"organi[sz]ation name|institution|company name|affiliation|university|legal (entity )?name|employer|organi[sz]ation$", re.I),
+    (re.compile(r"e-?mail|อีเมล", re.I), _applicant("email")),
+    (re.compile(r"phone|tel\b|telephone|mobile|โทรศัพท์|มือถือ|โทร\.", re.I), _applicant("phone")),
+    (re.compile(r"organi[sz]ation name|institution|company name|affiliation|university|legal (entity )?name|employer|organi[sz]ation$|หน่วยงาน|สังกัด|ชื่อบริษัท|ชื่อนิติบุคคล|มหาวิทยาลัย|สถาบัน", re.I),
      _applicant("organization")),
-    (re.compile(r"position|job title|designation|^(your )?role\b|role in (the )?project", re.I), _applicant("position")),
-    (re.compile(r"address", re.I), _applicant("address")),
-    (re.compile(r"(applicant|full|contact|lead|pi|principal investigator'?s?|researcher'?s?|founder'?s?|your)\s*name|^name$|name of (the )?(applicant|pi|principal|lead|researcher)", re.I),
+    (re.compile(r"position|job title|designation|^(your )?role\b|role in (the )?project|ตำแหน่ง", re.I), _applicant("position")),
+    (re.compile(r"address|ที่อยู่", re.I), _applicant("address")),
+    (re.compile(r"(applicant|full|contact|lead|pi|principal investigator'?s?|researcher'?s?|founder'?s?|your)\s*name|^name$|name of (the )?(applicant|pi|principal|lead|researcher)|ชื่อ\s*-?\s*(นาม)?สกุล|^ชื่อ$|ชื่อผู้(เสนอ|สมัคร|วิจัย)|หัวหน้าโครงการ|ผู้รับผิดชอบโครงการ", re.I),
      _applicant("name")),
-    (re.compile(r"\btrl\b|technology readiness|readiness level", re.I),
+    (re.compile(r"\btrl\b|technology readiness|readiness level|ระดับความพร้อม", re.I),
      lambda c, l: (str(c.profile.trl), "green", "Your self-assessed TRL")),
-    (re.compile(r"stage of development|development stage|current (status|stage)|maturity|stage$", re.I), _stage),
+    (re.compile(r"stage of development|development stage|current (status|stage)|maturity|stage$|สถานะของเทคโนโลยี|ระดับการพัฒนา|ขั้นการพัฒนา", re.I), _stage),
     (re.compile(r"amount|funding request|requested funding|funding goal|funding (needed|sought)|budget request|grant request|"
-                r"total (budget|cost|request)|how much", re.I), _amount),
-    (re.compile(r"duration|project period|number of months|months", re.I),
+                r"total (budget|cost|request)|how much|งบประมาณ|จำนวนเงิน|วงเงิน|เงินทุนที่ขอ|ทุนที่ขอ", re.I), _amount),
+    (re.compile(r"duration|project period|number of months|months|ระยะเวลา|จำนวนเดือน", re.I),
      lambda c, l: (str(c.profile.months_to_milestone), "amber", "Months to your next milestone - confirm this equals the project duration")),
-    (re.compile(r"country", re.I), lambda c, l: (taxonomy.country_name(c.profile.country), "green", "From your profile")),
-    (re.compile(r"applicant type|type of (applicant|organi[sz]ation)|entity type|organi[sz]ation type|legal status", re.I),
-     lambda c, l: (taxonomy.APPLICANT_TYPES[c.profile.applicant_type], "green", "From your profile")),
-    (re.compile(r"registered|incorporat|company registration", re.I), _registered),
-    (re.compile(r"keyword", re.I),
+    (re.compile(r"country|ประเทศ", re.I), lambda c, l: ((taxonomy.COUNTRY_TH.get(c.profile.country) if _thai(l) else None)
+     or taxonomy.country_name(c.profile.country), "green", "From your profile")),
+    (re.compile(r"applicant type|type of (applicant|organi[sz]ation)|entity type|organi[sz]ation type|legal status|ประเภทผู้(สมัคร|ขอรับทุน)|ประเภทหน่วยงาน|สถานะนิติบุคคล", re.I),
+     lambda c, l: ((taxonomy.APPLICANT_TYPES_TH if _thai(l) else taxonomy.APPLICANT_TYPES)[c.profile.applicant_type], "green", "From your profile")),
+    (re.compile(r"registered|incorporat|company registration|จดทะเบียน|เป็นนิติบุคคล", re.I), _registered),
+    (re.compile(r"keyword|คำสำคัญ|คำค้น", re.I),
      lambda c, l: (None, "red", "Your keywords never leave your browser - add the ones you're comfortable sharing")),
-    (re.compile(r"sub-?domain|technology area|topic|speciali[sz]ation", re.I),
+    (re.compile(r"sub-?domain|technology area|topic|speciali[sz]ation|ด้านเทคโนโลยี|เทคโนโลยีที่เกี่ยวข้อง|สาขาย่อย", re.I),
      lambda c, l: (", ".join(c.profile.subdomains), "green", "Your sub-domains") if c.profile.subdomains else (None, "red", "No sub-domain in profile")),
-    (re.compile(r"field|sector|discipline|research area|domain|industry", re.I),
-     lambda c, l: (_fields(c), "green", "Your research fields")),
-    (re.compile(r"use of funds|funds will be used|budget categor", re.I),
-     lambda c, l: (", ".join(taxonomy.USES_OF_FUNDS[u] for u in c.profile.uses_of_funds), "green", "Your intended uses of funds")
+    (re.compile(r"field|sector|discipline|research area|domain|industry|สาขา|อุตสาหกรรม", re.I),
+     lambda c, l: (_fields(c, _thai(l)), "green", "Your research fields")),
+    (re.compile(r"use of funds|funds will be used|budget categor|หมวดค่าใช้จ่าย|การใช้จ่ายเงิน", re.I),
+     lambda c, l: (", ".join(_uses(c, _thai(l))), "green", "Your intended uses of funds")
      if c.profile.uses_of_funds else (None, "red", "No uses of funds in profile")),
-    (re.compile(r"(name|title) of (the )?(grant|program(me)?|call|scheme)|program(me)? applied (for|to)|call (name|title)", re.I),
+    (re.compile(r"(name|title) of (the )?(grant|program(me)?|call|scheme)|program(me)? applied (for|to)|call (name|title)|ชื่อทุน|ชื่อแหล่งทุน", re.I),
      lambda c, l: (c.grant.title, "green", "The opportunity you're applying to")),
 ]
 
@@ -143,6 +174,14 @@ def _vocab_hits(c: Ctx) -> dict[str, str]:
     for e in c.profile.evidence:
         hits[taxonomy.EVIDENCE[e]["label"].lower()] = "evidence"
     hits[taxonomy.APPLICANT_TYPES[c.profile.applicant_type].split(" (")[0].lower()] = "applicant type"
+    # Thai equivalents, for Thai-language forms
+    for u in c.profile.uses_of_funds:
+        hits[taxonomy.USES_OF_FUNDS_TH[u].split(" (")[0]] = "use of funds"
+    for f in c.profile.fields:
+        hits[taxonomy.FIELDS_TH[f]] = "research field"
+    for e in c.profile.evidence:
+        hits[taxonomy.EVIDENCE_TH[e]] = "evidence"
+    hits[taxonomy.APPLICANT_TYPES_TH[c.profile.applicant_type].split(" (")[0]] = "applicant type"
     return hits
 
 
@@ -152,6 +191,9 @@ _VOCAB_ALL = (
     + [s.lower() for f in taxonomy.FIELDS.values() for s in f["subdomains"]]
     + [e["label"].lower() for e in taxonomy.EVIDENCE.values()]
     + [a.split(" (")[0].lower() for a in taxonomy.APPLICANT_TYPES.values()]
+    + [v.split(" (")[0] for v in taxonomy.USES_OF_FUNDS_TH.values()]
+    + list(taxonomy.FIELDS_TH.values()) + list(taxonomy.EVIDENCE_TH.values())
+    + [a.split(" (")[0] for a in taxonomy.APPLICANT_TYPES_TH.values()]
 )
 
 
@@ -192,6 +234,7 @@ def _group_choice(spec: FieldSpec, c: Ctx) -> Resolved | None:
     if len(chosen) == 1:
         return chosen[0], "green", "Matches your profile"
     evidence_order = [taxonomy.EVIDENCE[e]["label"].lower() for e in taxonomy.EVIDENCE if e in c.profile.evidence]
+    evidence_order += [taxonomy.EVIDENCE_TH[e] for e in taxonomy.EVIDENCE if e in c.profile.evidence]
     ranked = [o for o in chosen if o.lower() in evidence_order]
     if ranked:
         best = max(ranked, key=lambda o: evidence_order.index(o.lower()))
@@ -207,8 +250,11 @@ def deterministic(spec: FieldSpec, c: Ctx) -> FilledField | None:
     if DECLARATION.search(spec.label):
         return FilledField(**base, value=None, status="red", source="none",
                            rationale="Declarations and consents must be read and ticked by you")
-    if re.search(r"\bdate\b", spec.label, re.I):
+    if DATE_LABEL.search(spec.label):
         return FilledField(**base, value=None, status="red", source="none", rationale="Dates are yours to set")
+    row = re.search(r"\((\d+)\)$", spec.label.strip())
+    if row and int(row.group(1)) >= 2:  # 2nd+ rows of a repeating table (team members, partners...)
+        return FilledField(**base, value=None, status="red", source="none", rationale="Additional rows are yours to fill")
 
     res: Resolved | None = None
     if spec.type == "checkbox" and not spec.options:
@@ -240,6 +286,8 @@ def deterministic(spec: FieldSpec, c: Ctx) -> FilledField | None:
 # ---------------------------------------------------------------------------
 
 def scaffold(label: str, c: Ctx) -> str:
+    if _thai(label):
+        return scaffold_th(label, c)
     p = c.profile
     fields = _join([taxonomy.field_label(f).lower() for f in p.fields])
     subs = _join([s.lower() for s in p.subdomains]) or fields
@@ -277,6 +325,43 @@ def scaffold(label: str, c: Ctx) -> str:
             f"{PLACEHOLDER} next milestone].")
 
 
+def scaffold_th(label: str, c: Ctx) -> str:
+    """Thai-language scaffolds for Thai forms; placeholders use [ต้องเพิ่ม: ...] so reviewers can read them."""
+    p, P = c.profile, PLACEHOLDER_TH
+    fields = ", ".join(taxonomy.FIELDS_TH[f] for f in p.fields)
+    subs = ", ".join(p.subdomains) or fields
+    evidence = ", ".join(_evidence(c, True)) or f"{P} หลักฐานที่มีในปัจจุบัน]"
+    uses = ", ".join(_uses(c, True)) or f"{P} หมวดการใช้เงิน]"
+    usd, _ = _request_usd(c)
+    amount = f"{usd / USD_PER['THB']:,.0f} บาท"
+    if re.search(r"นวัตกรรม|ความใหม่|จุดเด่น", label):
+        return (f"{P} ความใหม่เมื่อเทียบกับเทคโนโลยีที่มีอยู่ โดยไม่เปิดเผยรายละเอียดที่เป็นความลับ] "
+                f"งานนี้อยู่ในด้าน {subs} ปัจจุบันอยู่ที่ระดับความพร้อมทางเทคโนโลยี TRL {p.trl} โดยมีหลักฐานจาก {evidence} "
+                f"{P} ข้อได้เปรียบหลักเหนือทางเลือกที่ดีที่สุดในปัจจุบัน พร้อมตัวเลขหนึ่งค่าหากเปิดเผยได้]")
+    if re.search(r"ความเป็นมา|หลักการและเหตุผล|ที่มา|ปัญหา", label):
+        return (f"{P} ปัญหาที่งานนี้แก้ไขและผู้ที่ประสบปัญหา] โครงการนี้อยู่ในสาขา{fields} ด้าน {subs} "
+                f"ปัจจุบันอยู่ที่ TRL {p.trl} โดยมีหลักฐานจาก {evidence} {P} เหตุผลที่แนวทางเดิมยังไม่เพียงพอ]")
+    if re.search(r"วัตถุประสงค์|เป้าหมาย", label):
+        return (f"เพื่อพัฒนางานด้าน {subs} จาก TRL {p.trl} ไปสู่ TRL {min(9, p.trl + 2)} ภายใน {p.months_to_milestone} เดือน "
+                f"{P} วัตถุประสงค์ที่วัดผลได้ เช่น สิ่งที่ต้องทำได้เมื่อสิ้นสุดโครงการ]")
+    if re.search(r"ผลกระทบ|ประโยชน์|ผลที่คาดว่าจะได้รับ|ตลาด|เชิงพาณิชย์", label):
+        return (f"หากโครงการสำเร็จ จะ{P} ผู้ได้รับประโยชน์และประโยชน์ที่ได้รับ พร้อมตัวเลขประมาณการอย่างน้อยหนึ่งค่า] "
+                f"{P} ความต้องการของตลาดหรือสังคม พร้อมแหล่งอ้างอิง]")
+    if re.search(r"แผน|วิธีการ|ระเบียบวิธี|ขั้นตอน", label):
+        return (f"ระยะเวลา {p.months_to_milestone} เดือน: (1) {P} กิจกรรมที่ 1] (2) {P} กิจกรรมที่ 2] "
+                f"(3) {P} เป้าหมายสุดท้ายและวิธีการตรวจวัด] งบประมาณใช้สำหรับ {uses}")
+    if re.search(r"งบประมาณ|ค่าใช้จ่าย", label):
+        return f"งบประมาณที่ขอ {amount} ใช้สำหรับ {uses} {P} รายละเอียดค่าใช้จ่ายแยกตามหมวด]"
+    if re.search(r"คณะผู้วิจัย|ทีม|ประสบการณ์", label):
+        return f"{P} รายชื่อคณะผู้วิจัย บทบาท และประสบการณ์ที่เกี่ยวข้อง]"
+    if re.search(r"ความเสี่ยง", label):
+        return f"{P} ความเสี่ยงหลักด้านเทคนิคและธุรกิจ 2-3 ข้อ และแนวทางลดความเสี่ยง]"
+    return (f"โครงการนี้อยู่ในสาขา{fields} ด้าน {subs} ปัจจุบันอยู่ที่ TRL {p.trl} โดยมีหลักฐานจาก {evidence} "
+            f"{P} คำอธิบายที่ไม่เป็นความลับว่าแตกต่างจากเทคโนโลยีที่มีอยู่อย่างไร] "
+            f"งบประมาณที่ขอ {amount} จะใช้สำหรับ {uses} ภายในระยะเวลา {p.months_to_milestone} เดือน "
+            f"เพื่อบรรลุเป้าหมายถัดไป: {P} เป้าหมายถัดไป]")
+
+
 # ---------------------------------------------------------------------------
 # LLM pass for everything the rules couldn't place
 # ---------------------------------------------------------------------------
@@ -287,6 +372,8 @@ For every field return exactly one action:
 - "fill": only when the value follows directly from the provided data. Respect maxlen and, for choice fields, return one of the listed options exactly.
 - "draft": for narrative questions (describe, objectives, impact, plan, budget justification, team...). Write a short scaffold using only facts in the profile, and put an explicit placeholder of the exact form [YOU MUST ADD: <what is needed>] wherever specific technical, quantitative, or personal content is required. Never fill those gaps yourself.
 - "cannot_fill": personal or legal details not provided, signatures, dates, declarations or consents, bank or registration numbers, or anything else you don't have the data for.
+
+Write each value in the same language as the field's label: Thai labels get Thai answers, using the placeholder form [ต้องเพิ่ม: <สิ่งที่ต้องเพิ่ม>] instead of [YOU MUST ADD: ...].
 
 Never invent results, data, numbers, names, partners, publications, prior funding, or technical details. Never describe or guess the researcher's method or invention. A fabricated claim in a grant application exposes the researcher to fraud allegations - when in doubt, use a placeholder or "cannot_fill"."""
 
@@ -356,8 +443,9 @@ def _flag_ungrounded(f: FilledField, c: Ctx) -> None:
 def _enforce(f: FilledField, spec: FieldSpec) -> FilledField:
     """Post-conditions that hold no matter where a value came from."""
     if isinstance(f.value, str):
-        if f.narrative and f.value and PLACEHOLDER not in f.value:
-            f.value = f.value.rstrip() + f" {PLACEHOLDER} specific technical detail]"
+        if f.narrative and f.value and not has_placeholder(f.value):
+            gap = f" {PLACEHOLDER_TH} รายละเอียดทางเทคนิคที่เฉพาะเจาะจง]" if _thai(spec.label) else f" {PLACEHOLDER} specific technical detail]"
+            f.value = f.value.rstrip() + gap
         if spec.maxlen and len(f.value) > spec.maxlen:
             f.value = f.value[: spec.maxlen]
             f.warnings.append(f"Truncated to the form's {spec.maxlen}-character limit")
@@ -370,7 +458,7 @@ def _enforce(f: FilledField, spec: FieldSpec) -> FilledField:
             else:
                 f.value, f.status, f.source = None, "red", "none"
                 f.warnings.append("Proposed value was not one of the form's options")
-    if f.narrative and isinstance(f.value, str) and PLACEHOLDER in f.value and f.status == "green":
+    if f.narrative and has_placeholder(f.value) and f.status == "green":
         f.status = "amber"
     return f
 

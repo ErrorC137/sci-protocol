@@ -9,18 +9,19 @@ import { Button, Card, Chip, Empty, Label, Notice, PageHeader, Spinner, cx, inpu
 import { API_URL, ApiError, api } from "@/lib/api";
 import { useApplicant, useProfile } from "@/lib/local";
 
-const PLACEHOLDER_RE = /(\[YOU MUST ADD:[^\]]*\])/g;
-const hasPlaceholder = (s: string) => s.includes("[YOU MUST ADD:");
+// English and Thai gap markers, kept in sync with PLACEHOLDERS in apps/api/app/forms/mapper.py
+const PLACEHOLDER_RE = /\[(?:YOU MUST ADD|ต้องเพิ่ม):\s*([^\]]*)\]/g;
+const hasPlaceholder = (s: string) => s.includes("[YOU MUST ADD:") || s.includes("[ต้องเพิ่ม:");
 const STATUS_TONE = { green: "positive", amber: "caution", red: "danger" } as const;
 const STATUS_TEXT = { green: "from your profile", amber: "verify", red: "needs you" };
 const SOURCE_TEXT: Record<string, string> = { profile: "profile", llm: "inferred by Claude", template: "draft scaffold", user: "edited by you", none: "-" };
 
 function Placeholders({ text }: { text: string }) {
-  const gaps = text.match(PLACEHOLDER_RE) ?? [];
+  const gaps = Array.from(text.matchAll(PLACEHOLDER_RE), (m) => m[1]);
   return (
     <div className="flex flex-wrap items-center gap-1.5 text-xs">
       <span className="font-semibold text-copper-700">Replace before export:</span>
-      {gaps.map((g, i) => <mark key={i} className="placeholder-mark">{g.slice(15, -1).trim()}</mark>)}
+      {gaps.map((g, i) => <mark key={i} className="placeholder-mark">{g.trim()}</mark>)}
     </div>
   );
 }
@@ -238,11 +239,11 @@ function ApplyInner({ grantId }: { grantId: string }) {
                     <> · <a className="underline" target="_blank" rel="noreferrer" href={`${API_URL}/demo-forms/${template.form_url.slice(6)}`}>view original</a></>
                   )}
                 </p>
-              ) : !form.isLoading && <p className="text-sm text-charcoal-soft">No public form on file for this funder. Upload the PDF or HTML form you downloaded from them.</p>}
+              ) : !form.isLoading && <p className="text-sm text-charcoal-soft">No public form on file for this funder. Upload the PDF, Word or HTML form you downloaded from them.</p>}
             </div>
             <label className="cursor-pointer text-sm link">
-              Upload a form (PDF / HTML)
-              <input type="file" accept=".pdf,.html,.htm,application/pdf,text/html" className="hidden" onChange={(e) => e.target.files?.[0] && upload(e.target.files[0])} />
+              Upload a form (PDF / Word / HTML)
+              <input type="file" accept=".pdf,.docx,.html,.htm,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/html" className="hidden" onChange={(e) => e.target.files?.[0] && upload(e.target.files[0])} />
             </label>
           </div>
           <details className="rounded-lg border border-neutral p-3" open={!savedApplicant}>
@@ -300,8 +301,10 @@ function ApplyInner({ grantId }: { grantId: string }) {
               {!app.reviewed && <p className="text-xs text-charcoal-muted">Locked until review is complete.</p>}
               <div className="mt-2 flex flex-col gap-2">
                 {out.template.kind === "pdf_acroform" && <ExportLink ok={app.reviewed} href={api.exportUrl(app.id, "pdf")}>Filled PDF</ExportLink>}
+                {out.template.kind === "docx_form" && <ExportLink ok={app.reviewed} href={api.exportUrl(app.id, "docx")}>Filled Word form (.docx)</ExportLink>}
                 <ExportLink ok={app.reviewed} href={api.exportUrl(app.id, "md")}>Copy-paste pack (.md)</ExportLink>
                 {out.template.kind === "html_form" && <ExportLink ok={app.reviewed} href={api.exportUrl(app.id, "json")}>Web-form payload (.json)</ExportLink>}
+                <ExportLink ok={app.reviewed} href={api.exportUrl(app.id, "portal")}>Portal helper payload (.json)</ExportLink>
               </div>
             </Card>
           </aside>

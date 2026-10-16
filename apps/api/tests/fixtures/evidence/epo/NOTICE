@@ -1,0 +1,5 @@
+These four XML files are real EPO Open Patent Services responses recorded by the patent_client project
+(https://github.com/parkerhancock/patent_client, v3.2.8, patent_client/epo/ops/published/test/),
+redistributed unmodified under the Apache License 2.0 (LICENSE-patent_client). They are used only to test
+that app/evidence/sources/patents.py parses genuine OPS XML. The patents they describe are real but have
+nothing to do with batteries.

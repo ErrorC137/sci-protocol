@@ -1,0 +1,9 @@
+{
+  "name": "@sci/portal-fill",
+  "private": true,
+  "type": "module",
+  "description": "Fill a funder's web portal from a reviewed SCI application. Never submits.",
+  "bin": { "sci-portal-fill": "fill.mjs" },
+  "scripts": { "test": "node --test test.mjs" },
+  "dependencies": { "playwright": "1.56.1" }
+}

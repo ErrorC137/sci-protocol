@@ -1,0 +1,209 @@
+# Pages the corpus crawler watches. Add funders' call/news pages, not just home pages.
+# Fields: url (required), funder (key in data/seed/grants.yaml), follow (regexes for links to
+# follow one hop), max_pages (default 12), depth (default 1), notes.
+sites:
+- url: https://www.nia.or.th
+  funder: nia
+  name: National Innovation Agency (NIA)
+- url: https://www.tedfund.mhesi.go.th
+  funder: tedfund
+  name: TED Fund (Technology and Innovation-based Enterprise Development Fund)
+- url: https://www.nrct.go.th
+  funder: nrct
+  name: National Research Council of Thailand (NRCT)
+- url: https://www.tsri.or.th
+  funder: tsri
+  name: Thailand Science Research and Innovation (TSRI)
+- url: https://www.pmub.or.th
+  funder: pmub
+  name: PMU-B (Program Management Unit for Human Resources & Institutional Development,
+    Research and Innovation)
+- url: https://www.pmuc.or.th
+  funder: pmuc
+  name: PMU-C (Program Management Unit for Competitiveness)
+- url: https://www.pmua.or.th
+  funder: pmua
+  name: PMU-A (Program Management Unit on Area Based Development)
+- url: https://www.nstda.or.th
+  funder: nstda
+  name: National Science and Technology Development Agency (NSTDA)
+- url: https://www.depa.or.th
+  funder: depa
+  name: Digital Economy Promotion Agency (depa)
+- url: https://www.arda.or.th
+  funder: arda
+  name: Agricultural Research Development Agency (ARDA)
+- url: https://www.tcels.or.th
+  funder: tcels
+  name: Thailand Center of Excellence for Life Sciences (TCELS)
+- url: https://www.sme.go.th
+  funder: osmep
+  name: Office of SMEs Promotion (OSMEP)
+- url: https://www.thaihealth.or.th
+  funder: thaihealth
+  name: Thai Health Promotion Foundation (ThaiHealth)
+- url: https://www.space-f.co
+  funder: spacef
+  name: SPACE-F (Thai Union, NIA and Mahidol University)
+- url: https://www.startupsg.gov.sg
+  funder: esg
+  name: Enterprise Singapore / Startup SG
+- url: https://www.sginnovate.com
+  funder: sginnovate
+  name: SGInnovate
+- url: https://www.cradle.com.my
+  funder: cradle
+  name: Cradle Fund (Malaysia)
+- url: https://mranti.my
+  funder: mranti
+  name: MRANTI (Malaysian Research Accelerator for Technology & Innovation)
+- url: https://kedaireka.id
+  funder: kedaireka
+  name: Kedaireka (Ministry of Education, Indonesia)
+- url: https://pcieerd.dost.gov.ph
+  funder: dost
+  name: DOST-PCIEERD (Philippines)
+- url: https://nafosted.gov.vn
+  funder: nafosted
+  name: NAFOSTED (Vietnam National Foundation for Science and Technology Development)
+- url: https://www.the-easia.org
+  funder: easia
+  name: e-ASIA Joint Research Program
+- url: https://www.jsps.go.jp
+  funder: jsps
+  name: Japan Society for the Promotion of Science (JSPS)
+- url: https://lne.st
+  funder: lne
+  name: Leave a Nest (TECH PLANTER)
+- url: https://www.antler.co
+  funder: antler
+  name: Antler
+- url: https://www.iterative.vc
+  funder: iterative
+  name: Iterative
+- url: https://www.surgeahead.com
+  funder: surge
+  name: Peak XV Surge
+- url: https://startup.google.com
+  funder: google
+  name: Google for Startups
+- url: https://www.ycombinator.com
+  funder: yc
+  name: Y Combinator
+- url: https://www.techstars.com
+  funder: techstars
+  name: Techstars
+- url: https://www.joinef.com
+  funder: ef
+  name: Entrepreneur First
+- url: https://hax.co
+  funder: hax
+  name: SOSV HAX
+- url: https://indiebio.co
+  funder: indiebio
+  name: SOSV IndieBio
+- url: https://hello-tomorrow.org
+  funder: hellotomorrow
+  name: Hello Tomorrow
+- url: https://creativedestructionlab.com
+  funder: cdl
+  name: Creative Destruction Lab
+- url: https://www.activate.org
+  funder: activate
+  name: Activate
+- url: https://nucleate.xyz
+  funder: nucleate
+  name: Nucleate
+- url: https://www.xprize.org
+  funder: xprize
+  name: XPRIZE Foundation
+- url: https://solve.mit.edu
+  funder: solve
+  name: MIT Solve
+- url: https://www.cartierwomensinitiative.com
+  funder: cartier
+  name: Cartier Women's Initiative
+- url: https://www.grandchallenges.ca
+  funder: gcc
+  name: Grand Challenges Canada
+- url: https://gcgh.grandchallenges.org
+  funder: gates
+  name: Gates Foundation Grand Challenges
+- url: https://www.globalinnovation.fund
+  funder: gif
+  name: Global Innovation Fund
+- url: https://wellcome.org
+  funder: wellcome
+  name: Wellcome
+- url: https://www.breakthroughenergy.org
+  funder: bef
+  name: Breakthrough Energy
+- url: https://experiment.com
+  funder: experiment
+  name: Experiment.com
+- url: https://eic.ec.europa.eu
+  funder: eic
+  name: European Innovation Council (EIC)
+- url: https://erc.europa.eu
+  funder: erc
+  name: European Research Council (ERC)
+- url: https://marie-sklodowska-curie-actions.ec.europa.eu
+  funder: msca
+  name: Marie Sklodowska-Curie Actions (MSCA)
+- url: https://seedfund.nsf.gov
+  funder: nsf
+  name: U.S. National Science Foundation - America's Seed Fund
+- url: https://seed.nih.gov
+  funder: nih
+  name: NIH SEED (SBIR/STTR)
+- url: https://arpa-e.energy.gov
+  funder: arpae
+  name: ARPA-E (U.S. Department of Energy)
+- url: https://www.gitcoin.co
+  funder: gitcoin
+  name: Gitcoin
+- url: https://www.base.org
+  funder: base
+  name: Base (Coinbase)
+- url: https://esp.ethereum.foundation
+  funder: esp
+  name: Ethereum Foundation - Ecosystem Support Program
+- url: https://www.optimism.io
+  funder: optimism
+  name: Optimism Collective
+- url: https://fil.org
+  funder: filecoin
+  name: Filecoin Foundation
+- url: https://web3.foundation
+  funder: w3f
+  name: Web3 Foundation
+- url: https://solana.org
+  funder: solana
+  name: Solana Foundation
+- url: https://www.yzilabs.com
+  funder: yzi
+  name: YZI Labs
+- url: https://www.bnbchain.org
+  funder: bnb
+  name: BNB Chain
+- url: https://www.vitadao.com
+  funder: vitadao
+  name: VitaDAO
+- url: https://www.bio.xyz
+  funder: bio
+  name: BIO Protocol
+- url: https://www.molecule.xyz
+  funder: molecule
+  name: Molecule
+- url: https://www.valleydao.bio
+  funder: valleydao
+  name: ValleyDAO
+- url: https://www.cerebrumdao.com
+  funder: cerebrum
+  name: CerebrumDAO
+- url: https://www.athenadao.co
+  funder: athena
+  name: AthenaDAO
+- url: https://www.researchhub.com
+  funder: researchhub
+  name: ResearchHub Foundation

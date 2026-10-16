@@ -11,7 +11,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from .chain.indexer import start_indexer
 from .config import settings
 from .deps import get_store
-from .routers import chain, core, forms
+from .routers import chain, core, forms, evidence
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 
@@ -40,3 +40,4 @@ app.add_middleware(
 app.include_router(core.router)
 app.include_router(forms.router)
 app.include_router(chain.router)
+app.include_router(evidence.router)

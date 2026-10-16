@@ -1,13 +1,19 @@
 import { ProjectRegistryAbi, deployments, type Deployment } from "@sci/shared";
-import { baseSepolia, bscTestnet, foundry, type Chain } from "viem/chains";
+import { avalanche, avalancheFuji, baseSepolia, bscTestnet, foundry, type Chain } from "viem/chains";
 
 // Chain facts that don't need the wallet stack: which chain, which deployment, explorer links, enum labels.
 // Kept apart from lib/chain.ts (RainbowKit/wagmi config) so light pages - the landing - can import them
 // without pulling in wallet connector SDKs.
 
-const CHAINS: Record<number, Chain> = { [baseSepolia.id]: baseSepolia, [bscTestnet.id]: bscTestnet, [foundry.id]: foundry };
+const CHAINS: Record<number, Chain> = {
+  [avalancheFuji.id]: avalancheFuji, // 43113 - default target (testnet)
+  [avalanche.id]: avalanche, // 43114 - C-Chain mainnet: only with a real legal structure in place
+  [baseSepolia.id]: baseSepolia,
+  [bscTestnet.id]: bscTestnet,
+  [foundry.id]: foundry,
+};
 
-export const TARGET_CHAIN: Chain = CHAINS[Number(process.env.NEXT_PUBLIC_CHAIN_ID || baseSepolia.id)] ?? baseSepolia;
+export const TARGET_CHAIN: Chain = CHAINS[Number(process.env.NEXT_PUBLIC_CHAIN_ID || avalancheFuji.id)] ?? avalancheFuji;
 export const RPC = process.env.NEXT_PUBLIC_RPC_URL || undefined;
 export const DEPLOYMENT: Deployment | undefined = deployments[TARGET_CHAIN.id];
 

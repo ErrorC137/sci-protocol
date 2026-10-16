@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field
 from ..deps import get_store
 from ..forms import fetch as fetcher
 from ..forms import fill
+from ..forms.docx_form import fill_docx
 from ..forms import service as forms
 from ..models.schemas import Applicant, Application, FormTemplate, ProjectProfile
 
@@ -109,7 +110,7 @@ def review(app_id: str, body: Review):
 
 
 @router.get("/applications/{app_id}/export")
-def export(app_id: str, format: str = Query("pdf", pattern="^(pdf|json|md)$")):
+def export(app_id: str, format: str = Query("pdf", pattern="^(pdf|docx|json|portal|md)$")):
     store = get_store()
     a = _app(app_id)
     if not a.reviewed:
@@ -123,6 +124,14 @@ def export(app_id: str, format: str = Query("pdf", pattern="^(pdf|json|md)$")):
         pdf = fill.fill_pdf(fetcher.fetch(t.form_url).data, a.fields)
         return Response(pdf, media_type="application/pdf",
                         headers={"Content-Disposition": f'attachment; filename="{name}-prefilled.pdf"'})
+    if format == "docx":
+        if t.kind != "docx_form":
+            raise HTTPException(400, "Word export is only available for .docx forms; use format=md or json")
+        out = fill_docx(fetcher.fetch(t.form_url).data, {f.field_id: f.value for f in a.fields})
+        return Response(out, media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        headers={"Content-Disposition": f'attachment; filename="{name}-prefilled.docx"'})
+    if format == "portal":
+        return JSONResponse(fill.portal_payload(a, g, t), headers={"Content-Disposition": f'attachment; filename="{name}.portal.json"'})
     if format == "json":
         return JSONResponse(fill.web_payload(a), headers={"Content-Disposition": f'attachment; filename="{name}.json"'})
     return PlainTextResponse(fill.copy_paste_pack(a, g, t), media_type="text/markdown",
@@ -134,5 +143,5 @@ def demo_form(name: str):
     p = (fetcher.DEMO_DIR / name).resolve()
     if fetcher.DEMO_DIR.resolve() not in p.parents or not p.exists():
         raise HTTPException(404, "not found")
-    media = "application/pdf" if p.suffix == ".pdf" else "text/html"
+    media = {".pdf": "application/pdf", ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"}.get(p.suffix, "text/html")
     return Response(p.read_bytes(), media_type=media)

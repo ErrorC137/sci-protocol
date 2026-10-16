@@ -57,6 +57,21 @@ def web_payload(app: Application) -> dict:
     return {f.field_id: f.value for f in app.fields if f.value not in (None, "")}
 
 
+def portal_payload(app: Application, grant: Grant, template: FormTemplate) -> dict:
+    """For tools/portal-fill: labels and types let it find each answer's box on a funder's web portal."""
+    specs = {s.id: s for s in template.fields}
+    return {
+        "grant": grant.title,
+        "reviewed": app.reviewed,
+        "reviewed_at": app.reviewed_at.isoformat() if app.reviewed_at else None,
+        "fields": [
+            {"id": f.field_id, "label": f.label, "type": f.type, "value": f.value,
+             "options": specs[f.field_id].options if f.field_id in specs else [], "status": f.status}
+            for f in app.fields if f.value not in (None, "", [])
+        ],
+    }
+
+
 def copy_paste_pack(app: Application, grant: Grant, template: FormTemplate) -> str:
     lines = [
         f"# {grant.title}",

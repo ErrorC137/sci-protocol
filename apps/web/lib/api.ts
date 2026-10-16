@@ -1,6 +1,6 @@
 import type {
-  Applicant, ApplicationOut, ChainEvent, Explanation, FieldValue, FormTemplate, Grant, Health, MatchResponse,
-  ProjectProfile, Taxonomy, TRLAssessment,
+  Applicant, ApplicationOut, ChainEvent, EvidenceReport, EvidenceSourcesInfo, EvidenceSubmission, Explanation, FieldValue,
+  FormTemplate, Grant, Health, MatchResponse, ProjectProfile, Taxonomy, TRLAssessment,
 } from "@sci/shared";
 
 export const API_URL = (process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000").replace(/\/$/, "");
@@ -69,7 +69,9 @@ export const api = {
     j<ApplicationOut>(`/applications/${id}`, { method: "PATCH", body: JSON.stringify({ edits }) }),
   review: (id: string, attest: boolean) =>
     j<ApplicationOut>(`/applications/${id}/review`, { method: "POST", body: JSON.stringify({ attest }) }),
-  exportUrl: (id: string, format: "pdf" | "md" | "json") => `${API_URL}/applications/${id}/export?format=${format}`,
+  evidenceSources: () => j<EvidenceSourcesInfo>("/evidence/sources"),
+  assessEvidence: (sub: EvidenceSubmission) => j<EvidenceReport>("/evidence/assess", { method: "POST", body: JSON.stringify(sub) }),
+  exportUrl: (id: string, format: "pdf" | "docx" | "md" | "json" | "portal") => `${API_URL}/applications/${id}/export?format=${format}`,
   pinJson: (obj: object) => j<{ cid: string; pinned: string; gateway_url: string }>("/ipfs/pin-json", {
     method: "POST", body: JSON.stringify(obj),
   }),

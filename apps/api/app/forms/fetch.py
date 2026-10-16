@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import hashlib
 import io
+import zipfile
 from dataclasses import dataclass
 from typing import Literal
 
@@ -22,7 +23,7 @@ from ..config import API_DIR
 DEMO_DIR = API_DIR / "demo_forms"
 MAX_BYTES = 15 * 1024 * 1024
 
-Kind = Literal["pdf_acroform", "pdf_flat", "html_form"]
+Kind = Literal["pdf_acroform", "pdf_flat", "html_form", "docx_form"]
 
 
 @dataclass
@@ -74,10 +75,17 @@ def classify(data: bytes) -> Kind:
         except Exception:
             fields = None
         return "pdf_acroform" if fields else "pdf_flat"
+    if data[:4] == b"PK\x03\x04":
+        try:
+            if "word/document.xml" in zipfile.ZipFile(io.BytesIO(data)).namelist():
+                return "docx_form"
+        except zipfile.BadZipFile:
+            pass
+        raise ValueError("zip archive is not a Word .docx document")
     head = data[:200_000].lower()
     if b"<form" in head or b"<input" in head or b"<html" in head:
         return "html_form"
-    raise ValueError("form is neither a PDF nor an HTML page")
+    raise ValueError("form is not a PDF, Word .docx or HTML page")
 
 
 def fetch(ref: str) -> FetchedForm:

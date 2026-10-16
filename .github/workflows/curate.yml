@@ -1,0 +1,36 @@
+# Weekly corpus watch: crawl data/curate/sites.yaml, extract + verify, and open a PR containing the
+# review queue. The PR never edits grants.yaml - a person accepts items and runs `python -m app.curate apply`.
+name: curate
+on:
+  schedule: [{ cron: "40 2 * * 1" }]
+  workflow_dispatch: {}
+
+permissions: { contents: write, pull-requests: write }
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: apps/api } }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.11" }
+      - run: pip install -r requirements.txt
+      - uses: actions/cache@v4  # ETag / Last-Modified cache: unchanged pages cost one 304
+        with: { path: apps/api/.data/curate-cache, key: "curate-${{ github.run_id }}", restore-keys: "curate-" }
+      - run: python -m app.curate run
+        env:
+          ANTHROPIC_API_KEY: "${{ secrets.ANTHROPIC_API_KEY }}"  # optional: heuristics only without it
+          CURATE_CONTACT: "${{ vars.CURATE_CONTACT }}"
+      - name: Open a review PR
+        env: { GH_TOKEN: "${{ github.token }}" }
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          git add data/curate
+          git diff --cached --quiet && { echo "no changes"; exit 0; }
+          branch="curate/$(date -u +%Y-%m-%d)"
+          git config user.name "sci-curator" && git config user.email "actions@users.noreply.github.com"
+          git checkout -b "$branch" && git commit -qm "curate: review queue $(date -u +%Y-%m-%d)"
+          git push -u origin "$branch"
+          gh pr create --title "Corpus review queue $(date -u +%Y-%m-%d)" \
+            --body "Weekly crawl. Open data/curate/review/, set decision: accept|reject per item, then run \`python -m app.curate apply <queue>\` on this branch. Nothing here edits grants.yaml."
