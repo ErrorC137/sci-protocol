@@ -7,7 +7,7 @@ the MatDAO Supabase project. **No secret values in this file, ever** - names and
 
 | What | Where | URL / id | Plan |
 |---|---|---|---|
-| Web (Next.js, `apps/web`) | Vercel, team **MatDAO** (`mat-dao`), project `sci-protocol` | production `https://sci-protocol.vercel.app` (not promoted yet) · latest preview in `npx vercel ls` | Hobby |
+| Web (Next.js, `apps/web`) | Vercel, team **MatDAO** (`mat-dao`), project `sci-protocol` | production `https://sci-protocol.vercel.app` (live since 16 Oct 2026, deployed from `uplo-rebrand`) | Hobby |
 | API (FastAPI, Docker) | Render, Blueprint `uplo-hackathon` → service `uplo-api` (region Singapore), deploys branch `uplo-rebrand` | `https://uplo-api.onrender.com` · health: `/health` | Free |
 | Database (Postgres + pgvector) | Supabase org `MatDAO_V1`, project `uplo-hackathon` (Southeast Asia / Singapore), Data API **off** | ref `ldjsjtqvrlmeiwixrpfn` | Free |
 | Contracts | Avalanche Fuji (43113); Base Sepolia (84532) still supported | **not deployed yet**: deploy from the browser at `/setup` ([GO_LIVE.md](GO_LIVE.md)) | testnet |
