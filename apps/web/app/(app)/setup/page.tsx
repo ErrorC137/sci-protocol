@@ -5,11 +5,12 @@ import {
 } from "@sci/shared";
 import { useEffect, useState } from "react";
 import { getAddress, isAddress, type Abi, type Hex } from "viem";
-import { useAccount, usePublicClient, useSwitchChain, useWalletClient } from "wagmi";
+import { useAccount, usePublicClient, useSwitchChain } from "wagmi";
+import { getWalletClient } from "wagmi/actions";
 import { WalletButton } from "@/components/WalletButton";
 import { Button, Card, Chip, Label, Notice, PageHeader, cx, inputCls } from "@/components/ui";
 import { API_URL } from "@/lib/api";
-import { DEPLOYMENT, TARGET_CHAIN, addressUrl, txUrl } from "@/lib/chain";
+import { DEPLOYMENT, TARGET_CHAIN, addressUrl, txUrl, wagmiConfig } from "@/lib/chain";
 import { errorMessage } from "@/lib/tx";
 
 // Deploys the protocol from the connected wallet - the same contracts and role wiring as
@@ -17,7 +18,7 @@ import { errorMessage } from "@/lib/tx";
 
 type Name = "MockUSDC" | "ProjectRegistry" | "AttestationRegistry" | "SCIFraction" | "MilestoneEscrow" | "FundingPool";
 type Addrs = Partial<Record<Name, `0x${string}`>>;
-interface Progress { addrs: Addrs; done: string[]; startBlock?: number; hashes: Record<string, Hex> }
+interface Progress { addrs: Addrs; done: string[]; startBlock?: number; hashes: Record<string, Hex>; attestor?: `0x${string}` }
 
 const ABI: Record<Name, Abi> = {
   MockUSDC: MockUSDCAbi as Abi, ProjectRegistry: ProjectRegistryAbi as Abi, AttestationRegistry: AttestationRegistryAbi as Abi,
@@ -60,7 +61,6 @@ const save = (k: string, p: Progress) => { try { localStorage.setItem(k, JSON.st
 
 export default function Setup() {
   const { address, chainId } = useAccount();
-  const { data: wallet } = useWalletClient({ chainId: TARGET_CHAIN.id });
   const client = usePublicClient({ chainId: TARGET_CHAIN.id });
   const { switchChainAsync } = useSwitchChain();
   const [attestor, setAttestor] = useState("");
@@ -82,33 +82,46 @@ export default function Setup() {
 
   const attestorAddr = (attestor.trim() && isAddress(attestor.trim()) ? getAddress(attestor.trim()) : address) as `0x${string}` | undefined;
   const complete = STEPS.every((s) => p.done.includes(s.id));
+  const mainnet = TARGET_CHAIN.testnet !== true && TARGET_CHAIN.id !== 31337;
   const deployment: Deployment | null = complete && address && attestorAddr ? {
-    chainId: TARGET_CHAIN.id, startBlock: p.startBlock ?? 0, deployer: address, attestor: attestorAddr,
+    chainId: TARGET_CHAIN.id, startBlock: p.startBlock ?? 0, deployer: address, attestor: p.attestor ?? attestorAddr,
     MockUSDC: p.addrs.MockUSDC!, ProjectRegistry: p.addrs.ProjectRegistry!, AttestationRegistry: p.addrs.AttestationRegistry!,
     SCIFraction: p.addrs.SCIFraction!, MilestoneEscrow: p.addrs.MilestoneEscrow!, FundingPool: p.addrs.FundingPool!,
   } : null;
   const json = deployment ? JSON.stringify(deployment) : "";
 
   async function run() {
-    if (!address || !wallet || !client || !attestorAddr) return;
+    if (!address || !client || !attestorAddr || mainnet) return;
     setErr(null);
     setRunning(true);
     const k = key(TARGET_CHAIN.id, address);
     let prog = load(k);
     try {
       if (chainId !== TARGET_CHAIN.id) await switchChainAsync({ chainId: TARGET_CHAIN.id });
+      const wallet = await getWalletClient(wagmiConfig, { chainId: TARGET_CHAIN.id });
+      // The attestor is fixed by the first step, so a reload can't silently grant the roles to someone else.
+      if (!prog.attestor) { prog = { ...prog, attestor: attestorAddr }; save(k, prog); }
+      const attestorFixed = prog.attestor!;
       const { default: bytecode } = await import("@/lib/bytecode.json");
       for (const s of STEPS) {
         if (prog.done.includes(s.id)) continue;
         setCurrent(s.id);
-        let hash: Hex;
-        if (s.deploy) {
+        let hash: Hex | undefined;
+        let rc: Awaited<ReturnType<typeof client.waitForTransactionReceipt>> | undefined;
+        const sent = prog.hashes[s.id];
+        if (sent) {  // a tx sent before a reload / timeout may already be mined: never send it twice
+          try {
+            const old = await client.waitForTransactionReceipt({ hash: sent, timeout: 30_000 });
+            if (old.status === "success" && old.transactionHash === sent) { hash = sent; rc = old; }
+          } catch { /* dropped or still unknown: send again below */ }
+        }
+        if (!hash && s.deploy) {
           hash = await wallet.deployContract({
             abi: ABI[s.deploy], bytecode: (bytecode as Record<string, string>)[s.deploy] as Hex,
             args: s.args!(prog.addrs as Required<Addrs>, address, uri), account: address, chain: TARGET_CHAIN,
           });
-        } else {
-          const c = s.call!(prog.addrs as Required<Addrs>, attestorAddr);
+        } else if (!hash) {
+          const c = s.call!(prog.addrs as Required<Addrs>, attestorFixed);
           const role = c.role
             ? (await client.readContract({ address: prog.addrs[c.role[0]]!, abi: ABI[c.role[0]], functionName: c.role[1] })) as Hex
             : undefined;
@@ -116,9 +129,13 @@ export default function Setup() {
             address: prog.addrs[c.target]!, abi: ABI[c.target], functionName: c.fn, args: c.args(role), account: address, chain: TARGET_CHAIN,
           });
         }
-        prog = { ...prog, hashes: { ...prog.hashes, [s.id]: hash } };
-        save(k, prog);
-        const rc = await client.waitForTransactionReceipt({ hash, timeout: 180_000 });
+        if (!hash) throw new Error(`${s.label}: nothing was sent`);
+        if (!rc) {
+          prog = { ...prog, hashes: { ...prog.hashes, [s.id]: hash } };
+          save(k, prog);
+          rc = await client.waitForTransactionReceipt({ hash, timeout: 180_000 });
+        }
+        if (rc.transactionHash !== hash) throw new Error(`${s.label}: the transaction was cancelled or replaced in the wallet. Press Continue to send it again.`);
         if (rc.status !== "success") throw new Error(`${s.label}: transaction reverted (${hash})`);
         if (s.deploy) {
           if (!rc.contractAddress) throw new Error(`${s.label}: no contract address in the receipt`);
@@ -177,11 +194,11 @@ export default function Setup() {
         <Label hint="Wallet allowed to approve milestone evidence and anchor evidence hashes. Defaults to the deploying wallet.">
           Attestor address
         </Label>
-        <input className={inputCls} placeholder={address ?? "0x…"} value={attestor} onChange={(e) => setAttestor(e.target.value)} disabled={running || p.done.length > 0} />
+        <input className={inputCls} placeholder={address ?? "0x…"} value={p.attestor ?? attestor} onChange={(e) => setAttestor(e.target.value)} disabled={running || p.done.length > 0} />
         {attestor.trim() && !isAddress(attestor.trim()) && <p className="text-xs text-error">Not a valid address.</p>}
         <p className="text-xs text-charcoal-muted">Fraction metadata URI: <code>{uri}</code></p>
         <div className="flex flex-wrap gap-3">
-          <Button onClick={run} disabled={!address || running || complete || (!!attestor.trim() && !isAddress(attestor.trim()))}>
+          <Button onClick={run} disabled={!address || running || complete || mainnet || (!!attestor.trim() && !isAddress(attestor.trim()))}>
             {running ? "Deploying… confirm each step in your wallet" : p.done.length ? "Continue deployment" : "Deploy contracts"}
           </Button>
           {p.done.length > 0 && !running && <Button variant="ghost" onClick={reset}>Start over</Button>}
