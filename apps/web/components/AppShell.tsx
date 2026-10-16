@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { Compass, ListChecks, Lock, Menu, Microscope, Rocket, UserRound, X, type LucideIcon } from "lucide-react";
+import { Compass, Landmark, LayoutDashboard, Lock, Menu, Rocket, ShieldCheck, X, type LucideIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
@@ -11,28 +11,50 @@ import { Logo } from "./Logo";
 import { WalletButton } from "./WalletButton";
 import { cx } from "./ui";
 
-const LINKS: [string, string, LucideIcon][] = [
-  ["/discover", "Discover", Compass],
-  ["/profile", "Profile", UserRound],
-  ["/matches", "Matches", ListChecks],
-  ["/evidence", "Evidence", Microscope],
-  ["/raise", "Raise", Rocket],
-  ["/vault", "Vault", Lock],
+// UPLO information architecture. Each section maps onto existing features where they exist (Innovation Pool =
+// the milestone-escrow raises, Research Pipeline = discover/profile/matches/apply/evidence); Overview and
+// Commercial Finance are front-end demo pages. `match` lists every path prefix that lights the item up.
+interface NavItem { href: string; label: string; icon: LucideIcon; match: string[]; sub?: [string, string][] }
+
+const LINKS: NavItem[] = [
+  { href: "/overview", label: "Overview", icon: LayoutDashboard, match: ["/overview"] },
+  { href: "/commercial-finance", label: "Commercial Finance", icon: Landmark, match: ["/commercial-finance"] },
+  { href: "/raise", label: "Innovation Pool", icon: Rocket, match: ["/raise"] },
+  {
+    href: "/discover", label: "Research Pipeline", icon: Compass, match: ["/discover", "/profile", "/matches", "/apply", "/evidence"],
+    sub: [["/discover", "Discover"], ["/profile", "Profile"], ["/matches", "Matches"], ["/evidence", "Evidence"]],
+  },
+  { href: "/validation", label: "Validation", icon: ShieldCheck, match: ["/validation"] },
+  { href: "/vault", label: "Vault", icon: Lock, match: ["/vault"] },
 ];
 
 function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
-  const path = usePathname();
+  const path = usePathname() ?? "";
   return (
     <ul className="space-y-1">
-      {LINKS.map(([href, label, Icon]) => {
-        const active = !!path?.startsWith(href);
+      {LINKS.map(({ href, label, icon: Icon, match, sub }) => {
+        const active = match.some((m) => path.startsWith(m));
         return (
           <li key={href}>
-            <Link href={href} onClick={onNavigate} aria-current={active ? "page" : undefined}
+            <Link href={href} onClick={onNavigate} aria-current={active && !sub ? "page" : undefined}
               className={cx("flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                 active ? "bg-lime text-charcoal" : "text-limestone-300 hover:bg-charcoal-800 hover:text-limestone-50")}>
               <Icon aria-hidden className="h-4 w-4" strokeWidth={1.75} />{label}
             </Link>
+            {sub && active && (
+              <ul className="ml-[1.4rem] mt-1 space-y-0.5 border-l border-charcoal-700 pl-3">
+                {sub.map(([h, l]) => {
+                  const on = path.startsWith(h);
+                  return (
+                    <li key={h}>
+                      <Link href={h} onClick={onNavigate} aria-current={on ? "page" : undefined}
+                        className={cx("block rounded-md px-2 py-1 text-[13px] transition-colors",
+                          on ? "font-semibold text-lime" : "text-limestone-400 hover:text-limestone-50")}>{l}</Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
           </li>
         );
       })}

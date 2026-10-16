@@ -53,3 +53,26 @@ The kit shipped **no logo files**. `components/Logo.tsx` renders a plain-text "U
 (`TODO(logo)`), and the favicon (`app/icon.tsx`) / social card (`app/opengraph-image.tsx`) use neutral
 placeholders. Drop the official PNGs into `apps/web/public/brand/` (see the README there) and flip
 `LOGO_FILES_PRESENT`.
+
+## Information architecture (Phase 4)
+
+App nav (`components/AppShell.tsx`): **Overview · Commercial Finance · Innovation Pool · Research Pipeline ·
+Validation · Vault**. Existing URLs are unchanged; the nav only regroups them.
+
+| Nav item | Route(s) | What it is |
+|---|---|---|
+| Overview | `/overview` (new) | KPI tiles (demo row + live row: on-chain raises, mUSDC escrowed, milestones approved, funding routes indexed), the Capital Flow diagram, Active Opportunities (live on-chain raises first, then demo rows) |
+| Commercial Finance | `/commercial-finance` (new) | Pool A demo: simulated invoice book + the "how a verified invoice settles" calculator (editable advance %, fee %, direct-cost %, treasury %, term). Front-end only, no contracts |
+| Innovation Pool | `/raise`, `/raise/new`, `/raise/[id]` | unchanged milestone-escrow raises |
+| Research Pipeline | `/discover` + sub-items Profile, Matches, Evidence (and `/apply/[id]`) | unchanged matching / pre-fill / evidence engine |
+| Validation | `/validation` (new) | verification records grouped per milestone (evidence → attestation → approve/reject → release, or deadline missed → refunds), read from the API's chain indexer (`GET /chain/activity`). Real testnet events only |
+| Vault | `/vault` | unchanged |
+
+- All simulated numbers live in **`apps/web/lib/uplo-demo-data.ts`** (KPIs, invoice book, demo opportunities, and
+  the waterfall maths `settle()`); the landing page reads its $100k example and pipeline cards from there too.
+  Delete or swap that file's exports to remove the demo layer.
+- Every simulated value is shown with a "Demo data · simulated" / "Demo" badge (`DemoBadge`); live values carry
+  a "Live" badge. The waterfall carries "Illustrative example, not market rates".
+- Recyclers and buyers in the invoice book are anonymised placeholders ("Recycler A", "Cathode producer 1"), not
+  customers or partners.
+- Landing "On-chain transparency" copy names Avalanche (Fuji testnet).

@@ -89,4 +89,6 @@ export const api = {
     }
   },
   activity: (projectId: number) => j<{ events: ChainEvent[] }>(`/chain/activity?project_id=${projectId}&limit=200`),
+  /** Indexed events across every project, newest first (503 when the API runs without an indexer). */
+  allActivity: (limit = 300) => j<{ events: ChainEvent[]; next_block: number }>(`/chain/activity?limit=${limit}`),
 };

@@ -46,8 +46,13 @@ html.motion:not(.motion-ready) .reveal-block { opacity: 0; transform: translateY
 .gap-glow::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: 0 0 22px 2px rgba(215, 235, 121, 0.35); opacity: 0; animation: uplo-gap-glow 2.6s ease-in-out infinite; pointer-events: none; }
 @keyframes uplo-gap-glow { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
 
+/* Capital-flow lines on /overview: dashes travel along the stroke. */
+.flow-line { stroke-dasharray: 7 7; animation: uplo-flow 900ms linear infinite; }
+.flow-line-slow { animation-duration: 1800ms; }
+@keyframes uplo-flow { to { stroke-dashoffset: -14; } }
+
 @media (prefers-reduced-motion: reduce) {
-  .marquee, .gap-glow::after { animation: none; }
+  .marquee, .gap-glow::after, .flow-line { animation: none; }
   html { scroll-behavior: auto; }
 }
 

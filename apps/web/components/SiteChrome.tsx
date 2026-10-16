@@ -58,8 +58,8 @@ export function SiteNav() {
 }
 
 const COLUMNS: [string, [string, string][]][] = [
-  ["Platform", [["Discover funding", "/discover"], ["Research profile", "/profile"], ["Matches", "/matches"]]],
-  ["Capital", [["Milestone raises", "/raise"], ["Open a raise", "/raise/new"], ["Private vault", "/vault"]]],
+  ["Platform", [["Overview", "/overview"], ["Research Pipeline", "/discover"], ["Validation", "/validation"], ["Private vault", "/vault"]]],
+  ["Capital", [["Commercial Finance", "/commercial-finance"], ["Innovation Pool", "/raise"], ["Open a raise", "/raise/new"]]],
   ["Company", [["How it works", "/#capital-flow"], ["Two pools", "/#two-pools"], ["Why trust it", "/#trust"]]],
 ];
 

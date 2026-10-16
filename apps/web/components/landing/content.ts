@@ -2,8 +2,10 @@
 // are an ILLUSTRATIVE EXAMPLE (not market rates); prices are market-test proposals; pipeline cards are demo data.
 // Keep those labels wherever these values are shown.
 
-export const ILLUSTRATIVE = "Illustrative example, not market rates";
-export const DEMO_DATA = "Demo data · simulated";
+import { DEMO_BADGE, DEMO_OPPORTUNITIES, ILLUSTRATIVE_BADGE, WATERFALL as SETTLED } from "@/lib/uplo-demo-data";
+
+export const ILLUSTRATIVE = ILLUSTRATIVE_BADGE;
+export const DEMO_DATA = DEMO_BADGE;
 
 export const HERO = {
   eyebrow: "Circular innovation finance",
@@ -67,11 +69,8 @@ export const FLOW_CLOSE = {
   tagline: "Today's capital. Tomorrow's breakthroughs.",
 } as const;
 
-// The $100k waterfall (also used by the Phase 4 calculator).
-export const WATERFALL = {
-  invoice: 100_000, advance: 95_000, toFinancier: 98_000, platformFee: 2_000,
-  directCosts: 800, grossContribution: 1_200, treasuryPct: 0.2, treasury: 240, retained: 960,
-} as const;
+// The $100k waterfall - computed in lib/uplo-demo-data.ts, which the Commercial Finance calculator also uses.
+export const WATERFALL = SETTLED;
 
 export const POOLS = {
   eyebrow: "Two pools, never mixed",
@@ -118,11 +117,7 @@ export const REVENUE = {
 export const PIPELINE = {
   eyebrow: "Research pipeline",
   title: "TRL 4–6 opportunities, funded milestone by milestone.",
-  demo: [
-    { title: "Lithium Recovery Enhancement", type: "Process", trl: 6, raised: 350_000, target: 500_000, status: "Funding", impact: "+20% recovery rate", art: "lattice" },
-    { title: "Direct Cathode Regeneration", type: "Material", trl: 6, raised: 160_000, target: 250_000, status: "In Progress", impact: "Lower production cost", art: "crystal" },
-    { title: "LFP Upcycling Process", type: "Process", trl: 5, raised: 120_000, target: 300_000, status: "Open", impact: "New material application", art: "flow" },
-  ],
+  demo: DEMO_OPPORTUNITIES,
 } as const;
 
 export const TRUST = {
