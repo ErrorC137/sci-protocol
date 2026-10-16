@@ -10,7 +10,7 @@ the MatDAO Supabase project. **No secret values in this file, ever** - names and
 | Web (Next.js, `apps/web`) | Vercel, team **MatDAO** (`mat-dao`), project `sci-protocol` | production `https://sci-protocol.vercel.app` (live since 16 Oct 2026, deployed from `uplo-rebrand`) | Hobby |
 | API (FastAPI, Docker) | Render, Blueprint `uplo-hackathon` → service `uplo-api` (region Singapore), deploys branch `uplo-rebrand` | `https://uplo-api.onrender.com` · health: `/health` | Free |
 | Database (Postgres + pgvector) | Supabase org `MatDAO_V1`, project `uplo-hackathon` (Southeast Asia / Singapore), Data API **off** | ref `ldjsjtqvrlmeiwixrpfn` | Free |
-| Contracts | Avalanche Fuji (43113); Base Sepolia (84532) still supported | **not deployed yet**: deploy from the browser at `/setup` ([GO_LIVE.md](GO_LIVE.md)) | testnet |
+| Contracts | Avalanche Fuji (43113); Base Sepolia (84532) still supported | deployed 16 Oct 2026 from `/setup`: `contracts/deployments/43113.json` (start block 59543464; admin + attestor `0xd5eC…a6a0`) | testnet |
 | Wallet connect | Reown (WalletConnect) team `matdao`, project `matdao` | project id is public (in `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID`) | Free |
 
 GitHub: code is `ErrorC137/sci-protocol`, working branch `uplo-rebrand` (`matdaoplatform-ops` is a collaborator).

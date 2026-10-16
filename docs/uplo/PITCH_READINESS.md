@@ -10,7 +10,7 @@ pitch flow: [../../DEMO_SCRIPT.md](../../DEMO_SCRIPT.md).
 | API (Render free, Singapore) | `https://uplo-api.onrender.com/health` | up: `store: postgres`, 150 programmes, chain 43113, `deployment: false`, LLM off (templates) |
 | Web (Vercel `mat-dao/sci-protocol`) | `https://sci-protocol.vercel.app` | needs a fresh `npx vercel deploy` from `uplo-rebrand` to include Phases 4-5, then promote |
 | Database | Supabase `uplo-hackathon` | up (free plan pauses after ~7 idle days) |
-| Contracts | Avalanche Fuji | **not deployed**: run `/setup` from the admin wallet |
+| Contracts | Avalanche Fuji | deployed 16 Oct 2026 (`contracts/deployments/43113.json`); attestor = the admin wallet `0xd5eC…a6a0` |
 
 ## Verified
 

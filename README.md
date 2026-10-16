@@ -149,7 +149,7 @@ the tests. Deployed addresses: `contracts/deployments/<chainId>.json` (committed
 
 | Network | Addresses |
 |---|---|
-| Avalanche Fuji (43113) | *not yet deployed: run [docs/DEPLOY.md](docs/DEPLOY.md) §2, then paste the table from `contracts/deployments/43113.json` here* |
+| Avalanche Fuji (43113) | `contracts/deployments/43113.json` (deployed 16 Oct 2026 from `/setup`, start block 59543464): [ProjectRegistry](https://testnet.snowtrace.io/address/0x366Dc6DaA48E279A5D1333a3324Ee4e30260Ef51) · [MilestoneEscrow](https://testnet.snowtrace.io/address/0xF0487Cc97079Fc65464151fD16e2c88912787b43) · [FundingPool](https://testnet.snowtrace.io/address/0x30fa1DF6abBEb7a684126C8eE2Fe80d7BD560C1a) · [SCIFraction](https://testnet.snowtrace.io/address/0x469244e785e6D69b298a64bb841B1Da18966bD0D) · [AttestationRegistry](https://testnet.snowtrace.io/address/0x7F61DE1E77Fdd786AB63795332f855A7Db483000) · [MockUSDC](https://testnet.snowtrace.io/address/0xd66313481E6cFD9bc459a0571c87e38928e2BED5) |
 | Local anvil (31337) | `contracts/deployments/31337.json` (deterministic dev addresses) |
 
 ## What's real vs. mocked
