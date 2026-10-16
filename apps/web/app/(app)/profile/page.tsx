@@ -206,13 +206,13 @@ export default function ProfileWizard() {
             </div>
             <div>
               <Label hint="Shown on application drafts. Keep it non-confidential.">Project nickname (optional)</Label>
-              <input className={inputCls} maxLength={80} value={p.nickname ?? ""} onChange={(e) => set({ nickname: e.target.value })} placeholder="e.g. Agri-waste materials pilot" />
+              <input className={inputCls} maxLength={80} value={p.nickname ?? ""} onChange={(e) => set({ nickname: e.target.value })} placeholder="e.g. Direct cathode regeneration pilot" />
             </div>
             <div className="rounded-lg border border-dashed border-lime-300 bg-lime-50 p-3">
               <Label hint="Optional. These are shared with no one and used only for local similarity - they're stored in this browser and never sent to our server, the LLM, or any funder.">
                 3-5 generic keywords <Chip tone="positive">stays on this device</Chip>
               </Label>
-              <input className={inputCls} value={kw} onChange={(e) => setKw(e.target.value)} placeholder="comma separated, e.g. rice straw, low-carbon" />
+              <input className={inputCls} value={kw} onChange={(e) => setKw(e.target.value)} placeholder="comma separated, e.g. black mass, relithiation" />
             </div>
           </>
         )}

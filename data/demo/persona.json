@@ -1,10 +1,10 @@
 {
   "_comment": "Demo researcher used in the pitch. Structured, non-confidential only - note there is no description of the technology.",
   "profile": {
-    "nickname": "Agri-waste materials pilot",
-    "fields": ["materials", "agritech"],
-    "subdomains": ["Biomass valorization", "Construction materials", "Agri-waste utilization"],
-    "trl": 4,
+    "nickname": "Direct Cathode Regeneration pilot",
+    "fields": ["materials", "energy"],
+    "subdomains": ["Battery materials", "Recycling & circular materials", "Energy storage"],
+    "trl": 5,
     "evidence": ["lab_result", "prototype"],
     "applicant_type": "university",
     "country": "TH",
@@ -15,7 +15,7 @@
     "months_to_milestone": 9,
     "constraints": ["no_equity"]
   },
-  "keywords": ["rice straw", "binder", "low-carbon"],
+  "keywords": ["NMC cathode", "relithiation", "black mass"],
   "applicant": {
     "name": "Dr. Demo Researcher",
     "email": "researcher@example.ac.th",

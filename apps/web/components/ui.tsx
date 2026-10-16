@@ -42,7 +42,7 @@ export type ChipTone = keyof typeof CHIP;
 
 export function Chip({ children, tone = "neutral", title }: { children: ReactNode; tone?: ChipTone; title?: string }) {
   return (
-    <span title={title} className={cx("inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium", CHIP[tone])}>
+    <span title={title} className={cx("inline-flex items-center gap-1 whitespace-nowrap rounded-full px-2 py-0.5 text-xs font-medium", CHIP[tone])}>
       {children}
     </span>
   );

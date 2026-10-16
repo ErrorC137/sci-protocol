@@ -1,9 +1,9 @@
 {
   "schema": "sci-protocol/project-metadata@1",
-  "nickname": "Agri-waste materials pilot",
-  "fields": ["materials", "agritech"],
-  "subdomains": ["Biomass valorization", "Construction materials", "Agri-waste utilization"],
-  "trl": 4,
+  "nickname": "Direct Cathode Regeneration pilot",
+  "fields": ["materials", "energy"],
+  "subdomains": ["Battery materials", "Recycling & circular materials", "Energy storage"],
+  "trl": 5,
   "evidence": ["lab_result", "prototype"],
   "country": "TH",
   "applicant_type": "university",

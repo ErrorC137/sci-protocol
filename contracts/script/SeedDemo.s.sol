@@ -39,11 +39,11 @@ contract SeedDemo is Script {
 
         // ---- Project A: live raise -------------------------------------------------
         vm.startBroadcast(researcherKey);
-        uint256 a = registry.registerProject(cidA, 4);
+        uint256 a = registry.registerProject(cidA, 5);
         {
             string[] memory d = new string[](2);
-            d[0] = "Pilot-scale batch (5 kg) meets lab spec";
-            d[1] = "Third-party material test report";
+            d[0] = "Regenerated NMC cathode meets capacity spec (1 kg pilot batch)";
+            d[1] = "Third-party cell test report";
             uint256[] memory amt = new uint256[](2);
             amt[0] = 3_000e6;
             amt[1] = 5_000e6;
@@ -57,11 +57,11 @@ contract SeedDemo is Script {
 
         // ---- Project B: funded, milestone about to be missed ----------------------
         vm.startBroadcast(researcherKey);
-        uint256 b = registry.registerProject(cidB, 3);
+        uint256 b = registry.registerProject(cidB, 4);
         {
             string[] memory d = new string[](2);
-            d[0] = "Reproduce lab result in independent lab";
-            d[1] = "Prototype device";
+            d[0] = "Reproduce LFP relithiation in an independent lab";
+            d[1] = "Upcycled LFP coin-cell prototype";
             uint256[] memory amt = new uint256[](2);
             amt[0] = 1_000e6;
             amt[1] = 2_000e6;
