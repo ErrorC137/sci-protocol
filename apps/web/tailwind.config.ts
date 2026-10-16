@@ -3,6 +3,7 @@ import type { Config } from "tailwindcss";
 // UPLO design tokens (docs/uplo/brand-brief.md). The six brand colours are the DEFAULT of each scale; the extra
 // steps exist for hover/pressed states and for text that has to pass WCAG AA on limestone or white
 // (e.g. lime-700 for "positive" text - plain lime is never used for small text on light backgrounds).
+// lime-650 is ONLY for display-size headlines on limestone (3.2:1, WCAG AA for large text) - the board's green line.
 export default {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
@@ -11,7 +12,7 @@ export default {
         lime: {
           DEFAULT: "#D7EB79", // Signal Lime - primary CTA, active states, key metrics, capital-flow lines
           50: "#F7FBE4", 100: "#EFF6C9", 200: "#E3F0A0", 300: "#D7EB79", 400: "#C9E05F", 500: "#B3CB45",
-          600: "#8FA531", 700: "#5F6F1F", 800: "#46521A",
+          600: "#8FA531", 650: "#76891F", 700: "#5F6F1F", 800: "#46521A",
         },
         charcoal: {
           DEFAULT: "#1E2320", // Deep Charcoal - primary text, dark sections, sidebar, nav

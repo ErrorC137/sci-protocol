@@ -15,9 +15,9 @@ const th = "px-4 py-3 text-left text-[11px] font-semibold uppercase tracking-eye
 const td = "px-4 py-3 align-middle";
 
 function demoStatus(s: (typeof DEMO_OPPORTUNITIES)[number]["status"]) {
-  if (s === "In Progress") return <StatusChip status="progress" />;
-  if (s === "Funding") return <StatusChip status="verified">Funding</StatusChip>;
-  return <Chip>Open</Chip>;
+  if (s === "In Progress") return <span className="inline-flex rounded-full bg-limestone-200 px-2.5 py-0.5 text-xs font-semibold text-charcoal ring-1 ring-inset ring-neutral">In Progress</span>;
+  if (s === "Funding") return <span className="inline-flex rounded-full bg-lime px-2.5 py-0.5 text-xs font-semibold text-charcoal">Funding</span>;
+  return <span className="inline-flex rounded-full bg-white px-2.5 py-0.5 text-xs font-semibold text-charcoal ring-1 ring-inset ring-charcoal/30">Open</span>;
 }
 
 function LiveRow({ p }: { p: ProjectSummary }) {
@@ -51,29 +51,29 @@ export default function Overview() {
 
   return (
     <div className="space-y-10">
-      <PageHeader eyebrow="Overview" title="Capital in motion">
-        One view of the loop: commercial assets are financed today, part of the platform margin funds tomorrow&apos;s
-        research, and research is released milestone by milestone.
+      <PageHeader title="Overview">
+        Real industry value. Real innovation. Commercial assets are financed today, part of the platform margin funds
+        tomorrow&apos;s research, and research money is released milestone by milestone.
       </PageHeader>
 
       <section>
         <SectionTitle eyebrow="Platform" title="Key figures" aside={<DemoBadge />} />
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <KpiTile label="Verified assets" value={compactMoney(DEMO_KPIS.verifiedAssets.value)} sub={DEMO_KPIS.verifiedAssets.delta} badge={<DemoBadge>Demo</DemoBadge>} accent="copper" />
-          <KpiTile label="Active financing" value={compactMoney(DEMO_KPIS.activeFinancing.value)} sub={DEMO_KPIS.activeFinancing.delta} badge={<DemoBadge>Demo</DemoBadge>} accent="charcoal" />
-          <KpiTile label="Innovation capital" value={compactMoney(DEMO_KPIS.innovationCapital.value)} sub={DEMO_KPIS.innovationCapital.delta} badge={<DemoBadge>Demo</DemoBadge>} accent="lime" />
-          <KpiTile label="Research projects" value={DEMO_KPIS.researchProjects.value} sub={DEMO_KPIS.researchProjects.delta} badge={<DemoBadge>Demo</DemoBadge>} accent="sage" />
+          <KpiTile label="Verified Assets" value={compactMoney(DEMO_KPIS.verifiedAssets.value)} trend={DEMO_KPIS.verifiedAssets.delta} bars={DEMO_KPIS.verifiedAssets.bars} tone="copper" badge={<DemoBadge>Demo</DemoBadge>} />
+          <KpiTile label="Active Financing" value={compactMoney(DEMO_KPIS.activeFinancing.value)} trend={DEMO_KPIS.activeFinancing.delta} bars={DEMO_KPIS.activeFinancing.bars} tone="neutral" badge={<DemoBadge>Demo</DemoBadge>} />
+          <KpiTile label="Innovation Capital" value={compactMoney(DEMO_KPIS.innovationCapital.value)} trend={DEMO_KPIS.innovationCapital.delta} bars={DEMO_KPIS.innovationCapital.bars} tone="lime" badge={<DemoBadge>Demo</DemoBadge>} />
+          <KpiTile label="Research Projects" value={DEMO_KPIS.researchProjects.value} sub={DEMO_KPIS.researchProjects.delta} bars={DEMO_KPIS.researchProjects.bars} tone="copper" badge={<DemoBadge>Demo</DemoBadge>} />
         </div>
 
         <div className="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <KpiTile label="On-chain raises" badge={<LiveBadge />} accent="lime"
+          <KpiTile label="On-chain raises" badge={<LiveBadge />}
             value={DEPLOYMENT ? (projects.isLoading ? "…" : live.length) : "-"}
             sub={DEPLOYMENT ? `Innovation Pool on ${TARGET_CHAIN.name}` : <>Contracts not deployed · <Link href="/setup" className="underline">setup</Link></>} />
-          <KpiTile label="Escrowed for research" badge={<LiveBadge />} accent="lime"
+          <KpiTile label="Escrowed for research" badge={<LiveBadge />}
             value={DEPLOYMENT ? `${usdc(raised, 0)}` : "-"} sub="mUSDC raised into milestone escrow (testnet, no real value)" />
-          <KpiTile label="Milestones approved" badge={<LiveBadge />} accent="sage"
+          <KpiTile label="Milestones approved" badge={<LiveBadge />}
             value={approvals ?? "-"} sub={approvals === undefined ? "Needs the API's chain indexer" : "Attested on-chain"} />
-          <KpiTile label="Funding routes indexed" badge={<LiveBadge />} accent="charcoal"
+          <KpiTile label="Funding routes indexed" badge={<LiveBadge />}
             value={health.data?.corpus_size ?? "…"} sub="Grants and programmes in the Research Pipeline" />
         </div>
       </section>
@@ -101,7 +101,7 @@ export default function Overview() {
 
       <section>
         <SectionTitle eyebrow="Research Pipeline" title="Active opportunities"
-          aside={<Link href="/raise" className="inline-flex items-center gap-1 text-sm font-semibold text-charcoal underline-offset-2 hover:underline">Innovation Pool <ArrowRight aria-hidden className="h-4 w-4" /></Link>} />
+          aside={<Link href="/raise" className="inline-flex items-center gap-1 text-sm font-semibold text-charcoal underline-offset-2 hover:underline">View All <ArrowRight aria-hidden className="h-4 w-4" /></Link>} />
         <div className="overflow-x-auto rounded-xl border border-neutral bg-white">
           <table className="w-full min-w-[720px] text-sm">
             <thead className="bg-limestone-50">

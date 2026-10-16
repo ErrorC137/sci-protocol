@@ -1,4 +1,4 @@
-import { ArrowRight, Check, CircleDashed, Lock } from "lucide-react";
+import { ArrowRight, Check, CircleCheck, CircleDashed, Lock } from "lucide-react";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -48,16 +48,20 @@ export function Chip({ children, tone = "neutral", title }: { children: ReactNod
   );
 }
 
-// The three status chips from the brand board: Verified (lime fill + check), In Progress (outline + dashed
-// circle), Completed (charcoal + check).
+// The three status chips from the brand board: Verified (lime fill + check circle), In Progress (grey fill +
+// dashed circle), Completed (grey fill + solid charcoal check circle). Text always present - never colour alone.
 export function StatusChip({ status, children }: { status: "verified" | "progress" | "completed"; children?: ReactNode }) {
   const s = {
-    verified: { cls: "bg-lime text-charcoal", icon: <Check className="h-3 w-3" strokeWidth={3} />, label: "Verified" },
-    progress: { cls: "bg-white text-charcoal ring-1 ring-inset ring-charcoal/25", icon: <CircleDashed className="h-3 w-3" />, label: "In Progress" },
-    completed: { cls: "bg-charcoal text-limestone-50", icon: <Check className="h-3 w-3" strokeWidth={3} />, label: "Completed" },
+    verified: { cls: "bg-lime text-charcoal", icon: <CircleCheck className="h-3.5 w-3.5" strokeWidth={2} />, label: "Verified" },
+    progress: { cls: "bg-limestone-200 text-charcoal ring-1 ring-inset ring-neutral", icon: <CircleDashed className="h-3.5 w-3.5" />, label: "In Progress" },
+    completed: {
+      cls: "bg-limestone-200 text-charcoal ring-1 ring-inset ring-neutral",
+      icon: <span className="grid h-3.5 w-3.5 place-items-center rounded-full bg-charcoal text-limestone-50"><Check className="h-2.5 w-2.5" strokeWidth={3.5} /></span>,
+      label: "Completed",
+    },
   }[status];
   return (
-    <span className={cx("inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-semibold", s.cls)}>
+    <span className={cx("inline-flex items-center gap-1.5 whitespace-nowrap rounded-full px-2.5 py-0.5 text-xs font-semibold", s.cls)}>
       {s.icon}{children ?? s.label}
     </span>
   );
@@ -65,7 +69,7 @@ export function StatusChip({ status, children }: { status: "verified" | "progres
 
 const BTN = {
   primary: "bg-lime text-charcoal hover:bg-lime-400 active:bg-lime-500 disabled:bg-neutral disabled:text-charcoal-muted",
-  secondary: "border border-charcoal bg-transparent text-charcoal hover:bg-charcoal/5 active:bg-charcoal/10 disabled:border-neutral disabled:text-charcoal-muted",
+  secondary: "border border-charcoal/70 bg-white/60 text-charcoal hover:bg-white active:bg-charcoal/10 disabled:border-neutral disabled:text-charcoal-muted",
   dark: "bg-charcoal text-limestone-50 hover:bg-charcoal-800 active:bg-charcoal-700 disabled:bg-neutral disabled:text-charcoal-muted",
   danger: "bg-error text-white hover:bg-error-700 disabled:bg-neutral disabled:text-charcoal-muted",
   ghost: "text-charcoal hover:bg-charcoal/5 active:bg-charcoal/10 disabled:text-charcoal-muted",

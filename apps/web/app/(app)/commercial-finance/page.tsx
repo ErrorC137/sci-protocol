@@ -181,10 +181,10 @@ export default function CommercialFinance() {
       <section>
         <SectionTitle eyebrow="Invoice book" title="Pool A at a glance" aside={<DemoBadge />} />
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <KpiTile label="Open invoices" value={open.length} sub={`${compactMoney(open.reduce((s, i) => s + i.amount, 0))} face value`} badge={<DemoBadge>Demo</DemoBadge>} accent="copper" />
-          <KpiTile label="Advanced, outstanding" value={compactMoney(advanced)} sub="Cash already paid to recyclers" badge={<DemoBadge>Demo</DemoBadge>} accent="charcoal" />
-          <KpiTile label="Settled" value={settled.length} sub={`${compactMoney(settled.reduce((s, i) => s + i.amount, 0))} repaid by buyers`} badge={<DemoBadge>Demo</DemoBadge>} accent="sage" />
-          <KpiTile label="Sent to Pool B" value={money(treasury)} sub="From settled invoices' margin" badge={<DemoBadge>Demo</DemoBadge>} accent="lime" />
+          <KpiTile label="Open invoices" value={open.length} sub={`${compactMoney(open.reduce((s, i) => s + i.amount, 0))} face value`} badge={<DemoBadge>Demo</DemoBadge>} tone="copper" />
+          <KpiTile label="Advanced, outstanding" value={compactMoney(advanced)} sub="Cash already paid to recyclers" badge={<DemoBadge>Demo</DemoBadge>} tone="neutral" />
+          <KpiTile label="Settled" value={settled.length} sub={`${compactMoney(settled.reduce((s, i) => s + i.amount, 0))} repaid by buyers`} badge={<DemoBadge>Demo</DemoBadge>} tone="sage" />
+          <KpiTile label="Sent to Pool B" value={money(treasury)} sub="From settled invoices' margin" badge={<DemoBadge>Demo</DemoBadge>} tone="lime" />
         </div>
       </section>
 

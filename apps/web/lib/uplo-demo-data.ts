@@ -90,10 +90,10 @@ export const INVOICE_STATUS_LABEL: Record<InvoiceStatus, string> = {
 // ---------------------------------------------------------------------------------------------------------------
 
 export const DEMO_KPIS = {
-  verifiedAssets: { value: 2_400_000, delta: "+12.5% vs last month" },
-  activeFinancing: { value: 950_000, delta: "+8.3% vs last month" },
-  innovationCapital: { value: 38_000, delta: "+15.4% vs last month" },
-  researchProjects: { value: 12, delta: "3 new this quarter" },
+  verifiedAssets: { value: 2_400_000, delta: "+23%", bars: [0.45, 0.6, 0.72, 1] },
+  activeFinancing: { value: 950_000, delta: "+18%", bars: [0.5, 0.62, 0.8, 1] },
+  innovationCapital: { value: 38_000, delta: "+56%", bars: [0.35, 0.55, 0.78, 1] },
+  researchProjects: { value: 6, delta: "In validation", bars: [0.4, 0.7, 0.55, 1] },
 } as const;
 
 // ---------------------------------------------------------------------------------------------------------------
