@@ -15,6 +15,13 @@ def test_deployment_json_overrides_files(monkeypatch):
     assert indexer.load_deployment(31337) is not None  # files still load for other chains
 
 
-def test_bad_deployment_json_is_ignored(monkeypatch):
-    monkeypatch.setattr(indexer, "settings", replace(settings, deployment_json="{not json"))
+def test_bad_deployment_json_is_ignored(monkeypatch, tmp_path):
+    # No deployment files (the repo commits real Fuji addresses), so only the bad override could supply one.
+    monkeypatch.setattr(indexer, "settings", replace(settings, deployment_json="{not json", deployments_dir=tmp_path))
     assert indexer.load_deployment(43113) is None
+
+
+def test_bad_deployment_json_falls_back_to_the_committed_file(monkeypatch):
+    monkeypatch.setattr(indexer, "settings", replace(settings, deployment_json="{not json"))
+    committed = indexer.load_deployment(43113)
+    assert committed is None or committed["chainId"] == 43113

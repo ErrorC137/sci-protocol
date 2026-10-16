@@ -96,14 +96,24 @@ class EventDecoder:
         }
 
 
+def _is_range_error(ex: Exception) -> bool:
+    """Providers phrase it differently: "block range too large", "exceeds the maximum of 100 blocks",
+    "query returned more than 10000 results", "range limit"."""
+    msg = str(ex).lower()
+    return any(k in msg for k in ("block range", "range too large", "range limit", "maximum of", "more than", "too many"))
+
+
 class Indexer:
-    def __init__(self, rpc_url: str, deployment: dict, chunk: int = 500, keep: int = 20_000):
+    def __init__(self, rpc_url: str, deployment: dict, chunk: int | None = None, keep: int = 20_000):
         self.rpc = rpc_url
         self.deployment = deployment
         self.addresses = {deployment[c].lower(): c for c in CONTRACTS if c in deployment}
         self.decoder = EventDecoder(json.loads(ABIS_PATH.read_text()))
         self.next_block = int(deployment.get("startBlock", 0))
-        self.chunk = chunk
+        # Public Avalanche nodes cap eth_getLogs at a small block range (api.avax-test.network: 100 blocks).
+        # INDEXER_CHUNK overrides; poll_once also halves the range on a "range too large" error.
+        default_chunk = 100 if settings.chain_id in (43113, 43114) else 500
+        self.chunk = max(1, int(chunk or os.environ.get("INDEXER_CHUNK") or default_chunk))
         self.events: deque[dict] = deque(maxlen=keep)
         self.projects: dict[int, dict] = {}
         self._stop = threading.Event()
@@ -137,10 +147,17 @@ class Indexer:
         n = 0
         while self.next_block <= head:
             to = min(head, self.next_block + self.chunk - 1)
-            logs = self._rpc(
-                "eth_getLogs",
-                [{"fromBlock": hex(self.next_block), "toBlock": hex(to), "address": list(self.addresses)}],
-            )
+            try:
+                logs = self._rpc(
+                    "eth_getLogs",
+                    [{"fromBlock": hex(self.next_block), "toBlock": hex(to), "address": list(self.addresses)}],
+                )
+            except RuntimeError as ex:
+                if self.chunk > 1 and _is_range_error(ex):
+                    self.chunk = max(1, self.chunk // 2)
+                    log.info("RPC rejected the block range; retrying with %s blocks per request", self.chunk)
+                    continue
+                raise
             for lg in logs:
                 ev = self.decoder.decode(lg)
                 if ev:
