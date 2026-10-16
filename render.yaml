@@ -25,7 +25,9 @@ services:
         sync: false
       - key: CHAIN_ID
         value: "43113"            # Avalanche Fuji; 43114 = C-Chain mainnet
-      - key: RPC_URL               # Avalanche Fuji RPC (public: https://api.avax-test.network/ext/bc/C/rpc)
+      - key: RPC_URL               # public Fuji node (no SLA); put a provider URL here if it rate-limits
+        value: "https://api.avax-test.network/ext/bc/C/rpc"
+      - key: DEPLOYMENT_JSON       # one line of JSON from the web app's /setup page once the contracts are deployed
         sync: false
       - key: INDEXER_ENABLED
         value: "true"

@@ -173,9 +173,22 @@ class Indexer:
         elif name == "MilestoneReleased":
             p["released"] = str(int(p.get("released", "0")) + int(a["amount"]))
 
+    def chain_mismatch(self) -> str | None:
+        """An RPC_URL left pointing at another network (e.g. Base Sepolia after switching CHAIN_ID to Fuji) would
+        index nothing and look healthy; refuse instead."""
+        got = int(self._rpc("eth_chainId", []), 16)
+        return None if got == settings.chain_id else f"RPC_URL serves chain {got} but CHAIN_ID is {settings.chain_id}; indexer stopped"
+
     def run(self) -> None:
+        checked = False
         while not self._stop.is_set():
             try:
+                if not checked:
+                    if (msg := self.chain_mismatch()) is not None:
+                        self.last_error = msg
+                        log.error(msg)
+                        return
+                    checked = True
                 self.poll_once()
                 self.last_error = None
             except Exception as ex:
