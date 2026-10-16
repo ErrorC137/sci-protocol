@@ -130,7 +130,7 @@ export const TRUST = {
   title: "Mechanics you can check, limits we state.",
   points: [
     { id: "escrow", title: "Milestone escrow", body: "Funds release only after an attestor approves the evidence. A missed deadline refunds backers, pro-rata, on-chain." },
-    { id: "transparency", title: "On-chain transparency", body: "Raises, milestones, approvals and refunds are public records on Base Sepolia that anyone can verify." },
+    { id: "transparency", title: "On-chain transparency", body: "Raises, milestones, approvals and refunds are public records on Avalanche (Fuji testnet) that anyone can verify." },
     { id: "privacy", title: "Private by design", body: "Matching uses non-confidential categories only. Confidential details are encrypted in your browser - only a hash goes on-chain." },
   ],
   scope: "Testnet demo · mock stablecoin · centralized attestor today.",
