@@ -49,7 +49,7 @@ function NetworkStatus() {
       <span className={cx("h-2 w-2 rounded-full", ok ? "bg-lime" : health.isLoading ? "bg-limestone-400" : "bg-error")} />
       <span>{ok ? "API online" : health.isLoading ? "Connecting…" : "API unreachable"}</span>
       <span aria-hidden>·</span>
-      <span>{TARGET_CHAIN.name}{!DEPLOYMENT && " (not deployed)"}</span>
+      <span>{TARGET_CHAIN.name}{!DEPLOYMENT && <> (<Link href="/setup" className="underline">not deployed</Link>)</>}</span>
     </p>
   );
 }

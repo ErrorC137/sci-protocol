@@ -61,11 +61,7 @@ def get_ipfs(cid: str) -> Response:
 
 @router.get("/chain/config")
 def chain_config() -> dict:
-    deployments = {}
-    if settings.deployments_dir.exists():
-        for p in settings.deployments_dir.glob("*.json"):
-            d = json.loads(p.read_text())
-            deployments[str(d["chainId"])] = d
+    deployments = indexer.all_deployments()
     return {
         "chain_id": settings.chain_id,
         "deployment": deployments.get(str(settings.chain_id)),

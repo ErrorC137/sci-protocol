@@ -15,7 +15,20 @@ const CHAINS: Record<number, Chain> = {
 
 export const TARGET_CHAIN: Chain = CHAINS[Number(process.env.NEXT_PUBLIC_CHAIN_ID || avalancheFuji.id)] ?? avalancheFuji;
 export const RPC = process.env.NEXT_PUBLIC_RPC_URL || undefined;
-export const DEPLOYMENT: Deployment | undefined = deployments[TARGET_CHAIN.id];
+// Addresses from the in-browser deploy page (/setup) can be supplied as NEXT_PUBLIC_DEPLOYMENT_JSON (inlined at
+// build time, so redeploy the web app after setting it); otherwise contracts/deployments/<chainId>.json via @sci/shared.
+function envDeployment(): Deployment | undefined {
+  const raw = process.env.NEXT_PUBLIC_DEPLOYMENT_JSON;
+  if (!raw) return undefined;
+  try {
+    const d = JSON.parse(raw) as Deployment;
+    return Number(d.chainId) === TARGET_CHAIN.id ? d : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+export const DEPLOYMENT: Deployment | undefined = envDeployment() ?? deployments[TARGET_CHAIN.id];
 
 export const EXPLORER = TARGET_CHAIN.blockExplorers?.default.url;
 export const txUrl = (hash: string) => (EXPLORER ? `${EXPLORER}/tx/${hash}` : undefined);

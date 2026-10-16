@@ -30,6 +30,12 @@ for (const name of CONTRACTS) {
   abis += `export const ${name}Abi = ${JSON.stringify(abi, null, 2)} as const;\n\n`;
 }
 writeFileSync(join(dest, "abis.ts"), abis);
+// Creation bytecode for the in-browser deploy page (apps/web/app/(app)/setup), loaded only on that page.
+const bytecode = {};
+for (const name of CONTRACTS) {
+  bytecode[name] = JSON.parse(readFileSync(join(out, `${name}.sol`, `${name}.json`), "utf8")).bytecode.object;
+}
+writeFileSync(join(root, "apps", "web", "lib", "bytecode.json"), JSON.stringify(bytecode));
 // Same ABIs as plain JSON for the Python event indexer.
 writeFileSync(join(root, "packages", "shared", "abis.json"), JSON.stringify(abiJson));
 

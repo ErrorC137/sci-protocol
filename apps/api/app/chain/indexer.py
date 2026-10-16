@@ -23,9 +23,24 @@ CONTRACTS = ["ProjectRegistry", "FundingPool", "MilestoneEscrow", "SCIFraction",
 STATUS = ["Draft", "Open", "Funded", "Completed", "Failed"]
 
 
+def all_deployments() -> dict[str, dict]:
+    """contracts/deployments/*.json, then DEPLOYMENT_JSON (from the /setup page) on top."""
+    out: dict[str, dict] = {}
+    if settings.deployments_dir.exists():
+        for p in settings.deployments_dir.glob("*.json"):
+            d = json.loads(p.read_text())
+            out[str(d["chainId"])] = d
+    if settings.deployment_json:
+        try:
+            d = json.loads(settings.deployment_json)
+            out[str(int(d["chainId"]))] = d
+        except (ValueError, KeyError, TypeError) as ex:
+            log.error("DEPLOYMENT_JSON ignored: %s", ex)
+    return out
+
+
 def load_deployment(chain_id: int | None = None) -> dict | None:
-    p = settings.deployments_dir / f"{chain_id or settings.chain_id}.json"
-    return json.loads(p.read_text()) if p.exists() else None
+    return all_deployments().get(str(chain_id or settings.chain_id))
 
 
 def _canonical_type(inp: dict) -> str:

@@ -45,6 +45,8 @@ class Settings:
     deployments_dir: Path = field(
         default_factory=lambda: Path(_env("DEPLOYMENTS_DIR", str(REPO_ROOT / "contracts" / "deployments")))
     )
+    # Addresses from the browser deploy page (/setup), as JSON, so a deploy needs no commit: wins over deployments_dir.
+    deployment_json: str | None = field(default_factory=lambda: _env("DEPLOYMENT_JSON"))
     indexer_enabled: bool = field(default_factory=lambda: _env("INDEXER_ENABLED", "false").lower() == "true")
     indexer_interval_s: float = field(default_factory=lambda: float(_env("INDEXER_INTERVAL", "8")))
 

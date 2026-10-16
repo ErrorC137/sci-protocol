@@ -48,7 +48,7 @@ export default function RaiseList() {
         <Button href="/raise/new">Open a raise</Button>
         <span className="text-sm text-charcoal-muted">Testnet only · mock USDC · no real value</span>
       </div>
-      {!DEPLOYMENT && <Notice tone="danger">No contracts deployed for chain {TARGET_CHAIN.id}. Run the deploy script and `npm run export-abis` (docs/DEPLOY.md).</Notice>}
+      {!DEPLOYMENT && <Notice tone="danger">No contracts deployed on {TARGET_CHAIN.name} yet. Deploy them from your wallet on the <a className="underline" href="/setup">setup page</a> (or with the Foundry script in docs/DEPLOY.md).</Notice>}
       {projects.isLoading && <Card className="flex items-center gap-2 text-charcoal-muted"><Spinner /> Reading projects from chain…</Card>}
       {projects.error && <Notice tone="danger">Couldn’t read the chain: {(projects.error as Error).message}</Notice>}
       {projects.data?.length === 0 && <Empty title="No projects yet">Be the first to open a raise.</Empty>}
