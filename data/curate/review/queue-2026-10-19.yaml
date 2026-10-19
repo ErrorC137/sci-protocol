@@ -1,0 +1,1231 @@
+# SCI corpus review queue. Nothing here is in the corpus yet.
+#
+# For each item: open source_url, check the evidence quotes, then set
+#   decision: accept   (or reject)
+#   set_verified: true only if you confirmed the values on the live page today
+# New funders need new_funder.name/type/country filled in (or set entry.funder to an existing key).
+# Values without a quote found on the page were removed and are listed under `dropped`.
+# `inferred` values (fields, subdomains, summary, title_en) are the model's classification - check them.
+# `value_unchecked` fields have a quote on the page, but no program can check the value follows from it.
+#
+# Then run:  python -m app.curate apply <this file>
+generated: '2026-10-19T08:05:08+00:00'
+items:
+- id: q1
+  decision: pending
+  kind: new
+  entry:
+    ref: nia-nia
+    funder: nia
+    title: NIA สำนักงานนวัตกรรมแห่งชาติ
+    amount:
+      min: null
+      max: 1500000.0
+      currency: THB
+    deadline: '2025-12-22'
+    url: https://www.nia.or.th/service/financial-support
+    confidence: low
+    verified: false
+  source_url: https://www.nia.or.th/service/financial-support
+  method: heuristic
+  evidence:
+    title: NIA สำนักงานนวัตกรรมแห่งชาติ
+    deadline: 'ถึง Series A นั้น
+
+      ในการนี้ NIA ได้ประกาศสำนักงานนวัตกรรมแห่งชาติ (องค์การมหาชน) ลงวันที่ 22 ธันวาคม 2568'
+    amount_max: ไม่เกิน 1,500,000 บาทต่อโครงการ
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags:
+  - deadline has passed - closed call or an older cycle
+  set_verified: false
+- id: q2
+  decision: pending
+  kind: new
+  entry:
+    ref: nia-nia
+    funder: nia
+    title: NIA สำนักงานนวัตกรรมแห่งชาติ
+    amount:
+      min: null
+      max: 5000000.0
+      currency: THB
+    deadline: '2025-12-22'
+    url: https://www.nia.or.th/service/Corporate-Co-funding-Mechanism
+    confidence: low
+    verified: false
+  source_url: https://www.nia.or.th/service/Corporate-Co-funding-Mechanism
+  method: heuristic
+  evidence:
+    title: NIA สำนักงานนวัตกรรมแห่งชาติ
+    deadline: 'ถึง Series A นั้น
+
+      ในการนี้ NIA ได้ประกาศสำนักงานนวัตกรรมแห่งชาติ (องค์การมหาชน) ลงวันที่ 22 ธันวาคม 2568'
+    amount_max: ไม่เกิน 5,000,000 บาท ต่อโครงการ
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags:
+  - deadline has passed - closed call or an older cycle
+  set_verified: false
+- id: q3
+  decision: pending
+  kind: new
+  entry:
+    ref: pmuc-full-proposal-2569-1
+    funder: pmuc
+    title: เปิดรับข้อเสนอโครงการวิจัยฉบับสมบูรณ์ (Full Proposal) ประจำปีงบประมาณ 2569 (รอบที่ 1) - บพข.
+    url: https://pmuc.or.th/open-call-proposal-2569/
+    confidence: low
+    verified: false
+  source_url: https://pmuc.or.th/open-call-proposal-2569/
+  method: heuristic
+  evidence:
+    title: เปิดรับข้อเสนอโครงการวิจัยฉบับสมบูรณ์ (Full Proposal) ประจำปีงบประมาณ 2569 (รอบที่ 1) - บพข.
+  inferred: []
+  value_unchecked: []
+  dropped:
+  - field: deadline
+    value: '2026-04-02'
+    reason: no supporting quote found on the page
+  flags:
+  - no verified facts beyond the title
+  set_verified: false
+- id: q4
+  decision: pending
+  kind: new
+  entry:
+    ref: pmuc
+    funder: pmuc
+    title: คู่มือสำหรับนักวิจัยที่ได้รับทุน บพข.
+    amount:
+      min: null
+      max: 2000000.0
+      currency: THB
+    url: https://pmuc.or.th/researchers-guide-book/
+    confidence: low
+    verified: false
+  source_url: https://pmuc.or.th/researchers-guide-book/
+  method: heuristic
+  evidence:
+    title: คู่มือสำหรับนักวิจัยที่ได้รับทุน บพข.
+    amount_max: ไม่เกิน 2 ล้านบาท
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q5
+  decision: pending
+  kind: new
+  entry:
+    ref: cdl-application-triage-creative-destruction-lab
+    funder: cdl
+    title: Application Triage - Creative Destruction Lab
+    deadline: '2026-07-24'
+    url: https://creativedestructionlab.com/application-triage/
+    confidence: low
+    verified: false
+  source_url: https://creativedestructionlab.com/application-triage/
+  method: heuristic
+  evidence:
+    title: Application Triage - Creative Destruction Lab
+    deadline: 'Deadlines
+
+      Applications close on July 24, 2026'
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags:
+  - deadline has passed - closed call or an older cycle
+  set_verified: false
+- id: q6
+  decision: pending
+  kind: new
+  entry:
+    ref: xprize-xprize-healthspan-healthy-aging-made-poss
+    funder: xprize
+    title: XPRIZE Healthspan, Healthy aging made possible | XPRIZE Foundation
+    url: https://www.xprize.org/competitions/healthspan
+    confidence: low
+    verified: false
+  source_url: https://www.xprize.org/competitions/healthspan
+  method: heuristic
+  evidence:
+    title: XPRIZE Healthspan, Healthy aging made possible | XPRIZE Foundation
+  inferred: []
+  value_unchecked: []
+  dropped:
+  - field: deadline
+    value: '2026-04-22'
+    reason: no supporting quote found on the page
+  flags:
+  - no verified facts beyond the title
+  set_verified: false
+- id: q7
+  decision: pending
+  kind: new
+  entry:
+    ref: xprize-xprize-quantum-applications-competition-x
+    funder: xprize
+    title: XPRIZE Quantum Applications Competition | XPRIZE Foundation
+    deadline: '2026-03-04'
+    url: https://www.xprize.org/competitions/qc-apps
+    confidence: low
+    verified: false
+  source_url: https://www.xprize.org/competitions/qc-apps
+  method: heuristic
+  evidence:
+    title: XPRIZE Quantum Applications Competition | XPRIZE Foundation
+    deadline: closes on March 4, 2026
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags:
+  - deadline has passed - closed call or an older cycle
+  set_verified: false
+- id: q8
+  decision: pending
+  kind: new
+  entry:
+    ref: xprize-xprize-water-scarcity-competition-xprize-
+    funder: xprize
+    title: XPRIZE Water Scarcity Competition | XPRIZE Foundation
+    amount:
+      min: null
+      max: 2000000.0
+      currency: USD
+    deadline: '2025-05-31'
+    url: https://www.xprize.org/competitions/water
+    confidence: low
+    verified: false
+  source_url: https://www.xprize.org/competitions/water
+  method: heuristic
+  evidence:
+    title: XPRIZE Water Scarcity Competition | XPRIZE Foundation
+    deadline: close May 31, 2025
+    amount_max: up to five Finalist Milestone Awards of $2M
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags:
+  - deadline has passed - closed call or an older cycle
+  set_verified: false
+- id: q9
+  decision: pending
+  kind: new
+  entry:
+    ref: solve-2027-global-economic-prosperity-challenge-
+    funder: solve
+    title: 2027 Global Economic Prosperity Challenge | MIT Solve
+    amount:
+      min: null
+      max: 150000.0
+      currency: USD
+    url: https://solve.mit.edu/challenges/2027-global-economic-prosperity-challenge
+    confidence: low
+    verified: false
+  source_url: https://solve.mit.edu/challenges/2027-global-economic-prosperity-challenge
+  method: heuristic
+  evidence:
+    title: 2027 Global Economic Prosperity Challenge | MIT Solve
+    amount_max: Up to $150,000
+  inferred: []
+  value_unchecked: []
+  dropped:
+  - field: deadline
+    value: '2026-11-06'
+    reason: no supporting quote found on the page
+  flags: []
+  set_verified: false
+- id: q10
+  decision: pending
+  kind: new
+  entry:
+    ref: solve-2027-global-health-challenge-mit-solve
+    funder: solve
+    title: 2027 Global Health Challenge | MIT Solve
+    amount:
+      min: null
+      max: 150000.0
+      currency: USD
+    url: https://solve.mit.edu/challenges/2027-global-health-challenge
+    confidence: low
+    verified: false
+  source_url: https://solve.mit.edu/challenges/2027-global-health-challenge
+  method: heuristic
+  evidence:
+    title: 2027 Global Health Challenge | MIT Solve
+    amount_max: Up to $150,000
+  inferred: []
+  value_unchecked: []
+  dropped:
+  - field: deadline
+    value: '2026-11-06'
+    reason: no supporting quote found on the page
+  flags: []
+  set_verified: false
+- id: q11
+  decision: pending
+  kind: new
+  entry:
+    ref: solve-2027-global-climate-challenge-mit-solve
+    funder: solve
+    title: 2027 Global Climate Challenge | MIT Solve
+    amount:
+      min: null
+      max: 150000.0
+      currency: USD
+    url: https://solve.mit.edu/challenges/2027-global-climate-challenge
+    confidence: low
+    verified: false
+  source_url: https://solve.mit.edu/challenges/2027-global-climate-challenge
+  method: heuristic
+  evidence:
+    title: 2027 Global Climate Challenge | MIT Solve
+    amount_max: Up to $150,000
+  inferred: []
+  value_unchecked: []
+  dropped:
+  - field: deadline
+    value: '2026-11-06'
+    reason: no supporting quote found on the page
+  flags: []
+  set_verified: false
+- id: q12
+  decision: pending
+  kind: new
+  entry:
+    ref: experiment-living-thresholds-oceans-experiment
+    funder: experiment
+    title: Living Thresholds - Oceans | Experiment
+    amount:
+      min: null
+      max: 10000.0
+      currency: USD
+    deadline: '2026-10-16'
+    url: https://experiment.com/programs/living-thresholds
+    confidence: low
+    verified: false
+  source_url: https://experiment.com/programs/living-thresholds
+  method: heuristic
+  evidence:
+    title: Living Thresholds - Oceans | Experiment
+    deadline: 'Deadline
+
+      Oct 16, 2026'
+    amount_max: up to $10,000
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags:
+  - deadline has passed - closed call or an older cycle
+  set_verified: false
+- id: q13
+  decision: pending
+  kind: new
+  entry:
+    ref: experiment-hyperspectral-biology-experiment
+    funder: experiment
+    title: Hyperspectral Biology | Experiment
+    deadline: '2026-07-10'
+    url: https://experiment.com/programs/hyperspectral
+    confidence: low
+    verified: false
+  source_url: https://experiment.com/programs/hyperspectral
+  method: heuristic
+  evidence:
+    title: Hyperspectral Biology | Experiment
+    deadline: 'Deadline
+
+      Jul 10, 2026'
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags:
+  - deadline has passed - closed call or an older cycle
+  set_verified: false
+- id: q14
+  decision: pending
+  kind: new
+  entry:
+    ref: experiment-california-species-collection-experim
+    funder: experiment
+    title: California Species Collection | Experiment
+    deadline: '2026-05-16'
+    url: https://experiment.com/programs/california
+    confidence: low
+    verified: false
+  source_url: https://experiment.com/programs/california
+  method: heuristic
+  evidence:
+    title: California Species Collection | Experiment
+    deadline: 'Deadline
+
+      May 16, 2026'
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags:
+  - deadline has passed - closed call or an older cycle
+  set_verified: false
+- id: q15
+  decision: pending
+  kind: new
+  entry:
+    ref: experiment-the-range-storytelling-science-fund-e
+    funder: experiment
+    title: The Range Storytelling Science Fund | Experiment
+    deadline: '2025-10-24'
+    url: https://experiment.com/programs/the-range-storytelling-science-fund
+    confidence: low
+    verified: false
+  source_url: https://experiment.com/programs/the-range-storytelling-science-fund
+  method: heuristic
+  evidence:
+    title: The Range Storytelling Science Fund | Experiment
+    deadline: 'Deadline
+
+      Oct 24, 2025'
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags:
+  - deadline has passed - closed call or an older cycle
+  set_verified: false
+- id: q16
+  decision: pending
+  kind: new
+  entry:
+    ref: experiment-mpa-monitoring-and-enforcement-innova
+    funder: experiment
+    title: MPA Monitoring and Enforcement Innovation | Experiment
+    amount:
+      min: null
+      max: 10000.0
+      currency: USD
+    deadline: '2025-01-10'
+    url: https://experiment.com/programs/MPA
+    confidence: low
+    verified: false
+  source_url: https://experiment.com/programs/MPA
+  method: heuristic
+  evidence:
+    title: MPA Monitoring and Enforcement Innovation | Experiment
+    deadline: 'Deadline
+
+      Jan 10, 2025'
+    amount_max: up to $10,000
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags:
+  - deadline has passed - closed call or an older cycle
+  set_verified: false
+- id: q17
+  decision: pending
+  kind: new
+  entry:
+    ref: erc-consolidator-grant
+    funder: erc
+    title: Consolidator Grant
+    amount:
+      min: null
+      max: 2000000.0
+      currency: EUR
+    url: https://erc.europa.eu/apply-grant/consolidator-grant
+    confidence: low
+    verified: false
+  source_url: https://erc.europa.eu/apply-grant/consolidator-grant
+  method: heuristic
+  evidence:
+    title: Consolidator Grant
+    amount_max: up to €2 million
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q18
+  decision: pending
+  kind: new
+  entry:
+    ref: erc-advanced-grant
+    funder: erc
+    title: Advanced Grant
+    amount:
+      min: null
+      max: 2500000.0
+      currency: EUR
+    url: https://erc.europa.eu/apply-grant/advanced-grant
+    confidence: low
+    verified: false
+  source_url: https://erc.europa.eu/apply-grant/advanced-grant
+  method: heuristic
+  evidence:
+    title: Advanced Grant
+    amount_max: up to € 2.5 million
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q19
+  decision: pending
+  kind: new
+  entry:
+    ref: erc-synergy-grant
+    funder: erc
+    title: Synergy Grant
+    amount:
+      min: null
+      max: 10000000.0
+      currency: EUR
+    url: https://erc.europa.eu/apply-grant/synergy-grant
+    confidence: low
+    verified: false
+  source_url: https://erc.europa.eu/apply-grant/synergy-grant
+  method: heuristic
+  evidence:
+    title: Synergy Grant
+    amount_max: up to a maximum of € 10 million
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q20
+  decision: pending
+  kind: new
+  entry:
+    ref: erc-erc-plus-grant
+    funder: erc
+    title: ERC Plus Grant
+    amount:
+      min: null
+      max: 7000000.0
+      currency: EUR
+    url: https://erc.europa.eu/apply-grant/erc-plus-grant
+    confidence: low
+    verified: false
+  source_url: https://erc.europa.eu/apply-grant/erc-plus-grant
+  method: heuristic
+  evidence:
+    title: ERC Plus Grant
+    amount_max: maximum grant size is €7 million
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q21
+  decision: pending
+  kind: new
+  entry:
+    ref: erc-for-non-european-researchers
+    funder: erc
+    title: For Non-European Researchers
+    amount:
+      min: null
+      max: 3500000.0
+      currency: EUR
+    url: https://erc.europa.eu/apply-grant/non-european-researchers
+    confidence: low
+    verified: false
+  source_url: https://erc.europa.eu/apply-grant/non-european-researchers
+  method: heuristic
+  evidence:
+    title: For Non-European Researchers
+    amount_max: up to €3.5 million
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q22
+  decision: pending
+  kind: new
+  entry:
+    ref: nsf-sbir-sttr-phase-i-proposal-contents-and-prep
+    funder: nsf
+    title: SBIR/STTR Phase I Proposal Contents and Preparation | NSF SBIR
+    amount:
+      min: null
+      max: 1000.0
+      currency: USD
+    url: https://seedfund.nsf.gov/solicitation-proposal/
+    confidence: low
+    verified: false
+  source_url: https://seedfund.nsf.gov/solicitation-proposal/
+  method: heuristic
+  evidence:
+    title: SBIR/STTR Phase I Proposal Contents and Preparation | NSF SBIR
+    amount_max: maximum of $1,000
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q23
+  decision: pending
+  kind: new
+  entry:
+    ref: nsf-about-nsf-sbir-sttr-startup-funding-nsf-sbir
+    funder: nsf
+    title: About NSF SBIR/STTR – Startup Funding | NSF SBIR
+    amount:
+      min: null
+      max: 2000000.0
+      currency: USD
+    url: https://seedfund.nsf.gov/our-program/
+    confidence: low
+    verified: false
+  source_url: https://seedfund.nsf.gov/our-program/
+  method: heuristic
+  evidence:
+    title: About NSF SBIR/STTR – Startup Funding | NSF SBIR
+    amount_max: Up to $2M
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q24
+  decision: pending
+  kind: new
+  entry:
+    ref: nsf-how-it-works-proposal-review-decision-nsf-sb
+    funder: nsf
+    title: How It Works - Proposal Review & Decision | NSF SBIR
+    amount:
+      min: null
+      max: 305000.0
+      currency: USD
+    url: https://seedfund.nsf.gov/apply/review-decision/
+    confidence: low
+    verified: false
+  source_url: https://seedfund.nsf.gov/apply/review-decision/
+  method: heuristic
+  evidence:
+    title: How It Works - Proposal Review & Decision | NSF SBIR
+    amount_max: up to $305,000
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q25
+  decision: pending
+  kind: new
+  entry:
+    ref: nih-eligibility-criteria-seed
+    funder: nih
+    title: Eligibility Criteria | Seed
+    deadline: '2023-04-05'
+    url: https://seed.nih.gov/small-business-funding/small-business-program-basics/eligibility-criteria
+    confidence: low
+    verified: false
+  source_url: https://seed.nih.gov/small-business-funding/small-business-program-basics/eligibility-criteria
+  method: heuristic
+  evidence:
+    title: Eligibility Criteria | Seed
+    deadline: deadlines that fall on or after April 5, 2023
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags:
+  - deadline has passed - closed call or an older cycle
+  set_verified: false
+- id: q26
+  decision: pending
+  kind: new
+  entry:
+    ref: nih-prepare-your-application-seed
+    funder: nih
+    title: Prepare Your Application | Seed
+    deadline: '2025-01-25'
+    url: https://seed.nih.gov/small-business-funding/how-to-apply/applying/prepare-your-application
+    confidence: low
+    verified: false
+  source_url: https://seed.nih.gov/small-business-funding/how-to-apply/applying/prepare-your-application
+  method: heuristic
+  evidence:
+    title: Prepare Your Application | Seed
+    deadline: Due Dates ON/AFTER January 25, 2025
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags:
+  - deadline has passed - closed call or an older cycle
+  set_verified: false
+- id: q27
+  decision: pending
+  kind: new
+  entry:
+    ref: gitcoin-gitcoin-grants-24
+    funder: gitcoin
+    title: Gitcoin Grants 24
+    amount:
+      min: null
+      max: 20000.0
+      currency: USD
+    url: https://gitcoin.co/campaigns/gitcoin-grants-24-gg24
+    confidence: low
+    verified: false
+  source_url: https://gitcoin.co/campaigns/gitcoin-grants-24-gg24
+  method: heuristic
+  evidence:
+    title: Gitcoin Grants 24
+    amount_max: $20K per project
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q28
+  decision: pending
+  kind: new
+  entry:
+    ref: gitcoin-gitcoin-grants-23
+    funder: gitcoin
+    title: Gitcoin Grants 23
+    amount:
+      min: null
+      max: 39895.0
+      currency: USD
+    url: https://gitcoin.co/campaigns/gitcoin-grants-23-gg23
+    confidence: low
+    verified: false
+  source_url: https://gitcoin.co/campaigns/gitcoin-grants-23-gg23
+  method: heuristic
+  evidence:
+    title: Gitcoin Grants 23
+    amount_max: $39,895 per project
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q29
+  decision: pending
+  kind: new
+  entry:
+    ref: gitcoin-gitcoin-grants-22
+    funder: gitcoin
+    title: Gitcoin Grants 22
+    amount:
+      min: null
+      max: 30000.0
+      currency: USD
+    url: https://gitcoin.co/campaigns/gitcoin-grants-22-gg22
+    confidence: low
+    verified: false
+  source_url: https://gitcoin.co/campaigns/gitcoin-grants-22-gg22
+  method: heuristic
+  evidence:
+    title: Gitcoin Grants 22
+    amount_max: up to $30K
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q30
+  decision: pending
+  kind: new
+  entry:
+    ref: bnb-grants-a-grant-for-blockchain-projects-bnb-c
+    funder: bnb
+    title: 'Grants: A Grant for Blockchain Projects - BNB Chain'
+    amount:
+      min: null
+      max: 200000.0
+      currency: USD
+    url: https://www.bnbchain.org/en/grants
+    confidence: low
+    verified: false
+  source_url: https://www.bnbchain.org/en/grants
+  method: heuristic
+  evidence:
+    title: 'Grants: A Grant for Blockchain Projects - BNB Chain'
+    amount_max: up to USD 200K per project
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q31
+  decision: pending
+  kind: new
+  entry:
+    ref: valleydao-fund-your-synthetic-biology-research-v
+    funder: valleydao
+    title: Fund your Synthetic Biology Research - ValleyDAO
+    amount:
+      min: null
+      max: 200000.0
+      currency: USD
+    url: https://www.valleydao.bio/apply-for-funding
+    confidence: low
+    verified: false
+  source_url: https://www.valleydao.bio/apply-for-funding
+  method: heuristic
+  evidence:
+    title: Fund your Synthetic Biology Research - ValleyDAO
+    amount_max: up to $200k
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q32
+  decision: pending
+  kind: new
+  entry:
+    ref: doe-sbir-early-career-early-career-resear-u-s-do
+    funder: doe_sbir
+    title: EARLY CAREER Early Career Resear... | U.S. DOE Office of Science (SC)
+    amount:
+      min: null
+      max: 145000000.0
+      currency: USD
+    url: https://science.osti.gov/early-career
+    confidence: low
+    verified: false
+  source_url: https://science.osti.gov/early-career
+  method: heuristic
+  evidence:
+    title: EARLY CAREER Early Career Resear... | U.S. DOE Office of Science (SC)
+    amount_max: up to $145 million
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q33
+  decision: pending
+  kind: new
+  entry:
+    ref: activate-our-program-cyclotron-road
+    funder: activate
+    title: Our Program – Cyclotron Road
+    amount:
+      min: null
+      max: 100000.0
+      currency: USD
+    url: https://cyclotronroad.lbl.gov/engage/our-program/
+    confidence: low
+    verified: false
+  source_url: https://cyclotronroad.lbl.gov/engage/our-program/
+  method: heuristic
+  evidence:
+    title: Our Program – Cyclotron Road
+    amount_max: Each project also receives $100,000
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q34
+  decision: pending
+  kind: new
+  entry:
+    ref: eic-eic-pathfinder
+    funder: eic
+    title: EIC Pathfinder
+    amount:
+      min: null
+      max: 4000000.0
+      currency: EUR
+    url: https://eic.ec.europa.eu/eic-funding-opportunities/eic-pathfinder_en
+    confidence: low
+    verified: false
+  source_url: https://eic.ec.europa.eu/eic-funding-opportunities/eic-pathfinder_en
+  method: heuristic
+  evidence:
+    title: EIC Pathfinder
+    amount_max: up to EUR 4 million
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q35
+  decision: pending
+  kind: new
+  entry:
+    ref: eic-eic-funding-opportunities
+    funder: eic
+    title: EIC Funding opportunities
+    deadline: '2026-02-11'
+    url: https://eic.ec.europa.eu/eic-funding-opportunities_en
+    confidence: low
+    verified: false
+  source_url: https://eic.ec.europa.eu/eic-funding-opportunities_en
+  method: heuristic
+  evidence:
+    title: EIC Funding opportunities
+    deadline: 'Deadline dates:
+
+      11.02.2026'
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags:
+  - deadline has passed - closed call or an older cycle
+  set_verified: false
+- id: q36
+  decision: pending
+  kind: update
+  ref: eic-accelerator
+  changes:
+    amount:
+      old:
+        min: 500000
+        max: 2500000
+        currency: EUR
+      new:
+        min: 500000
+        max: 2000000.0
+        currency: EUR
+  source_url: https://eic.ec.europa.eu/eic-funding-opportunities/eic-accelerator_en
+  method: heuristic
+  evidence:
+    title: EIC Accelerator
+    amount_max: maximum € 2 million
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q37
+  decision: pending
+  kind: new
+  entry:
+    ref: eic-step-scale-up
+    funder: eic
+    title: STEP Scale Up
+    amount:
+      min: null
+      max: 30000000.0
+      currency: EUR
+    url: https://eic.ec.europa.eu/eic-funding-opportunities/step-scale_en
+    confidence: low
+    verified: false
+  source_url: https://eic.ec.europa.eu/eic-funding-opportunities/step-scale_en
+  method: heuristic
+  evidence:
+    title: STEP Scale Up
+    amount_max: maximum EUR 30 million
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q38
+  decision: pending
+  kind: new
+  entry:
+    ref: eic-eic-step-scale-up-defence
+    funder: eic
+    title: EIC STEP Scale Up Defence
+    amount:
+      min: null
+      max: 30000000.0
+      currency: EUR
+    url: https://eic.ec.europa.eu/eic-funding-opportunities/eic-step-scale-defence_en
+    confidence: low
+    verified: false
+  source_url: https://eic.ec.europa.eu/eic-funding-opportunities/eic-step-scale-defence_en
+  method: heuristic
+  evidence:
+    title: EIC STEP Scale Up Defence
+    amount_max: maximum EUR 30 million
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q39
+  decision: pending
+  kind: update
+  ref: eic-accelerator
+  changes:
+    deadline:
+      old: null
+      new: '2027-11-18'
+  source_url: https://eic.ec.europa.eu/eic-funding-opportunities/eic-pre-accelerator_en
+  method: heuristic
+  evidence:
+    title: EIC Pre-Accelerator
+    deadline: 'Deadline for submitting your proposal: 18 November 2027'
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q40
+  decision: pending
+  kind: new
+  entry:
+    ref: eic-advanced-innovation-challenges-pilot
+    funder: eic
+    title: Advanced Innovation Challenges- Pilot
+    amount:
+      min: null
+      max: 2500000.0
+      currency: EUR
+    deadline: '2027-06-18'
+    url: https://eic.ec.europa.eu/eic-funding-opportunities/advanced-innovation-challenges-pilot_en
+    confidence: low
+    verified: false
+  source_url: https://eic.ec.europa.eu/eic-funding-opportunities/advanced-innovation-challenges-pilot_en
+  method: heuristic
+  evidence:
+    title: Advanced Innovation Challenges- Pilot
+    deadline: 'deadline.
+
+      Stage 2
+
+      The indicative deadline for submitting your proposal is 18 June 2027'
+    amount_max: Up to €2.5 million
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q41
+  decision: pending
+  kind: new
+  entry:
+    ref: eureka-programmes-archive
+    funder: eureka
+    title: Programmes Archive
+    deadline: '2027-03-04'
+    url: https://www.eurekanetwork.org/programmes-and-calls/?status=upcoming
+    confidence: low
+    verified: false
+  source_url: https://www.eurekanetwork.org/programmes-and-calls/?status=upcoming
+  method: heuristic
+  evidence:
+    title: Programmes Archive
+    deadline: 'Deadline: 4 March 2027'
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q42
+  decision: pending
+  kind: new
+  entry:
+    ref: eit-food-food-accelerator-network-eit-food-eit-f
+    funder: eit_food
+    title: Food Accelerator Network - EIT Food - EIT Food
+    amount:
+      min: null
+      max: 1000000.0
+      currency: EUR
+    url: https://www.eitfood.eu/entrepreneurship/accelerate-food-accelerator-network
+    confidence: low
+    verified: false
+  source_url: https://www.eitfood.eu/entrepreneurship/accelerate-food-accelerator-network
+  method: heuristic
+  evidence:
+    title: Food Accelerator Network - EIT Food - EIT Food
+    amount_max: up to €1 million
+  inferred: []
+  value_unchecked: []
+  dropped:
+  - field: deadline
+    value: '2026-04-14'
+    reason: no supporting quote found on the page
+  flags: []
+  set_verified: false
+- id: q43
+  decision: pending
+  kind: new
+  entry:
+    ref: eit-food-eit-food-open-calls-eit-food
+    funder: eit_food
+    title: EIT Food Open Calls - EIT Food
+    deadline: '2027-01-27'
+    url: https://www.eitfood.eu/open-calls-overview
+    confidence: low
+    verified: false
+  source_url: https://www.eitfood.eu/open-calls-overview
+  method: heuristic
+  evidence:
+    title: EIT Food Open Calls - EIT Food
+    deadline: 'Deadline: January 27, 2027'
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q44
+  decision: pending
+  kind: new
+  entry:
+    ref: eit-um-call-for-proposals-eit-urban-mobility
+    funder: eit_um
+    title: Call for Proposals - EIT Urban Mobility
+    deadline: '2027-01-28'
+    url: https://www.eiturbanmobility.eu/join-us/call-for-proposals/
+    confidence: low
+    verified: false
+  source_url: https://www.eiturbanmobility.eu/join-us/call-for-proposals/
+  method: heuristic
+  evidence:
+    title: Call for Proposals - EIT Urban Mobility
+    deadline: 'DEADLINE: 28 January 2027'
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q45
+  decision: pending
+  kind: new
+  entry:
+    ref: eit-um-scaling-proven-solutions-to-new-markets-s
+    funder: eit_um
+    title: 'Scaling proven solutions to new markets: SME Market Expansion Open Call 2027 - EIT Urban Mobility'
+    amount:
+      min: null
+      max: 60000.0
+      currency: EUR
+    url: https://www.eiturbanmobility.eu/sme-market-expansion-open-call-2027/
+    confidence: low
+    verified: false
+  source_url: https://www.eiturbanmobility.eu/sme-market-expansion-open-call-2027/
+  method: heuristic
+  evidence:
+    title: 'Scaling proven solutions to new markets: SME Market Expansion Open Call 2027 - EIT Urban Mobility'
+    amount_max: up to €60,000
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q46
+  decision: pending
+  kind: new
+  entry:
+    ref: eit-um-strategic-innovation-open-call-info-sessi
+    funder: eit_um
+    title: Strategic Innovation Open Call Info Session - 4th cut-off - EIT Urban Mobility
+    deadline: '2027-01-28'
+    url: https://www.eiturbanmobility.eu/events/strategic-innovation-open-call-4th-cut-off/
+    confidence: low
+    verified: false
+  source_url: https://www.eiturbanmobility.eu/events/strategic-innovation-open-call-4th-cut-off/
+  method: heuristic
+  evidence:
+    title: Strategic Innovation Open Call Info Session - 4th cut-off - EIT Urban Mobility
+    deadline: until 28 January 2027
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q47
+  decision: pending
+  kind: new
+  entry:
+    ref: eit-um-eiturbanmobility-eu
+    funder: eit_um
+    title: eiturbanmobility.eu
+    amount:
+      min: null
+      max: 2500000.0
+      currency: EUR
+    deadline: '2026-03-23'
+    url: https://www.eiturbanmobility.eu/wp-content/uploads/2026/03/Call-Programme-2026-V4.pdf
+    confidence: low
+    verified: false
+  source_url: https://www.eiturbanmobility.eu/wp-content/uploads/2026/03/Call-Programme-2026-V4.pdf
+  method: heuristic
+  evidence:
+    title: eiturbanmobility.eu
+    deadline: 'Deadline: 23 March 2026'
+    amount_max: up to €2.5 million
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags:
+  - deadline has passed - closed call or an older cycle
+  set_verified: false
+- id: q48
+  decision: pending
+  kind: new
+  entry:
+    ref: innovate-uk-funding-finder
+    funder: innovate_uk
+    title: Funding finder
+    amount:
+      min: null
+      max: 7000000.0
+      currency: GBP
+    url: https://www.ukri.org/opportunity/
+    confidence: low
+    verified: false
+  source_url: https://www.ukri.org/opportunity/
+  method: heuristic
+  evidence:
+    title: Funding finder
+    amount_max: up to £7 million
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
+- id: q49
+  decision: pending
+  kind: new
+  entry:
+    ref: innovate-uk-horizon-europe-help-for-uk-applicant
+    funder: innovate_uk
+    title: 'Horizon Europe: help for UK applicants'
+    deadline: '2023-09-07'
+    url: https://www.ukri.org/apply-for-funding/horizon-europe/
+    confidence: low
+    verified: false
+  source_url: https://www.ukri.org/apply-for-funding/horizon-europe/
+  method: heuristic
+  evidence:
+    title: 'Horizon Europe: help for UK applicants'
+    deadline: 'until 2027.
+
+      The UK agreed a deal to associate to Horizon Europe on 7 September 2023'
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags:
+  - deadline has passed - closed call or an older cycle
+  set_verified: false
+- id: q50
+  decision: pending
+  kind: new
+  entry:
+    ref: krungsri-finnovate-accelerator-ecosystem-krungsr
+    funder: krungsri_finnovate
+    title: Accelerator & Ecosystem | Krungsri Finnovate | Programs for Startup Growth
+    amount:
+      min: null
+      max: 40000000.0
+      currency: THB
+    url: https://www.krungsrifinnovate.com/en/accelerator
+    confidence: low
+    verified: false
+  source_url: https://www.krungsrifinnovate.com/en/accelerator
+  method: heuristic
+  evidence:
+    title: Accelerator & Ecosystem | Krungsri Finnovate | Programs for Startup Growth
+    amount_max: up to THB 40 million
+  inferred: []
+  value_unchecked: []
+  dropped: []
+  flags: []
+  set_verified: false
