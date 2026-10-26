@@ -1,0 +1,2450 @@
+{
+ "https://activate.org/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "2cb29b94afc68c9ed070fafb10159aa4669d0453d003bb78af2a11cb87a18c9e",
+  "title": "Activate—Driving Hard Tech for Good"
+ },
+ "https://activate.org/apply": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "78b45655111d487c2354dcb4ccfd03e13f99c54a4d4320323c21909322292539",
+  "title": "Join Activate’s Community of Hard-Tech Leaders"
+ },
+ "https://activate.org/japan-bridge-program": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "a0877df78ae01500bf4153df364abc0ce51bdcf3e9a6da9b3faad01bd2b7e406",
+  "title": "Japan Bridge Program"
+ },
+ "https://activate.org/partners": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "4a37499639b8b19c54e4b0f6a98879e19ae0960ae1a6ce38cc059c12caee6f4d",
+  "title": "Our Supporters"
+ },
+ "https://activate.org/singapore-fellowship": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "4132320e78e3d099ab8593bddf51662e2d5d4cb18b6aba5d1f4821b5022fc8c8",
+  "title": "Activate Global Fellows– Singapore: From Lab to Market"
+ },
+ "https://activate.org/the-fellowship": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "210b00e06d2739ea077da759515f9e92e2c27228e7d204d89787ce9e8e686d42",
+  "title": "The Activate Fellowship"
+ },
+ "https://arpa-e.energy.gov": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "a9a6eb325551b443626e8f5eae78c9d88a2ac990dfab7d0bd94b583243fd81f2",
+  "title": "Homepage | ARPA-E"
+ },
+ "https://buildspace.bio.xyz": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "dbda168a35f04858b33d48c098b5f45f2dae905162de6381a612b1647d6512b4",
+  "title": "Bio Buildspace"
+ },
+ "https://creativedestructionlab.com": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "9e9406eef105ce42897378edd3290d6291afa3ba7ce906366b8e108e02cd0182",
+  "title": "Home - Creative Destruction Lab"
+ },
+ "https://creativedestructionlab.com/application-triage/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "42ff37e34465b845499541b4c4213b2fe6f321f4b34ad6458b7fc820172b6f2b",
+  "title": "Application Triage - Creative Destruction Lab"
+ },
+ "https://creativedestructionlab.com/blog/cleveland/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "f6115182a91c072a98a4cf7cfd43b7486d8f391191d804be166dd727ec18bc15",
+  "title": "Creative Destruction Lab Launches CDL-Cleveland in Partnership with University Hospitals and Case Western Reserve University - Creative Destruction Lab"
+ },
+ "https://creativedestructionlab.com/blog/doha/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "eb2259be349ea6656605f17cb21fd433dd7318ee66f7dac8a39483e14bf9d07c",
+  "title": "Creative Destruction Lab Connects Entrepreneurs to Global Network with CDL-Doha - Creative Destruction Lab"
+ },
+ "https://creativedestructionlab.com/partners-program/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "3e9c1eb0e49d20c1c913f832b4d011b63c3fe4a3b2ad0d0ea253c49ca1ab7bd1",
+  "title": "Partners - Creative Destruction Lab"
+ },
+ "https://creativedestructionlab.com/program/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "34651526fa84e516ca0368413200d04e4db583214d7abdfd86ee6d417a757283",
+  "title": "Program - Creative Destruction Lab"
+ },
+ "https://creativedestructionlab.com/program/putting-ai-to-work/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "ce993817d8defff19eb58345a0e0cd39f5715168118a03a823ad8d6e1fabddc0",
+  "title": "Putting AI to Work - Creative Destruction Lab"
+ },
+ "https://cyclotronroad.lbl.gov/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "4670bf331eee525c42dd9447fea80e1e0afdc59986d99761a4c3a7f80dc87418",
+  "title": "Cyclotron Road – Cyclotron Road"
+ },
+ "https://cyclotronroad.lbl.gov/engage/how-to-apply/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "8b89d60bdc65d270bd74fcaad42750db61cc9a3224c047cabb853474b90274d0",
+  "title": "How to Apply – Cyclotron Road"
+ },
+ "https://cyclotronroad.lbl.gov/engage/our-program/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "f2f54315c2e42fa72f1c62d808e02b7d31dc5a624b7ff21a6dbe982e5347cfe5",
+  "title": "Our Program – Cyclotron Road"
+ },
+ "https://eic.ec.europa.eu/eic-fund/about-eic-fund_en": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "bb9a22cf56a8ea5b99fdfef4d345f05f4ddd9ae4b3991e75b2969e76569a4e04",
+  "title": "About the EIC Fund"
+ },
+ "https://eic.ec.europa.eu/eic-fund_en": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "f62aa11054c75baf05cd49d77bb8566068cf6d06b19d7e2452df3bfa8ddbacd1",
+  "title": "EIC Fund"
+ },
+ "https://eic.ec.europa.eu/eic-funding-opportunities/advanced-innovation-challenges-pilot_en": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "d463b051fc2303571fa7b0239f6bedcfd1da02b95f146235a18cc42d167dae62",
+  "title": "Advanced Innovation Challenges- Pilot"
+ },
+ "https://eic.ec.europa.eu/eic-funding-opportunities/bas_en": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "b1402bed36dfe89b7dd8f9b2bbcf1643f47dfa84f2b773832cf4f5ed30aad480",
+  "title": "BAS"
+ },
+ "https://eic.ec.europa.eu/eic-funding-opportunities/eic-accelerator_en": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "9a44226e10aa04597dde188445964a0ba2c11e338623b289b81a4848c3648733",
+  "title": "EIC Accelerator"
+ },
+ "https://eic.ec.europa.eu/eic-funding-opportunities/eic-pathfinder_en": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "7c236135b0ed2261be3014c29f4aa6affb5a6659f33a499e2d4bfc67620820ba",
+  "title": "EIC Pathfinder"
+ },
+ "https://eic.ec.europa.eu/eic-funding-opportunities/eic-pre-accelerator_en": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "386d37ca0fa4633415e328b980a08c5562efb8bb5e334467766d13caf08451c2",
+  "title": "EIC Pre-Accelerator"
+ },
+ "https://eic.ec.europa.eu/eic-funding-opportunities/eic-step-scale-defence_en": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "0ea837f4ffec94e25afbaa7a1a288fecce04c1c5284317acc4106e5976ab9577",
+  "title": "EIC STEP Scale Up Defence"
+ },
+ "https://eic.ec.europa.eu/eic-funding-opportunities/eic-transition_en": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "fbb1c9a935edf84692100a6ad69d1a9dc0b9c455b032d686e3d600915321bde8",
+  "title": "EIC Transition"
+ },
+ "https://eic.ec.europa.eu/eic-funding-opportunities/step-scale_en": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "1f78be8436cde1e222a69485c3421bdedac14eb297e95c35599a7bb9ebd057b8",
+  "title": "STEP Scale Up"
+ },
+ "https://eic.ec.europa.eu/eic-funding-opportunities_en": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "51f519a1c8ea326505192c0a0daa7b19123262a1addb5030546482af205a0439",
+  "title": "EIC Funding opportunities"
+ },
+ "https://eic.ec.europa.eu/select-language?destination=/node/1": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "4e3cfb49f474152b49e2221ee556899b801d9b5735cada1ec85472e454cc87a3",
+  "title": "European Innovation Council"
+ },
+ "https://esp.ethereum.foundation": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "f123cad05ba6f05e3486ca297316aed3b43f930fceef2fe3af361cb2aa26bd27",
+  "title": "Home | Ethereum Foundation ESP"
+ },
+ "https://esp.ethereum.foundation/applicants": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "04eb49b08a260de0379ebbcfd78d58a8df5ba610258cc0d759553a5843237d44",
+  "title": "Applicants Overview | Ethereum Foundation ESP"
+ },
+ "https://esp.ethereum.foundation/funded-projects": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "f0a5c87caaeb2018e46805e09077a9edd3e4a7d94a69c390b7d3489e6593d756",
+  "title": "Funded Projects | Ethereum Foundation ESP"
+ },
+ "https://exist.de/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "195cd1cd26ee36e4aea6b56aec52ebf42f45d5b67d5ce7299ed0e8c108df46b2",
+  "title": "exist"
+ },
+ "https://exist.de/programm/women/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "911d0ecc7caccb9f209ac34a177fd9f59e03a2715a945013719ee520502fd54d",
+  "title": "exist Women - exist"
+ },
+ "https://exist.de/programme/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "b5b8cc7f7166112920f2350f55552cd1d7f64c45c8c8c4103e2a009e0bf87543",
+  "title": "Programme - exist"
+ },
+ "https://experiment.com": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "cc1d9755e03fee91bebf2f9fa74e5512399158ea24dec37daf304e63fd32fa88",
+  "title": "Experiment"
+ },
+ "https://experiment.com/funders": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "b222062c78081635f83b0f354569892beb5bb638cc93c5ed0dde433070cb1b65",
+  "title": "Grant Funders | Experiment"
+ },
+ "https://experiment.com/programs": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "b147e785eebece410225eb396138e997c9065023b278386c7ad7d78d190421b6",
+  "title": "Experiment"
+ },
+ "https://experiment.com/programs/MPA": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "1768318927acb0cabfab81b2a1310141489d4eee8fd8a5e4e6d0bdd8c6bf7380",
+  "title": "MPA Monitoring and Enforcement Innovation | Experiment"
+ },
+ "https://experiment.com/programs/california": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "1717ad961a9f1eb42e3e9dac0291d239d34b7e16d06f53fddc35e8282d1dc0ae",
+  "title": "California Species Collection | Experiment"
+ },
+ "https://experiment.com/programs/hyperspectral": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "3ddcb13ed22dba443064bcf223d236c4f19b7b1c7baab28529d677f89d53c191",
+  "title": "Hyperspectral Biology | Experiment"
+ },
+ "https://experiment.com/programs/living-thresholds": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "123273996fcd8ebfa243bde5af6abf8d865adf8fc27a9560abbaf11607b22e8e",
+  "title": "Living Thresholds - Oceans | Experiment"
+ },
+ "https://experiment.com/programs/the-range-storytelling-science-fund": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "9b040c7e17941c3c56070d88a5a517d0e2a5bc882c48f1a63bcf4a7e0455d3c5",
+  "title": "The Range Storytelling Science Fund | Experiment"
+ },
+ "https://experiment.com/projects/creating-a-refuge-from-amphibian-chytrid-fungus-for-the-critically-endangered-mountain-chicken": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "e6bee32b47a83d2aebd701302373ac8d27ec1d336ea585874f351cd16b25b55b",
+  "title": "Creating a refuge from amphibian chytrid fungus for the critically endangered mountain chicken"
+ },
+ "https://fininno.nia.or.th/event/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "f55ddb43a44d14414c9e21c8e5452ea9ad2f797cca13dcf0fb3d819532e9be44",
+  "title": "ปฏิทินกิจกรรม – NIA สำนักงานนวัตกรรมแห่งชาติ"
+ },
+ "https://funding.wellcome.org": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "title": null
+ },
+ "https://gbp.lne.st/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "0e3c822fc478ad320100d5854ebb06a41ab3c5034b994c3ce94569cf89a87ad5",
+  "title": "GBP -Global Bridge Program-"
+ },
+ "https://gcgh.grandchallenges.org": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "6c712ff87f0178c2d7b1644918cad838273797d29f8896ab0cbc9b1c1a489160",
+  "title": "Global Grand Challenges"
+ },
+ "https://gcgh.grandchallenges.org/article/grand-challenges-initiatives-grants-awarded-2025": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "2279a08cfe242e3f2cba63f67a6967a95d9698dc8f9ce947b0be4255746e2d7c",
+  "title": "Grand Challenges Initiatives Grants Awarded - 2025"
+ },
+ "https://gcgh.grandchallenges.org/challenges": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "c9eeb621624481a4dd502d91ddf931070639cb023659bfcabdc1d0d98c163673",
+  "title": "Past Challenges | Global Grand Challenges"
+ },
+ "https://gcgh.grandchallenges.org/grant-opportunities": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "607fc7b00d6ac7f2726617d57abce6146ca47422f80f71ab8f2675a14efe6a46",
+  "title": "Grant Opportunities | Global Grand Challenges"
+ },
+ "https://gcgh.grandchallenges.org/grants": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "dedf841f8feca93e04f1fa53bf159d15ab1b2ce8c3a819ac339b26184fd2fb07",
+  "title": "All Awards | Global Grand Challenges"
+ },
+ "https://gcgh.grandchallenges.org/news": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "00b39fc03e273b1ffb079cabca63179b9875bc282f6630020ed5af2f5218dfda",
+  "title": "Grand Challenges Impact | Global Grand Challenges"
+ },
+ "https://gitcoin.co/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "8f778072efdf32feec464e0b5234f45bcc35278d2dc04426d2b90251ee67658f",
+  "title": "Gitcoin - Fund What Matters"
+ },
+ "https://gitcoin.co/campaigns/gitcoin-grants-20-gg20": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "ab8308d57ccac8b7583d4a94b53c7cd2fd33f2ab3a5f04a4939bf0e5c9fe10af",
+  "title": "Gitcoin Grants 20"
+ },
+ "https://gitcoin.co/campaigns/gitcoin-grants-21-gg21": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "fc97738e2f20b1737842d0ef76745c5e0353adac77776fd3213da4f273506212",
+  "title": "Gitcoin Grants 21"
+ },
+ "https://gitcoin.co/campaigns/gitcoin-grants-22-gg22": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "da22f1eb8b55f17536f4a075f33b2f70afe4f49ecbb464c68af06e4c9b318ee5",
+  "title": "Gitcoin Grants 22"
+ },
+ "https://gitcoin.co/campaigns/gitcoin-grants-23-gg23": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "f9e9bb6de42505348b61842b1db449a22f9a2b202834bddc9cf5451da052649b",
+  "title": "Gitcoin Grants 23"
+ },
+ "https://gitcoin.co/campaigns/gitcoin-grants-24-gg24": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "96dab6ca20b6134d0912cef4168d256f484c03bd3355c382592a28e949046bab",
+  "title": "Gitcoin Grants 24"
+ },
+ "https://gitcoin.co/campaigns/thedao-security-fund": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "c9f59fdc19cf903fa9aa1146294536a45b4ac8579d8f0d2e06cbde25be37d814",
+  "title": "TheDAO Security Fund"
+ },
+ "https://gitcoin.co/research/biomimetic-capital-allocation": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "985d42404f98d85bf54e50219dee9bb716cde79c70c4c8fc15d1ec2bf9855993",
+  "title": "Biomimetic Capital Allocation: What Nature Can Teach Funding Mechanism Designers"
+ },
+ "https://gitcoin.co/research/grantee-to-funder-flywheel": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "9c195fd6e9ecce5ccb4915c53f771dcdad460f7cc4b1b0d4ffbcde063fd2958d",
+  "title": "The Grantee-to-Funder Flywheel: How Early Public Goods Funding Seeds Future Funders"
+ },
+ "https://gitcoin.co/research/identity-infrastructure-binding-constraint": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "e7362ee4718ae3d71194f9915a38ec2a21d45af9731b7fadd58cae03e81a7383",
+  "title": "Identity Infrastructure: The Binding Constraint on Democratic Funding"
+ },
+ "https://gitcoin.co/research/mechanism-pluralism-survival-requirement": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "02e951827826ad08a671d288bee1725fe12660ace429cd674b5dfda747bfe893",
+  "title": "Mechanism Pluralism: Why No Single Funding Model Works"
+ },
+ "https://gitcoin.co/research/public-goods-funding-five-layer-stack": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "65dc4c72ff655f01b2336720a1d171572cd05f6b7b9af62b7ed6545104f7535a",
+  "title": "The Five-Layer Stack: An Architecture for Public Goods Funding"
+ },
+ "https://green-innovation.nedo.go.jp/en/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "0bff244e795ea0a0781bad3c3225d7b05ead433f062e969f957064839f4788fa",
+  "title": "Home | NEDO Green Innovation Fund Projects"
+ },
+ "https://gyss.nrf.gov.sg/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "7d42f7bac2c370eba32bf88cabd44d69c7acb04681c43e17b506cc8c9f183923",
+  "title": "Global Young Scientists Summit"
+ },
+ "https://hello-tomorrow.org": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "54846e106a0079035c901a42a3401fabebe86f2d28737e49b9e5428296c037f1",
+  "title": "Homepage - Hello Tomorrow"
+ },
+ "https://hello-tomorrow.org/build-and-accelerate/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "5a51f4e9d63721ebb24bfcaf21aaa5bee0549673875927ae5a2ad57875c6742c",
+  "title": "Build & Accelerate - Hello Tomorrow"
+ },
+ "https://hello-tomorrow.org/global-challenge/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "67fc3de9762df0ee38818eb08b22561d7b4fc2e30f618aef128e3de0d73903fd",
+  "title": "Hello Tomorrow Challenge"
+ },
+ "https://hello-tomorrow.org/global-summit/2026-hello-tomorrow-summit-programme/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "093cd10262a2f3e07415c60334bb732638123db18771cb936aaf4aee593dfcc4",
+  "title": "2026 Summit Programme Day 1 - Hello Tomorrow"
+ },
+ "https://hello-tomorrow.org/startup-calls/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "c2f63996fdde3b82f686128ddfc70525cd2c6f55740c2603eefff78b0cc5d129",
+  "title": "Current Startup Calls - Hello Tomorrow"
+ },
+ "https://in2ecosystem.com/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "4c4cebf4bf75fbd34d949b82e69b501c636d8c398cc81d4a75472f1f979b6907",
+  "title": "Wells Fargo Innovation Incubator (IN2)"
+ },
+ "https://in2ecosystem.com/innovation-incubator-program-drives-real-world-impact-in-affordable-housing-and-electrical-grid-demands/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "7e57a610f034d1760281d5a5720244e7aa5875865ec40be30de5b3e92d0cb9a3",
+  "title": "Innovation Incubator Program Drives Real-World Impact in Affordable Housing and Electrical Grid Demands | Innovation Incubator (IN2)"
+ },
+ "https://in2ecosystem.com/networks/channel-partners/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "9efcbb23c0fd32638d7e80674209c2d288c5e015193c534312d95448e2e65034",
+  "title": "Channel Partner Network | Innovation Incubator (IN2)"
+ },
+ "https://innoenergy.com/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "a54ffcfc897aa1b1f83bd018fd5c72f686c4d5c322ab10aaa9f7227fb8d3ef65",
+  "title": "Transitioning global energy. Transforming every industry."
+ },
+ "https://innoenergy.com/about-us/join-us/request-for-proposal/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "879ae2feddd55200a5695489fdcbad33b6cfc827e49c49c49fcf2503092551b9",
+  "title": "Request for proposal"
+ },
+ "https://innoenergy.com/news-resources/the-smart-grids-of-the-future-evolving-accelerating-investment-and-delivery-madrid-nov-5/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "babcf7598cdfc9b069c65542a48d447a6adf214a36a1ef50465fc98101c6c7c4",
+  "title": "THE SMART GRIDS OF THE FUTURE: EVOLVING, ACCELERATING INVESTMENT AND DELIVERY - MADRID NOV 5"
+ },
+ "https://kedaireka.id": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "0e6c9d54af45b5147e60fdd4ab421a2269bd79d069bc73f792b91ddfedd3198f",
+  "title": "Kedaireka - Kampus Merdeka"
+ },
+ "https://kist.re.kr/kids/programs/apply_exploration.do": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "2e05cc15123e1925cae62c67f86c509a34355e84a7505b8ccbec07108fdadf04",
+  "title": "탐방신청"
+ },
+ "https://kist.re.kr/ko/index.do": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "0ff7b1a451478bb4cd1ee4df2660d53a9046316afad33a6d27a581e4e57b7716",
+  "title": "한국과학기술연구원"
+ },
+ "https://kist.re.kr/ko/news/latest-research-results.do?mode=view&articleNo=18276": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "4f9c9e0c050645f6c30d5f36239061e14fef31fe20ea9392b94336a8e6b657e2",
+  "title": "암 환자 생명 위협하는 ‘암 악액질’, 장내 미생물로 잡는다 | 한국과학기술연구원"
+ },
+ "https://kist.re.kr/ko/news/latest-research-results.do?mode=view&articleNo=18483": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "5b8a5ea40103a6cc44032496d5e181a1b86d9c65d20b7bad537146c4af54b2d4",
+  "title": "건물 외벽따라 자유롭게 변신…KIST, 형태 바꾸는 3차원 태양광 시스템 개발 | 한국과학기술연구원"
+ },
+ "https://kist.re.kr/ko/notice/employment-announcement.do?mode=view&articleNo=18422": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "1a912ba7fada962a1e255cd124b1a6ebd343b55e7adf4e89116b49a11f3a1ed9",
+  "title": "한국과학기술연구원 연수직(박사후연구원, 석사후연구원, 연구인턴) 추천선발 안내 | 한국과학기술연구원"
+ },
+ "https://kist.re.kr/ko/notice/general-notice.do?mode=view&articleNo=18317": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "6227542fe516bf29bfc0d23125af28aa8b88bc0006c3262786a9277f3d30fcb9",
+  "title": "과기정통부-창의재단 주관「나의 연구 도전기 공모전」 | 한국과학기술연구원"
+ },
+ "https://kist.re.kr/ko/participate/application-for-a-certificate.do": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "6227542fe516bf29bfc0d23125af28aa8b88bc0006c3262786a9277f3d30fcb9",
+  "title": "증명서 신청 안내 | 증명서 신청 | 고객지원 | 고객참여 | 한국과학기술연구원"
+ },
+ "https://lne.st": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "5b447ed20be92982f36ecd720749ff3d2f2e28bfc38b6611ac6c8d6b8cd1f361",
+  "title": "知識製造業のリバネス-Leave a Nest-"
+ },
+ "https://lne.st/2026/10/26/grc2026_nationalcompetition/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "b2bd993723026bda614e69d3147af3c90ab4372874e6ee853cbb087077348021",
+  "title": "半年間の挑戦の成果を全国の舞台で発揮！GRC第10期、モデルロケット全国大会に出場 | リバネス"
+ },
+ "https://login-funding.wellcome.org/s/login/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "6eff298b3936ab65916da6908bc39cce052e97ed6cc2e6716ef64e3dbbeee7a7",
+  "title": "Login Template Title"
+ },
+ "https://marie-sklodowska-curie-actions.ec.europa.eu": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "abe82afd2d3ccb8e85f6bdacee159e13e1facae287f17f2106a6ad346f92cb70",
+  "title": "Home - Marie Skłodowska-Curie Actions"
+ },
+ "https://marie-sklodowska-curie-actions.ec.europa.eu/actions/cofund": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "019b8e69e1d8f8c41e826f0bab30b966fc89a4242c20547323a740d936932184",
+  "title": "COFUND"
+ },
+ "https://marie-sklodowska-curie-actions.ec.europa.eu/actions/how-to-apply": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "d275ef5e1cf08dc241ff188ed2de3647bcbb527202c3ca2c6a102ac7eb35fefe",
+  "title": "How to apply for funding"
+ },
+ "https://marie-sklodowska-curie-actions.ec.europa.eu/actions/postdoctoral-fellowships": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "bb6d82a68cad7b28f120f5fa28a763883218deb1b435844a5333680564628243",
+  "title": "Postdoctoral Fellowships"
+ },
+ "https://marie-sklodowska-curie-actions.ec.europa.eu/funding": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "149bb7afaa8376b7fdc4931b1b7aa9e1363dc74731a3e847a922c79f6ad08449",
+  "title": "Funding"
+ },
+ "https://molecule.xyz/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "ad8da0ec06d3882a554f3665bc1f6378854fe829c1589366444abda6210ed7dd",
+  "title": "Reduce friction, accelerate science"
+ },
+ "https://molecule.xyz/faq/how-does-project-funding-occur-on-labs": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "22f35a6ad4a9acd6ff2ca24fe959b5153e89eb1c87ddfb38887dc7363f4b19c4",
+  "title": "How does project funding occur on Labs?"
+ },
+ "https://mranti.my": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "15fd40bf2dd4b092f4f7b76fa46fae8b265af2886476c4d7837e017b593ee660",
+  "title": "MRANTI | Malaysian Research Accelerator for Technology & Innovation"
+ },
+ "https://mranti.my/happenings/blog/funding-the-unfair-advantage-shifting-capital-from-speculation-to-execution": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "171c4419d46d948e6f65733eb209f3136a9f30d6b65391b0b74eb2c73047bd47",
+  "title": "Funding the Unfair Advantage: Shifting Capital from Speculation to Execution"
+ },
+ "https://mranti.my/happenings/event/mranti-webinar-national-ai-in-healthcare-building-funding-scaling-startups-in-malaysia": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "18e3c2ffc81f257b94844eba327cb7b9d45e64f190446254daeb1b21cb4fe789",
+  "title": "[MRANTI Webinar] National AI in Healthcare: Building, Funding & Scaling Startups in Malaysia"
+ },
+ "https://mranti.my/innovators/connect": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "ffc9ed448dcfdda886d6a71c2e1ab56f7bc58979e39c89a544c0a14e15200af0",
+  "title": "Innovators - Connect | MRANTI"
+ },
+ "https://mranti.my/innovators/connect/srf": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "dfce2fb6d5c008a25627b3bbeec40788c61cf3b650f4a3736471f22140cf4dc6",
+  "title": "Innovators Connect - MRANTI SRF | MRANTI"
+ },
+ "https://mranti.my/innovators/grow": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "2551b623d4152d60dfe60d82f6b2b0b414d7bd223290f12270226714392afa1e",
+  "title": "Innovators - Grow | MRANTI"
+ },
+ "https://mranti.my/innovators/grow/dana-pengkomersialan": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "d38d70907c292bdc3af528c89dacfa5d41482b6554c3e4d153113f5e3350eb3d",
+  "title": "Dana Pengkomersialan"
+ },
+ "https://mranti.my/innovators/grow/gap": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "8687ba52493ecaece0fe7710e9fa86aed3c7d33f31a216eb31dc4c341099cbbb",
+  "title": "Innovators Grow - GAP | MRANTI"
+ },
+ "https://nafosted.gov.vn": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "282ed6939429e99009c84916254cba7d48bd4d079c10d3559f36cd7df158effb",
+  "title": "Quỹ Phát triển KH&CN Quốc gia - Quỹ Phát triển khoa học và công nghệ Quốc gia"
+ },
+ "https://optimism.io/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "51fc1f72986244888e9587faf05822ed50060868b609e8115451c5909f6019cc",
+  "title": "Optimism: The most used blockchain infrastructure."
+ },
+ "https://pmua.or.th/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "5b2fa79fee1f351c3c5f3a0d0c89fadfd9d45f3ba59c735307f09d4513c2cd9e",
+  "title": "บพท. เป็นหน่วยบริหารและจัดการทุนวิจัยและนวัตกรรม"
+ },
+ "https://pmua.or.th/31771/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "6aa6e7687cce43ca3c5c2fe9afcd8a3887b771170922ddaeb05b6178084f12a5",
+  "title": "คู่มือ “ระบบบริหารครัวเรือนยากจนแบบเบ็ดเสร็จและแม่นยำ และระบบสนับสนุนการตัดสินใจพื้นที่วิจัยเชิงยุทธศาสตร์เพื่อขขัดความยากจนและสร้างโอกาสทางสังคม”"
+ },
+ "https://pmua.or.th/category/%e0%b8%9b%e0%b8%a3%e0%b8%b0%e0%b8%81%e0%b8%b2%e0%b8%a8%e0%b8%97%e0%b8%b5%e0%b9%88%e0%b9%80%e0%b8%81%e0%b8%b5%e0%b9%88%e0%b8%a2%e0%b8%a7%e0%b8%82%e0%b9%89%e0%b8%ad%e0%b8%87/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "2a104794d914b34f22151a3c7211e3eef4eec8304bb83c59aeb4a28ca7e005f5",
+  "title": "หมวดหมู่: ประกาศที่เกี่ยวข้อง"
+ },
+ "https://pmua.or.th/category/proposal-result/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "10b896e7ee6a22f0731d2178495691f40546db4234a47b03319548971cb6368d",
+  "title": "หมวดหมู่: ประกาศผลการพิจารณาข้อเสนอ"
+ },
+ "https://pmua.or.th/category/request-for-proposal/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "a2bf5ef1a9479eb730e680cb50e0ad16d550362471a251f2b9bc773d95919937",
+  "title": "หมวดหมู่: ประกาศรับข้อเสนอโครงการ"
+ },
+ "https://pmua.or.th/category/research-grants/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "ab5a8f87b9094f68addaf1a08f0cdcaba1504c0e6f414d42b17d72843e352b60",
+  "title": "หมวดหมู่: ชี้แจงแนวทางการสนับสนุนทุนวิจัย"
+ },
+ "https://pmua.or.th/process/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "bf231009c7fac4ed807c6c7fa1a8371f92254bb344653d751ea33c1620c21051",
+  "title": "ขั้นตอนและเกณฑ์การพิจารณาข้อเสนอ"
+ },
+ "https://pmua.or.th/proposition/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "fafe9e4522741fb403c02129fe17fc718a0833d0faf961ffc628ea8589dfaf0b",
+  "title": "การยื่นข้อเสนอโครงการ"
+ },
+ "https://pmuc.or.th/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "e3a1e9f44baf9f13fcc5ddb129ba94c975a9d9df124db4aa73a9ec69f53d2610",
+  "title": "หน้าแรก - บพข."
+ },
+ "https://pmuc.or.th/application-form-for-special-installment-payment/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "2947ad850fe7123bd695cc7c0cb30964ab4f5b859d1952e356586e288027ce92",
+  "title": "แบบฟอร์มการขอเบิกเงินงวดพิเศษ (ครุภัณฑ์ เดินทางต่างประเทศ) - บพข."
+ },
+ "https://pmuc.or.th/category/form/pmuc-proposal-form-2569/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "2ee69ac0e9c2e7d26c4ee52cdeb575c04b0617efb2de995020aec3787d1085e3",
+  "title": "แบบฟอร์มข้อเสนอโครงการ บพข. - บพข."
+ },
+ "https://pmuc.or.th/category/fund/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "45c731615833bb108f8690cd04b6b1e6a8ef734374cbd9a81d0b06bc7888125a",
+  "title": "ทุนวิจัย - บพข."
+ },
+ "https://pmuc.or.th/category/fund/grant-agreement/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "0d5736efbb87bf7d12288cf6e4d5afc343ffa2fbb8708cbbc34f68048bcadec9",
+  "title": "การทำสัญญารับทุน - บพข."
+ },
+ "https://pmuc.or.th/category/fund/proposal-result/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "be317acd87fa31dbf57fdc7301e2cdaaee3dde23286561c276d03c697a3f0386",
+  "title": "ประกาศผลการพิจารณาข้อเสนอ - บพข."
+ },
+ "https://pmuc.or.th/funding-program/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "8bf0b03cc7b7fc91363b94f0b6cffc5e6c6717a1f41222cfc1929e2ab0498126",
+  "title": "11 กลุ่มแผนงานที่ บพข. สนับสนุนทุนวิจัย - บพข."
+ },
+ "https://pmuc.or.th/open-call-proposal-2569/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "99cfe7b0f8852fdc792ade482fe51efab5580e1b124325bfddcb8946126887ce",
+  "title": "- บพข."
+ },
+ "https://pmuc.or.th/pmuc-pilot-plant-ep3-psu/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "7486432b3674d975b0baa3dd7980b34dc29ea0da4ed0ce058e8b87b97b7b3f9b",
+  "title": "PMUC Pilot Plant EP3 - บพข. สนับสนุน ม.อ. พัฒนาโรงงานต้นแบบสำหรับการแปรรูปอาหาร ที่ได้ GMP เพิ่มมูลค่าผลิตภัณฑ์อาหารทะเลภาคใต้จากการวิจัยสู่เชิงพาณิชย์ - บพข."
+ },
+ "https://pmuc.or.th/proposal-guide-book/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "a7c335baf1b93459fb294633bea8e2f646f1f2a57fcd7f549d9673a08e1958a8",
+  "title": "คู่มือการส่งข้อเสนอโครงการ บพข."
+ },
+ "https://pmuc.or.th/researchers-guide-book/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "13e9e673d1c9cec28cef06a13cac9483338bac8e317b59f9df33ebee76d8d16b",
+  "title": "คู่มือสำหรับนักวิจัยที่ได้รับทุน บพข."
+ },
+ "https://pmuc.or.th/up-the-phase-upgrade-the-worldbio-pcm/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "81681fa61f9949c13d132f5a4bce1ccb297cb7177ca80998a49ef59523838e04",
+  "title": "บพข. จับมือ EA ประกาศผลรางวัล ‘Up the Phase. Upgrade the World’ ต่อยอด Bio-PCM สารเปลี่ยนสถานะจากน้ำมันปาล์ม สู่นวัตกรรมเปลี่ยนโลก - บพข."
+ },
+ "https://pop.xprize.org/prizes": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "00f3584078954645c3162f4e45b6aeda9355f9cc52f4340832346ac2e782b33c",
+  "title": "XPRIZE Prize Operations Platform"
+ },
+ "https://science.osti.gov/Funding-Opportunities": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "9002318f3c72335cc7c8b78435ead1532a3110d9f3269ef2a0e26829bad52a32",
+  "title": "Funding Opportunities | U.S. DOE Office of Science (SC)"
+ },
+ "https://science.osti.gov/Funding-Opportunities/Award": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "10a5b52ba640391efabe6222a016cb6f217ee839c3d1fbcbaf5efee50b60d486",
+  "title": "Topical Funding Opportunity Awar... | U.S. DOE Office of Science(SC)"
+ },
+ "https://science.osti.gov/Funding-Opportunities/Digital-Data-Management": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "55eb9c5db2b866d4be8fbb41f4f035d473a43c26207fce664422215ee5411343",
+  "title": "Statement on Digital Data Manage... | U.S. DOE Office of Science (SC)"
+ },
+ "https://science.osti.gov/Funding-Opportunities/Find-Funding": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "9e7b47d8bab6a22bd547f955c1a5c779b9fb826421c6e0c6b1ba139b2f19c20b",
+  "title": "Find Funding | U.S. DOE Office of Science (SC)"
+ },
+ "https://science.osti.gov/Laboratories/Fermi-National-Accelerator-Laboratory": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "2bd3953e8cf01087525836323bb95826ff44c82db7dfa06fc8691392154604ee",
+  "title": "Labs at-a-Glance: Fermi National... | U.S. DOE Office of Science (SC)"
+ },
+ "https://science.osti.gov/Laboratories/SLAC-National-Accelerator-Laboratory": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "cc85f3ecf50b4f07e24c4c8f19b9eb491494b66d627d059127e3f974c953a731",
+  "title": "Labs at-a-Glance: SLAC National ... | U.S. DOE Office of Science (SC)"
+ },
+ "https://science.osti.gov/Laboratories/Thomas-Jefferson-National-Accelerator-Facility": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "cc3162947603039fd34bc92d811d63be85f2a1ac6c35907c54685fac23017bd2",
+  "title": "Labs at-a-Glance: Thomas Jeffers... | U.S. DOE Office of Science (SC)"
+ },
+ "https://science.osti.gov/Universities/Interactive-Grants-Map": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "223ec59f7eeb3551467229d9ee2965aee27ebc3a7aee22b1bb466cbd97addf5b",
+  "title": "Interactive Grants Map | U.S. DOE Office of Science (SC)"
+ },
+ "https://science.osti.gov/early-career": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "d3d3994e92243547bdf8cfc0484ba064db53d8533a9a505f1a93607bc7f0ec6e",
+  "title": "EARLY CAREER Early Career Resear... | U.S. DOE Office of Science (SC)"
+ },
+ "https://science.osti.gov/grants": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "c400b1a919ba760db327ffb3cf2bac85a6bb9d379401362d2d2fb0d5110789ee",
+  "title": "GRANTS Grants & Contracts Su... | U.S. DOE Office of Science (SC)"
+ },
+ "https://science.osti.gov/opm": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "ee8568130e77007e17834c98c819010f811087b9f447cab575eda343473a6883",
+  "title": "Operations Program Management (O... | U.S. DOE Office of Science (SC)"
+ },
+ "https://science.osti.gov/sbir": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "407be2487d52b039eb19628ce55ba22d381972380cb2821bb5724d05884ff1c0",
+  "title": "Small Business Innovation Resear... | U.S. DOE Office of Science (SC)"
+ },
+ "https://seed.nih.gov": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "5e8430932b7ba118c08a0bea145da8f515b5f21a584e80873c59c5cf1fe8a678",
+  "title": "SEED - Helping Innovators turn discovery into health"
+ },
+ "https://seed.nih.gov/small-business-funding": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "3b28de8ade91b11587047878da130ec5a75d53a6761c8ca618da13c88fc183af",
+  "title": "Small Business Funding | Seed"
+ },
+ "https://seed.nih.gov/small-business-funding/find-funding": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "3fba4970749d888015f3c3135083aec332793d66c2b6a6433fa39fae0c5ce4a5",
+  "title": "Find Funding | Seed"
+ },
+ "https://seed.nih.gov/small-business-funding/find-funding/sbir-contracts": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "5aa627023f79cc9f236c5e814d1076df27c76b33a7f92a7b8af21bf2c976e172",
+  "title": "Small Business Innovation Research (SBIR) Contracts | Seed"
+ },
+ "https://seed.nih.gov/small-business-funding/find-funding/sbir-sttr-funding-opportunities": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "de76917c07f8d6cbd5fc2383aa3495ec88f76f50ff9ec1620a9aad803a75646e",
+  "title": "SBIR and STTR Funding Opportunities | Seed"
+ },
+ "https://seed.nih.gov/small-business-funding/how-to-apply": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "faa0261d9cf656a422d206b9d9347ec209c71ca408e2740cdb952e2a451aee14",
+  "title": "How to Apply | Seed"
+ },
+ "https://seed.nih.gov/small-business-funding/how-to-apply/applying/prepare-your-application": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "4b1c628a4af26dc623588266bdc779430daefcaa86b3e1e7bb6afd9d0d5ca942",
+  "title": "Prepare Your Application | Seed"
+ },
+ "https://seed.nih.gov/small-business-funding/how-to-apply/before-you-apply/register-company": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "eb899f0d96f36a3adc50051d3a11a7d84e778c5d60ba1d3a0fa47f9334c93aeb",
+  "title": "Required Company Registrations | Seed"
+ },
+ "https://seed.nih.gov/small-business-funding/small-business-program-basics": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "f40dff4120334da94458e06bf70c435884bb920cefba8153a3885b8959a150a0",
+  "title": "Small Business Program Basics | Seed"
+ },
+ "https://seed.nih.gov/small-business-funding/small-business-program-basics/eligibility-criteria": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "23f7403b13e1f0452e7e0ab1ca52af2c132db67b9420dc90dcb8be4921d196fa",
+  "title": "Eligibility Criteria | Seed"
+ },
+ "https://seed.nih.gov/small-business-funding/small-business-program-basics/foreign-disclosure-and-risk-management": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "d1928d05c73e9cac66418f03dc3aec84f1e0710bd7e5144344ea7d2efa1b0a5d",
+  "title": "Foreign Disclosure and Risk Management | Seed"
+ },
+ "https://seed.nih.gov/small-business-funding/small-business-program-basics/grant-policy": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "92afb1f5d28e5ac8acb8fa83e81a9ff45ea8bc3895e84960c8ed2da5b9c54c5c",
+  "title": "Grants Policy | Seed"
+ },
+ "https://seed.nih.gov/small-business-funding/small-business-program-basics/understanding-sbir-sttr": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "a8714e89b4a18f3f7b34454682e0526b87e0b42ef6952539b784d38fbb0effea",
+  "title": "Understanding SBIR and STTR | Seed"
+ },
+ "https://seedfund.nsf.gov": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "88d902413dc3aac63e152117c25969738518ae92f7af4b2705ebc7833493e350",
+  "title": "America’s Seed Fund – NSF SBIR/STTR | NSF SBIR"
+ },
+ "https://seedfund.nsf.gov/about/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "d2caad48a65c8be87597643b45b4e196f3aa9e33791bd5bddc5fd00a0d1c6b39",
+  "title": "Redirecting…"
+ },
+ "https://seedfund.nsf.gov/apply/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "d2caad48a65c8be87597643b45b4e196f3aa9e33791bd5bddc5fd00a0d1c6b39",
+  "title": "Redirecting…"
+ },
+ "https://seedfund.nsf.gov/apply/full-proposal/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "ccc6a746a331a621dcf51f94df5544b692469dbd4d4807c56dcd4f83ead16a53",
+  "title": "How It Works - Full Proposal | NSF SBIR"
+ },
+ "https://seedfund.nsf.gov/apply/get-started/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "140ac5eebf81fe7b7fce9b8caf075fbc453c80c16fd7d0330f64b657d7272357",
+  "title": "How It Works - Get Started | NSF SBIR"
+ },
+ "https://seedfund.nsf.gov/apply/project-pitch-information/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "fae557a86d869e2ba3b86c4503b3cf10e17987be4a5982d5ee26361fa45523f9",
+  "title": "How It Works - Project Pitch Information | NSF SBIR"
+ },
+ "https://seedfund.nsf.gov/apply/review-decision/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "444c8829ece358da22de83d6585f6268a622f1ce3bb442a2fc3b4b0081b5f21a",
+  "title": "How It Works - Proposal Review & Decision | NSF SBIR"
+ },
+ "https://seedfund.nsf.gov/awardees/history/details/?company=grain-weevil-corporation": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "eb0388965a18c9eb423ea37cd9a7f6dd4a67437e3987bee696236f31c07e80ca",
+  "title": "Award History Details | NSF SBIR"
+ },
+ "https://seedfund.nsf.gov/our-program/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "c3d2f1d81729bd543e2878bfa4a5fb64c223b050af38889a98040942a2f940ae",
+  "title": "About NSF SBIR/STTR – Startup Funding | NSF SBIR"
+ },
+ "https://seedfund.nsf.gov/portfolio/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "d2caad48a65c8be87597643b45b4e196f3aa9e33791bd5bddc5fd00a0d1c6b39",
+  "title": "Redirecting…"
+ },
+ "https://seedfund.nsf.gov/solicitation-proposal/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "903b201639dbfc247e629b9defe607b011e693a0a04fd27ac4b8d1e4d5f7383b",
+  "title": "SBIR/STTR Phase I Proposal Contents and Preparation | NSF SBIR"
+ },
+ "https://seedfund.nsf.gov/what-we-fund/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "3631788cf02fe0c63e04f31dee634c2ca12cf7cb23271077af0100ae2a062674",
+  "title": "What We Fund | NSF SBIR"
+ },
+ "https://solana.org": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "85580b802510fa162a98cdec92bfee00057143bf8fac901afca4336ab4d8c139",
+  "title": "The Solana Foundation"
+ },
+ "https://solana.org/delegation-program": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "1e43507a690a90b40e9d243b4b711b38637af2cd4111ac81c719a546c3eab0be",
+  "title": "Delegation Program Solana: Build crypto apps that scale"
+ },
+ "https://solana.org/grants-funding": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "b09c004f0df4c712c4c23a521e9f2f61c94801c03dc1fb3df1229457632e82c9",
+  "title": "Grants and Funding | Solana: Build crypto apps that scale"
+ },
+ "https://solve.mit.edu": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "3e97fd79ed411d61e63d9d2c66f10bc3780b387b8a288c86600cce8354ac88f2",
+  "title": "Social Impact & Innovation | Social Entrepreneurship | MIT Solve"
+ },
+ "https://solve.mit.edu/challenges": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "d416a3b6de153e938b3b7c9d8662e1bbdd4c8f370ff46e2d74c6602b698d8dc8",
+  "title": "Solve Global Challenges Through Open Innovation | MIT Solve"
+ },
+ "https://solve.mit.edu/challenges/2027-global-climate-challenge": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "1ee6a1756ba365daf81f92818e878e8cf3a6c6b5db50564cd662949f399a7572",
+  "title": "2027 Global Climate Challenge | MIT Solve"
+ },
+ "https://solve.mit.edu/challenges/2027-global-economic-prosperity-challenge": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "d37c0cde3c564da83b149eba2a2e09ea7180de98c7111e05e091603c0644cc4f",
+  "title": "2027 Global Economic Prosperity Challenge | MIT Solve"
+ },
+ "https://solve.mit.edu/challenges/2027-global-health-challenge": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "d37c0cde3c564da83b149eba2a2e09ea7180de98c7111e05e091603c0644cc4f",
+  "title": "2027 Global Health Challenge | MIT Solve"
+ },
+ "https://solve.mit.edu/challenges/2027-global-learning-challenge": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "d37c0cde3c564da83b149eba2a2e09ea7180de98c7111e05e091603c0644cc4f",
+  "title": "2027 Global Learning Challenge | MIT Solve"
+ },
+ "https://solve.mit.edu/custom-challenges": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "2c589c60f6e6f68158d1aff2e116893394595ae83f8ce64ee9e3bd24f015a8f3",
+  "title": "Innovation Partnership Platform | MIT Solve"
+ },
+ "https://solve.mit.edu/events?searchEventsBy=application+clinic": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "fee2905f86a4127486beda51f7ebbcab13d0d577cbd23b48b9f7a47afa5896a3",
+  "title": "Events | MIT Solve"
+ },
+ "https://solve.mit.edu/future-health-impact-challenge": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "39265d30c1cafb4c1d7f2f09f8e2f3ba5cb0a7d4fd59789caf57a9ba29217df9",
+  "title": "Future Health Impact Challenge | MIT Solve"
+ },
+ "https://solve.mit.edu/partner/solver-impact-fund": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "e34b71d890994f6403468b8209200dd45f022d11edffef836c066512c561bd2f",
+  "title": "Solver Impact Fund | MIT Solve"
+ },
+ "https://solve.mit.edu/samsungsolvefortomorrow": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "1726bea7ee0464dd024c2eae39311b4b3c6e8d91c2696476ac9e945cf372cf62",
+  "title": "Samsung Solve for Tomorrow Competition | MIT Solve"
+ },
+ "https://startup.google.com": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "f117336c4dbbaf7ab2083ab73c041e9f1d018e00266d62d9da4c4b9bc50a92f5",
+  "title": "Start, build, grow: Tools, resources and support programs for startups - Google for Startups"
+ },
+ "https://startup.google.com/alumni/stories/callyope/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "7a602e0f3c20d621901baefbf1f3472413564b75bf0871a80db78e97379792ff",
+  "title": "Callyope - Google for Startups"
+ },
+ "https://step.cmu.ac.th/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "a57b28dab8423a5cffa00692b5ee7f5711f1339edd80fd1dcd4cb95c4f042fe5",
+  "title": "CMU STeP | Make Innovation Simple"
+ },
+ "https://step.cmu.ac.th/CCS/Files/pdf/%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A8%E0%B9%80%E0%B8%88%E0%B8%95%E0%B8%99%E0%B8%B2%E0%B8%A3%E0%B8%A1%E0%B8%93%E0%B9%8C%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%81%E0%B8%81%E0%B9%89%E0%B9%84%E0%B8%82%E0%B8%9B%E0%B8%B1%E0%B8%8D%E0%B8%AB%E0%B8%B2%E0%B8%81.pdf": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "972bdcd7fd82337069328b1cf85a47f8a951f6ccba87bc7206b3905f8cd5086f",
+  "title": "สําเนาถูกต้อง"
+ },
+ "https://step.cmu.ac.th/CCS/Files/pdf/37.%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A8%20%E0%B9%80%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%20%E0%B8%99%E0%B9%82%E0%B8%A2%E0%B8%9A%E0%B8%B2%E0%B8%A2%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%82%E0%B8%A7%E0%B8%B1%E0%B8%8D%E0%B8%AF%20%E0%B8%9E.%E0%B8%A8.2569.pdf": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "b26414f18181d76ac3d5f479e024911b4ce1e16a4828fbce7ca3e915a08a27bd",
+  "title": "Science and Technology Park, Chiang Mai University Announcement"
+ },
+ "https://tu.ac.th/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "8fdf97f796ed59196be38980bc84a66a1adc60406738c9dc89279d91624766c8",
+  "title": "หน้าแรก - มหาวิทยาลัยธรรมศาสตร์"
+ },
+ "https://tu.ac.th/tu01161069/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "6d4293e833f5c1639ec2032397b3ab779b59e231e89bf50dce7c48d5faeb2145",
+  "title": "วงเสวนา มธ. ชำแหละต้นทุนชีวิต ‘ชีวิตที่ดี ใครเป็นคนจ่าย’ พร้อมยื่นข้อเสนอสร้างความยั่งยืน - มหาวิทยาลัยธรรมศาสตร์"
+ },
+ "https://tu.ac.th/tu01211069/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "4609fb0ac19c848adc0eb0dedba5c40892ed0f1078500627d0a8ce22766f57a5",
+  "title": "‘รัฐบาลแคนาดา–ธรรมศาสตร์’ ผลักดันความร่วมมือ ‘Nature-based Solutions’ ต่อยอดงานวิจัยสู่ข้อเสนอเชิงนโยบายออกแบบพื้นที่สีเขียวเพื่อรองรับการเปลี่ยนแปลงทางสภาพภูมิอากาศกรุงเทพฯ - มหาวิทยาลัยธรรมศาสตร์"
+ },
+ "https://tu.ac.th/tu02280869/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "962eb7d7f712d20815f18f1ba3973a603487f113c19f6ffac7dd9f314c16dd46",
+  "title": "หนุน ‘บอร์ดดาต้าเซ็นเตอร์’ ขึงเกณฑ์คุมน้ำ-ไฟ ชี้กฎหมายเดิมมีช่องว่าง เสี่ยงกระทบพลังงาน-เชื่อมั่นลงทุน - มหาวิทยาลัยธรรมศาสตร์"
+ },
+ "https://web3.foundation": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "7fcbc5c0634fa3bf387eb802e532e6cbe4e452dcf0c0d4e4cd34c157ef2d808e",
+  "title": "Building a Decentralized Web"
+ },
+ "https://web3.foundation/blog": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "29006804006ea58308034b11a87accf431efe831676c436e339a905a6f42c7e5",
+  "title": "Web3 Foundation Blog | News & Updates"
+ },
+ "https://web3.foundation/resources-and-education": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "10012e01bcfef7628ee90ba3171f6fd937f8a8638f07224ba577e52d68eb35d7",
+  "title": "Resources & Education"
+ },
+ "https://wellcome.org": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "c5f319f496d2a558dcc97abbb735d260496566d2de3c44f91264c359eaa3faf3",
+  "title": "Home | Wellcome"
+ },
+ "https://wellcome.org/about-us/investments": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "02b386db35fdcf5e1d906c6520370ffbbdee55e5b16c99f804a8d5682db491d7",
+  "title": "Investments – How we are funded | About us | Wellcome"
+ },
+ "https://wellcome.org/research-funding": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "51a4d8010e43c04930609d5c32157203866910a62fb46f1dc7f6e9c6440bb783",
+  "title": "Grant funding schemes and guidance | Research funding | Wellcome"
+ },
+ "https://wellcome.org/research-funding/funding-portfolio": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "fe321958d9dab9c237b6ac0f6961f6678bb81eddd352013f55e329436c7bf78f",
+  "title": "Funding portfolio | Research funding | Wellcome"
+ },
+ "https://wellcome.org/research-funding/funding-portfolio/funded-grants": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "958509639edf98594c53c102404431c1384c4cfd313fdbc6936a59afed338879",
+  "title": "Funded grants | Grant Funding | Wellcome"
+ },
+ "https://wellcome.org/research-funding/funding-portfolio/major-initiatives": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "ca9db460cf4e9713e176a61ead1616ce07dade3b6252626ad40e36a9cce4acda",
+  "title": "Major initiatives and directed funding – Research funding | Wellcome"
+ },
+ "https://wellcome.org/research-funding/guidance": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "d6a85a3870ff8e1626fe0183c4097fa8644648bc8b8947343b604a01a9561352",
+  "title": "Funding Guidance | Research Funding | Wellcome"
+ },
+ "https://wellcome.org/research-funding/guidance/policies-grant-conditions": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "a00dbab2c52c2a45ecaefccf2994b0741ae61e2c5136742d70f47669820631bc",
+  "title": "Funding Policies and Grant Conditions | Funding Guidance | Wellcome"
+ },
+ "https://wellcome.org/research-funding/guidance/prepare-to-apply": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "18bb1586a93cd14ad992d8e6929348e4c0fddaa4cada184190a7e0d47fa4322c",
+  "title": "Prepare to Apply | Funding Guidance | Wellcome"
+ },
+ "https://wellcome.org/research-funding/schemes": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "209e638dcd7fe8298c4ba2b0df718230ac813a9ee40e53dcac931cd5b2d4527b",
+  "title": "Research Funding Opportunities - Grant Funding | Wellcome"
+ },
+ "https://www.a-star.edu.sg/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "title": null
+ },
+ "https://www.antler.co": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "78a218278c59e39978415e63cfee37014b79751c6c5d33ef2f842750ac6cc78e",
+  "title": "Antler | Where Founders Go Further, Faster"
+ },
+ "https://www.arda.or.th": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "f265404bc3feaab81a98b978457c67409eb4f496297b04e941dac7c93e7121c0",
+  "title": "สำนักงานพัฒนาการวิจัยการเกษตร (องค์การมหาชน)"
+ },
+ "https://www.arda.or.th/graduate_research": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "b03c07de54d42773dd3b70bf8b5c29fc7349b47ad813759bc788ad787680cabe",
+  "title": "สำนักงานพัฒนาการวิจัยการเกษตร (องค์การมหาชน)"
+ },
+ "https://www.arda.or.th/job": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "b03c07de54d42773dd3b70bf8b5c29fc7349b47ad813759bc788ad787680cabe",
+  "title": "สำนักงานพัฒนาการวิจัยการเกษตร (องค์การมหาชน)"
+ },
+ "https://www.arda.or.th/research_grantees": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "b03c07de54d42773dd3b70bf8b5c29fc7349b47ad813759bc788ad787680cabe",
+  "title": "สำนักงานพัฒนาการวิจัยการเกษตร (องค์การมหาชน)"
+ },
+ "https://www.arda.or.th/training_program": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "b03c07de54d42773dd3b70bf8b5c29fc7349b47ad813759bc788ad787680cabe",
+  "title": "สำนักงานพัฒนาการวิจัยการเกษตร (องค์การมหาชน)"
+ },
+ "https://www.arda.or.th/training_scholarship": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "b03c07de54d42773dd3b70bf8b5c29fc7349b47ad813759bc788ad787680cabe",
+  "title": "สำนักงานพัฒนาการวิจัยการเกษตร (องค์การมหาชน)"
+ },
+ "https://www.arda.or.th/training_type": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "b03c07de54d42773dd3b70bf8b5c29fc7349b47ad813759bc788ad787680cabe",
+  "title": "สำนักงานพัฒนาการวิจัยการเกษตร (องค์การมหาชน)"
+ },
+ "https://www.athenadao.co": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "be51a3c4762befd37dbb610eef908e8e15185c630dfad8801c594107e2b47e6f",
+  "title": "AthenaDAO | Advancing Women's Health Research"
+ },
+ "https://www.athenadao.co/for-researchers": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "4e7daa29c1f164baf90e6cb88a7954cb950ea6b36bd367645aeeb892999fb59c",
+  "title": "AthenaDAO | Support for Researchers"
+ },
+ "https://www.banpu.com/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "687bd40fb2d4b95c3df811b90cc73a9db43d6655c95467821d9eeff06110e36b",
+  "title": "Banpu Public Company Limited - บริษัท บ้านปู จำกัด (มหาชน)"
+ },
+ "https://www.base.org": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "a940aecaab682b07281470e2eae75cbb83ed531397e0f552da2f8b986dca2610",
+  "title": "Base"
+ },
+ "https://www.base.org/agents": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "022050e60588538936ffea94559524ba66e13c759bad636fbaed1e2786c727fd",
+  "title": "Base"
+ },
+ "https://www.base.org/customers/centrifuge": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "56031f69d78995fd305a07115e34b9fb7cc5a10b6231ab35d6c03dc5daa4f950",
+  "title": "Centrifuge | Base"
+ },
+ "https://www.base.org/ecosystem-fund": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "27c94e3aa7c3f7e7214ebe83f4b7751b1846d97cae2c78be8708f5fbc3b27089",
+  "title": "Base"
+ },
+ "https://www.bio.xyz": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "099833fbe920aaa13169eb1ace7db7a052ead2ea08d3fd257d81e5d612bf47d6",
+  "title": "Bio / Science for the Network Age"
+ },
+ "https://www.bio.xyz/case-study/hairdao": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "656036f97668e8fe6abe3cfe2a6a65cab614db0e17448964cca07b50ad639a62",
+  "title": "Bio / HairDAO"
+ },
+ "https://www.bnbchain.org/en": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "2a0754d7105986a854d13e69f6319deae59f6c59d32774285dd7de1b6ab3ef26",
+  "title": "BNB Chain: Build for the Next Billion Web3 Users"
+ },
+ "https://www.bnbchain.org/en/bnb-chain-governance": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "4abb7525a0480a6d7be209ca3059f762f61eaec3adc6827664bf6cca3a84beaa",
+  "title": "Introduction to BNB Chain Governance"
+ },
+ "https://www.bnbchain.org/en/grants": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "b008f72a92aacfc131543d0b022ccf533fb261d32cf8872221f5e73119a19cb5",
+  "title": "Grants: A Grant for Blockchain Projects - BNB Chain"
+ },
+ "https://www.bnbchain.org/en/hackathons": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "42a900e9b0fcc3f7530724f4c85f31ab452442bab5c9b1b85113843581cd6e59",
+  "title": "BNB Hack - Find Online & Offline Hackathons on BNB Chain"
+ },
+ "https://www.bnbchain.org/en/programs": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "229772479c6837ed08925bab2c145f3bfdd0d4fcd6fb598d12d4503b3f0d2731",
+  "title": "Builder Support Programs - BNB Chain"
+ },
+ "https://www.bnbchain.org/en/programs/bnb-incubation-alliance": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "8ad1b2ac4ee5bdae9dcb80f30d64e678fdb26fd675f73c3b94cab667d929aeb1",
+  "title": "BNB Incubation Alliance - BNB Chain"
+ },
+ "https://www.bnbchain.org/en/programs/mvb": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "651d6ba93db83a4dc08649f232af3dee9df88c0aaa2b61c9b00fda35f31b216d",
+  "title": "Most Valuable Builder Accelerator Program (MVB) - BNB Chain"
+ },
+ "https://www.bnbchain.org/en/wallets": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "b7064c337071cb432966ef6310ffc45adc734fde680b79532f4097a1f9c66e87",
+  "title": "Wallets - BNB Chain"
+ },
+ "https://www.breakthroughenergy.org": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "225d7f5c09f26e38a3a677f116abddd6286c04623b183f1e26b14fd39515b92d",
+  "title": "Breakthrough Energy | Home"
+ },
+ "https://www.brin.go.id/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "891273d89dfde138a447eae07cf07ee94a35c0c6d25fd5f10a3eb264b9f17273",
+  "title": "BRIN - Badan Riset dan Inovasi Nasional"
+ },
+ "https://www.cancerresearchuk.org/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "c78f6642c8414515df9cec22a32338d35815d123c9ab7996aa4841e91617fdc5",
+  "title": "Cancer Research UK | The world's leading cancer charity"
+ },
+ "https://www.cancerresearchuk.org/for-researchers/apply-for-and-manage-your-funding": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "e8b43b8d2ff5a516caf17f74da35b085f1f73d79df65edc9c08c7310fc67d5f3",
+  "title": "Apply for and manage your funding | Cancer Research UK"
+ },
+ "https://www.cancerresearchuk.org/get-involved": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "dfc9d34e05dcfccd0fe8492a7c2165871956ecf3471374de946f4d3eb500f34d",
+  "title": "Get involved with Cancer Research UK | Cancer Research UK"
+ },
+ "https://www.cancerresearchuk.org/get-involved/do-your-own-fundraising": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "ae042e241a624ed87c651942d06dab932e92215b2607f56d1e57044982436909",
+  "title": "Do Your Own Fundraising | Ideas, Tools & Support | Cancer Research UK"
+ },
+ "https://www.cancerresearchuk.org/get-involved/find-an-event/charity-walks-treks-and-hikes/shine-night-walk": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "8bd01aa4f0a272bb0d8c6512272ec36eba7f0e4a17f7bddb06734207da6b502c",
+  "title": "Shine Night Walk | Charity Walks | Cancer Research UK"
+ },
+ "https://www.cartierwomensinitiative.com": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "fb85acb30c9c562ed5a7ea687fed563ae1a771d02ddfbda80e3346aab3f5474f",
+  "title": "Homepage | Cartier Women's Initiative"
+ },
+ "https://www.cartierwomensinitiative.com/fellowship": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "58f74e43d458037ce9a8ed25a5fad94ee670e7365fe26aa4fa2dd51498cc246d",
+  "title": "Fellowship | Cartier Women's Initiative"
+ },
+ "https://www.cartierwomensinitiative.com/fellowship-partners": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "61650ea95633e501cea53a26cfd27841bf011fac1c4dad7f784983d833f28531",
+  "title": "Program Partners | Cartier Women's Initiative"
+ },
+ "https://www.cartierwomensinitiative.com/fellowship-timeline": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "391affc40e5801924f8a33c6155eb77f7ff948fc73464b06a6d952ce66e80129",
+  "title": "Timeline | Cartier Women's Initiative"
+ },
+ "https://www.cdti.es/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "9cba5b8cccbc8745ecbcb0e91de64e1afe531c8f4e9ba42b19616e1ab587294d",
+  "title": "Home | CDTI"
+ },
+ "https://www.cdti.es/mit-ilp": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "4a882d8441396012fdb21e9933147af5a5a74e508884700023a11d9f4ade88d1",
+  "title": "MIT ILP | CDTI"
+ },
+ "https://www.cerebrumdao.com": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "fa01cc6c0c49ce811059fd9cfdcd310c1c054ddf2b8ee0720b5d903b880e25e4",
+  "title": "Cerebrum DAO - Brains helping brains"
+ },
+ "https://www.cerebrumdao.com/apply-for-funding": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "4a535a2a4d83da2dbd6dbc5c8fcb12423c44ac33de2e96ed93d8a7fc61c3a595",
+  "title": "Cerebrum DAO - Apply for funding"
+ },
+ "https://www.cradle.com.my": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "92791759de50d7f0a85ada20e6c1952dd2ab5aac4d6c446b089b34f56fe8f127",
+  "title": "Cradle Fund – Creating • Leading • Startups – Creating • Leading • Startups"
+ },
+ "https://www.cradle.com.my/grants/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "602e308ff5dcd174583559704a45b39444d278abc821c435f518f1e8457864ec",
+  "title": "Grants – Cradle Fund – Creating • Leading • Startups"
+ },
+ "https://www.darpa.mil/about/program-managers": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "e823c1d12963e86f999bd21adc3130170dab5bd1ac4b8b480e12ba2fd1a1a922",
+  "title": "Program Managers | DARPA"
+ },
+ "https://www.darpa.mil/careers/fellowships": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "37a5a4de30f241d0e6d1c87c70dd6f50d8ba7b42e7c91089f0ae37adcee48029",
+  "title": "Fellowships | DARPA"
+ },
+ "https://www.darpa.mil/careers/program-manager": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "8212415b9fbaf9b4c6963e36b45143c2efaed08f542f0ac5c0c41afd96b83929",
+  "title": "Become a program manager | DARPA"
+ },
+ "https://www.darpa.mil/research/challenges": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "6c497f9c5ac87e2710b79205e11a89e47987ae0a7b01470784880804625874f0",
+  "title": "Challenges | DARPA"
+ },
+ "https://www.darpa.mil/research/ideas": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "ca76e5e2e28508f679dc0e188af75a4f2c31a9f152046160778284a54b5c80bb",
+  "title": "Ideas Under Incubation | DARPA"
+ },
+ "https://www.darpa.mil/work-with-us/communities/small-business": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "23af0fd92a250fe6098c1a557b6a27285b96bd0ef02dd18642c00cc5075eaa57",
+  "title": "Small Business | DARPA"
+ },
+ "https://www.deepscienceventures.com/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "2bcf241b97b1f4a82b5c7020904ed76cb6ed2ac7a3e5ea03d0ac53b358097a06",
+  "title": "Deep Science Ventures"
+ },
+ "https://www.diu.mil/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "a0ccc2c7591bb34786b7d45177c96246d29fc6eb83cbb87994f2e0823f237035",
+  "title": "Defense Innovation Unit"
+ },
+ "https://www.diu.mil/bridge-program": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "ead4aa46207d87b8127c9b59a4110e0ee8fd39e00478320ce0946fcac884407b",
+  "title": "DIU Bridge Program"
+ },
+ "https://www.eitfood.eu/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "0fb638340b175d2ad12a1ac66ec105a0c2c4ea94447cb752f43ddb68d25d3ed8",
+  "title": "EIT Food | Accelerating Food Innovation for a Future-Fit Food System - EIT Food"
+ },
+ "https://www.eitfood.eu/entrepreneurship/accelerate-food-accelerator-network": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "713700224ad3f396a81b5faef6e8729165a3a3f75846765884ce46bcca0d43aa",
+  "title": "Food Accelerator Network - EIT Food - EIT Food"
+ },
+ "https://www.eitfood.eu/marketed-innovation-prize": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "441b3c6233331fe7db4d88772de5cf7725ed68d9d618dbaf94aa2331fcd1b894",
+  "title": "Marketed Innovation Prize - EIT Food"
+ },
+ "https://www.eitfood.eu/open-calls-overview": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "9a3f3e21dbdfa653d48435bcd0880c8e268b255ab53c07a410ba3487aa9afe64",
+  "title": "EIT Food Open Calls - EIT Food"
+ },
+ "https://www.eitfood.eu/open-calls/future-fit-dairy-initiative-landscape-call": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "52528c05dd58f46df729fb66f795ca3a4c27cdc5bf3125f8853f14fd01caff0c",
+  "title": "Future Fit Dairy Initiative Landscape Call - EIT Food"
+ },
+ "https://www.eitfood.eu/open-calls/proof-of-concept-co-financing-instrument-2": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "ce91ea8801b6753e91abb407f11498629bd4165177d00982203a2efbeb9311e6",
+  "title": "Proof-of-Concept Co-Financing Instrument - EIT Food"
+ },
+ "https://www.eitfood.eu/open-calls/protein-diversification-and-healthy-ageing-think-and-do-tanks-coordination-content-creation-support-call": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "38b6f41d5dd294cb0c6e0614c8fb560a360d8aa3edc97095b157217bb6d46c9c",
+  "title": "Protein Diversification and Healthy Ageing Think and Do Tanks Coordination & Content Creation Support Call - EIT Food"
+ },
+ "https://www.eiturbanmobility.eu/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "0d1d1ae49f38d8c2f074c2b56b2fb41ee8419c5fd28ecece69b5bd9b83f64d60",
+  "title": "EIT Urban Mobility - largest community for urban mobility innovation"
+ },
+ "https://www.eiturbanmobility.eu/join-us/call-for-proposals/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "d7e8c3f1aa2b353fef9d255ec1b1ea13526a4f84d7ea4f40390913cfde10db45",
+  "title": "Call for Proposals - EIT Urban Mobility"
+ },
+ "https://www.eiturbanmobility.eu/join-us/request-for-proposals/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "c32e3044bef44da5420d8d5040a344319b0ab0f00b25f92949653397b661be5e",
+  "title": "Request for proposals - EIT Urban Mobility"
+ },
+ "https://www.eiturbanmobility.eu/sme-market-expansion-open-call-2027/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "48c90ccc69aaa0bc6438346523a9f4095a0db46c3805e6b105a2e9817969a5db",
+  "title": "Scaling proven solutions to new markets: SME Market Expansion Open Call 2027 - EIT Urban Mobility"
+ },
+ "https://www.eiturbanmobility.eu/wp-content/uploads/2026/03/Call-Programme-2026-V4.pdf": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "70461dbb041d3c48874257a7a2609d5adb0ed17cd44d820e2ba002f21ba60e87",
+  "title": "eiturbanmobility.eu"
+ },
+ "https://www.globalinnovation.fund": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "caad010d11d9b20c563a22d8015b43916126af98fdfd00daa1d2fd2ec768a944",
+  "title": "Improving lives through social innovation"
+ },
+ "https://www.globalinnovation.fund/news/gif-in-the-world/global-innovation-fund-announces-50m-capital-raise-for-gif-growth": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "d04c491df97bf90cc6d6b0b568cceb6ee8231c522f87f59f9eff5f6d707b46bd",
+  "title": "Global Innovation Fund announces $50M+ Capital Raise for GIF Growth"
+ },
+ "https://www.jetro.go.jp/en/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "843a36efd5cfb55982be1afb42180044137bb63ff6f34fc0c683ffb7d088f8e0",
+  "title": "JETRO | Japan External Trade Organization"
+ },
+ "https://www.jetro.go.jp/en/trends/foods/supporter.html": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "0557352b33cc90acbfab3b5d28c1cd4dce464abf947653ed701e65b2756cb9a3",
+  "title": "Certification program of Japanese Food and Ingredient Supporter Stores Overseas | Japanese agriculture, forestry, fisheries and food - Japan External Trade Organization"
+ },
+ "https://www.joinef.com": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "4c33462382ceafb941a38e8170c00ca15323de938e00c9fc7bd84e1c2dcc25b4",
+  "title": "Found, don't follow | Entrepreneurs First"
+ },
+ "https://www.jsps.go.jp": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "d15280dceb9123d083e2545fa05c42cfb0bdcd2b089e305088149bc872578456",
+  "title": "日本学術振興会"
+ },
+ "https://www.jsps.go.jp/j-grantsinaid/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "e5f937d0b488f1f3f19e283b7784e6ea79097c9e14341cc819ab2cd82410e53e",
+  "title": "科学研究費助成事業（科研費）｜日本学術振興会"
+ },
+ "https://www.jsps.go.jp/j-ikushi-prize/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "1c5c39562345b9d7c4d6fa69d7298400a6cc1b17ed4838417b391ff19eca2324",
+  "title": "日本学術振興会　育志賞｜日本学術振興会"
+ },
+ "https://www.jsps.go.jp/j-jsps-prize/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "79eaaad8b9374a6bdfa45c9ee7755162667c2a7b0d8012cfd44a2b810f5bba54",
+  "title": "日本学術振興会賞｜日本学術振興会"
+ },
+ "https://www.jsps.go.jp/j-nobel_prize_dialogue/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "20f856dfd32af2ff78a2c9bc19cdce4f1ab99dc6c7188a2d3149e49ad192cb1e",
+  "title": "ノーベル・プライズ・ダイアログ | 日本学術振興会"
+ },
+ "https://www.kiat.or.kr/front/user/main.do": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "62e1ef4d5c64d7c7b4be6a3d05426d06f9da4c426cc8e4cfc98da5631f7437e9",
+  "title": "한국산업기술진흥원"
+ },
+ "https://www.kised.or.kr/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "f5fb4f51ce38a02a4534f6bde35cb1917434a1164bcb6beef01cf8d61907e98a",
+  "title": "창업진흥원"
+ },
+ "https://www.krungsrifinnovate.com/en": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "1cce45db2505606e3bd46307dda901126dbe374da50d9e3752eb3839ea6b4c4d",
+  "title": "Krungsri Finnovate | Corporate Venture Capital | Invest & Partnership"
+ },
+ "https://www.krungsrifinnovate.com/en/accelerator": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "60b5ada3160c9c7633578fbe54cc77022b22e77c63d0a7ef0af4f2b298c38b12",
+  "title": "Accelerator & Ecosystem | Krungsri Finnovate | Programs for Startup Growth"
+ },
+ "https://www.krungsrifinnovate.com/en/news-blogs/krungsri-finnovate-gears-up-for-global-venture-capital,": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "6c14720a09f32f6362bcca49ffea6be67fb7d935cf4e5d555dd38a428ff4b645",
+  "title": "Krungsri Finnovate - Krungsri Finnovate gears up for global venture capital,"
+ },
+ "https://www.krungsrifinnovate.com/en/news-blogs/krungsri-finnovate-invests-in-ai-workflow-automation-leader-fileai%E2%80%9D": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "863d1623614508e28370f6dab2f97758fc289cea2b3349f404eaeb27a15d3030",
+  "title": "Krungsri Finnovate - Krungsri Finnovate Invests in AI Workflow Automation Leader “fileAI”"
+ },
+ "https://www.mdec.my/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "430eef34df07d5be16506aa7435024f5cda87863c1f5b23c30cd133dd1d4e25f",
+  "title": "Home | MDEC"
+ },
+ "https://www.mdec.my/initiatives-grants": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "43aeeff0d9076579d2556adf59239b0a1b357972aa259f20bebd4e1c92a5b8de",
+  "title": "Initiatives & Grants | MDEC"
+ },
+ "https://www.mdec.my/md-programmes/md-tech-financing": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "47bd2af437513b9a7ef0f1ba4aa34fbf4137d785345045295d464be216dfdc6f",
+  "title": "MD Technology Financing Programme | MDEC"
+ },
+ "https://www.nedo.go.jp/english/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "82836c4768c8acc08ee4520b02fccbd0e94b8a5456acb73a148239709e6ffd35",
+  "title": "New Energy and Industrial Technology Development Organization"
+ },
+ "https://www.nedo.go.jp/english/ZZKH_100020.html": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "f7e4b9845c2003580db99a6bc32db3bf025cbc9ebfb32bad294af5274c2e02d3",
+  "title": "Dr. SAKAGUCHI Shimon Awarded the Nobel Prize in Physiology or Medicine | NEDO"
+ },
+ "https://www.nedo.go.jp/english/ZZKH_100021.html": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "d72c0d42f8efbb0e599a8f461d4f81ec8a60fcc7ff6ad04c616bc8e7f2c9ba25",
+  "title": "Dr. KITAGAWA Susumu Awarded the Nobel Prize in Chemistry | NEDO"
+ },
+ "https://www.nedo.go.jp/english/news/ZZCA_100007.html": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "4adfeae39657e6698c562d045ea90189c0ca439cfe40906cbafa07699e6ca46c",
+  "title": "Moonshot Research and Development Program | NEDO"
+ },
+ "https://www.nia.or.th": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "613354e98fb40f727294deb713c828cdfef3a081085225392b05716548a81f27",
+  "title": "NIA สำนักงานนวัตกรรมแห่งชาติ"
+ },
+ "https://www.nia.or.th/article/%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B2%E0%B8%A8%E0%B8%A3%E0%B9%88%E0%B8%B2%E0%B8%87-tor-%E0%B8%A3%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B9%80%E0%B8%AD%E0%B8%81%E0%B8%AA%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%A7%E0%B8%94%E0%B8%A3%E0%B8%B2%E0%B8%84%E0%B8%B2.html": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "a271dfb4140688c49ec9c120adfee587085e00c128c8a87da7efdc6bffe8f82e",
+  "title": "สำนักงานนวัตกรรมแห่งชาติ | labels.frontend.contact.box_title"
+ },
+ "https://www.nia.or.th/article/procurement_cancel.html": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "fc860cd599cb2b617a06d5e4295bd81be8335f3ac94e29b69872aff6c9b414b7",
+  "title": "สำนักงานนวัตกรรมแห่งชาติ | labels.frontend.contact.box_title"
+ },
+ "https://www.nia.or.th/article/procurement_list.html": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "3ac6952ffed95d6cdec2ec782d7dc48e8a769f5c5691a718e1d4dc53b52bd78c",
+  "title": "สำนักงานนวัตกรรมแห่งชาติ | labels.frontend.contact.box_title"
+ },
+ "https://www.nia.or.th/article/procurement_medium_price.html": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "28482647c6848a4fb68df17ca1073f3b9a0e7f556cb494bdcc6b594fc92d2467",
+  "title": "สำนักงานนวัตกรรมแห่งชาติ | labels.frontend.contact.box_title"
+ },
+ "https://www.nia.or.th/article/procurement_winner.html": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "527865dd07c1810ed27563b36e7d18c6df86a231f18a6b58c96d33652680f9fa",
+  "title": "สำนักงานนวัตกรรมแห่งชาติ | labels.frontend.contact.box_title"
+ },
+ "https://www.nia.or.th/open-innovation-space.html": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "613354e98fb40f727294deb713c828cdfef3a081085225392b05716548a81f27",
+  "title": "1: OPEN INNOVATION SPACE"
+ },
+ "https://www.nia.or.th/personnel-list/staff1": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "613354e98fb40f727294deb713c828cdfef3a081085225392b05716548a81f27",
+  "title": "สำนักงานนวัตกรรมแห่งชาติ | labels.frontend.contact.box_title"
+ },
+ "https://www.nia.or.th/personnel-list/staff2": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "613354e98fb40f727294deb713c828cdfef3a081085225392b05716548a81f27",
+  "title": "สำนักงานนวัตกรรมแห่งชาติ | labels.frontend.contact.box_title"
+ },
+ "https://www.nia.or.th/service/Capital-Gains-Tax": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "801a4c052c5193fa539be209f7d8293b21b293679a75ef18c70e28acc9ecd047",
+  "title": "NIA สำนักงานนวัตกรรมแห่งชาติ"
+ },
+ "https://www.nia.or.th/service/Corporate-Co-funding-Mechanism": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "cca30c3b332e612ce3046a01735db603559c70565a476aa17787a89b136f301c",
+  "title": "NIA สำนักงานนวัตกรรมแห่งชาติ"
+ },
+ "https://www.nia.or.th/service/financial-support": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "b984a5415a68487857e43eba69c5a3b41933244e78ed699a70c7d814e8dc59d9",
+  "title": "NIA สำนักงานนวัตกรรมแห่งชาติ"
+ },
+ "https://www.nist.gov/blogs/manufacturing-innovation-blog/challenges-solutions-and-success-stories-across-mep-national": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "65a6b3e9118b5e3eecf2d5e993ed88907dc13e176403ffd7be9bda004d05c0a7",
+  "title": "Challenges, Solutions, and Success Stories Across the MEP National Network"
+ },
+ "https://www.nist.gov/cds": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "cbcbc72077f84246a25239a28c50e53f78ced3711ff3a3742b1b0e9a69874007",
+  "title": "Congressionally Identified Project Program (CIPP)"
+ },
+ "https://www.nist.gov/mep": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "d938be67dd3969aa942ec7d9b133532ed4087aced878697eb4f7a64401245b1d",
+  "title": "Manufacturing Extension Partnership (MEP)"
+ },
+ "https://www.nist.gov/mep/about-nist-mep/notice-funding-opportunities": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "5b1e3992c0408807f0f0fc22909db9267b5ab7a143b82b8d7a7fc76f1959a1e0",
+  "title": "Notice of Funding Opportunities (NOFO)"
+ },
+ "https://www.nist.gov/mep/manufacturing-infographics/national-economic-impact-mep-program-fiscal-year-2019": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "e4fbf23734482aa73c9c1ac998d18fc0fa8f0981dad104f9cc5b21660686b3c6",
+  "title": "The National Economic Impact of the MEP Program Fiscal Year 2019"
+ },
+ "https://www.nist.gov/mep/mep-pilot-program-teaming-partner-list": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "55a94d1cb4d12f8d922e490ca1c4f26cee327dbc4d765c350cd74bf41569e3c1",
+  "title": "MEP Pilot Program Teaming Partner List"
+ },
+ "https://www.nist.gov/mep/mep-pilot-program-teaming-partner-submissions": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "4517d50975570c1f755280ba1b2a78211124ddd97bdc587a5ed40e749b075a4e",
+  "title": "MEP Pilot Program Teaming Partner Submissions"
+ },
+ "https://www.nist.gov/news-events/news/2026/05/nist-issues-notice-intent-upcoming-technology-accelerator-pilot-program": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "70b5a12af19c017af590966905f98f5b9ff4718d4b4824caa19cff7a2b012e16",
+  "title": "NIST Issues Notice of Intent for Upcoming Technology Accelerator Pilot Program"
+ },
+ "https://www.nist.gov/news-events/news/2026/07/nist-announces-funding-opportunity-14-mep-centers-advance-small-and-0": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "585326a82571baa0179506056b5d79a85229ec973f677e69a8e6d18c5ec7eed7",
+  "title": "NIST Announces Funding Opportunity for 14 MEP Centers to Advance Small and Medium-Sized U.S. Manufacturers"
+ },
+ "https://www.nist.gov/privacy": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "6c0a4f0f181213c94f6028a728f1c78f8440dae8c39597052001c9d2760b2fd4",
+  "title": "Privacy Office"
+ },
+ "https://www.nrf.gov.sg/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "4a78d15aced3cda63a555a9746be8b6bafb6a51e17af4583a57755f04f881476",
+  "title": "National Research Foundation, Singapore (NRF)"
+ },
+ "https://www.nrf.gov.sg/grants/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "1bc24f5cdc525ebbafa2d0c10cad06d6bdb050f42fcf8be75b0217977c45c8b7",
+  "title": "Grants"
+ },
+ "https://www.nrf.gov.sg/grants/crp/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "694bae415bf147f8663e69a986a14a3dcdf96d2ed8686044f838fd8a2a9169c7",
+  "title": "Competitive Research Programme"
+ },
+ "https://www.nrf.gov.sg/grants/nrff/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "da3eb436b17cf40437db001fa888fe0f957d757da7ae8b9ec77734635017c7fc",
+  "title": "NRF Fellowship"
+ },
+ "https://www.nrf.gov.sg/grants/nrfi/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "164816c087366d70fba174e5f27ad0971deee5a1d80e7bba81eb8d6c44658633",
+  "title": "NRF Investigatorship"
+ },
+ "https://www.nrf.gov.sg/grants/rgp/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "45dfa3b20cc25cb50dfa2face8a500d59d929a0c12274098cfc3b6dd94a3a936",
+  "title": "Research Grants Portal (RGP)"
+ },
+ "https://www.nrf.gov.sg/grants/rtg/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "868df07e7f6375534db10e2322763f33fd3d56289547104c452b0c306171c592",
+  "title": "Research Translation Grant"
+ },
+ "https://www.nrf.gov.sg/resources/grant-management-and-investigator-led-projects/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "c130b4e87f0ac3d0cddeda764f89ed23cc6cf4ab5b510cb181bd1068c4877b19",
+  "title": "Grant Management and Investigator-led Projects"
+ },
+ "https://www.nstc.gov.tw/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "736adc69364d2acc0a091af35f02e3d8064dedfd21ad669b2bdad684c6ed09bd",
+  "title": "「國家科學及技術委員會全球資訊網」(NSTC)"
+ },
+ "https://www.nstda.or.th": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "df15a40273c32dd2352b5af0e75d5ed990ddf96d829336879cc6b1423844fad5",
+  "title": "สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ (สวทช.) : National Science and Technology Development Agency : NSTDA - Thailand"
+ },
+ "https://www.nxpo.or.th/th/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "541f95891d97415ff777b468b5fbecf3053c2b65a3fa2c0aae287338c1c0e245",
+  "title": "สอวช."
+ },
+ "https://www.nxpo.or.th/th/%e0%b8%82%e0%b9%89%e0%b8%ad%e0%b9%80%e0%b8%aa%e0%b8%99%e0%b8%ad%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%82%e0%b8%b1%e0%b8%9a%e0%b9%80%e0%b8%84%e0%b8%a5%e0%b8%b7%e0%b9%88%e0%b8%ad%e0%b8%99%e0%b8%ad%e0%b8%b8/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "8b69e5a398acaa6c0f582b31c89135f148109b3714ef9fac2f3e0f21857e26a8",
+  "title": "ข้อเสนอการขับเคลื่อนอุตสาหกรรมอาหารอนาคตของประเทศไทยด้วยวิทยาศาสตร์ วิจัยและนวัตกรรม"
+ },
+ "https://www.nxpo.or.th/th/%e0%b8%82%e0%b9%89%e0%b8%ad%e0%b9%80%e0%b8%aa%e0%b8%99%e0%b8%ad%e0%b9%81%e0%b8%99%e0%b8%a7%e0%b8%97%e0%b8%b2%e0%b8%87%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%88%e0%b8%b1%e0%b8%94%e0%b8%81%e0%b8%b2%e0%b8%a3/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "a60d34a4c628fb083d181729eba194514ad4c12618941e962071a04205674673",
+  "title": "ข้อเสนอแนวทางการจัดการศึกษาที่แตกต่างจากมาตรฐานการอุดมศึกษา (Higher Education Sandbox)"
+ },
+ "https://www.nxpo.or.th/th/%e0%b9%80%e0%b8%88%e0%b8%95%e0%b8%88%e0%b8%b3%e0%b8%99%e0%b8%87%e0%b8%aa%e0%b8%b8%e0%b8%88%e0%b8%a3%e0%b8%b4%e0%b8%95%e0%b9%83%e0%b8%99%e0%b8%81%e0%b8%b2%e0%b8%a3%e0%b8%9a%e0%b8%a3%e0%b8%b4%e0%b8%ab/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "7750d06a5c9d0390c462c26f51bd14e421a56f1eb9cdcd02c2ed3205d6131c55",
+  "title": "ประกาศเจตจำนงสุจริตในการบริหารงานของ สอวช."
+ },
+ "https://www.nxpo.or.th/th/careers/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "f0b35f677fe6dcc55f72333d324638b05ce207694332b1d383b206039aeeab46",
+  "title": "Life@NXPO"
+ },
+ "https://www.nxpo.or.th/th/oecd-partnership-program-2/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "937fb3d4a2da6be0a99ff299724348390853ee2344f5cc76385603f1a33da360",
+  "title": "OECD Partnership Program"
+ },
+ "https://www.nxpo.or.th/th/purchase-category/13/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "6f8a99351a218102d30ea1d96e5966217f9d726d10331a744a2d5f83ac6e886d",
+  "title": "ประกาศการจัดหาพัสดุ – สอวช."
+ },
+ "https://www.nxpo.or.th/th/purchase-category/14/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "6f8a99351a218102d30ea1d96e5966217f9d726d10331a744a2d5f83ac6e886d",
+  "title": "ประกาศผลการจัดหาพัสดุ – สอวช."
+ },
+ "https://www.nxpo.or.th/th/purchase-category/3/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "9c278cf57118599dbb5d8c37b08e63f12a240f966d31e15243645d9e85eb3315",
+  "title": "ประกาศราคากลางจัดหาพัสดุ – สอวช."
+ },
+ "https://www.nxpo.or.th/th/sbir/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "dcb28a71fbd0dfe1caa61e9de873ca0071a59e50f7d3d3e01a96b647aae1f8af",
+  "title": "มาตรการสนับสนุนทุนสำหรับผู้ประกอบการขนาดเล็ก เพื่อพัฒนาผลงานวิจัยและนวัตกรรมตามโจทย์ความต้องการของภาครัฐ (TBIR)"
+ },
+ "https://www.nxpo.or.th/th/thailand-innovation-policy-accelerator-tipa/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "47c317ad29dbf88a7ab487b75dbf79a827f2847cd066bc963c80d1ba544d74dd",
+  "title": "Thailand Higher Education and Innovation Policy Accelerator (THIPA)"
+ },
+ "https://www.nxpo.or.th/th/university-holding-company-2/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "2a6d870a272785e66b3ec7714e82dc62f04bc3e83efaa4e6d72bffbc0c95ebd6",
+  "title": "การส่งเสริมการร่วมลงทุนเพื่อผลักดันงานวิจัยและนวัตกรรมสู่การใช้ประโยชน์เชิงพาณิชย์โดยกลไก University Holding Company"
+ },
+ "https://www.plugandplaytechcenter.com/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "13e91419c201ab4f9b7e2d82312b39f48ea8425d62c90861b9a9062e8861b8a4",
+  "title": "Plug and Play"
+ },
+ "https://www.primemoverslab.com/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "467f9b1ca2d052e039c41160ea7b2548ac79926da9b5316368f35bd3c10989ba",
+  "title": "Prime Movers Lab"
+ },
+ "https://www.researchhub.com": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "829799adaf43336dadc94a66fbd2d5af7e035245dd531f5ae73210770a6a62f2",
+  "title": "Open Science Community & Research Platform"
+ },
+ "https://www.researchhub.com/fund": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "220217d38bdf61d25579c5eb567855c18e0cf9a8428bc06006663e2df88c80d8",
+  "title": "Request for Proposals"
+ },
+ "https://www.researchhub.com/fund/proposals": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "41b3e641fe4ccecbcfd0c2f452fc1dcedb1772428cadcdb2e869194da6af7583",
+  "title": "Proposals"
+ },
+ "https://www.scb10x.com/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "03c59828f2c9dd8c67cf420a21d4d4dbe879ea2125e68e5ff3e46fcd4942ed36",
+  "title": "SCB 10X The Moonshot Misson"
+ },
+ "https://www.sginnovate.com": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "e193e9aeeee633be4a63febed9d8c8fa2822cccaf46b96294af51f6eea4d60c6",
+  "title": "Home | SGInnovate"
+ },
+ "https://www.sginnovate.com/career-development-jobs": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "7df378f1ec9d5b22866ee5ac5e4d7506bfe99eca843e0599e097669e96874db3",
+  "title": "Career development jobs | SGInnovate"
+ },
+ "https://www.sginnovate.com/startup-growth-funding": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "ec0e66cfd1a566da6e567e38332470b109f913457148bd386dc1d2344b2310fd",
+  "title": "Startup Growth & Funding | SGInnovate"
+ },
+ "https://www.space-f.co": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "9cf37817e5b0f7b6f899e8ca5ea3840638f3c928715f044421548313a336bdea",
+  "title": "SPACE-F"
+ },
+ "https://www.space-f.co/investment": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "ce51d79950e99ee5db4bd3632c1e480dbbbd8db9fcdddbcb3af74e28f99004c0",
+  "title": "Investment - SPACE-F"
+ },
+ "https://www.space-f.co/mentors": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "e3ef909d97c4f47ef474a9c3e22ed4ec14235f82c309f35d066f9dc6fbde4774",
+  "title": "Mentors - SPACE-F"
+ },
+ "https://www.space-f.co/our-program": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "7f0e90b44efa1acb1d54b970f58e65a0550f6d282945cb2140a647e65e22ed53",
+  "title": "OUR PROGRAM - SPACE-F"
+ },
+ "https://www.start2.group/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "c9bc8483014bd7fa1628245149cac4d92f8711e36ef8510ec50fe6930dfdc028",
+  "title": "Start2 Group"
+ },
+ "https://www.start2.group/activity/enterprise-singapore-access-program": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "820c19d73b96b6265fd84d16121e9ef4157fe7db9a731a2eb4784d8b0cb8ab0a",
+  "title": "Start2 Group"
+ },
+ "https://www.start2.group/activity/german-accelerator": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "8fdab97b2b619190d0019b04879ea4a9644f8f8ce4a4f64f96bc473c90ff7f24",
+  "title": "Start2 Group"
+ },
+ "https://www.start2.group/activity/start2-asia-accelerator": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "73f24241c9b8501f4d7abd66fc7639877df2ccc972a10f12342d93d26a1d0983",
+  "title": "Start2 Group"
+ },
+ "https://www.start2.group/corporates#solutions": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "703d2818a322aee3fbe88fb1c9436567856887b48b5434aba2054e9ba2c246a9",
+  "title": "Corporates"
+ },
+ "https://www.start2.group/fundraising": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "06bd4687dcf974881d13d05674dbbe0c12d67b7925a312b65b6c7a3df6ddd63c",
+  "title": "Fundraising"
+ },
+ "https://www.start2.group/open-innovation": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "38b46a9c629fde4272b5ab661561e5311a3b0c152f179c6be5170de741f7030c",
+  "title": "Open Innovation"
+ },
+ "https://www.start2.group/programs/enterprise-singapore-access-program": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "560b03e2de38c00d8d8414b06e0c6f70f6a2f5d4467001e4254e35a32a0955a3",
+  "title": "Enterprise Singapore Access Program"
+ },
+ "https://www.start2.group/programs/start2-asia-accelerator": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "1b18fc7b4fc2f37ff21b9b0aa15a5e8f069c3261c15b89cf80c8ce1a2fb6dc25",
+  "title": "Start2 Asia Accelerator"
+ },
+ "https://www.start2.group/public-sector#solutions": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "31847b7267551dc789ce6e9b16bf246f805d9108fca537f01b2e7d37620a9ef1",
+  "title": "Public Sector"
+ },
+ "https://www.startupsg.gov.sg": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "06f199404553ed72888cace108042ef00feed118d51b8bd4bf85464ffc1412cc",
+  "title": "Startup SG - The Singapore Startup Ecosystem"
+ },
+ "https://www.techstars.com": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "0ffe3572b0930585e698a135662a749ff89616b3f6ec918569c6c356d5f2c8de",
+  "title": "Techstars: the early-stage accelerator and investor"
+ },
+ "https://www.techstars.com/accelerators/abn-amro-techstars-future-of-finance-accelerator": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "ce0eb17f9022827e594fe73eb27324346c7bd33437197d8a125f209693786899",
+  "title": "ABN AMRO + Techstars Future of Finance Accelerator"
+ },
+ "https://www.techstars.com/accelerators/anywhere": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "a73acf2b38b157b83133efe4ea760413938631aa5fbb73961800c600ef80b8db",
+  "title": "Techstars Anywhere Accelerator"
+ },
+ "https://www.techstars.com/accelerators/baltimore-ai-health": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "f828054937492e9cc921e798bac36bd57d8a6dffeaaf67b49e773ea78dab8cca",
+  "title": "Techstars AI Health Baltimore Accelerator"
+ },
+ "https://www.techstars.com/accelerators/birmingham": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "39800c17a7d2f41ecb455b3e480289213a4c1adc4ee1c3b41ca7e815ff0c9a5f",
+  "title": "Techstars Alabama EnergyTech Accelerator"
+ },
+ "https://www.techstars.com/accelerators/northwestern-medicine-healthcare": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "9c25cf383c294db879304c3460cb249ee4ee6614006ea2574ccbc10a1fc31590",
+  "title": "Northwestern Medicine & Techstars Healthcare Accelerator"
+ },
+ "https://www.techstars.com/accelerators/verticals/finance": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "9e7892d17c815d0e17b45dc18d1f5aba16c6031068d96491d8b620947974f6ea",
+  "title": "Finance Accelerator"
+ },
+ "https://www.techstars.com/accelerators/verticals/health": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "936150ccb6512e7a7c03dfe38c7870b90df33b37199f0e5b0cc85487138d7169",
+  "title": "Health Accelerator"
+ },
+ "https://www.techstars.com/accelerators/verticals/infrastructure": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "4cc38f8d3a33b4f48a5134fb6ce8e75d6d5dff7d7a8ac50ae41e06e574cfaa66",
+  "title": "Critical Infrastructure Accelerator"
+ },
+ "https://www.techstars.com/accelerators/verticals/space": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "4f216ba10961e978568c7846df8bfd3a35859d6f713699c5436e3646bba0b00c",
+  "title": "Space & Defense Accelerator"
+ },
+ "https://www.techstars.com/newsroom/techstars-is-no-1-on-time-and-statista-s-2026-accelerator-list": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "7ef69a0be9335d51a194a2aef9ad219bbe80f01eb5aaacc20f628076475bdeaf",
+  "title": "Techstars Is No. 1 on TIME and Statista's 2026 Accelerator List"
+ },
+ "https://www.temasekfoundation.org.sg/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "605baba737606dd59fd1e7085adeb8ba36b764fc957560afbb61609c0aa3a701",
+  "title": "Home"
+ },
+ "https://www.temasekfoundation.org.sg/OSCAR/about-oscar-fund": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "1f2d1d6469085aacc4cc3f434b7d0c2cd8fb9757a40ce07a7880b87bf9a44caf",
+  "title": "About OSCAR Fund"
+ },
+ "https://www.temasekfoundation.org.sg/OSCAR/grant-application": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "d0668eb9f6f66f9d69e37f4ea4c60dfd938a308f3aa54d5b3762617d1a5457cf",
+  "title": "How to apply"
+ },
+ "https://www.temasekfoundation.org.sg/grant-calls": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "d9fd2cfa518ba81e97d773f9de5fa138070bd010a83faf3598a7bddcd7b8d046",
+  "title": "Grant Call"
+ },
+ "https://www.temasekfoundation.org.sg/stories/Parkinsons-Disease-Community-Care-Programme-Improving-Well-being-for-Patients-And-Caregivers": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "35b79af3acf1af63dad2914b1f57b87e63d08cdea62c8a537919fcaec495492a",
+  "title": "Parkinson&#39;s Disease Community Care Programme: Improving Well-being for Patients And Caregivers"
+ },
+ "https://www.temasekfoundation.org.sg/stories/innovations-in-low-cost-and-simplified-pathogen-sequencing-workflows---grand-challenges-request-for-proposals": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "59394752a4b675898a98c26154f10729c3e37ff12942681ccdb9b9169cf0d97f",
+  "title": "Innovations in Low-cost and Simplified Pathogen Sequencing Workflows – Grand Challenges Request for Proposals"
+ },
+ "https://www.tgi.or.th/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "8e9dd30de41f2089c6b1da48ddd4b2f6cb97a012c8880db6479c76ecd6c2ae24",
+  "title": "Thai-German Institute"
+ },
+ "https://www.thaihealth.or.th": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "8b82dcca9424019667963a88ea5539757b9979feb8fc29e3475c536a5dc4258b",
+  "title": "สำนักงานกองทุนสนับสนุนการสร้างเสริมสุขภาพ (สสส.)"
+ },
+ "https://www.the-easia.org": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "7180743a0ad5e10ae1ca12959a0759ae8e2d61e9170ef6e3df2a29cb5350466c",
+  "title": "e-Asia website"
+ },
+ "https://www.tsri.or.th": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "f1d78d59089b89f3b676706023e0a44f69b28a1b6296ddc6646ff994154cd863",
+  "title": "สำนักงานคณะกรรมการส่งเสริมวิทยาศาสตร์ วิจัยและนวัตกรรม (สกสว.)"
+ },
+ "https://www.ukri.org/apply-for-funding/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "74cc2aa5a54de8323ca51622e9688ae85090ff731799d42e99db49a4ae33ccdc",
+  "title": "Apply for funding"
+ },
+ "https://www.ukri.org/apply-for-funding/before-you-apply/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "ee15993eb5f5a27101722855cbfd984114a2e6b27c7440fa10f4749123646c1c",
+  "title": "Before you apply"
+ },
+ "https://www.ukri.org/apply-for-funding/develop-your-application/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "b3cf1f040f7c7a7358b5d81a5cc92ff0933df658de2330ca44a1e1902f5b1dc5",
+  "title": "Develop your application"
+ },
+ "https://www.ukri.org/apply-for-funding/horizon-europe/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "74735fd52c6a70391fef6fc1189cf320d39e2f271b7632c363ffab5649330e90",
+  "title": "Horizon Europe: help for UK applicants"
+ },
+ "https://www.ukri.org/apply-for-funding/how-we-make-decisions/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "21edfd20ae99142777589066de8469bb1adfa3eef050698f641129bed42436e7",
+  "title": "How we make decisions"
+ },
+ "https://www.ukri.org/apply-for-funding/improving-your-funding-experience/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "4f64d88816081ca9e0011e87de0c7f0f2ee88fd7bcecd7090b0facf76ad9af12",
+  "title": "Improving your funding experience"
+ },
+ "https://www.ukri.org/councils/innovate-uk/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "e5a5ad899998dfc313592a66795959d57a3248fa38c60472a0b5107a546efd61",
+  "title": "Innovate UK"
+ },
+ "https://www.ukri.org/manage-your-award/getting-your-funding/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "2914a9637b18ff03e2cf8bebeb5484904b22199c539b3c4cabd73d31ffc52c60",
+  "title": "Getting your funding"
+ },
+ "https://www.ukri.org/manage-your-award/meeting-ukri-terms-and-conditions-for-funding/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "f0a440b97833e280a382edd6f52b244864e6326f29fc8cfcaa6f6e140dc618b7",
+  "title": "Meeting terms and conditions for funding"
+ },
+ "https://www.ukri.org/opportunity/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "ec53ccbc2834cead5b16855ebbc6674f4d9ec60c8906f68f3387e0d8ada0c779",
+  "title": "Funding finder"
+ },
+ "https://www.ukri.org/what-we-do/international-funding/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "07f0f490f8928f32ae1ab0890f71f0b69207d34c293d8ef37dce2c2c66706809",
+  "title": "International funding and support"
+ },
+ "https://www.ukri.org/what-we-do/what-we-have-funded/": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "1dadef4659ec3b4611d5f5616076091004c4909ac8a8206cdb0436a2e9c611b6",
+  "title": "What we’ve funded"
+ },
+ "https://www.valleydao.bio": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "92082aca72bb3049c291c7354b1594cce9d74ddfde581ab9afe6743585a52cbd",
+  "title": "Home - ValleyDAO"
+ },
+ "https://www.valleydao.bio/apply-for-funding": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "f3bafbc03ef2f13feb9917b2d68beb5c39ecc7ae1c6e0b35e78560e6a30098d6",
+  "title": "Fund your Synthetic Biology Research - ValleyDAO"
+ },
+ "https://www.valleydao.bio/projects": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "c290b8d35d4d034237a8447ad91dfdfb11ae3d243f87b71a4cb1028833e8c43b",
+  "title": "Research Projects Overview"
+ },
+ "https://www.vitadao.com": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "c98c5fa64a76c6c785011b26014408149d968b3c794cc194125650391e63baf6",
+  "title": "VitaDAO — Decentralized Longevity Research Funding"
+ },
+ "https://www.xprize.org": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "a9caa12b4a186894215d7484fbe494faaf53074cde463eee6e4f86e2d3463261",
+  "title": "XPRIZE Foundation | XPRIZE Foundation"
+ },
+ "https://www.xprize.org/about": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "c418dd66f7157a6818a7c177610269e603573c791192aace167aac55ba19b778",
+  "title": "About XPRIZE | XPRIZE Foundation"
+ },
+ "https://www.xprize.org/competitions": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "62f07ffd898ec6e6bfbc1bd6d690166a49f3a5745474f73b59230a903c072ffb",
+  "title": "Grand Challenges | XPRIZE Foundation"
+ },
+ "https://www.xprize.org/competitions/healthspan": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "c80251f97d9d1b0022db460b4dbc882c89924e461f3ec454ebc787b7c7e06b04",
+  "title": "XPRIZE Healthspan, Healthy aging made possible | XPRIZE Foundation"
+ },
+ "https://www.xprize.org/competitions/qc-apps": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "bde258ba92202a5bf9949da48795c9458d354c597fd5d339943a4dc633f05a7f",
+  "title": "XPRIZE Quantum Applications Competition | XPRIZE Foundation"
+ },
+ "https://www.xprize.org/competitions/water": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "3aa145225d65528e4bf938953e6fda4e389e58cc812bf6bf3ccd9ead720d30bc",
+  "title": "XPRIZE Water Scarcity Competition | XPRIZE Foundation"
+ },
+ "https://www.xprize.org/competitions/wildfire": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "1618df483d6a6cc8dd25ef8ed5bab1498eaf525060e0cc9a6eb2fb123c31cde4",
+  "title": "XPRIZE Wildfire Competition | XPRIZE Foundation"
+ },
+ "https://www.xprize.org/competitions?status=Active": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "62f07ffd898ec6e6bfbc1bd6d690166a49f3a5745474f73b59230a903c072ffb",
+  "title": "Grand Challenges | XPRIZE Foundation"
+ },
+ "https://www.xprize.org/competitions?status=Future": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "62f07ffd898ec6e6bfbc1bd6d690166a49f3a5745474f73b59230a903c072ffb",
+  "title": "Grand Challenges | XPRIZE Foundation"
+ },
+ "https://www.xprize.org/news/lights-camera-moonshot-announcing-future-vision-xprize": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "4d613920b175abc2f2b774db5efbe4ad93f265a379d25374902ba837efaa3783",
+  "title": "Lights, Camera, Moonshot: Announcing Future Vision XPRIZE | XPRIZE Foundation"
+ },
+ "https://www.xprize.org/news/xprize-launches-hackathon-with-2-million-prize-pool-backed-by-google": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "5372eda401aa04cde8213c60af8afb45bc427e65a44888508428b299fa592b9a",
+  "title": "XPRIZE Launches Hackathon With $2 Million Prize Pool, Backed by Google | XPRIZE Foundation"
+ },
+ "https://www.ycombinator.com": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "b5425ae0bce175d5f422366dba1311d83088cfed4099d4889edab0fdadd11a48",
+  "title": "Y Combinator"
+ },
+ "https://www.ycombinator.com/about": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "1ac578975e8144b040e7e3862765c3a3968644805872cd8f7006e10b62d7458f",
+  "title": "What Happens at YC | Y Combinator"
+ },
+ "https://www.ycombinator.com/apply": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "heuristic",
+  "sha": "1777da90e699f868ef2afe7b503c40ffe13e963baae3cc5cc70e0f89e5f00eaa",
+  "title": "Apply to YC | Y Combinator"
+ },
+ "https://www.yzilabs.com": {
+  "changed": "2026-10-26T08:06:37+00:00",
+  "method": "irrelevant",
+  "sha": "4f0a1ec0a8c04070279662a3a7f98ccb3d9a5577c39512cee6661c879e74c03f",
+  "title": "YZi Labs | We Make Impact"
+ }
+}
